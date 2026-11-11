@@ -1,0 +1,730 @@
+[
+  {
+    "slug": "crypt-breaker",
+    "name": "Crypt Breaker",
+    "wikiTitle": "Crypt Breaker",
+    "vocation": "knight",
+    "category": "club",
+    "attack": 58,
+    "defense": 33,
+    "element": "fire",
+    "levelRequired": 450,
+    "imbuementSlots": 3,
+    "attributes": ["club fighting +4"],
+    "perks": [
+      {
+        "level": 1,
+        "options": [
+          {
+            "id": "1.1",
+            "text": "+1 weapon skill",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "options": [
+          {
+            "id": "2.1",
+            "text": "+100% Magic Level extra damage on auto-attack",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "2.2",
+            "text": "+5% life leech (Berserk)",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "2.3",
+            "text": "+12% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "options": [
+          {
+            "id": "3.1",
+            "text": "+10% Fire pierce",
+            "pierce": {
+              "physical": 0,
+              "elemental": 10
+            }
+          },
+          {
+            "id": "3.2",
+            "text": "+2% mana leech (Berserk)",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "3.3",
+            "text": "+6% Physical pierce",
+            "pierce": {
+              "physical": 6,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "options": [
+          {
+            "id": "4.1",
+            "text": "+10% damage against targets above 95% HP",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "4.2",
+            "text": "+3% damage against Undead",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "4.3",
+            "text": "+2.5% damage against targets below 30% HP",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "options": [
+          {
+            "id": "5.1",
+            "text": "+15% Fire pierce",
+            "pierce": {
+              "physical": 0,
+              "elemental": 15
+            }
+          },
+          {
+            "id": "5.2",
+            "text": "+1 attack",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "5.3",
+            "text": "+16% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "options": [
+          {
+            "id": "6.1",
+            "text": "+700% Magic Level extra healing",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "6.2",
+            "text": "+20% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "options": [
+          {
+            "id": "7.1",
+            "text": "+20% Fire pierce",
+            "pierce": {
+              "physical": 0,
+              "elemental": 20
+            }
+          },
+          {
+            "id": "7.2",
+            "text": "+8% Physical pierce",
+            "pierce": {
+              "physical": 8,
+              "elemental": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "crypt-slicer",
+    "name": "Crypt Slicer",
+    "wikiTitle": "Crypt Slicer",
+    "vocation": "knight",
+    "category": "sword",
+    "attack": 58,
+    "defense": 33,
+    "element": "earth",
+    "levelRequired": 450,
+    "imbuementSlots": 3,
+    "attributes": ["sword fighting +4"],
+    "perks": [
+      {
+        "level": 1,
+        "options": [
+          {
+            "id": "1.1",
+            "text": "+1 weapon skill",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "options": [
+          {
+            "id": "2.1",
+            "text": "+100% Magic Level extra damage on auto-attack",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "2.2",
+            "text": "+5% life leech (Berserk)",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "2.3",
+            "text": "+12% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "options": [
+          {
+            "id": "3.1",
+            "text": "+10% Earth pierce",
+            "pierce": {
+              "physical": 0,
+              "elemental": 10
+            }
+          },
+          {
+            "id": "3.2",
+            "text": "+2% mana leech (Berserk)",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "3.3",
+            "text": "+6% Physical pierce",
+            "pierce": {
+              "physical": 6,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "options": [
+          {
+            "id": "4.1",
+            "text": "+10% damage against targets above 95% HP",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "4.2",
+            "text": "+3% damage against Undead",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "4.3",
+            "text": "+2.5% damage against targets below 30% HP",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "options": [
+          {
+            "id": "5.1",
+            "text": "+15% Earth pierce",
+            "pierce": {
+              "physical": 0,
+              "elemental": 15
+            }
+          },
+          {
+            "id": "5.2",
+            "text": "+1 attack",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "5.3",
+            "text": "+16% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "options": [
+          {
+            "id": "6.1",
+            "text": "+700% Magic Level extra healing",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "6.2",
+            "text": "+20% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "options": [
+          {
+            "id": "7.1",
+            "text": "+20% Earth pierce",
+            "pierce": {
+              "physical": 0,
+              "elemental": 20
+            }
+          },
+          {
+            "id": "7.2",
+            "text": "+8% Physical pierce",
+            "pierce": {
+              "physical": 8,
+              "elemental": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "crypt-splitter",
+    "name": "Crypt Splitter",
+    "wikiTitle": "Crypt Splitter",
+    "vocation": "knight",
+    "category": "axe",
+    "attack": 58,
+    "defense": 33,
+    "element": "energy",
+    "levelRequired": 450,
+    "imbuementSlots": 3,
+    "attributes": ["axe fighting +4"],
+    "perks": [
+      {
+        "level": 1,
+        "options": [
+          {
+            "id": "1.1",
+            "text": "+1 weapon skill",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "options": [
+          {
+            "id": "2.1",
+            "text": "+100% Magic Level extra damage on auto-attack",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "2.2",
+            "text": "+5% life leech (Berserk)",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "2.3",
+            "text": "+12% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "options": [
+          {
+            "id": "3.1",
+            "text": "+10% Energy pierce",
+            "pierce": {
+              "physical": 0,
+              "elemental": 10
+            }
+          },
+          {
+            "id": "3.2",
+            "text": "+2% mana leech (Berserk)",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "3.3",
+            "text": "+6% Physical pierce",
+            "pierce": {
+              "physical": 6,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "options": [
+          {
+            "id": "4.1",
+            "text": "+10% damage against targets above 95% HP",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "4.2",
+            "text": "+3% damage against Undead",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "4.3",
+            "text": "+2.5% damage against targets below 30% HP",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "options": [
+          {
+            "id": "5.1",
+            "text": "+15% Energy pierce",
+            "pierce": {
+              "physical": 0,
+              "elemental": 15
+            }
+          },
+          {
+            "id": "5.2",
+            "text": "+1 attack",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "5.3",
+            "text": "+16% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "options": [
+          {
+            "id": "6.1",
+            "text": "+700% Magic Level extra healing",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "6.2",
+            "text": "+20% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "options": [
+          {
+            "id": "7.1",
+            "text": "+20% Energy pierce",
+            "pierce": {
+              "physical": 0,
+              "elemental": 20
+            }
+          },
+          {
+            "id": "7.2",
+            "text": "+8% Physical pierce",
+            "pierce": {
+              "physical": 8,
+              "elemental": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "crypt-strike",
+    "name": "Crypt Strike",
+    "wikiTitle": "Crypt Strike",
+    "vocation": "monk",
+    "category": "fist",
+    "attack": 45,
+    "defense": 20,
+    "element": null,
+    "levelRequired": 450,
+    "imbuementSlots": 3,
+    "attributes": ["fist fighting +4", "magic level +1"],
+    "perks": [
+      {
+        "level": 1,
+        "options": [
+          {
+            "id": "1.1",
+            "text": "+15% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "options": [
+          {
+            "id": "2.1",
+            "text": "+20% Magic Level extra damage",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "2.2",
+            "text": "+5% life leech (Flurry of Blows)",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "2.3",
+            "text": "+20% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "options": [
+          {
+            "id": "3.1",
+            "text": "+4% damage against targets above 95% HP",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "3.2",
+            "text": "+2% mana leech",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "3.3",
+            "text": "+8% Physical pierce",
+            "pierce": {
+              "physical": 8,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "options": [
+          {
+            "id": "4.1",
+            "text": "+10% damage against targets above 95% HP",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "4.2",
+            "text": "+3% damage against Undead",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "4.3",
+            "text": "+2.5% damage against targets below 30% HP",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "options": [
+          {
+            "id": "5.1",
+            "text": "+1 attack",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "5.2",
+            "text": "+70% Magic Level extra healing",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "options": [
+          {
+            "id": "6.1",
+            "text": "+10% extra critical damage",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          },
+          {
+            "id": "6.2",
+            "text": "+25% armor penetration",
+            "pierce": {
+              "physical": 0,
+              "elemental": 0
+            }
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "options": [
+          {
+            "id": "7.1",
+            "text": "+12% Physical pierce",
+            "pierce": {
+              "physical": 12,
+              "elemental": 0
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

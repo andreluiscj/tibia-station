@@ -1,0 +1,1 @@
+- [Armadilhas do importador e do ambiente](importador-wiki-armadilhas.md) — backslash no Bash, valores "?" da wiki, resist negativa, perks fora da wiki

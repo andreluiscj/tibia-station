@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "importer": {
+    "name": "scripts/import-wiki.ts",
+    "version": "0.1.0"
+  },
+  "datasets": {
+    "creatures": {
+      "endpoint": "https://tibia.fandom.com/api.php",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "importedAt": "2026-11-11T03:45:29.939Z",
+      "attribution": "Dados da TibiaWiki (https://tibia.fandom.com/), licença CC BY-SA. Não afiliado à CipSoft.",
+      "count": 2203,
+      "unconfirmedFields": []
+    },
+    "hunts": {
+      "endpoint": "https://tibia.fandom.com/api.php",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "importedAt": "2026-11-11T03:45:29.939Z",
+      "attribution": "Dados da TibiaWiki (https://tibia.fandom.com/), licença CC BY-SA. Não afiliado à CipSoft. Pesos das criaturas = aparições na página (editáveis).",
+      "count": 444,
+      "unconfirmedFields": []
+    },
+    "cryptWeapons": {
+      "endpoint": "https://tibia.fandom.com/api.php",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "importedAt": "2026-11-11T03:45:29.939Z",
+      "attribution": "Dados da TibiaWiki (https://tibia.fandom.com/), licença CC BY-SA. Não afiliado à CipSoft. Perks por nível: docs/PLANO.md 5.2 (não constam na wiki em 2026-11-11); atk, def, atributos e elemento do pierce vêm da wiki.",
+      "count": 4,
+      "unconfirmedFields": ["perks"]
+    }
+  }
+}

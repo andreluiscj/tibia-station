@@ -1,0 +1,2647 @@
+{
+  "note": "SNAPSHOT do próprio motor (não é oráculo independente): só vira gate 9 depois que alguém comparar com o site de referência. Gerado por scripts/gen-reference-cases.ts. Valores = damagePct (100 = neutro). Presets: elemental 45%, híbrida 35% + 6%, physical 14% (Knight); Monk só physical. Divisão 50% físico / 50% elemento (premissa não confirmada).",
+  "piercing": [
+    {
+      "resist": 90,
+      "pierce": 6,
+      "mode": "official",
+      "expected": 96
+    },
+    {
+      "resist": 90,
+      "pierce": 6,
+      "mode": "reference",
+      "expected": 96
+    },
+    {
+      "resist": 104,
+      "pierce": 6,
+      "mode": "official",
+      "expected": 107
+    },
+    {
+      "resist": 104,
+      "pierce": 6,
+      "mode": "reference",
+      "expected": 107
+    },
+    {
+      "resist": 96,
+      "pierce": 8,
+      "mode": "official",
+      "expected": 102
+    },
+    {
+      "resist": 96,
+      "pierce": 8,
+      "mode": "reference",
+      "expected": 102
+    },
+    {
+      "resist": 4,
+      "pierce": 20,
+      "mode": "official",
+      "expected": 8
+    },
+    {
+      "resist": 4,
+      "pierce": 20,
+      "mode": "reference",
+      "expected": 24
+    },
+    {
+      "resist": 0,
+      "pierce": 20,
+      "mode": "official",
+      "expected": 0
+    },
+    {
+      "resist": 0,
+      "pierce": 20,
+      "mode": "reference",
+      "expected": 20
+    },
+    {
+      "resist": 90,
+      "pierce": 45,
+      "mode": "official",
+      "expected": 118
+    },
+    {
+      "resist": 90,
+      "pierce": 45,
+      "mode": "reference",
+      "expected": 117.5
+    },
+    {
+      "resist": 115,
+      "pierce": 45,
+      "mode": "official",
+      "expected": 138
+    },
+    {
+      "resist": 115,
+      "pierce": 45,
+      "mode": "reference",
+      "expected": 137.5
+    },
+    {
+      "resist": 20,
+      "pierce": 45,
+      "mode": "official",
+      "expected": 40
+    },
+    {
+      "resist": 20,
+      "pierce": 45,
+      "mode": "reference",
+      "expected": 65
+    },
+    {
+      "resist": 100,
+      "pierce": 7,
+      "mode": "official",
+      "expected": 104
+    },
+    {
+      "resist": 100,
+      "pierce": 7,
+      "mode": "reference",
+      "expected": 103.5
+    },
+    {
+      "resist": 80,
+      "pierce": 0,
+      "mode": "official",
+      "expected": 80
+    },
+    {
+      "resist": 80,
+      "pierce": 0,
+      "mode": "reference",
+      "expected": 80
+    },
+    {
+      "resist": -200,
+      "pierce": 45,
+      "mode": "official",
+      "expected": -200
+    },
+    {
+      "resist": -200,
+      "pierce": 45,
+      "mode": "reference",
+      "expected": -155
+    },
+    {
+      "resist": -50,
+      "pierce": 20,
+      "mode": "official",
+      "expected": -50
+    },
+    {
+      "resist": -50,
+      "pierce": 20,
+      "mode": "reference",
+      "expected": -30
+    }
+  ],
+  "cases": [
+    {
+      "id": "hellflayer/crypt-breaker/official",
+      "creature": "hellflayer",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 30,
+        "energy": 105,
+        "ice": 95,
+        "holy": 105,
+        "death": 75
+      },
+      "expected": {
+        "elemental": 80,
+        "hybrid": 81.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellflayer/crypt-breaker/reference",
+      "creature": "hellflayer",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 30,
+        "energy": 105,
+        "ice": 95,
+        "holy": 105,
+        "death": 75
+      },
+      "expected": {
+        "elemental": 87.5,
+        "hybrid": 84,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellflayer/crypt-slicer/official",
+      "creature": "hellflayer",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 30,
+        "energy": 105,
+        "ice": 95,
+        "holy": 105,
+        "death": 75
+      },
+      "expected": {
+        "elemental": 106.5,
+        "hybrid": 105.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellflayer/crypt-slicer/reference",
+      "creature": "hellflayer",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 30,
+        "energy": 105,
+        "ice": 95,
+        "holy": 105,
+        "death": 75
+      },
+      "expected": {
+        "elemental": 106.25,
+        "hybrid": 105.25,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellflayer/crypt-splitter/official",
+      "creature": "hellflayer",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 30,
+        "energy": 105,
+        "ice": 95,
+        "holy": 105,
+        "death": 75
+      },
+      "expected": {
+        "elemental": 114,
+        "hybrid": 113,
+        "physical": 107,
+        "best": 114,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "hellflayer/crypt-splitter/reference",
+      "creature": "hellflayer",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 30,
+        "energy": 105,
+        "ice": 95,
+        "holy": 105,
+        "death": 75
+      },
+      "expected": {
+        "elemental": 113.75,
+        "hybrid": 112.75,
+        "physical": 107,
+        "best": 113.75,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "hellflayer/crypt-strike/official",
+      "creature": "hellflayer",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 30,
+        "energy": 105,
+        "ice": 95,
+        "holy": 105,
+        "death": 75
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellflayer/crypt-strike/reference",
+      "creature": "hellflayer",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 30,
+        "energy": 105,
+        "ice": 95,
+        "holy": 105,
+        "death": 75
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "dragon-lord/crypt-breaker/official",
+      "creature": "dragon-lord",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 20,
+        "fire": 0,
+        "energy": 80,
+        "ice": 110,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 50,
+        "hybrid": 51.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "dragon-lord/crypt-breaker/reference",
+      "creature": "dragon-lord",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 20,
+        "fire": 0,
+        "energy": 80,
+        "ice": 110,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 72.5,
+        "hybrid": 69,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "dragon-lord/crypt-slicer/official",
+      "creature": "dragon-lord",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 20,
+        "fire": 0,
+        "energy": 80,
+        "ice": 110,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 70,
+        "hybrid": 71.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "dragon-lord/crypt-slicer/reference",
+      "creature": "dragon-lord",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 20,
+        "fire": 0,
+        "energy": 80,
+        "ice": 110,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 82.5,
+        "hybrid": 79,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "dragon-lord/crypt-splitter/official",
+      "creature": "dragon-lord",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 20,
+        "fire": 0,
+        "energy": 80,
+        "ice": 110,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 106.5,
+        "hybrid": 105.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "dragon-lord/crypt-splitter/reference",
+      "creature": "dragon-lord",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 20,
+        "fire": 0,
+        "energy": 80,
+        "ice": 110,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 106.25,
+        "hybrid": 105.25,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "dragon-lord/crypt-strike/official",
+      "creature": "dragon-lord",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 20,
+        "fire": 0,
+        "energy": 80,
+        "ice": 110,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "dragon-lord/crypt-strike/reference",
+      "creature": "dragon-lord",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 20,
+        "fire": 0,
+        "energy": 80,
+        "ice": 110,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "demon/crypt-breaker/official",
+      "creature": "demon",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 0,
+        "energy": 50,
+        "ice": 112,
+        "holy": 112,
+        "death": 80
+      },
+      "expected": {
+        "elemental": 37.5,
+        "hybrid": 40.5,
+        "physical": 89,
+        "best": 89,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "demon/crypt-breaker/reference",
+      "creature": "demon",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 0,
+        "energy": 50,
+        "ice": 112,
+        "holy": 112,
+        "death": 80
+      },
+      "expected": {
+        "elemental": 60,
+        "hybrid": 58,
+        "physical": 89,
+        "best": 89,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "demon/crypt-slicer/official",
+      "creature": "demon",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 0,
+        "energy": 50,
+        "ice": 112,
+        "holy": 112,
+        "death": 80
+      },
+      "expected": {
+        "elemental": 89,
+        "hybrid": 88,
+        "physical": 89,
+        "best": 89,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "demon/crypt-slicer/reference",
+      "creature": "demon",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 0,
+        "energy": 50,
+        "ice": 112,
+        "holy": 112,
+        "death": 80
+      },
+      "expected": {
+        "elemental": 88.75,
+        "hybrid": 88,
+        "physical": 89,
+        "best": 89,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "demon/crypt-splitter/official",
+      "creature": "demon",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 0,
+        "energy": 50,
+        "ice": 112,
+        "holy": 112,
+        "death": 80
+      },
+      "expected": {
+        "elemental": 85,
+        "hybrid": 83,
+        "physical": 89,
+        "best": 89,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "demon/crypt-splitter/reference",
+      "creature": "demon",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 0,
+        "energy": 50,
+        "ice": 112,
+        "holy": 112,
+        "death": 80
+      },
+      "expected": {
+        "elemental": 85,
+        "hybrid": 83,
+        "physical": 89,
+        "best": 89,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "demon/crypt-strike/official",
+      "creature": "demon",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 0,
+        "energy": 50,
+        "ice": 112,
+        "holy": 112,
+        "death": 80
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 95,
+        "best": 95,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "demon/crypt-strike/reference",
+      "creature": "demon",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 0,
+        "energy": 50,
+        "ice": 112,
+        "holy": 112,
+        "death": 80
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 95,
+        "best": 95,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hydra/crypt-breaker/official",
+      "creature": "hydra",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 0,
+        "fire": 100,
+        "energy": 110,
+        "ice": 50,
+        "holy": 70,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 114,
+        "hybrid": 113,
+        "physical": 112,
+        "best": 114,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "hydra/crypt-breaker/reference",
+      "creature": "hydra",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 0,
+        "fire": 100,
+        "energy": 110,
+        "ice": 50,
+        "holy": 70,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 113.75,
+        "hybrid": 112.75,
+        "physical": 112,
+        "best": 113.75,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "hydra/crypt-slicer/official",
+      "creature": "hydra",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 0,
+        "fire": 100,
+        "energy": 110,
+        "ice": 50,
+        "holy": 70,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 52.5,
+        "hybrid": 54,
+        "physical": 112,
+        "best": 112,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hydra/crypt-slicer/reference",
+      "creature": "hydra",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 0,
+        "fire": 100,
+        "energy": 110,
+        "ice": 50,
+        "holy": 70,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 75,
+        "hybrid": 71.5,
+        "physical": 112,
+        "best": 112,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hydra/crypt-splitter/official",
+      "creature": "hydra",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 0,
+        "fire": 100,
+        "energy": 110,
+        "ice": 50,
+        "holy": 70,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 119,
+        "hybrid": 118,
+        "physical": 112,
+        "best": 119,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "hydra/crypt-splitter/reference",
+      "creature": "hydra",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 0,
+        "fire": 100,
+        "energy": 110,
+        "ice": 50,
+        "holy": 70,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 118.75,
+        "hybrid": 117.75,
+        "physical": 112,
+        "best": 118.75,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "hydra/crypt-strike/official",
+      "creature": "hydra",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 0,
+        "fire": 100,
+        "energy": 110,
+        "ice": 50,
+        "holy": 70,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 115,
+        "best": 115,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hydra/crypt-strike/reference",
+      "creature": "hydra",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 0,
+        "fire": 100,
+        "energy": 110,
+        "ice": 50,
+        "holy": 70,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 115,
+        "best": 115,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "juggernaut/crypt-breaker/official",
+      "creature": "juggernaut",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 70,
+        "earth": 80,
+        "fire": 70,
+        "energy": 110,
+        "ice": 90,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 89,
+        "hybrid": 89.5,
+        "physical": 84,
+        "best": 89.5,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "juggernaut/crypt-breaker/reference",
+      "creature": "juggernaut",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 70,
+        "earth": 80,
+        "fire": 70,
+        "energy": 110,
+        "ice": 90,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 88.75,
+        "hybrid": 89.25,
+        "physical": 84,
+        "best": 89.25,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "juggernaut/crypt-slicer/official",
+      "creature": "juggernaut",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 70,
+        "earth": 80,
+        "fire": 70,
+        "energy": 110,
+        "ice": 90,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 91.5,
+        "hybrid": 92,
+        "physical": 84,
+        "best": 92,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "juggernaut/crypt-slicer/reference",
+      "creature": "juggernaut",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 70,
+        "earth": 80,
+        "fire": 70,
+        "energy": 110,
+        "ice": 90,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 91.25,
+        "hybrid": 91.75,
+        "physical": 84,
+        "best": 91.75,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "juggernaut/crypt-splitter/official",
+      "creature": "juggernaut",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 70,
+        "earth": 80,
+        "fire": 70,
+        "energy": 110,
+        "ice": 90,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 101.5,
+        "hybrid": 102,
+        "physical": 84,
+        "best": 102,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "juggernaut/crypt-splitter/reference",
+      "creature": "juggernaut",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 70,
+        "earth": 80,
+        "fire": 70,
+        "energy": 110,
+        "ice": 90,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 101.25,
+        "hybrid": 101.75,
+        "physical": 84,
+        "best": 101.75,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "juggernaut/crypt-strike/official",
+      "creature": "juggernaut",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 70,
+        "earth": 80,
+        "fire": 70,
+        "energy": 110,
+        "ice": 90,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 90,
+        "best": 90,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "juggernaut/crypt-strike/reference",
+      "creature": "juggernaut",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 70,
+        "earth": 80,
+        "fire": 70,
+        "energy": 110,
+        "ice": 90,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 90,
+        "best": 90,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "medusa/crypt-breaker/official",
+      "creature": "medusa",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 110,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 116.5,
+        "hybrid": 115.5,
+        "physical": 107,
+        "best": 116.5,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "medusa/crypt-breaker/reference",
+      "creature": "medusa",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 110,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 116.25,
+        "hybrid": 115.25,
+        "physical": 107,
+        "best": 116.25,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "medusa/crypt-slicer/official",
+      "creature": "medusa",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 110,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 50,
+        "hybrid": 51.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "medusa/crypt-slicer/reference",
+      "creature": "medusa",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 110,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 72.5,
+        "hybrid": 69,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "medusa/crypt-splitter/official",
+      "creature": "medusa",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 110,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 116.5,
+        "hybrid": 115.5,
+        "physical": 107,
+        "best": 116.5,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "medusa/crypt-splitter/reference",
+      "creature": "medusa",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 110,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 116.25,
+        "hybrid": 115.25,
+        "physical": 107,
+        "best": 116.25,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "medusa/crypt-strike/official",
+      "creature": "medusa",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 110,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "medusa/crypt-strike/reference",
+      "creature": "medusa",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 110,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "grim-reaper/crypt-breaker/official",
+      "creature": "grim-reaper",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 110,
+        "energy": 110,
+        "ice": 35,
+        "holy": 110,
+        "death": 20
+      },
+      "expected": {
+        "elemental": 104,
+        "hybrid": 104.5,
+        "physical": 89,
+        "best": 104.5,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "grim-reaper/crypt-breaker/reference",
+      "creature": "grim-reaper",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 110,
+        "energy": 110,
+        "ice": 35,
+        "holy": 110,
+        "death": 20
+      },
+      "expected": {
+        "elemental": 103.75,
+        "hybrid": 104.25,
+        "physical": 89,
+        "best": 104.25,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "grim-reaper/crypt-slicer/official",
+      "creature": "grim-reaper",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 110,
+        "energy": 110,
+        "ice": 35,
+        "holy": 110,
+        "death": 20
+      },
+      "expected": {
+        "elemental": 89,
+        "hybrid": 88,
+        "physical": 89,
+        "best": 89,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "grim-reaper/crypt-slicer/reference",
+      "creature": "grim-reaper",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 110,
+        "energy": 110,
+        "ice": 35,
+        "holy": 110,
+        "death": 20
+      },
+      "expected": {
+        "elemental": 88.75,
+        "hybrid": 88,
+        "physical": 89,
+        "best": 89,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "grim-reaper/crypt-splitter/official",
+      "creature": "grim-reaper",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 110,
+        "energy": 110,
+        "ice": 35,
+        "holy": 110,
+        "death": 20
+      },
+      "expected": {
+        "elemental": 104,
+        "hybrid": 104.5,
+        "physical": 89,
+        "best": 104.5,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "grim-reaper/crypt-splitter/reference",
+      "creature": "grim-reaper",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 110,
+        "energy": 110,
+        "ice": 35,
+        "holy": 110,
+        "death": 20
+      },
+      "expected": {
+        "elemental": 103.75,
+        "hybrid": 104.25,
+        "physical": 89,
+        "best": 104.25,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "grim-reaper/crypt-strike/official",
+      "creature": "grim-reaper",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 110,
+        "energy": 110,
+        "ice": 35,
+        "holy": 110,
+        "death": 20
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 95,
+        "best": 95,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "grim-reaper/crypt-strike/reference",
+      "creature": "grim-reaper",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 75,
+        "earth": 60,
+        "fire": 110,
+        "energy": 110,
+        "ice": 35,
+        "holy": 110,
+        "death": 20
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 95,
+        "best": 95,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellhound/crypt-breaker/official",
+      "creature": "hellhound",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 0,
+        "energy": 90,
+        "ice": 105,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 50,
+        "hybrid": 51.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellhound/crypt-breaker/reference",
+      "creature": "hellhound",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 0,
+        "energy": 90,
+        "ice": 105,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 72.5,
+        "hybrid": 69,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellhound/crypt-slicer/official",
+      "creature": "hellhound",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 0,
+        "energy": 90,
+        "ice": 105,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 106.5,
+        "hybrid": 105.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellhound/crypt-slicer/reference",
+      "creature": "hellhound",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 0,
+        "energy": 90,
+        "ice": 105,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 106.25,
+        "hybrid": 105.25,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellhound/crypt-splitter/official",
+      "creature": "hellhound",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 0,
+        "energy": 90,
+        "ice": 105,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 109,
+        "hybrid": 108,
+        "physical": 107,
+        "best": 109,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "hellhound/crypt-splitter/reference",
+      "creature": "hellhound",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 0,
+        "energy": 90,
+        "ice": 105,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 108.75,
+        "hybrid": 107.75,
+        "physical": 107,
+        "best": 108.75,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "hellhound/crypt-strike/official",
+      "creature": "hellhound",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 0,
+        "energy": 90,
+        "ice": 105,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "hellhound/crypt-strike/reference",
+      "creature": "hellhound",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 80,
+        "fire": 0,
+        "energy": 90,
+        "ice": 105,
+        "holy": 105,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "behemoth/crypt-breaker/official",
+      "creature": "behemoth",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 90,
+        "earth": 20,
+        "fire": 70,
+        "energy": 90,
+        "ice": 110,
+        "holy": 70,
+        "death": 105
+      },
+      "expected": {
+        "elemental": 99,
+        "hybrid": 99.5,
+        "physical": 102,
+        "best": 102,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "behemoth/crypt-breaker/reference",
+      "creature": "behemoth",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 90,
+        "earth": 20,
+        "fire": 70,
+        "energy": 90,
+        "ice": 110,
+        "holy": 70,
+        "death": 105
+      },
+      "expected": {
+        "elemental": 98.75,
+        "hybrid": 99.25,
+        "physical": 102,
+        "best": 102,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "behemoth/crypt-slicer/official",
+      "creature": "behemoth",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 90,
+        "earth": 20,
+        "fire": 70,
+        "energy": 90,
+        "ice": 110,
+        "holy": 70,
+        "death": 105
+      },
+      "expected": {
+        "elemental": 65,
+        "hybrid": 68,
+        "physical": 102,
+        "best": 102,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "behemoth/crypt-slicer/reference",
+      "creature": "behemoth",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 90,
+        "earth": 20,
+        "fire": 70,
+        "energy": 90,
+        "ice": 110,
+        "holy": 70,
+        "death": 105
+      },
+      "expected": {
+        "elemental": 77.5,
+        "hybrid": 75.5,
+        "physical": 102,
+        "best": 102,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "behemoth/crypt-splitter/official",
+      "creature": "behemoth",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 90,
+        "earth": 20,
+        "fire": 70,
+        "energy": 90,
+        "ice": 110,
+        "holy": 70,
+        "death": 105
+      },
+      "expected": {
+        "elemental": 104,
+        "hybrid": 104.5,
+        "physical": 102,
+        "best": 104.5,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "behemoth/crypt-splitter/reference",
+      "creature": "behemoth",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 90,
+        "earth": 20,
+        "fire": 70,
+        "energy": 90,
+        "ice": 110,
+        "holy": 70,
+        "death": 105
+      },
+      "expected": {
+        "elemental": 103.75,
+        "hybrid": 104.25,
+        "physical": 102,
+        "best": 104.25,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "behemoth/crypt-strike/official",
+      "creature": "behemoth",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 90,
+        "earth": 20,
+        "fire": 70,
+        "energy": 90,
+        "ice": 110,
+        "holy": 70,
+        "death": 105
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 105,
+        "best": 105,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "behemoth/crypt-strike/reference",
+      "creature": "behemoth",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 90,
+        "earth": 20,
+        "fire": 70,
+        "energy": 90,
+        "ice": 110,
+        "holy": 70,
+        "death": 105
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 105,
+        "best": 105,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "undead-dragon/crypt-breaker/official",
+      "creature": "undead-dragon",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 95,
+        "earth": 0,
+        "fire": 0,
+        "energy": 100,
+        "ice": 90,
+        "holy": 125,
+        "death": 0
+      },
+      "expected": {
+        "elemental": 47.5,
+        "hybrid": 50.5,
+        "physical": 105,
+        "best": 105,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "undead-dragon/crypt-breaker/reference",
+      "creature": "undead-dragon",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 95,
+        "earth": 0,
+        "fire": 0,
+        "energy": 100,
+        "ice": 90,
+        "holy": 125,
+        "death": 0
+      },
+      "expected": {
+        "elemental": 70,
+        "hybrid": 67.75,
+        "physical": 104.5,
+        "best": 104.5,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "undead-dragon/crypt-slicer/official",
+      "creature": "undead-dragon",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 95,
+        "earth": 0,
+        "fire": 0,
+        "energy": 100,
+        "ice": 90,
+        "holy": 125,
+        "death": 0
+      },
+      "expected": {
+        "elemental": 47.5,
+        "hybrid": 50.5,
+        "physical": 105,
+        "best": 105,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "undead-dragon/crypt-slicer/reference",
+      "creature": "undead-dragon",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 95,
+        "earth": 0,
+        "fire": 0,
+        "energy": 100,
+        "ice": 90,
+        "holy": 125,
+        "death": 0
+      },
+      "expected": {
+        "elemental": 70,
+        "hybrid": 67.75,
+        "physical": 104.5,
+        "best": 104.5,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "undead-dragon/crypt-splitter/official",
+      "creature": "undead-dragon",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 95,
+        "earth": 0,
+        "fire": 0,
+        "energy": 100,
+        "ice": 90,
+        "holy": 125,
+        "death": 0
+      },
+      "expected": {
+        "elemental": 109,
+        "hybrid": 109.5,
+        "physical": 105,
+        "best": 109.5,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "undead-dragon/crypt-splitter/reference",
+      "creature": "undead-dragon",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 95,
+        "earth": 0,
+        "fire": 0,
+        "energy": 100,
+        "ice": 90,
+        "holy": 125,
+        "death": 0
+      },
+      "expected": {
+        "elemental": 108.75,
+        "hybrid": 109,
+        "physical": 104.5,
+        "best": 109,
+        "bestPierce": {
+          "physical": 6,
+          "elemental": 35
+        }
+      }
+    },
+    {
+      "id": "undead-dragon/crypt-strike/official",
+      "creature": "undead-dragon",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 95,
+        "earth": 0,
+        "fire": 0,
+        "energy": 100,
+        "ice": 90,
+        "holy": 125,
+        "death": 0
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 108,
+        "best": 108,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "undead-dragon/crypt-strike/reference",
+      "creature": "undead-dragon",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 95,
+        "earth": 0,
+        "fire": 0,
+        "energy": 100,
+        "ice": 90,
+        "holy": 125,
+        "death": 0
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 107.5,
+        "best": 107.5,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "giant-spider/crypt-breaker/official",
+      "creature": "giant-spider",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 80,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 116.5,
+        "hybrid": 115.5,
+        "physical": 107,
+        "best": 116.5,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "giant-spider/crypt-breaker/reference",
+      "creature": "giant-spider",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 80,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 116.25,
+        "hybrid": 115.25,
+        "physical": 107,
+        "best": 116.25,
+        "bestPierce": {
+          "physical": 0,
+          "elemental": 45
+        }
+      }
+    },
+    {
+      "id": "giant-spider/crypt-slicer/official",
+      "creature": "giant-spider",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 80,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 50,
+        "hybrid": 51.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "giant-spider/crypt-slicer/reference",
+      "creature": "giant-spider",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 80,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 72.5,
+        "hybrid": 69,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "giant-spider/crypt-splitter/official",
+      "creature": "giant-spider",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 80,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 106.5,
+        "hybrid": 105.5,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "giant-spider/crypt-splitter/reference",
+      "creature": "giant-spider",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 80,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 106.25,
+        "hybrid": 105.25,
+        "physical": 107,
+        "best": 107,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "giant-spider/crypt-strike/official",
+      "creature": "giant-spider",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 80,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "giant-spider/crypt-strike/reference",
+      "creature": "giant-spider",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 100,
+        "earth": 0,
+        "fire": 110,
+        "energy": 80,
+        "ice": 80,
+        "holy": 100,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 110,
+        "best": 110,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "warlock/crypt-breaker/official",
+      "creature": "warlock",
+      "weapon": "crypt-breaker",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 5,
+        "fire": 0,
+        "energy": 0,
+        "ice": 0,
+        "holy": 108,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 52.5,
+        "hybrid": 54,
+        "physical": 112,
+        "best": 112,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "warlock/crypt-breaker/reference",
+      "creature": "warlock",
+      "weapon": "crypt-breaker",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 5,
+        "fire": 0,
+        "energy": 0,
+        "ice": 0,
+        "holy": 108,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 75,
+        "hybrid": 71.5,
+        "physical": 112,
+        "best": 112,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "warlock/crypt-slicer/official",
+      "creature": "warlock",
+      "weapon": "crypt-slicer",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 5,
+        "fire": 0,
+        "energy": 0,
+        "ice": 0,
+        "holy": 108,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 57.5,
+        "hybrid": 59,
+        "physical": 112,
+        "best": 112,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "warlock/crypt-slicer/reference",
+      "creature": "warlock",
+      "weapon": "crypt-slicer",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 5,
+        "fire": 0,
+        "energy": 0,
+        "ice": 0,
+        "holy": 108,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 77.5,
+        "hybrid": 74,
+        "physical": 112,
+        "best": 112,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "warlock/crypt-splitter/official",
+      "creature": "warlock",
+      "weapon": "crypt-splitter",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 5,
+        "fire": 0,
+        "energy": 0,
+        "ice": 0,
+        "holy": 108,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 52.5,
+        "hybrid": 54,
+        "physical": 112,
+        "best": 112,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "warlock/crypt-splitter/reference",
+      "creature": "warlock",
+      "weapon": "crypt-splitter",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 5,
+        "fire": 0,
+        "energy": 0,
+        "ice": 0,
+        "holy": 108,
+        "death": 100
+      },
+      "expected": {
+        "elemental": 75,
+        "hybrid": 71.5,
+        "physical": 112,
+        "best": 112,
+        "bestPierce": {
+          "physical": 14,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "warlock/crypt-strike/official",
+      "creature": "warlock",
+      "weapon": "crypt-strike",
+      "mode": "official",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 5,
+        "fire": 0,
+        "energy": 0,
+        "ice": 0,
+        "holy": 108,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 115,
+        "best": 115,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    },
+    {
+      "id": "warlock/crypt-strike/reference",
+      "creature": "warlock",
+      "weapon": "crypt-strike",
+      "mode": "reference",
+      "elementalShare": 0.5,
+      "resist": {
+        "physical": 105,
+        "earth": 5,
+        "fire": 0,
+        "energy": 0,
+        "ice": 0,
+        "holy": 108,
+        "death": 100
+      },
+      "expected": {
+        "elemental": null,
+        "hybrid": null,
+        "physical": 115,
+        "best": 115,
+        "bestPierce": {
+          "physical": 20,
+          "elemental": 0
+        }
+      }
+    }
+  ]
+}
