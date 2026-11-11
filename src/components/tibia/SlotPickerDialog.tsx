@@ -48,13 +48,13 @@ export function SlotPickerDialog({
               Nenhum item bate com a busca. Tire um filtro ou confira o nome.
             </p>
           )}
-          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+          <ul className="grid auto-rows-[10rem] grid-cols-2 gap-2 sm:grid-cols-3">
             {slot && (
               <li>
                 <button
                   type="button"
                   onClick={() => onEscolher(null)}
-                  className="slot-btn flex min-h-28 w-full flex-col items-center justify-center gap-1 border border-dashed border-border p-3"
+                  className="slot-btn flex h-full w-full flex-col items-center justify-center gap-1 border border-dashed border-border p-3"
                 >
                   <img
                     src={emptySlotUrl(SLOT_LAYOUT.find((s) => s.key === slot)!.emptyImage)}
@@ -72,7 +72,7 @@ export function SlotPickerDialog({
                   <button
                     type="button"
                     onClick={() => onEscolher(it)}
-                    className="slot-btn flex min-h-28 w-full flex-col items-center gap-1 border border-border bg-card p-3"
+                    className="slot-btn flex h-full w-full flex-col items-center justify-center gap-1 border border-border bg-card p-3"
                   >
                     <img
                       src={spriteUrl(it.item_name)}
@@ -81,7 +81,9 @@ export function SlotPickerDialog({
                       style={semImagem.has(k) ? { opacity: 0.2 } : undefined}
                       onError={() => setSemImagem((s) => new Set(s).add(k))}
                     />
-                    <span className="text-center leading-tight">{it.item_name}</span>
+                    <span className="line-clamp-2 text-center leading-tight" title={it.item_name}>
+                      {it.item_name}
+                    </span>
                     <span className="text-sm text-muted-foreground">
                       nível {it.level_minimum ?? 0}
                     </span>
