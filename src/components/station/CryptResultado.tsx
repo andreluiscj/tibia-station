@@ -113,7 +113,7 @@ export function Resultado({
                         <span className="num">{n1(concorrentes[ev.weaponSlug]!.damagePct)}</span>
                       </>
                     ) : (
-                      "Nenhuma Soul War/Sanguine liberada neste nível: comparado com 100."
+                      "Nenhuma outra arma liberada neste nível: comparado com 100."
                     )}
                   </p>
                   <ResultCard
@@ -124,6 +124,7 @@ export function Resultado({
                       label: labelCombo(ev.best),
                       value: ev.best.damagePct,
                       id: ev.best.preset ?? undefined,
+                      imbued: ev.best.combo.imbued,
                     }}
                     perks={perksDoCombo(r.weapon, ev.best)}
                     veredito={{

@@ -17,7 +17,7 @@ export function EquipmentGrid({
   onImbuimentChange: (slot: SlotKey, index: number, value: string | null) => void;
 }) {
   return (
-    <div className="mx-auto grid max-w-sm grid-cols-3 gap-3">
+    <div className="mx-auto grid max-w-md grid-cols-3 gap-3 sm:gap-4">
       {views.map((v) => (
         <SlotButton
           key={v.id}

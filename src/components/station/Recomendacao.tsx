@@ -1,10 +1,11 @@
 import { motion } from "motion/react";
 import { useId } from "react";
-import type { Candidato } from "./cryptEstado";
+import { MAX_ALTERNATIVAS, type Candidato } from "./cryptEstado";
 import { ElementIcon } from "./ElementIcon";
 import { ELEMENTOS } from "./elementos";
 import { n1 } from "./format";
 import { ItemSlot } from "./ItemSlot";
+import { ProficienciaDialog } from "./ProficienciaDialog";
 
 const TIPO: Record<Candidato["categoria"], string> = {
   club: "Club",
@@ -12,8 +13,6 @@ const TIPO: Record<Candidato["categoria"], string> = {
   axe: "Axe",
   fist: "Fist",
 };
-const MAX_ALTERNATIVAS = 5;
-const MAX_COLUNA = 2;
 
 function Elemento({ c }: { c: Candidato }) {
   if (!c.elemento) return <span className="text-muted-foreground">Physical only</span>;
@@ -25,24 +24,77 @@ function Elemento({ c }: { c: Candidato }) {
   );
 }
 
+/** "<ícone> Elemento - Level N - K Imbuiments"; o trecho que a arma não informa é omitido. */
+function LinhaInfo({ c }: { c: Candidato }) {
+  // A Crypt é sempre Physical; o elemento só aparece quando a melhor combinação imbui.
+  const el = c.origem === "crypt" && !c.imbued ? "physical" : (c.elemento ?? "physical");
+  const imb = c.imbuiments;
+  return (
+    <p
+      data-linha-info
+      className="flex min-w-0 flex-nowrap items-center gap-x-1.5 whitespace-nowrap text-xs sm:text-sm lg:text-xs xl:text-sm"
+    >
+      <ElementIcon element={el} className="size-4 shrink-0" />
+      <span className="min-w-0 truncate">{ELEMENTOS[el].label}</span>
+      {c.nivel !== undefined && <span className="num shrink-0">- Level {c.nivel}</span>}
+      {imb !== undefined && (
+        <span className="num shrink-0">
+          - {imb} {imb === 1 ? "Imbuiment" : "Imbuiments"}
+        </span>
+      )}
+    </p>
+  );
+}
+
+/** Só Crypt: duas linhas fixas (combinação de pierce; imbuiment elemental). Nas outras armas reserva as mesmas duas linhas, para os cartões lado a lado terem a mesma altura. */
+function LinhaCombinacao({ c }: { c: Candidato }) {
+  if (c.origem !== "crypt") return <div aria-hidden="true" className="min-h-12" />;
+  const pierce = [
+    c.pierce && c.pierce.elemental > 0 && c.elemento
+      ? { el: c.elemento, pct: c.pierce.elemental }
+      : null,
+    c.pierce && c.pierce.physical > 0 ? { el: "physical" as const, pct: c.pierce.physical } : null,
+  ].filter((x) => x !== null);
+  return (
+    <div className="min-h-12 min-w-0 break-words text-sm">
+      <p className="flex min-h-6 flex-wrap items-center gap-x-2 gap-y-1">
+        <span className="text-muted-foreground">Combinação:</span>
+        {pierce.map((p) => (
+          <span key={p.el} className="inline-flex items-center gap-1">
+            <ElementIcon element={p.el} className="size-4" />
+            <span className="num font-semibold">{p.pct}%</span>
+          </span>
+        ))}
+        {c.arma && <ProficienciaDialog c={c} />}
+      </p>
+      <p className="min-h-6">
+        <span className="text-muted-foreground">Imbuiment Elemental</span>{" "}
+        <span className="font-semibold text-gold">{c.imbued ? "Sim" : "Não"}</span>
+      </p>
+    </div>
+  );
+}
+
 /** Quanto a melhor é superior à outra: ((melhor ÷ outra) − 1) × 100. Sem sentido se a outra causa dano zero. */
 const superior = (melhor: number, outra: number) => (outra > 0 ? (melhor / outra - 1) * 100 : null);
 const menos = (melhor: number, outra: number) => (melhor > 0 ? (1 - outra / melhor) * 100 : null);
 
-/** Uma categoria por coluna quando há mais de uma ("Comparar as 3"): melhor arma + até 2 alternativas de cada. */
+/** Uma categoria por coluna quando há mais de uma ("Comparar as 3"): melhor arma + as 3 seguintes de cada. */
 export function Recomendacao({ candidatos }: { candidatos: readonly Candidato[] }) {
   const cats = [...new Set(candidatos.map((c) => c.categoria))];
-  if (cats.length < 2) return <Bloco candidatos={candidatos} max={MAX_ALTERNATIVAS} />;
+  if (cats.length < 2) return <Bloco candidatos={candidatos} />;
+  // Subgrid: as 3 colunas dividem as mesmas linhas (título, melhor, alternativas), então os cartões e os títulos
+  // "Alternativas" alinham mesmo com nomes de 1 ou 2 linhas.
   return (
-    <div className="grid gap-5 lg:grid-cols-3">
+    <div className="grid gap-x-5 gap-y-5 lg:grid-cols-3 lg:grid-rows-[auto_auto_auto]">
       {cats.map((cat) => (
-        <section key={cat} aria-label={TIPO[cat]} className="min-w-0">
-          <h3 className="mb-3 font-display text-xl font-bold">{TIPO[cat]}</h3>
-          <Bloco
-            candidatos={candidatos.filter((c) => c.categoria === cat)}
-            max={MAX_COLUNA}
-            compacto
-          />
+        <section
+          key={cat}
+          aria-label={TIPO[cat]}
+          className="grid min-w-0 gap-y-5 lg:row-span-3 lg:grid-rows-subgrid"
+        >
+          <h3 className="font-display text-xl font-bold">{TIPO[cat]}</h3>
+          <Bloco candidatos={candidatos.filter((c) => c.categoria === cat)} compacto />
         </section>
       ))}
     </div>
@@ -51,58 +103,47 @@ export function Recomendacao({ candidatos }: { candidatos: readonly Candidato[] 
 
 function Bloco({
   candidatos,
-  max,
   compacto = false,
 }: {
   candidatos: readonly Candidato[];
-  max: number;
   compacto?: boolean;
 }) {
   const idMelhor = useId();
   const idAlt = useId();
   const [melhor, ...resto] = candidatos;
   if (!melhor) return null;
-  const alternativas = resto.slice(0, max);
+  const alternativas = resto.slice(0, MAX_ALTERNATIVAS);
   const segundo = alternativas[0];
   const supSegundo = segundo ? superior(melhor.damagePct, segundo.damagePct) : null;
 
-  return (
-    <div className="space-y-5">
+  const conteudo = (
+    <>
       <motion.section
         key={melhor.chave}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
         aria-labelledby={idMelhor}
-        className="frame border-2 !border-gold p-5 sm:p-6"
+        className="frame flex min-h-72 min-w-0 flex-col !border-accent"
       >
-        <p className="mb-4 inline-block border border-gold bg-stone px-3 py-1 text-sm font-semibold text-gold">
+        <p className="micro bg-accent px-4 py-2 text-accent-foreground">
           Melhor opção para este alvo
         </p>
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
-          <ItemSlot nome={melhor.nome} className="size-24" />
-          <div className="min-w-0 flex-1">
-            <h3 id={idMelhor} className="font-display text-2xl font-bold text-gold sm:text-3xl">
-              {melhor.nome}
-            </h3>
-            <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-muted-foreground">
-              <span>{TIPO[melhor.categoria]}</span>
-              <Elemento c={melhor} />
-            </p>
-            {melhor.detalhe && (
-              <p className="mt-1 text-sm text-muted-foreground">
-                Melhor combinação: {melhor.detalhe}
-              </p>
-            )}
-            {melhor.imbuir && (
-              <p className="mt-1 text-sm font-semibold text-gold">{melhor.imbuir}</p>
-            )}
-          </div>
-          <div className="text-right">
-            <p className="text-sm text-muted-foreground">Dano calculado</p>
-            <p className="num font-display text-4xl font-bold text-gold">{n1(melhor.damagePct)}</p>
+        <div className="flex min-w-0 flex-1 flex-col gap-3 p-5">
+          <ItemSlot nome={melhor.nome} className="h-32 w-full shrink-0" />
+          <h3
+            id={idMelhor}
+            className="min-h-[2.5em] break-words font-display text-2xl font-semibold leading-tight text-foreground sm:text-3xl"
+          >
+            {melhor.nome}
+          </h3>
+          <LinhaInfo c={melhor} />
+          <LinhaCombinacao c={melhor} />
+          <div className="mt-auto min-w-0 border-t border-border pt-3">
+            <p className="micro text-muted-foreground">Dano calculado</p>
+            <p className="num text-4xl font-semibold text-foreground">{n1(melhor.damagePct)}</p>
             {segundo && supSegundo !== null && (
-              <p className="mt-1 text-sm">
+              <p className="mt-1 break-words text-sm">
                 <span className="num font-semibold text-good">+{n1(supSegundo)}%</span>{" "}
                 <span className="text-muted-foreground">sobre {segundo.nome}</span>
               </p>
@@ -112,43 +153,46 @@ function Bloco({
       </motion.section>
 
       {alternativas.length > 0 && (
-        <section aria-labelledby={idAlt}>
+        <section aria-labelledby={idAlt} className="min-w-0">
           <h3 id={idAlt} className="mb-3 font-display text-lg font-bold">
             Alternativas
           </h3>
-          <ol className={compacto ? "grid gap-3" : "grid gap-3 sm:grid-cols-2 xl:grid-cols-3"}>
+          <ol
+            className={
+              compacto
+                ? "grid auto-rows-fr gap-3"
+                : "grid auto-rows-fr items-stretch gap-3 sm:grid-cols-2 xl:grid-cols-3"
+            }
+          >
             {alternativas.map((c) => {
               const m = menos(melhor.damagePct, c.damagePct);
-              const s = superior(melhor.damagePct, c.damagePct);
               return (
-                <li key={c.chave} className="frame-inset flex items-center gap-4 p-4">
-                  <ItemSlot nome={c.nome} className="size-16" />
+                <li
+                  key={c.chave}
+                  className="frame-inset flex h-full min-h-40 min-w-0 items-center gap-4 p-4"
+                >
+                  <ItemSlot nome={c.nome} className="size-[4.5rem] shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="truncate font-semibold">{c.nome}</p>
+                    <p className="break-words font-semibold">{c.nome}</p>
                     <p className="flex flex-wrap items-center gap-x-3 text-sm text-muted-foreground">
                       <Elemento c={c} />
                     </p>
                     <p className="mt-1 text-sm">
-                      {m !== null && s !== null ? (
-                        <>
-                          <span className="num text-bad">{n1(m)}% menos eficiente</span>
-                          <span className="text-muted-foreground">
-                            {" "}
-                            (a melhor é <span className="num">{n1(s)}%</span> superior)
-                          </span>
-                        </>
+                      {m !== null ? (
+                        <span className="num text-bad">{n1(m)}% menos eficiente</span>
                       ) : (
                         <span className="text-bad">dano nulo contra este alvo</span>
                       )}
                     </p>
                   </div>
-                  <p className="num text-xl font-semibold text-gold">{n1(c.damagePct)}</p>
+                  <p className="num shrink-0 text-xl font-semibold text-gold">{n1(c.damagePct)}</p>
                 </li>
               );
             })}
           </ol>
         </section>
       )}
-    </div>
+    </>
   );
+  return compacto ? conteudo : <div className="flex flex-col gap-5">{conteudo}</div>;
 }

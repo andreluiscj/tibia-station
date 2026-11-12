@@ -1,7 +1,7 @@
 // Camada de dados: JSON empacotados em data/ (gerados por scripts/import-wiki.ts). Contrato: .empresa/arquitetura.md, seção 4.
 // Assíncrona de propósito: import() dinâmico mantém os JSON fora do bundle inicial e a origem pode virar Supabase sem mudar telas.
 import { once } from "./once";
-import type { AltWeapon, Creature, CryptWeapon, Hunt, Sources } from "./types";
+import type { Creature, CryptWeapon, Hunt, Sources } from "./types";
 
 export type * from "./types";
 
@@ -31,9 +31,6 @@ const hunts = once(async () => {
 const cryptWeapons = once(async () =>
   indexed((await import("@data/crypt-weapons.json")).default as unknown as readonly CryptWeapon[]),
 );
-const altWeapons = once(
-  async () => (await import("@data/alt-weapons.json")).default as unknown as readonly AltWeapon[],
-);
 const sources = once(
   async () => (await import("@data/sources.json")).default as unknown as Sources,
 );
@@ -42,7 +39,6 @@ export const getCreatures = async (): Promise<readonly Creature[]> => (await cre
 export const getHunts = async (): Promise<readonly Hunt[]> => (await hunts()).list;
 export const getCryptWeapons = async (): Promise<readonly CryptWeapon[]> =>
   (await cryptWeapons()).list;
-export const getAltWeapons = (): Promise<readonly AltWeapon[]> => altWeapons();
 export const getSources = (): Promise<Sources> => sources();
 export const getCryptWeapon = async (slug: string): Promise<CryptWeapon | null> =>
   (await cryptWeapons()).bySlug.get(slug) ?? null;

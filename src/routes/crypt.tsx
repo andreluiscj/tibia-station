@@ -34,7 +34,9 @@ function CryptPage() {
 
   return (
     <>
-      <PageIntro titulo="Crypt Calculator" />
+      <PageIntro titulo="Crypt Calculator" eyebrow="A FORJA" numeral="II">
+        Compare as armas da Crypt e prepare sua próxima batalha.
+      </PageIntro>
       <Cont className="mt-8">
         <CryptCalculator estado={estado} onChange={onChange} />
       </Cont>

@@ -36,10 +36,10 @@ export const TOOLS: Tool[] = [
   },
 ];
 
-// Ordem da navegação principal: Início, Set Builder, Crypt, Hunts.
-export const NAV: { to: "/" | Tool["to"]; label: string }[] = [
+// Ordem da navegação principal: Início, Set Builder, Crypt, Hunts, Como calculamos.
+export const NAV: { to: "/" | Tool["to"] | "/como-calculamos"; label: string }[] = [
   { to: "/", label: "Início" },
   { to: "/set-builder", label: "Set Builder" },
   { to: "/crypt", label: "Crypt" },
-  { to: "/hunts", label: "Hunts" },
+  { to: "/como-calculamos", label: "Como calculamos" },
 ];

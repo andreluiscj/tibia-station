@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { buscar, indexar, normalizar } from "./busca";
-import { filtrarHunts, nivelDaHunt } from "./huntsFiltro";
+import { filtrarHunts, huntsDaCriatura, nivelDaHunt } from "./huntsFiltro";
 import { localDaHunt } from "./format";
 import { descreverResist } from "./resist";
 import { wikiUrl } from "./wiki";
@@ -97,5 +97,23 @@ describe("localDaHunt", () => {
   it("tira pontuação solta do fim e junta cidade e local", () => {
     expect(localDaHunt("Marapur", "Inside Asura Citadel, ")).toBe("Marapur. Inside Asura Citadel");
     expect(localDaHunt(null, null)).toBe("");
+  });
+});
+
+describe("huntsDaCriatura", () => {
+  const com = (h: Hunt, ...slugs: string[]): Hunt => ({
+    ...h,
+    creatures: slugs.map((creatureSlug) => ({ creatureSlug, weight: 1 })),
+  });
+  const lista = [
+    com(hunt("Baixa", 200), "demon"),
+    com(hunt("Alta", 500), "demon", "rat"),
+    com(hunt("Outra", 300), "rat"),
+  ];
+  it("só as hunts que têm a criatura, do nível mais alto para o mais baixo", () => {
+    expect(huntsDaCriatura(lista, "demon").map((h) => h.name)).toEqual(["Alta", "Baixa"]);
+  });
+  it("criatura sem hunt devolve lista vazia", () => {
+    expect(huntsDaCriatura(lista, "hellflayer")).toEqual([]);
   });
 });

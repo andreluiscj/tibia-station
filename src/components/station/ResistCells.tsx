@@ -1,3 +1,4 @@
+import { ElementIcon } from "./ElementIcon";
 import { ELEMENTOS, ELEMENTOS_PRINCIPAIS } from "./elementos";
 import { descreverResist } from "./resist";
 import type { Creature } from "@/lib/data/types";
@@ -18,10 +19,7 @@ export function ResistCells({ criatura }: { criatura: Creature }) {
             }
           >
             <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-              <span
-                aria-hidden="true"
-                className={`size-2 shrink-0 rotate-45 ${ELEMENTOS[e].bar}`}
-              />
+              <ElementIcon element={e} className="size-5 shrink-0" />
               {ELEMENTOS[e].label}
             </span>
             <span className={`num block ${absorve ? "font-semibold text-bad" : "text-gold"}`}>

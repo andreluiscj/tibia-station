@@ -8,10 +8,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { APOIO_URL } from "./SiteFooter";
 import { NAV } from "./nav";
 
 const linkBase =
-  "relative inline-flex min-h-11 items-center px-3 font-display text-[0.95rem] font-semibold tracking-wide text-muted-foreground transition-colors hover:text-foreground data-[status=active]:text-gold";
+  "relative inline-flex min-h-11 items-center px-3 font-display text-[0.95rem] font-semibold tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground data-[status=active]:text-gold";
 
 function Brand() {
   return (
@@ -35,18 +36,18 @@ export function SiteHeader() {
   const [aberto, setAberto] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gold-dim/60 bg-stone shadow-[0_6px_16px_-10px_oklch(0_0_0/0.8)]">
+    <header className="sticky top-0 z-40 border-b border-[#241810] surface-dark">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Brand />
 
         <nav aria-label="Principal" className="hidden md:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-0.5 lg:gap-1">
             {NAV.map((item) => (
               <li key={item.to}>
                 <Link
                   to={item.to}
                   activeOptions={{ exact: item.to === "/" }}
-                  className={`${linkBase} data-[status=active]:after:absolute data-[status=active]:after:inset-x-3 data-[status=active]:after:bottom-1 data-[status=active]:after:h-0.5 data-[status=active]:after:bg-gold`}
+                  className={`${linkBase} data-[status=active]:after:absolute data-[status=active]:after:inset-x-3 data-[status=active]:after:bottom-1 data-[status=active]:after:h-0.5 data-[status=active]:after:bg-accent`}
                 >
                   {item.label}
                 </Link>
@@ -56,14 +57,22 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <a
+            href={APOIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden min-h-10 items-center border border-gold-dim px-4 text-sm font-semibold text-gold transition-colors hover:border-gold hover:bg-gold/10 sm:inline-flex"
+          >
+            Apoiar projeto ↗
+          </a>
           <Sheet open={aberto} onOpenChange={setAberto}>
             <SheetTrigger
-              className="inline-flex size-11 items-center justify-center rounded-sm border border-border bg-metal text-foreground transition-colors hover:border-gold-dim md:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-sm border border-border bg-transparent text-foreground transition-colors hover:border-gold-dim md:hidden"
               aria-label="Abrir menu"
             >
               <Menu className="size-5" aria-hidden="true" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-72 border-l border-gold-dim/60 bg-stone p-0">
+            <SheetContent side="right" className="w-72 border-l border-[#241810] surface-dark p-0">
               <SheetTitle className="border-b border-border px-5 py-4 font-display text-gold">
                 Menu
               </SheetTitle>
@@ -78,7 +87,7 @@ export function SiteHeader() {
                         to={item.to}
                         activeOptions={{ exact: item.to === "/" }}
                         onClick={() => setAberto(false)}
-                        className="flex min-h-12 items-center border-l-2 border-transparent px-4 font-display text-base font-semibold text-muted-foreground transition-colors hover:text-foreground data-[status=active]:border-gold data-[status=active]:bg-metal data-[status=active]:text-gold"
+                        className="flex min-h-12 items-center border-l-2 border-transparent px-4 font-display text-base font-semibold text-muted-foreground transition-colors hover:text-foreground data-[status=active]:border-gold data-[status=active]:text-gold"
                       >
                         {item.label}
                       </Link>

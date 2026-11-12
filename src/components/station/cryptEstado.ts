@@ -48,16 +48,13 @@ export function parseSearch(entrada: object): CryptSearch {
   return out;
 }
 
+/** Nível mínimo para usar a Crypt (aviso na tela). */
 export const NIVEL_CRYPT = 450;
+/** Nível padrão da comparação. */
+export const NIVEL_PADRAO = 1000;
+/** Alternativas exibidas depois da melhor (melhor + 3 = 4 no total). */
+export const MAX_ALTERNATIVAS = 3;
 
-/** Diz se vale imbuir a Crypt com o elemento dela (só Fire no Club, Earth na Sword, Energy no Axe; o Monk não imbui). */
-export function textoImbuir(arma: CryptWeapon, r: ComboResult): string {
-  if (!arma.element) return "Não imbui: esta arma não recebe imbuement de dano elemental.";
-  const el = ELEMENTOS[arma.element].label;
-  return r.combo.imbued
-    ? `Imbuir com dano de ${el}: metade do dano vira ${el} e metade fica Physical.`
-    : "Não imbuir: o melhor é só o pierce Physical, sem imbuement de dano elemental.";
-}
 /** Divisão fixa do Elemental Pierce: 50% físico e 50% elemento (sem configuração na tela). */
 const elementalShare = 0.5;
 
@@ -66,7 +63,7 @@ export function resolver(s: CryptSearch) {
   return {
     voc,
     cat: voc === "monk" ? ("fist" as const) : (s.cat ?? "todas"),
-    lvl: s.lvl ?? NIVEL_CRYPT,
+    lvl: s.lvl ?? NIVEL_PADRAO,
     modo: "official" as const,
     usarPeso: s.peso === 1,
   };
@@ -133,17 +130,50 @@ export function perksDoCombo(arma: CryptWeapon, r: ComboResult): string[] {
 
 export interface Candidato {
   chave: string;
-  /** Nome que também serve para achar o sprite no bucket. */
+  /** Nome que também serve para achar o sprite. */
   nome: string;
   categoria: CryptWeapon["category"];
   elemento: CryptWeapon["element"] | AltWeapon["element"];
   damagePct: number;
-  /** Crypt (com pierce) ou arma da Soul War / Rottenblood. */
-  origem: "crypt" | "soul" | "sanguine";
-  /** Só nas Crypt: a melhor combinação de perks, em texto. */
-  detalhe?: string;
-  /** Só nas Crypt: se deve imbuir com o elemento da arma ou usar só o pierce físico. */
-  imbuir?: string;
+  /** Crypt (com pierce) ou arma das tabelas do jogo. */
+  origem: "crypt" | "arma";
+  /** Nível exigido pela arma (Crypt e armas das tabelas). */
+  nivel?: number;
+  /** Espaços de imbuiment da arma; ausente quando a tabela não informa. */
+  imbuiments?: number;
+  /** Só nas Crypt: pierce da melhor combinação. */
+  pierce?: PierceSpec;
+  /** Só nas Crypt: a melhor combinação usa o elemento da arma (imbuement). */
+  imbued?: boolean;
+  /** Só nas Crypt: a arma e os perks escolhidos pelo cálculo (níveis variáveis da proficiência). */
+  arma?: CryptWeapon;
+  escolhas?: { level: number; perkId: string }[];
+}
+
+/**
+ * Perk (id "nível.opção") marcado em cada nível da proficiência. Knight: 1.1, 2.3, 4.1, 6.2 fixos;
+ * nível 5 = 5.1 se a melhor combinação imbui, senão 5.3; níveis 3 e 7 vêm do cálculo.
+ * Monk: tudo fixo (1.1, 2.3, 3.3, 4.1, 5.1, 6.2, 7.1).
+ */
+export function proficienciaIdeal(
+  vocation: CryptWeapon["vocation"],
+  imbued: boolean,
+  escolhas: readonly { level: number; perkId: string }[] = [],
+): Record<number, string> {
+  const doCalculo = (n: number) => escolhas.find((e) => e.level === n)?.perkId;
+  const base: Record<number, string | undefined> =
+    vocation === "monk"
+      ? { 1: "1.1", 2: "2.3", 3: "3.3", 4: "4.1", 5: "5.1", 6: "6.2", 7: "7.1" }
+      : {
+          1: "1.1",
+          2: "2.3",
+          3: doCalculo(3),
+          4: "4.1",
+          5: imbued ? "5.1" : "5.3",
+          6: "6.2",
+          7: doCalculo(7),
+        };
+  return Object.fromEntries(Object.entries(base).filter(([, v]) => v)) as Record<number, string>;
 }
 
 export type Calculo =
@@ -156,9 +186,9 @@ export type Calculo =
       /** Nome do monstro ou da hunt. */
       rotulo: string;
       alvos: Target[];
-      /** Melhor concorrente (Soul War / Sanguine) por arma Crypt; null = nenhuma liberada no nível. O veredito exige superá-la. */
+      /** Melhor concorrente (outras armas do jogo) por arma Crypt; null = nenhuma liberada no nível. O veredito exige superá-la. */
       concorrentes: Record<string, { alt: AltWeapon; damagePct: number } | null>;
-      /** Todas as opções (Crypt + Soul War/Sanguine liberadas no nível), da melhor para a pior, na mesma escala de dano. */
+      /** Todas as opções (Crypt + outras armas liberadas no nível), da melhor para a pior, na mesma escala de dano. */
       candidatos: Candidato[];
       ranking: RankedEvaluation[];
     };
@@ -176,13 +206,15 @@ export function weaponsFor(
 
 export function calcular(args: {
   armas: readonly CryptWeapon[];
-  /** Armas Soul War / Sanguine; vazio = compara só com o dano neutro (100). */
+  /** Armas de weapons_melee / weapons_hand; vazio = compara só com o dano neutro (100). */
   alternativas?: readonly AltWeapon[];
   criaturas: ReadonlyMap<string, Creature>;
   hunts: readonly Hunt[];
   estado: CryptSearch;
+  /** Pesos editados na tela (slug → peso) para a hunt; peso 0 tira a criatura. Ausente = padrão. */
+  pesos?: Record<string, number> | null;
 }): Calculo {
-  const { armas, alternativas = [], criaturas, hunts, estado } = args;
+  const { armas, alternativas = [], criaturas, hunts, estado, pesos } = args;
   const r = resolver(estado);
   try {
     let alvos: Target[];
@@ -196,6 +228,11 @@ export function calcular(args: {
       const h = hunts.find((x) => x.slug === estado.hunt);
       if (!h) return { tipo: "nao-encontrado", oque: "hunt" };
       alvos = huntToTargets(h, criaturas, { weighting: r.usarPeso ? "weighted" : "equal" });
+      if (pesos) {
+        alvos = alvos
+          .map((a) => ({ ...a, weight: pesos[a.id] ?? a.weight }))
+          .filter((a) => a.weight > 0);
+      }
       if (alvos.length === 0) return { tipo: "sem-criaturas" };
       rotulo = h.name;
     } else {
@@ -209,8 +246,10 @@ export function calcular(args: {
     const ranking = rankWeapons(lista, alvos, { mode: r.modo, elementalShare, baseline });
     const refAttack = Object.fromEntries(lista.map((w) => [w.vocation, w.attack]));
     const vistos = new Set<string>();
+    const slugsCrypt = new Set(armas.map((w) => w.slug));
     const alts = lista
       .flatMap((w) => eligibleAlternatives(w, alternativas, r.lvl))
+      .filter((a) => !slugsCrypt.has(a.slug))
       .filter((a) => !vistos.has(a.slug) && vistos.add(a.slug));
     const candidatos: Candidato[] = [
       ...ranking.map((x) => ({
@@ -220,8 +259,12 @@ export function calcular(args: {
         elemento: x.weapon.element,
         damagePct: x.evaluation.best.damagePct,
         origem: "crypt" as const,
-        detalhe: labelCombo(x.evaluation.best),
-        imbuir: textoImbuir(x.weapon, x.evaluation.best),
+        nivel: x.weapon.levelRequired,
+        imbuiments: x.weapon.imbuementSlots,
+        pierce: x.evaluation.best.combo.pierce,
+        imbued: x.evaluation.best.combo.imbued,
+        arma: x.weapon,
+        escolhas: x.evaluation.best.combo.choices,
       })),
       ...alts.map((a) => ({
         chave: a.slug,
@@ -229,7 +272,9 @@ export function calcular(args: {
         categoria: a.category,
         elemento: a.element,
         damagePct: altDamagePct(a, alvos, refAttack[a.vocation]),
-        origem: a.set,
+        origem: "arma" as const,
+        nivel: a.levelRequired,
+        imbuiments: a.imbuementSlots ?? undefined,
       })),
     ].sort((x, y) => y.damagePct - x.damagePct);
     return { tipo: "ok", rotulo, alvos, concorrentes, candidatos, ranking };

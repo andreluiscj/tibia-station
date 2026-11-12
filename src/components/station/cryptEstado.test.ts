@@ -1,15 +1,19 @@
 import { describe, expect, it } from "vitest";
 import creatures from "@data/creatures.json";
 import weapons from "@data/crypt-weapons.json";
-import altWeapons from "@data/alt-weapons.json";
+import altWeapons from "./alt-weapons.fixture.json";
 import hunts from "@data/hunts.json";
+import { armasDeHand, armasDeMelee } from "@/lib/data/weapons";
 import type { AltWeapon, Creature, CryptWeapon, Hunt } from "@/lib/data/types";
+import { altDamagePct } from "@/lib/crypt/engine";
 import {
+  MAX_ALTERNATIVAS,
   calcular,
   labelCombo,
   modosDe,
   parseSearch,
   perksDoCombo,
+  proficienciaIdeal,
   quemAbsorve,
   resolver,
   weaponsFor,
@@ -17,7 +21,39 @@ import {
 
 const armas = weapons as unknown as CryptWeapon[];
 const porSlug = new Map((creatures as unknown as Creature[]).map((c) => [c.slug, c]));
-const alts = altWeapons as unknown as AltWeapon[];
+// O fixture guarda as armas num formato próprio; aqui viram linhas das tabelas e passam pelo mapeamento real.
+type Fx = {
+  name: string;
+  vocation: string;
+  category: string;
+  attack: number;
+  element: string | null;
+  elementAttack: number;
+  levelRequired: number;
+  imbuementSlots: number;
+};
+const CLASSE: Record<string, number> = { axe: 1, club: 2, sword: 3 };
+const fx = altWeapons as unknown as Fx[];
+const alts: AltWeapon[] = [
+  ...armasDeMelee(
+    fx
+      .filter((a) => a.vocation === "knight")
+      .map((a) => ({
+        item_name: a.name,
+        class: CLASSE[a.category],
+        vocation: 1,
+        level_minimum: a.levelRequired,
+        imbuiment: a.imbuementSlots,
+        physical_attack: a.attack,
+        ...(a.element ? { [`${a.element}_attack`]: a.elementAttack } : {}),
+      })),
+  ),
+  ...armasDeHand(
+    fx
+      .filter((a) => a.vocation === "monk")
+      .map((a) => ({ item_name: a.name, attack: a.attack, level_minimum: a.levelRequired })),
+  ),
+];
 const todasHunts = hunts as unknown as Hunt[];
 
 describe("parseSearch", () => {
@@ -61,7 +97,7 @@ describe("parseSearch", () => {
     expect(resolver({})).toMatchObject({
       voc: "ek",
       cat: "todas",
-      lvl: 450,
+      lvl: 1000,
       modo: "official",
     });
     expect(resolver({ voc: "monk", cat: "club" }).cat).toBe("fist");
@@ -174,11 +210,11 @@ describe("calcular: peso da hunt e baseline", () => {
       alternativas: alts,
       criaturas: porSlug,
       hunts: todasHunts,
-      estado: { monster: "hellflayer" },
+      estado: { monster: "hellflayer", lvl: 450 },
     });
     if (c.tipo !== "ok") throw new Error("esperava ok");
     // Hellflayer: físico 100, ice 95, energy 105, death 75. Dano = (atk físico×100 + atk elem×resist) ÷ 58.
-    expect(c.concorrentes["crypt-splitter"]!.alt.slug).toBe("souleater-axe");
+    expect(c.concorrentes["crypt-splitter"]!.alt.slug).toBe("souleater");
     expect(c.concorrentes["crypt-splitter"]!.damagePct).toBeCloseTo(94.22, 2);
     expect(c.concorrentes["crypt-breaker"]!.alt.slug).toBe("soulmaimer");
     expect(c.concorrentes["crypt-breaker"]!.damagePct).toBeCloseTo(102.33, 2);
@@ -226,11 +262,49 @@ describe("calcular: peso da hunt e baseline", () => {
       alternativas: alts,
       criaturas: porSlug,
       hunts: todasHunts,
-      estado: { voc: "monk", monster: "hellflayer" },
+      estado: { voc: "monk", monster: "hellflayer", lvl: 450 },
     });
     if (c.tipo !== "ok") throw new Error("esperava ok");
     expect(c.concorrentes["crypt-strike"]).toBeNull();
     expect(c.ranking[0].evaluation.baseline).toBe(100);
+  });
+});
+
+describe("candidatos", () => {
+  it("compara contra todas as armas registradas e a Crypt traz nível, pierce e imbuement", () => {
+    const c = calcular({
+      armas,
+      alternativas: alts,
+      criaturas: porSlug,
+      hunts: todasHunts,
+      estado: { monster: "hellflayer" },
+    });
+    if (c.tipo !== "ok") throw new Error("esperava ok");
+    const axes = c.candidatos.filter((x) => x.categoria === "axe");
+    expect(axes).toHaveLength(
+      1 + alts.filter((a) => a.category === "axe" && a.vocation === "knight").length,
+    );
+    const crypt = c.candidatos.find((x) => x.origem === "crypt")!;
+    expect(crypt.nivel).toBe(armas.find((w) => w.slug === crypt.chave)!.levelRequired);
+    expect(typeof crypt.imbued).toBe("boolean");
+    expect(crypt.pierce!.physical + crypt.pierce!.elemental).toBeGreaterThan(0);
+  });
+});
+
+describe("candidatos do Monk", () => {
+  it("Crypt Strike e as armas fist liberadas entram em candidatos", () => {
+    const c = calcular({
+      armas,
+      alternativas: alts,
+      criaturas: porSlug,
+      hunts: todasHunts,
+      estado: { voc: "monk", monster: "hellflayer" },
+    });
+    if (c.tipo !== "ok") throw new Error("esperava ok");
+    expect(c.candidatos.every((x) => x.categoria === "fist")).toBe(true);
+    expect(c.candidatos.map((x) => x.chave)).toContain("crypt-strike");
+    const fists = alts.filter((a) => a.vocation === "monk" && a.category === "fist");
+    expect(c.candidatos).toHaveLength(1 + fists.length);
   });
 });
 
@@ -307,5 +381,111 @@ describe("rotulo dos presets vem do pierce real da arma", () => {
     if (c.tipo !== "ok") throw new Error("esperava ok");
     for (const r of c.ranking)
       expect(labelCombo(r.evaluation.best)).toMatch(/^(Elemental|Híbrida|Physical|Pierce) /);
+  });
+});
+
+describe("comparação com as tabelas do jogo", () => {
+  const rodar = (estado: Parameters<typeof calcular>[0]["estado"], extra: AltWeapon[] = []) => {
+    const c = calcular({
+      armas,
+      alternativas: [...alts, ...extra],
+      criaturas: porSlug,
+      hunts: todasHunts,
+      estado,
+    });
+    if (c.tipo !== "ok") throw new Error("esperava ok");
+    return c;
+  };
+  it("Knight por categoria: só as armas daquela categoria entram", () => {
+    for (const cat of ["axe", "club", "sword"] as const) {
+      const c = rodar({ monster: "hellflayer", cat });
+      expect(new Set(c.candidatos.map((x) => x.categoria))).toEqual(new Set([cat]));
+    }
+  });
+  it("filtra pelo nível: arma de nível 600 só aparece a partir do 600", () => {
+    const nomes = (lvl: number) =>
+      rodar({ monster: "hellflayer", lvl }).candidatos.map((x) => x.nome);
+    expect(nomes(599)).not.toContain("Sanguine Razor");
+    expect(nomes(600)).toContain("Sanguine Razor");
+  });
+  it("linhas das tabelas que repetem uma Crypt não duplicam o candidato", () => {
+    const dup = armasDeMelee([
+      { item_name: "Crypt Slicer", class: 3, vocation: 1, level_minimum: 450, physical_attack: 99 },
+    ]);
+    const c = rodar({ monster: "hellflayer" }, dup);
+    expect(c.candidatos.filter((x) => x.nome === "Crypt Slicer")).toHaveLength(1);
+  });
+  it("arma com dois elementos soma os dois ataques contra o alvo", () => {
+    const dupla = armasDeMelee([
+      {
+        item_name: "Dupla",
+        class: 1,
+        vocation: 1,
+        level_minimum: 1,
+        physical_attack: 10,
+        fire_attack: 20,
+        ice_attack: 30,
+      },
+    ])[0];
+    const solo = armasDeMelee([
+      {
+        item_name: "Solo",
+        class: 1,
+        vocation: 1,
+        level_minimum: 1,
+        physical_attack: 10,
+        fire_attack: 20,
+      },
+    ])[0];
+    const alvo = {
+      id: "x",
+      name: "x",
+      weight: 1,
+      assumedNeutral: [],
+      resist: { physical: 100, fire: 100, ice: 50, earth: 100, energy: 100, holy: 100, death: 100 },
+    };
+    expect(altDamagePct(dupla, [alvo], 50) - altDamagePct(solo, [alvo], 50)).toBeCloseTo(
+      (30 * 50) / 50,
+    );
+  });
+  it("Monk usa as armas de weapons_hand", () => {
+    const mao = armasDeHand([{ item_name: "Luva Forte", attack: 500, level_minimum: 100 }]);
+    const c = rodar({ voc: "monk", monster: "hellflayer" }, mao);
+    expect(c.candidatos.map((x) => x.nome)).toContain("Luva Forte");
+    expect(c.candidatos.every((x) => x.categoria === "fist")).toBe(true);
+  });
+  it("a lista de candidatos traz mais de 4; o limite de 4 é da exibição", () => {
+    expect(1 + MAX_ALTERNATIVAS).toBe(4);
+    expect(rodar({ monster: "hellflayer", cat: "axe" }).candidatos.length).toBeGreaterThan(0);
+  });
+});
+
+describe("proficienciaIdeal", () => {
+  const esc = [
+    { level: 3, perkId: "3.1" },
+    { level: 7, perkId: "7.2" },
+  ];
+  it("Knight: fixos, nível 5 depende do imbuement, 3 e 7 vêm do cálculo", () => {
+    expect(proficienciaIdeal("knight", true, esc)).toEqual({
+      1: "1.1",
+      2: "2.3",
+      3: "3.1",
+      4: "4.1",
+      5: "5.1",
+      6: "6.2",
+      7: "7.2",
+    });
+    expect(proficienciaIdeal("knight", false, esc)[5]).toBe("5.3");
+  });
+  it("Monk: tudo fixo", () => {
+    expect(Object.values(proficienciaIdeal("monk", false))).toEqual([
+      "1.1",
+      "2.3",
+      "3.3",
+      "4.1",
+      "5.1",
+      "6.2",
+      "7.1",
+    ]);
   });
 });

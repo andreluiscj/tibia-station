@@ -32,3 +32,10 @@ export function filtrarHunts(hunts: readonly Hunt[], { voc, so450 }: FiltroHunts
     .sort((a, b) => (b.n ?? -1) - (a.n ?? -1) || a.h.name.localeCompare(b.h.name))
     .map(({ h }) => h);
 }
+
+/** Hunts que contêm a criatura, pelo nível mais alto primeiro (mesma ordem de `filtrarHunts`). */
+export const huntsDaCriatura = (hunts: readonly Hunt[], slug: string): Hunt[] =>
+  filtrarHunts(
+    hunts.filter((h) => h.creatures.some((c) => c.creatureSlug === slug)),
+    { voc: "todas", so450: false },
+  );

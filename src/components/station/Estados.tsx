@@ -80,7 +80,7 @@ export function NaoEncontrado({
 }) {
   return (
     <div className="mx-auto flex min-h-[50vh] max-w-6xl flex-col items-start justify-center px-4 py-16 sm:px-6">
-      <p className="num text-6xl text-gold-dim">404</p>
+      <p className="num text-6xl text-gold">404</p>
       <h1 className="mt-3 font-display text-3xl font-bold text-gold">{titulo}</h1>
       <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">{texto}</p>
       <div className="mt-6 flex flex-wrap gap-3">

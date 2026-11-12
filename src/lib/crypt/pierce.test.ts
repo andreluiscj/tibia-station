@@ -87,3 +87,11 @@ describe("applyPiercing: validação (RangeError)", () => {
     expect(() => applyPiercing(r, p, "reference")).toThrow(RangeError);
   });
 });
+
+describe("exemplo da página Como calculamos", () => {
+  it("físico 90 + 14 = 102; earth 70 + 28 = 98; média 100", () => {
+    const fis = applyPiercing(90, 14);
+    const ele = applyPiercing(70, 28);
+    expect([fis, ele, (fis + ele) / 2]).toEqual([102, 98, 100]);
+  });
+});

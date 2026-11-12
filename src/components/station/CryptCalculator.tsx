@@ -6,6 +6,8 @@ import { CriaturaCard } from "./CriaturaCard";
 import { NIVEL_CRYPT, calcular, resolver, type CryptCat, type CryptSearch } from "./cryptEstado";
 import { n1 } from "./format";
 import { HuntPicker } from "./HuntPicker";
+import { HuntDetalhes } from "./HuntDetalhes";
+import { HuntsDaCriatura } from "./HuntsDaCriatura";
 import { Resultado } from "./CryptResultado";
 import { useAltWeapons, useCreatures, useCryptWeapons, useHunts, useSources } from "./useDados";
 import { Input } from "@/components/ui/input";
@@ -43,6 +45,10 @@ export function CryptCalculator({
   const [tipoManual, setTipoManual] = useState<"monster" | "hunt">("monster");
   const tipoEscolhido = estado.hunt ? "hunt" : estado.monster ? "monster" : tipoManual;
 
+  // Pesos editados no modal da hunt; voltam ao padrão quando a hunt muda.
+  const [pesosEdit, setPesosEdit] = useState<Record<string, number> | null>(null);
+  useEffect(() => setPesosEdit(null), [estado.hunt]);
+
   const porSlug = useMemo(
     () => new Map((criaturas.data ?? []).map((c) => [c.slug, c])),
     [criaturas.data],
@@ -56,10 +62,18 @@ export function CryptCalculator({
             criaturas: porSlug,
             hunts: hunts.data,
             estado,
+            pesos: pesosEdit,
           })
         : null,
-    [armas.data, alternativas.data, criaturas.data, hunts.data, porSlug, estado],
+    [armas.data, alternativas.data, criaturas.data, hunts.data, porSlug, estado, pesosEdit],
   );
+
+  const huntSel = estado.hunt ? hunts.data?.find((h) => h.slug === estado.hunt) : undefined;
+  const pesosAtuais: Record<string, number> =
+    pesosEdit ??
+    Object.fromEntries(
+      (huntSel?.creatures ?? []).map((hc) => [hc.creatureSlug, r.usarPeso ? hc.weight : 1]),
+    );
 
   const mudarVoc = (voc: "ek" | "monk") => onChange({ voc, cat: null });
   const mudarLvl = (txt: string) => {
@@ -133,25 +147,49 @@ export function CryptCalculator({
       <div className="mt-5">
         <Passo n={4} titulo="Alvo">
           <div className="grid gap-4 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-start">
-            <div className="flex flex-wrap gap-2 lg:mt-9">
-              <Chip
-                ativo={tipoEscolhido === "monster"}
-                onClick={() => {
-                  setTipoManual("monster");
-                  onChange({ hunt: null });
-                }}
-              >
-                Criatura
-              </Chip>
-              <Chip
-                ativo={tipoEscolhido === "hunt"}
-                onClick={() => {
-                  setTipoManual("hunt");
-                  onChange({ monster: null });
-                }}
-              >
-                Hunt
-              </Chip>
+            <div className="lg:mt-9">
+              <div className="flex flex-wrap gap-2">
+                <Chip
+                  ativo={tipoEscolhido === "monster"}
+                  onClick={() => {
+                    setTipoManual("monster");
+                    onChange({ hunt: null });
+                  }}
+                >
+                  Criatura
+                </Chip>
+                <Chip
+                  ativo={tipoEscolhido === "hunt"}
+                  onClick={() => {
+                    setTipoManual("hunt");
+                    onChange({ monster: null });
+                  }}
+                >
+                  Hunt
+                </Chip>
+              </div>
+              {tipoEscolhido === "hunt" && huntSel && (
+                <HuntDetalhes
+                  hunt={huntSel}
+                  criaturas={porSlug}
+                  pesos={pesosAtuais}
+                  onPesos={setPesosEdit}
+                  melhor={
+                    calculo?.tipo === "ok"
+                      ? {
+                          nome: calculo.candidatos[0].nome,
+                          damagePct: calculo.candidatos[0].damagePct,
+                        }
+                      : undefined
+                  }
+                />
+              )}
+              {tipoEscolhido === "monster" && estado.monster && (
+                <HuntsDaCriatura
+                  slug={estado.monster}
+                  nome={porSlug.get(estado.monster)?.name ?? estado.monster}
+                />
+              )}
             </div>
             {tipoEscolhido === "monster" ? (
               <CreaturePicker
@@ -191,30 +229,35 @@ export function CryptCalculator({
 
       <div className="mt-5 space-y-3">
         {r.lvl < NIVEL_CRYPT && (
-          <p role="status" className="border border-gold-dim bg-stone px-4 py-3">
+          <p role="status" className="border border-gold-dim bg-muted px-4 py-3">
             <strong className="text-gold">A Crypt exige nível {NIVEL_CRYPT}.</strong> Você informou
             nível {r.lvl}. O cálculo abaixo continua valendo para quando chegar lá; o nível também
-            define quais armas da Soul War e da Rottenblood entram na comparação.
+            define quais armas do jogo entram na comparação.
           </p>
         )}
       </div>
 
+      {alternativas.data?.length === 0 && (
+        <p role="status" className="mt-5 border border-gold-dim bg-muted px-4 py-3">
+          Nenhuma arma das tabelas do jogo foi carregada, então a comparação mostra só as Crypt.
+        </p>
+      )}
+
       <div className="mt-8 flex flex-wrap items-end justify-between gap-4">
         <h2 className="font-display text-2xl font-bold">Resultado</h2>
       </div>
-      <p className="mt-2 max-w-[75ch] text-sm leading-relaxed text-muted-foreground">
-        Acima de 100 o pierce vale metade (arredondada para cima), no máximo dobra e 0 nunca
-        aumenta.
-      </p>
 
       <div className="mt-6">
         <p role="status" className="sr-only">
           {resumo}
         </p>
         <Resultado
-          carregando={armas.isPending || criaturas.isPending || hunts.isPending}
-          erro={armas.isError || criaturas.isError || hunts.isError}
+          carregando={
+            armas.isPending || criaturas.isPending || hunts.isPending || alternativas.isPending
+          }
+          erro={armas.isError || criaturas.isError || hunts.isError || alternativas.isError}
           onTentar={() => {
+            void alternativas.refetch();
             void armas.refetch();
             void criaturas.refetch();
             void hunts.refetch();

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComoCalculamosRouteImport } from './routes/como-calculamos'
 import { Route as CryptRouteImport } from './routes/crypt'
 import { Route as SetBuilderRouteImport } from './routes/set-builder'
 import { Route as HuntsIndexRouteImport } from './routes/hunts.index'
@@ -19,6 +20,11 @@ import { Route as MonstrosSlugRouteImport } from './routes/monstros.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComoCalculamosRoute = ComoCalculamosRouteImport.update({
+  id: '/como-calculamos',
+  path: '/como-calculamos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CryptRoute = CryptRouteImport.update({
@@ -49,6 +55,7 @@ const MonstrosSlugRoute = MonstrosSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/como-calculamos': typeof ComoCalculamosRoute
   '/crypt': typeof CryptRoute
   '/set-builder': typeof SetBuilderRoute
   '/hunts/$slug': typeof HuntsSlugRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/como-calculamos': typeof ComoCalculamosRoute
   '/crypt': typeof CryptRoute
   '/set-builder': typeof SetBuilderRoute
   '/hunts/$slug': typeof HuntsSlugRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/como-calculamos': typeof ComoCalculamosRoute
   '/crypt': typeof CryptRoute
   '/set-builder': typeof SetBuilderRoute
   '/hunts/$slug': typeof HuntsSlugRoute
@@ -76,6 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/como-calculamos'
     | '/crypt'
     | '/set-builder'
     | '/hunts/$slug'
@@ -84,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/como-calculamos'
     | '/crypt'
     | '/set-builder'
     | '/hunts/$slug'
@@ -92,6 +103,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/como-calculamos'
     | '/crypt'
     | '/set-builder'
     | '/hunts/$slug'
@@ -101,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComoCalculamosRoute: typeof ComoCalculamosRoute
   CryptRoute: typeof CryptRoute
   SetBuilderRoute: typeof SetBuilderRoute
   HuntsSlugRoute: typeof HuntsSlugRoute
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/como-calculamos': {
+      id: '/como-calculamos'
+      path: '/como-calculamos'
+      fullPath: '/como-calculamos'
+      preLoaderRoute: typeof ComoCalculamosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/crypt': {
@@ -157,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComoCalculamosRoute: ComoCalculamosRoute,
   CryptRoute: CryptRoute,
   SetBuilderRoute: SetBuilderRoute,
   HuntsSlugRoute: HuntsSlugRoute,

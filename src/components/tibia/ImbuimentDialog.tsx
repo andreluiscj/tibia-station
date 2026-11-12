@@ -11,7 +11,8 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 
 const MAX_ESPACOS = 3;
 const painel = "rounded-none border-gold-dim bg-popover p-0";
-const barra = "border-b border-border bg-stone px-4 py-3 font-display text-lg font-bold text-gold";
+const barra =
+  "surface-dark border-b border-border px-4 py-3 font-display text-lg font-bold text-gold";
 
 /** Escolha de imbuiments de um item: o diálogo de espaços e, por cima, a lista de opções de um espaço. */
 export function ImbuimentDialog({
@@ -68,11 +69,11 @@ export function ImbuimentDialog({
             Escolha o imbuiment de cada espaço e salve.
           </DialogDescription>
           <div className="flex flex-wrap items-center gap-4 px-4 py-4">
-            <span className="frame-inset flex size-16 items-center justify-center">
+            <span className="frame-inset flex size-[4.5rem] items-center justify-center">
               <img
                 src={spriteUrl(item.item_name)}
                 alt={item.item_name}
-                className="size-12 [image-rendering:pixelated]"
+                className="size-16 [image-rendering:pixelated]"
               />
             </span>
             <span>Escolha o espaço:</span>
@@ -116,7 +117,7 @@ export function ImbuimentDialog({
               })}
             </div>
           </div>
-          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-stone px-4 py-3">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-muted px-4 py-3">
             <span className="text-sm text-muted-foreground">
               {espacos} {espacos > 1 ? "espaços disponíveis" : "espaço disponível"}.
             </span>
@@ -134,7 +135,7 @@ export function ImbuimentDialog({
                   onSave(rascunho.slice(0, espacos));
                   onOpenChange(false);
                 }}
-                className="min-h-11 border border-gold bg-gold px-5 font-semibold text-primary-foreground hover:bg-gold/90"
+                className="min-h-11 border border-gold bg-accent px-5 font-semibold text-accent-foreground hover:bg-accent/90"
               >
                 Salvar
               </button>

@@ -3,7 +3,7 @@ import type { Element } from "@/lib/data/types";
 import { statIconUrl } from "@/lib/storage";
 import { ELEMENTOS } from "./elementos";
 
-/** Ícone do elemento (bucket Stats, somente leitura). Sem imagem (ex.: Drown), cai no losango na cor do elemento. */
+/** Ícone do elemento (public/sprites/stats). Sem imagem (ex.: Drown), cai no losango na cor do elemento. */
 export function ElementIcon({
   element,
   className = "size-6",

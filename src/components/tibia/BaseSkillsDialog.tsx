@@ -68,7 +68,7 @@ export function BaseSkillsDialog({
               onSave(rascunho);
               onOpenChange(false);
             }}
-            className="min-h-11 border border-gold bg-gold px-5 font-semibold text-primary-foreground hover:bg-gold/90"
+            className="min-h-11 border border-gold bg-accent px-5 font-semibold text-accent-foreground hover:bg-accent/90"
           >
             Salvar
           </button>

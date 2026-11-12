@@ -105,7 +105,7 @@ function HuntPage() {
           <Link
             to="/crypt"
             search={{ hunt: h.slug }}
-            className="inline-flex min-h-11 items-center border border-gold bg-gold px-5 font-semibold text-primary-foreground transition-colors hover:bg-gold/90"
+            className="inline-flex min-h-11 items-center border border-gold bg-accent px-5 font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
           >
             Ver Crypt para esta hunt
           </Link>

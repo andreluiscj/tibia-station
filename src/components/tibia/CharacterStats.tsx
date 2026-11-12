@@ -25,7 +25,9 @@ export function CharacterStats({
     <div className="grid w-full gap-4 sm:grid-cols-2">
       <SkillsCard stats={stats} onEditar={() => setEditando(true)} />
       <DefenseCard stats={stats} />
-      <AugmentsCard augments={stats.augments} />
+      <div className="sm:col-span-2">
+        <AugmentsCard augments={stats.augments} />
+      </div>
       <BaseSkillsDialog open={editando} onOpenChange={setEditando} base={base} onSave={salvar} />
     </div>
   );

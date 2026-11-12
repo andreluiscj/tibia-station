@@ -67,10 +67,10 @@ export function CriaturaCard({
               className="size-32 text-5xl"
             />
           ) : (
-            <ul className="flex max-w-60 flex-wrap justify-center gap-2">
-              {alvos.slice(0, 8).map((a) => (
+            <ul className="flex max-w-sm flex-wrap justify-center gap-3">
+              {alvos.slice(0, 12).map((a) => (
                 <li key={a.id}>
-                  <CreatureSprite slug={a.id} name={a.name} className="size-12 text-xl" />
+                  <CreatureSprite slug={a.id} name={a.name} className="size-20 text-3xl" />
                 </li>
               ))}
             </ul>
@@ -92,7 +92,7 @@ export function CriaturaCard({
 
         <div>
           <h4 className="mb-3 font-display text-lg font-bold">Resistências elementais</h4>
-          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          <ul className="grid grid-cols-2 gap-2 xl:grid-cols-4">
             {linhas.map((l) => {
               const s = estilo(l.valor);
               return (
@@ -102,7 +102,7 @@ export function CriaturaCard({
                 >
                   <ElementIcon element={l.el} className="size-7" />
                   <span className="min-w-0">
-                    <span className="block truncate text-sm text-muted-foreground">
+                    <span className="block break-words text-sm text-muted-foreground">
                       {ELEMENTOS[l.el].label}
                     </span>
                     <span className={`num block text-xl font-semibold ${s.cor}`}>

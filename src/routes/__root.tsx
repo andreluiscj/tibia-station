@@ -11,6 +11,7 @@ import { MotionConfig } from "motion/react";
 import { useState, type ReactNode } from "react";
 
 import { btnPrimario, btnSecundario } from "@/components/station/estilos";
+import { SiteFooter } from "@/components/station/SiteFooter";
 import { SiteHeader } from "@/components/station/SiteHeader";
 import appCss from "../styles.css?url";
 
@@ -22,7 +23,7 @@ const FONTES =
 function NotFoundComponent() {
   return (
     <div className="mx-auto flex min-h-[50vh] max-w-6xl flex-col items-start justify-center px-4 py-16 sm:px-6">
-      <p className="num text-6xl text-gold-dim">404</p>
+      <p className="num text-6xl text-gold">404</p>
       <h1 className="mt-3 font-display text-3xl font-bold text-gold">Caminho não encontrado</h1>
       <p className="mt-3 leading-relaxed text-muted-foreground">
         A página que você procura não existe ou foi movida. Volte ao início e escolha uma
@@ -76,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Tibia Station: ferramentas para jogadores de Tibia" },
       { name: "description", content: DESCRICAO },
-      { name: "theme-color", content: "#100b07" },
+      { name: "theme-color", content: "#3b2a1d" },
       { property: "og:site_name", content: "Tibia Station" },
       { property: "og:title", content: "Tibia Station" },
       { property: "og:description", content: DESCRICAO },
@@ -106,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
@@ -124,10 +125,10 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <MotionConfig reducedMotion="user">
-        <div className="stone-texture flex min-h-screen flex-col">
+        <div className="flex min-h-screen flex-col">
           <a
             href="#conteudo"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-gold focus:px-4 focus:py-3 focus:font-semibold focus:text-primary-foreground"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-accent focus:px-4 focus:py-3 focus:font-semibold focus:text-accent-foreground"
           >
             Ir para o conteúdo
           </a>
@@ -136,6 +137,7 @@ function RootComponent() {
             {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
             <Outlet />
           </main>
+          <SiteFooter />
         </div>
       </MotionConfig>
     </QueryClientProvider>

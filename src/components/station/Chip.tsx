@@ -20,7 +20,7 @@ export function Chip({
       disabled={disabled}
       className={`inline-flex min-h-11 items-center gap-2 border px-4 font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${
         ativo
-          ? "border-gold bg-gold text-primary-foreground"
+          ? "border-primary bg-primary text-primary-foreground"
           : "border-border bg-metal enabled:hover:border-gold-dim"
       }`}
     >

@@ -77,7 +77,7 @@ export function SlotPickerDialog({
                     <img
                       src={spriteUrl(it.item_name)}
                       alt=""
-                      className="size-10 [image-rendering:pixelated]"
+                      className="size-16 [image-rendering:pixelated]"
                       style={semImagem.has(k) ? { opacity: 0.2 } : undefined}
                       onError={() => setSemImagem((s) => new Set(s).add(k))}
                     />

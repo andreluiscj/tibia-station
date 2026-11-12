@@ -10,7 +10,7 @@ const LINHAS = [
 
 export function CryptPreview() {
   return (
-    <figure className="frame-inset flex flex-1 flex-col justify-between gap-5 p-4 sm:p-5">
+    <figure className="flex flex-1 flex-col justify-between gap-5 border border-border bg-black/25 p-4 sm:p-5">
       <figcaption className="text-sm leading-snug text-muted-foreground">
         Exemplo: dano das armas contra o Hellflayer, modo Elemental 45%. A linha marca 100, o dano
         neutro.

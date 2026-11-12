@@ -18,7 +18,7 @@ export function DamageBar({
 }) {
   const pct = Math.max(0, Math.min(value, escala)) / escala;
   return (
-    <div aria-hidden="true" className="relative h-3 bg-background">
+    <div aria-hidden="true" className="relative h-3 bg-border">
       <motion.div
         className={`h-full origin-left ${cor}`}
         style={{ width: `${pct * 100}%` }}

@@ -85,20 +85,22 @@ export interface CryptWeapon {
   perks: ProficiencyLevel[];
 }
 
-// data/alt-weapons.json -> AltWeapon[]: armas das quests Soul War e Rottenblood (Sanguine), concorrentes das Crypt.
-// Escritas à mão a partir da TibiaWiki (API, 2026-11-11); ataque físico pequeno + ataque elemental grande, sem pierce.
+// Armas das tabelas weapons_melee (Knight) e weapons_hand (Monk), normalizadas por src/lib/data/weapons.ts.
+// Concorrentes das Crypt: ataque físico + ataques elementares, sem pierce.
 export interface AltWeapon {
   slug: string;
   name: string;
-  set: "soul" | "sanguine";
   vocation: CryptVocation;
   category: CryptCategory;
   /** Ataque físico. */
   attack: number;
+  /** Elemento de maior ataque (só para exibição); null = só físico. */
   element: ElementKey | null;
-  elementAttack: number;
+  /** Ataque por elemento (todos os que a arma tem). */
+  elements: Partial<Record<ElementKey, number>>;
   levelRequired: number;
-  imbuementSlots: number;
+  /** Espaços de imbuiment (coluna imbuiment); null = a tabela não informa. */
+  imbuementSlots: number | null;
 }
 
 // data/sources.json -> Sources

@@ -36,24 +36,28 @@ export function TibiaSetBuilder() {
 
   return (
     <>
-      <PageIntro titulo="Set Builder" />
+      <PageIntro titulo="Set Builder" eyebrow="O ARSENAL" numeral="I">
+        Monte seu set por vocação, nível e proteção elemental.
+      </PageIntro>
 
-      <Cont className="mt-8 space-y-6">
-        <VocacaoPanel
-          vocation={state.vocation}
-          ekClass={state.ekClass}
-          onVocation={sb.escolherVocacao}
-          onClass={sb.escolherClasse}
-        />
-        <PresetsPanel
-          level={state.level}
-          protection={state.protection}
-          semVocacao={!state.vocation}
-          carregando={sb.carregando}
-          onLevel={sb.escolherNivel}
-          onProtection={sb.escolherProtecao}
-          onClear={sb.limpar}
-        />
+      <Cont className="mt-8 grid items-start gap-6 lg:grid-cols-[22rem_minmax(0,1fr)]">
+        <div className="space-y-5 lg:sticky lg:top-20">
+          <VocacaoPanel
+            vocation={state.vocation}
+            ekClass={state.ekClass}
+            onVocation={sb.escolherVocacao}
+            onClass={sb.escolherClasse}
+          />
+          <PresetsPanel
+            level={state.level}
+            protection={state.protection}
+            semVocacao={!state.vocation}
+            carregando={sb.carregando}
+            onLevel={sb.escolherNivel}
+            onProtection={sb.escolherProtecao}
+            onClear={sb.limpar}
+          />
+        </div>
 
         <section className="frame p-5" aria-labelledby="sb-grade">
           <div className="flex flex-wrap items-start justify-between gap-4">

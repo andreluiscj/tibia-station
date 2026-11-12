@@ -2,7 +2,6 @@
 import { supabase } from "@/integrations/supabase/client";
 
 export {
-  SUPABASE_URL,
   slugify,
   spriteUrl,
   emptySlotUrl,
@@ -172,7 +171,7 @@ const ALL_WEAPONS: ImbuimentContext[] = [
 
 export interface ImbuimentDef {
   name: string; // matches imbuiment_name in the table
-  slug: string; // image file basename in the Imbuiments bucket
+  slug: string; // image file basename in public/sprites/imbuiments
   benefit: string; // short label of the benefit
   contexts: ImbuimentContext[];
 }

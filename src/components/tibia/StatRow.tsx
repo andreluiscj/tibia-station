@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { statIconUrl } from "@/lib/tibia";
 
-/** Linha de atributo: ícone do bucket (some se faltar), nome e valor. */
+/** Linha de atributo: ícone (some se faltar), nome e valor. */
 export function StatRow({
   icon,
   label,

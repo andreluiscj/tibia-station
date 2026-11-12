@@ -30,7 +30,7 @@ export interface ResultCardProps {
   /** Os modos do motor (Elemental 45%, Híbrida, Physical 14%). */
   modos: ResultMode[];
   /** Combinação vencedora (pode ser a só física, mesmo em arma elemental); `id` destaca o modo correspondente. */
-  melhor?: { label: string; value: number; id?: string } | null;
+  melhor?: { label: string; value: number; id?: string; imbued?: boolean } | null;
   /** Perks da combinação vencedora, em texto. */
   perks?: string[];
   /** `contra` completa a frase: "+7,0% sobre a próxima arma". `tied` mostra empate em vez do número. */
@@ -62,16 +62,16 @@ export function ResultCard({
         {rank !== undefined && (
           <span
             aria-label={`Posição ${rank}`}
-            className="num flex size-9 shrink-0 items-center justify-center border border-gold-dim bg-stone text-gold"
+            className="num flex size-9 shrink-0 items-center justify-center border border-[#241810] bg-stone text-stone-foreground"
           >
             {rank}
           </span>
         )}
-        <ItemSlot nome={arma.name} className="size-14" />
+        <ItemSlot nome={arma.name} className="size-[4.5rem]" />
         <div className="min-w-0 flex-1">
           <h3 className="font-display text-xl font-bold">{arma.name}</h3>
           <p className="text-muted-foreground">
-            {arma.element ? <ElementBadge element={arma.element} /> : "Pierce só físico"}
+            {melhor?.imbued && arma.element ? <ElementBadge element={arma.element} /> : "Physical"}
           </p>
         </div>
         {veredito && (
@@ -124,9 +124,17 @@ export function ResultCard({
 
       {melhor && (
         <div className="mt-4 border-t border-border pt-3">
-          <p>
-            Melhor combinação: <span className="font-semibold">{melhor.label}</span>{" "}
-            <span className="num text-gold">{n1(melhor.value)}</span>
+          <p className="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+            <span className="min-w-0 break-words">
+              Melhor combinação: <span className="font-semibold">{melhor.label}</span>{" "}
+              <span className="num text-gold">{n1(melhor.value)}</span>
+            </span>
+            {melhor.imbued !== undefined && (
+              <span>
+                <span className="text-muted-foreground">Imbuiment Elemental</span>{" "}
+                <span className="font-semibold text-gold">{melhor.imbued ? "Sim" : "Não"}</span>
+              </span>
+            )}
           </p>
           {perks && perks.length > 0 && (
             <ul className="mt-1 space-y-0.5 text-sm text-muted-foreground">

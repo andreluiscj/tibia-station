@@ -381,19 +381,20 @@ export function plainElementBaseline(
 }
 
 /**
- * Dano de uma arma Soul War / Sanguine na mesma escala do dano da Crypt: (ataque físico × resist. física +
+ * Dano de uma outra arma do jogo na mesma escala do dano da Crypt: (ataque físico × resist. física +
  * ataque elemental × resist. do elemento) ÷ `refAttack` (ataque da Crypt), média ponderada dos alvos. Sem pierce.
  */
 export function altDamagePct(a: AltWeapon, targets: readonly Target[], refAttack: number): number {
   checkTargets(targets);
   const totalWeight = targets.reduce((s, t) => s + t.weight, 0);
+  const elementos = Object.entries(a.elements) as [ElementKey, number][];
   return (
     targets.reduce(
       (s, t) =>
         s +
         (t.weight *
           (a.attack * t.resist.physical +
-            (a.element ? a.elementAttack * t.resist[a.element] : 0))) /
+            elementos.reduce((e, [el, atk]) => e + atk * t.resist[el], 0))) /
           refAttack,
       0,
     ) / totalWeight
@@ -413,7 +414,7 @@ export const eligibleAlternatives = (
       a.levelRequired <= playerLevel,
   );
 
-/** Melhor concorrente (Soul War / Sanguine) da mesma vocação e categoria que o jogador já pode usar; null se nenhuma serve. */
+/** Melhor concorrente (outras armas) da mesma vocação e categoria que o jogador já pode usar; null se nenhuma serve. */
 export function bestAlternative(
   weapon: CryptWeapon,
   alts: readonly AltWeapon[],

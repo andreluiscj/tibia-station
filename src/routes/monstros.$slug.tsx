@@ -42,7 +42,7 @@ function MonstroPage() {
     return (
       <NaoEncontrado
         titulo="Criatura não encontrada"
-        texto="Não existe uma criatura com esse endereço. Use a busca (Ctrl+K) para achar pelo nome."
+        texto="Não existe uma criatura com esse endereço. Volte ao início e escolha uma ferramenta."
         voltarPara="/"
         voltarRotulo="Ir para o início"
       />
@@ -92,7 +92,7 @@ function MonstroPage() {
           <Link
             to="/crypt"
             search={{ monster: c.slug }}
-            className="inline-flex min-h-11 items-center border border-gold bg-gold px-5 font-semibold text-primary-foreground transition-colors hover:bg-gold/90"
+            className="inline-flex min-h-11 items-center border border-gold bg-accent px-5 font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
           >
             Ver Crypt para esta criatura
           </Link>

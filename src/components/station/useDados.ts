@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+import { useMemo } from "react";
+import { armasDeHand, armasDeMelee } from "@/lib/data/weapons";
 import { fetchTable } from "@/lib/tibia";
 import {
-  getAltWeapons,
   getCreature,
   getCreatures,
   getCryptWeapons,
@@ -24,8 +25,24 @@ export const useHunt = (slug: string) =>
   useQuery({ queryKey: ["data", "hunt", slug], queryFn: () => getHunt(slug), ...opts });
 export const useCryptWeapons = () =>
   useQuery({ queryKey: ["data", "cryptWeapons"], queryFn: getCryptWeapons, ...opts });
-export const useAltWeapons = () =>
-  useQuery({ queryKey: ["data", "altWeapons"], queryFn: getAltWeapons, ...opts });
+/** Armas para comparar com as Crypt: todas as de weapons_melee (Knight) e weapons_hand (Monk), mesmo cache do Set Builder. */
+export function useAltWeapons() {
+  const melee = useTabela("weapons_melee");
+  const hand = useTabela("weapons_hand");
+  const data = useMemo(
+    () =>
+      melee.data && hand.data
+        ? [...armasDeMelee(melee.data), ...armasDeHand(hand.data)]
+        : undefined,
+    [melee.data, hand.data],
+  );
+  return {
+    data,
+    isPending: melee.isPending || hand.isPending,
+    isError: melee.isError || hand.isError,
+    refetch: () => Promise.all([melee.refetch(), hand.refetch()]),
+  };
+}
 export const useSources = () =>
   useQuery({ queryKey: ["data", "sources"], queryFn: getSources, ...opts });
 
