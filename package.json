@@ -16,7 +16,6 @@
     "start": "node .output/server/index.mjs",
     "e2e": "playwright test",
     "lighthouse": "bun scripts/lighthouse.ts",
-    "verify:buckets": "bun scripts/verify-buckets.ts",
     "verify:repo": "bun scripts/verify-repo.ts"
   },
   "dependencies": {

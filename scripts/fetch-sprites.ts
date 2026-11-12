@@ -1,4 +1,4 @@
-// Baixa sprites de todas as criaturas e das armas Crypt para public/sprites/<grupo>/<slug>.gif.
+// Baixa sprites de todas as criaturas para public/sprites/<grupo>/<slug>.gif.
 // Usa apenas a API do MediaWiki (prop=imageinfo) e o CDN de imagens da wiki. É retomável: pula arquivos existentes.
 // Uso: bun scripts/fetch-sprites.ts
 import { existsSync } from "node:fs";
@@ -95,4 +95,3 @@ async function downloadSprites({ group, source }: SpriteBatch) {
 }
 
 await downloadSprites({ group: "creatures", source: "creatures.json" });
-await downloadSprites({ group: "crypt-weapons", source: "crypt-weapons.json" });

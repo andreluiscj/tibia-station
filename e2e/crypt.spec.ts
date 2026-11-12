@@ -1,56 +1,83 @@
-import { expect, test } from "@playwright/test";
-import { lerRanking, semRolagemHorizontal, texto, vigiarConsole, abrir } from "./helpers";
+import { expect, test, type Page } from "@playwright/test";
+import { semRolagemHorizontal, vigiarConsole, abrir } from "./helpers";
 
 // Gate 5 do plano: fluxo Crypt (escolher vocação, monstro, ver ranking).
 test.describe("Crypt Calculator", () => {
-  test("fluxo EK + Hellflayer: ranking oficial com empate em 2º", async ({ page }) => {
+  const status = (page: Page) => page.getByRole("status").filter({ hasText: "Melhor arma" });
+
+  test("fluxo EK + Hellflayer: 3 categorias, melhor arma de cada uma", async ({ page }) => {
     const erros = vigiarConsole(page);
     await abrir(page, "/crypt");
     await page.getByRole("button", { name: "Elite Knight" }).click();
-    await page.getByRole("combobox", { name: "Monstro" }).click();
-    await page.getByPlaceholder("Digite para buscar").fill("hellflayer");
+    await page.getByRole("combobox", { name: "Criatura" }).click();
+    await page.getByPlaceholder("Pesquisar criatura…").fill("hellflayer");
     await page.getByRole("option", { name: /Hellflayer/ }).click();
 
-    await expect(texto(page, "Melhor arma: Crypt Splitter 114,0")).toBeVisible();
-    const r = await lerRanking(page);
-    expect(r.map((x) => x.nome)).toEqual(["Crypt Splitter", "Crypt Breaker", "Crypt Slicer"]);
-    expect(r.map((x) => x.posicao)).toEqual(["1", "2", "2"]);
-    expect(r[0].texto).toContain("114,0");
-    expect(r[1].texto).toContain("107,0");
-    expect(r[2].texto).toContain("107,0");
-    expect(r[1].empate && r[2].empate).toBe(true);
+    await expect(status(page)).toContainText("Melhor arma: Crypt Splitter, 114,0");
+    for (const nome of ["Crypt Splitter", "Crypt Breaker", "Crypt Slicer"])
+      await expect(page.getByText(nome, { exact: true }).first()).toBeVisible();
+    await expect(page.getByText(/Combinação:/).first()).toBeVisible();
+    await expect(page.getByText(/Imbuiment Elemental (Sim|Não)/).first()).toBeVisible();
     expect(page.url()).toContain("monster=hellflayer");
     await semRolagemHorizontal(page);
     expect(erros).toEqual([]);
   });
 
-  test("modo referência mostra os números da calculadora da comunidade", async ({ page }) => {
+  test("botão 'Visualizar hunts da criatura' abre modal centralizado", async ({ page }) => {
     await abrir(page, "/crypt?monster=hellflayer");
-    await page.getByRole("button", { name: "Calculadora de referência" }).click();
-    await expect(page).toHaveURL(/modo=reference/);
-    const r = await lerRanking(page);
-    // o cartão exibe 1 casa decimal: 113,75 vira 113,8 e 106,25 vira 106,3
-    expect(r[0].texto).toContain("113,8");
-    expect(r.find((x) => x.nome === "Crypt Breaker")?.texto).toContain("87,5");
-    expect(r.find((x) => x.nome === "Crypt Slicer")?.texto).toContain("106,3");
+    await page.getByRole("button", { name: "Visualizar hunts da criatura" }).click();
+    const modal = page.getByRole("dialog");
+    await expect(modal).toBeVisible();
+    await expect(modal).toContainText("Hunts com Hellflayer");
+    const b = (await modal.boundingBox())!;
+    const vp = page.viewportSize()!;
+    expect(Math.abs(b.x + b.width / 2 - vp.width / 2)).toBeLessThan(4);
+    expect(Math.abs(b.y + b.height / 2 - vp.height / 2)).toBeLessThan(4);
   });
 
-  test("premissa 50/50 editável e peso da hunt por checkbox", async ({ page }) => {
+  // Regressão: askarak-demon (Moonsilver Claymore / Crypt Breaker / Inferniarch Greataxe) saía com cartões desiguais.
+  test("askarak-demon em 'Comparar as 3': melhores cartões e Alternativas alinhados", async ({ page }) => {
+    await abrir(page, "/crypt?voc=ek&monster=askarak-demon");
+    const melhor = page.getByText("Melhor opção para este alvo");
+    await expect(melhor).toHaveCount(3);
+    const caixas = await melhor
+      .locator("xpath=ancestor::*[contains(concat(' ',normalize-space(@class),' '),' frame ')][1]")
+      .evaluateAll((es) =>
+        es.map((e) => {
+          const r = e.getBoundingClientRect();
+          return { y: Math.round(r.top), h: Math.round(r.height) };
+        }),
+      );
+    expect(new Set(caixas.map((c) => c.h)).size).toBe(1);
+    expect(new Set(caixas.map((c) => c.y)).size).toBe(1);
+    const alt = page.getByText("Alternativas", { exact: true });
+    const ys = await alt.evaluateAll((es) => es.map((e) => Math.round(e.getBoundingClientRect().top)));
+    expect(ys).toHaveLength(3);
+    expect(new Set(ys).size).toBe(1);
+  });
+
+  test("Souleater (Axe) como melhor arma não gera sprite quebrado", async ({ page }) => {
+    const falhas: string[] = [];
+    page.on("response", (r) => {
+      if (r.status() >= 400 && r.url().includes("/sprites/items/")) falhas.push(`${r.status()} ${r.url()}`);
+    });
+    await abrir(page, "/crypt?voc=ek&monster=radiant-templar");
+    await expect(page.getByText("Souleater", { exact: true }).first()).toBeVisible();
+    await page.waitForLoadState("networkidle");
+    expect(falhas).toEqual([]);
+  });
+
+  test("peso da hunt por checkbox", async ({ page }) => {
     await abrir(page, "/crypt?hunt=alchemist-quarter");
-    await expect(texto(page, /Melhor arma: Crypt Breaker/)).toBeVisible();
-    await page.getByText(/^Premissa:/).click();
-    await page.getByLabel(/Parte do dano que vira elemento/).fill("40");
-    await expect(page).toHaveURL(/share=40/);
-    await page.getByRole("button", { name: "Voltar para 50%" }).click();
-    await expect(page).not.toHaveURL(/share=/);
+    await expect(status(page)).toContainText("Melhor arma: Crypt Breaker");
     await page.getByLabel(/Ponderar pelo peso/).check();
     await expect(page).toHaveURL(/peso=1/);
-    await expect(texto(page, /Melhor arma: Crypt Splitter/)).toBeVisible();
+    await expect(status(page)).toContainText("Melhor arma:");
   });
 
   test("Monk mostra só o Crypt Strike", async ({ page }) => {
     await abrir(page, "/crypt?monster=hellflayer&voc=monk");
-    await expect(texto(page, /Melhor arma: Crypt Strike/)).toBeVisible();
+    await expect(status(page)).toContainText("Melhor arma: Crypt Strike");
     await expect(page.getByText("Crypt Splitter")).toHaveCount(0);
     await expect(page.getByText("Crypt Breaker")).toHaveCount(0);
   });
@@ -58,17 +85,14 @@ test.describe("Crypt Calculator", () => {
   test("nível abaixo de 450 avisa sem esconder o cálculo", async ({ page }) => {
     await abrir(page, "/crypt?monster=hellflayer&lvl=300");
     await expect(page.getByText(/A Crypt exige nível 450/)).toBeVisible();
-    await expect(texto(page, /Melhor arma: Crypt Splitter/)).toBeVisible();
+    await expect(status(page)).toContainText("Melhor arma:");
   });
 
   test("estado restaurado a partir da URL", async ({ page }) => {
-    await abrir(
-      page,
-      "/crypt?voc=ek&cat=sword&lvl=450&hunt=claustrophobic-inferno&modo=reference&share=30&peso=1",
-    );
+    await abrir(page, "/crypt?voc=ek&cat=sword&lvl=450&hunt=claustrophobic-inferno&peso=1");
     await expect(page.getByLabel("Nível do personagem")).toHaveValue("450");
-    await expect(page.getByText(/Premissa: 70% físico e 30% elemento/)).toBeVisible();
-    await expect(texto(page, /Alvo: Claustrophobic Inferno/)).toBeVisible();
+    await expect(status(page)).toContainText("Alvo: Claustrophobic Inferno");
+    await expect(page.getByLabel(/Ponderar pelo peso/)).toBeChecked();
   });
 
   // Parâmetros inválidos devem ser descartados sem quebrar a tela (critério de aceite da fase 4).

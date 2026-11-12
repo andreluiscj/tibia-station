@@ -23,7 +23,7 @@ test("EK + Axe + nível 450 gera o set com sprites carregados", async ({ page })
   await gerar.click();
   await expect(page.getByText("Preset de nível 450")).toBeVisible();
 
-  const sprites = page.locator('img[src*="Itens%20Sprites"]');
+  const sprites = page.locator('img[src*="/sprites/items/"]');
   await expect(sprites.first()).toBeVisible();
   expect(await sprites.count()).toBeGreaterThanOrEqual(6);
   await expect

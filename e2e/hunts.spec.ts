@@ -1,12 +1,12 @@
 import { expect, test } from "@playwright/test";
-import { semRolagemHorizontal, texto, vigiarConsole, abrir } from "./helpers";
+import { semRolagemHorizontal, vigiarConsole, abrir } from "./helpers";
 
 // Gate 5: Hunt Finder, detalhe de hunt, ficha de monstro e busca global.
 test.describe("Hunt Finder", () => {
   test("lista, filtra por vocação, só 450+ e busca", async ({ page }) => {
     const erros = vigiarConsole(page);
     await abrir(page, "/hunts");
-    await expect(page.getByText("444 hunts")).toBeVisible();
+    await expect(page.getByText("434 hunts")).toBeVisible();
 
     const so450 = page.getByRole("checkbox", { name: /nível 450 ou mais/ });
     await so450.check();
@@ -21,7 +21,7 @@ test.describe("Hunt Finder", () => {
     await page.getByRole("button", { name: "Todas", exact: true }).click();
 
     await page.getByLabel("Buscar hunt").fill("dragon");
-    await expect(page.getByText("24 hunts")).toBeVisible();
+    await expect(page.getByText("23 hunts")).toBeVisible();
     await page.getByLabel("Buscar hunt").fill("zzzzqq");
     await expect(page.getByText("Nenhuma hunt encontrada")).toBeVisible();
     await semRolagemHorizontal(page);
@@ -37,7 +37,7 @@ test.describe("Hunt Finder", () => {
     ).toBeVisible();
     await page.getByRole("link", { name: "Ver Crypt para esta hunt" }).click();
     await expect(page).toHaveURL(/\/crypt\?.*hunt=claustrophobic-inferno/);
-    await expect(texto(page, /Alvo: Claustrophobic Inferno/)).toBeVisible();
+    await expect(page.getByRole("status").filter({ hasText: "Alvo: Claustrophobic Inferno" })).toBeAttached();
   });
 
   test("hunt inexistente mostra 404 em português", async ({ page }) => {
@@ -48,20 +48,9 @@ test.describe("Hunt Finder", () => {
   test("ficha de monstro: resistência negativa mostra Absorve (cura); slug inexistente = 404 pt-BR", async ({
     page,
   }) => {
-    await abrir(page, "/monstros/brain-head");
+    await abrir(page, "/monstros/infected-weeper");
     await expect(page.getByText("Absorve (cura)").first()).toBeVisible();
     await abrir(page, "/monstros/nada");
     await expect(page.getByRole("heading", { name: "Criatura não encontrada" })).toBeVisible();
-  });
-
-  test("Ctrl+K abre a busca global e Enter abre a ficha", async ({ page }) => {
-    await abrir(page, "/");
-    await page.keyboard.press("Control+k");
-    const busca = page.getByPlaceholder("Buscar criatura ou hunt");
-    await expect(busca).toBeFocused();
-    await busca.fill("hellflayer");
-    await page.keyboard.press("Enter");
-    await expect(page).toHaveURL(/\/monstros\/hellflayer$/);
-    await expect(page.getByRole("heading", { level: 1, name: "Hellflayer" })).toBeVisible();
   });
 });

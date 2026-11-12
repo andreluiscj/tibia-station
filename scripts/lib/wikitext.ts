@@ -108,5 +108,5 @@ export function plain(raw: string | undefined): string {
     .trim();
 }
 
-// Mesmo slugify do sprite (src/lib/storage.ts), para casar slug com o GIF do bucket.
+// Mesmo slugify do sprite (src/lib/storage.ts), para casar slug com o GIF em public/sprites/items.
 export { slugify } from "../../src/lib/storage";

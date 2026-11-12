@@ -1,14 +1,12 @@
-// Imagens servidas do próprio projeto (public/img/*, cópia dos buckets do Supabase), para funcionar em qualquer deploy sem variáveis de ambiente.
+// Imagens servidas do próprio projeto (public/sprites/*), para funcionar em qualquer deploy sem variáveis de ambiente.
 const PASTAS = {
-  sprites: "sprites",
+  sprites: "items",
   emptySet: "empty-set",
   imbuiments: "imbuiments",
   stats: "stats",
 } as const;
 
-export const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
-
-const publicUrl = (pasta: string, file: string) => `/img/${pasta}/${file}`;
+const publicUrl = (pasta: string, file: string) => `/sprites/${pasta}/${file}`;
 
 export function slugify(name: string): string {
   return name
@@ -20,8 +18,12 @@ export function slugify(name: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
+/** Tira o sufixo de classe do banco ("Souleater (Axe)" vira "Souleater"): é o nome exibido e o do sprite. */
+export const nomeDaArma = (name: string) =>
+  name.replace(/\s*\((?:axe|club|sword)\)\s*$/i, "").trim();
+
 export const spriteUrl = (itemName: string) =>
-  publicUrl(PASTAS.sprites, `${slugify(itemName)}.gif`);
+  publicUrl(PASTAS.sprites, `${slugify(nomeDaArma(itemName))}.gif`);
 export const emptySlotUrl = (name: string) => publicUrl(PASTAS.emptySet, `${name}.png`);
 export const statIconUrl = (name: string) => publicUrl(PASTAS.stats, `${name}.png`);
 export const imbuimentImageUrl = (slug: string) => publicUrl(PASTAS.imbuiments, `${slug}.png`);

@@ -42,3 +42,7 @@ dist-ssr
 # Artefatos de ferramentas (graphify, serena)
 graphify-out/
 .serena/
+
+# Resultados dos testes e2e (Playwright)
+test-results/
+playwright-report/
