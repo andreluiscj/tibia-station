@@ -50,6 +50,7 @@ export function parseCreature(title: string, wikitext: string): Creature | null 
     exp: parseInteger(box.exp),
     bestiaryClass: plain(box.bestiaryclass) || null,
     bestiaryLevel: plain(box.bestiarylevel) || null,
+    bosstiaryClass: plain(box.bosstiaryclass) || null,
     resist,
     resistUnconfirmed,
     sourceUrl: wikiUrl(title),

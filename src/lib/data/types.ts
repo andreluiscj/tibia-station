@@ -20,6 +20,8 @@ export interface Creature {
   bestiaryClass: string | null;
   /** Dificuldade do bestiário em texto da wiki (Harmless, Trivial, Easy, Medium, Hard, Challenging). DIVERGE do contrato (number 1..4): a wiki nunca usa número. */
   bestiaryLevel: string | null;
+  /** Classe no Bosstiary (Bane, Archfoe, Nemesis); só os 316 bosses a têm. */
+  bosstiaryClass: string | null;
   resist: ResistMap;
   /** Elementos que a wiki marca como não confirmados ("100%?"); o número fica em `resist`. */
   resistUnconfirmed: Element[];

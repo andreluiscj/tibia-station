@@ -11,13 +11,14 @@ const indexed = <T extends { slug: string }>(list: readonly T[]) => ({
 });
 
 // Só entram criaturas reais do jogo: as que têm classe no Bestiary. Fora ficam bosses, NPCs, eventos e monstros extintos.
-const creatures = once(async () =>
-  indexed(
-    ((await import("@data/creatures.json")).default as unknown as readonly Creature[]).filter(
-      (c) => c.bestiaryClass,
-    ),
-  ),
+const todasCriaturas = once(
+  async () => (await import("@data/creatures.json")).default as unknown as readonly Creature[],
 );
+const creatures = once(async () =>
+  indexed((await todasCriaturas()).filter((c) => c.bestiaryClass)),
+);
+// Os 316 bosses do Bosstiary ficam numa lista própria (fora do seletor de criaturas).
+const bosses = once(async () => indexed((await todasCriaturas()).filter((c) => c.bosstiaryClass)));
 // Hunts perdem as criaturas excluídas; a hunt que ficar sem nenhuma some.
 const hunts = once(async () => {
   const reais = new Set((await creatures()).list.map((c) => c.slug));
@@ -36,6 +37,7 @@ const sources = once(
 );
 
 export const getCreatures = async (): Promise<readonly Creature[]> => (await creatures()).list;
+export const getBosses = async (): Promise<readonly Creature[]> => (await bosses()).list;
 export const getHunts = async (): Promise<readonly Hunt[]> => (await hunts()).list;
 export const getCryptWeapons = async (): Promise<readonly CryptWeapon[]> =>
   (await cryptWeapons()).list;

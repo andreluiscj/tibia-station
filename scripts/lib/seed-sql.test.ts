@@ -25,6 +25,7 @@ const creature: Creature = {
   exp: null,
   bestiaryClass: null,
   bestiaryLevel: null,
+  bosstiaryClass: null,
   resist: {
     physical: 100,
     earth: null,

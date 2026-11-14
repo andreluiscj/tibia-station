@@ -23,6 +23,7 @@ const creature = {
   exp: null,
   bestiaryClass: null,
   bestiaryLevel: "Hard",
+  bosstiaryClass: null,
   resist,
 };
 

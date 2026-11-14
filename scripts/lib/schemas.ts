@@ -30,6 +30,7 @@ export const creatureSchema = z.object({
   exp: count,
   bestiaryClass: text.nullable(),
   bestiaryLevel: text.nullable(),
+  bosstiaryClass: text.nullable(),
   resist: z.object({
     physical: resist,
     earth: resist,
