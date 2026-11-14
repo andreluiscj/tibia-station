@@ -1,0 +1,3284 @@
+{
+  "geradoEm": "2026-11-14T05:16:33.782Z",
+  "total": 1149,
+  "bate": 969,
+  "diverge": [
+    {
+      "slug": "ahau",
+      "nome": "Ahau",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 100,
+          "pt": 95
+        },
+        "energy": {
+          "atual": 100,
+          "pt": 95
+        },
+        "ice": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "alptramun",
+      "nome": "Alptramun",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 95,
+          "pt": 97
+        },
+        "ice": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "amenef-the-burning",
+      "nome": "Amenef the Burning",
+      "boss": true,
+      "diferencas": {
+        "ice": {
+          "atual": 120,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "anmothra",
+      "nome": "Anmothra",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 110,
+          "pt": 20
+        },
+        "energy": {
+          "atual": 75,
+          "pt": 80
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "annihilon",
+      "nome": "Annihilon",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 100,
+          "pt": 105
+        },
+        "energy": {
+          "atual": 5,
+          "pt": 4
+        },
+        "holy": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "arachir-the-ancient-one",
+      "nome": "Arachir the Ancient One",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 0,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 95,
+          "pt": 80
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "arthei",
+      "nome": "Arthei",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 0,
+          "pt": 50
+        },
+        "holy": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "ayana-the-crimson-curse",
+      "nome": "Ayana the Crimson Curse",
+      "boss": true,
+      "diferencas": {
+        "death": {
+          "atual": 50,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "bane-lord",
+      "nome": "Bane Lord",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 5,
+          "pt": 10
+        },
+        "ice": {
+          "atual": 5,
+          "pt": 10
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "black-knight",
+      "nome": "Black Knight",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 80
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "blight-mariner",
+      "nome": "Blight Mariner",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 105,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 80,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "bloodback",
+      "nome": "Bloodback",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "boogey",
+      "nome": "Boogey",
+      "boss": true,
+      "diferencas": {
+        "ice": {
+          "atual": 75,
+          "pt": 35
+        },
+        "death": {
+          "atual": 0,
+          "pt": 20
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "bragrumol",
+      "nome": "Bragrumol",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 30,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "brain-head",
+      "nome": "Brain Head",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": -1000,
+          "pt": -100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "brokul",
+      "nome": "Brokul",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 105,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 115,
+          "pt": 100
+        },
+        "death": {
+          "atual": 85,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "bullwark",
+      "nome": "Bullwark",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 0,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 95,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 85,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 85,
+          "pt": 100
+        },
+        "death": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "captain-jones",
+      "nome": "Captain Jones",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 90,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "chagorz",
+      "nome": "Chagorz",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 100,
+          "pt": 90
+        },
+        "fire": {
+          "atual": 105,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 65,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "chikhaton",
+      "nome": "Chikhaton",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 50,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "clavius",
+      "nome": "Clavius",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 125,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 112,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 106,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 85,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 75,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "count-vlarkorth",
+      "nome": "Count Vlarkorth",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 95,
+          "pt": 97
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "countess-sorrow",
+      "nome": "Countess Sorrow",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 90,
+          "pt": 80
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "custodian",
+      "nome": "Custodian",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 0,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "darkfang",
+      "nome": "Darkfang",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 105,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 80,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "death-priest-shargon",
+      "nome": "Death Priest Shargon",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 40,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 95,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 97,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "deep-terror",
+      "nome": "Deep Terror",
+      "boss": true,
+      "diferencas": {
+        "holy": {
+          "atual": 100,
+          "pt": 101
+        },
+        "death": {
+          "atual": 90,
+          "pt": 101
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "despor",
+      "nome": "Despor",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 75,
+          "pt": 60
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "devoted-radiant-acolyte",
+      "nome": "Devoted Radiant Acolyte",
+      "boss": false,
+      "diferencas": {
+        "physical": {
+          "atual": 95,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 105,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 60,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 90,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 95,
+          "pt": 100
+        },
+        "death": {
+          "atual": 70,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "devoted-radiant-paragon",
+      "nome": "Devoted Radiant Paragon",
+      "boss": false,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 115,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 70,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 95,
+          "pt": 100
+        },
+        "death": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "devoted-radiant-warden",
+      "nome": "Devoted Radiant Warden",
+      "boss": false,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 105,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 70,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 90,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 110,
+          "pt": 100
+        },
+        "death": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "dharalion",
+      "nome": "Dharalion",
+      "boss": true,
+      "diferencas": {
+        "holy": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "dipthrah",
+      "nome": "Dipthrah",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 95,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "diseased-bill",
+      "nome": "Diseased Bill",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "death": {
+          "atual": 25,
+          "pt": 99
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "diseased-dan",
+      "nome": "Diseased Dan",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 105,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 65,
+          "pt": 15
+        },
+        "death": {
+          "atual": 95,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "diseased-fred",
+      "nome": "Diseased Fred",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 85,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 85,
+          "pt": 80
+        },
+        "death": {
+          "atual": 45,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "dreadful-disruptor",
+      "nome": "Dreadful Disruptor",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 90,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 75,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 75,
+          "pt": 100
+        },
+        "death": {
+          "atual": 85,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "duke-krule",
+      "nome": "Duke Krule",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 95,
+          "pt": 100
+        },
+        "death": {
+          "atual": -60,
+          "pt": -100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "earl-osam",
+      "nome": "Earl Osam",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 105,
+          "pt": 107
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "ekatrix",
+      "nome": "Ekatrix",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 105,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "elvira-hammerthrust",
+      "nome": "Elvira Hammerthrust",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 80,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "enslaved-dwarf",
+      "nome": "Enslaved Dwarf",
+      "boss": false,
+      "diferencas": {
+        "death": {
+          "atual": 85,
+          "pt": 86
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "eradicator",
+      "nome": "Eradicator",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 50,
+          "pt": 70
+        },
+        "fire": {
+          "atual": 50,
+          "pt": 70
+        },
+        "energy": {
+          "atual": 50,
+          "pt": 70
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "essence-of-malice",
+      "nome": "Essence of Malice",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 150,
+          "pt": 130
+        },
+        "fire": {
+          "atual": 150,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 50,
+          "pt": 80
+        },
+        "holy": {
+          "atual": 150,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "faceless-bane",
+      "nome": "Faceless Bane",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 70,
+          "pt": 50
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "ferumbras",
+      "nome": "Ferumbras",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 95,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 10,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 10,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 80,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 80,
+          "pt": 100
+        },
+        "death": {
+          "atual": 95,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "ferumbras-mortal-shell",
+      "nome": "Ferumbras Mortal Shell",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 35,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 35,
+          "pt": 10
+        },
+        "energy": {
+          "atual": 35,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 35,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 35,
+          "pt": 100
+        },
+        "death": {
+          "atual": 35,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "flamecaller-zazrak",
+      "nome": "Flamecaller Zazrak",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 45,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 100,
+          "pt": 110
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "foreman-kneebiter",
+      "nome": "Foreman Kneebiter",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 90,
+          "pt": 105
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "furyosa",
+      "nome": "Furyosa",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "gaffir",
+      "nome": "Gaffir",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 80,
+          "pt": 60
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "gelidrazah-the-frozen",
+      "nome": "Gelidrazah the Frozen",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 120,
+          "pt": 130
+        },
+        "death": {
+          "atual": 90,
+          "pt": 130
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "general-murius",
+      "nome": "General Murius",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "ghulosh",
+      "nome": "Ghulosh",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 105,
+          "pt": 100
+        },
+        "fire": {
+          "atual": -100,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 95,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 80,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 105,
+          "pt": 100
+        },
+        "death": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "glitterscale",
+      "nome": "Glitterscale",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 80,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "glooth-fairy",
+      "nome": "Glooth Fairy",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 0,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 105,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 95,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 85,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "gnomevil",
+      "nome": "Gnomevil",
+      "boss": true,
+      "diferencas": {
+        "death": {
+          "atual": 73,
+          "pt": 70
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "golgordan",
+      "nome": "Golgordan",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 95,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 70,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "gorga",
+      "nome": "Gorga",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 105,
+          "pt": 110
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "gorzindel",
+      "nome": "Gorzindel",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 100,
+          "pt": 0
+        },
+        "fire": {
+          "atual": -100,
+          "pt": 0
+        },
+        "energy": {
+          "atual": 95,
+          "pt": 0
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "goshnars-malice",
+      "nome": "Goshnar's Malice",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 85,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "grand-canon-dominus",
+      "nome": "Grand Canon Dominus",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 50,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 50,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 50,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "grand-chaplain-gaunder",
+      "nome": "Grand Chaplain Gaunder",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 50,
+          "pt": 85
+        },
+        "fire": {
+          "atual": 50,
+          "pt": 85
+        },
+        "energy": {
+          "atual": 50,
+          "pt": 85
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "grand-commander-soeren",
+      "nome": "Grand Commander Soeren",
+      "boss": true,
+      "diferencas": {
+        "holy": {
+          "atual": 125,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "grand-master-oberon",
+      "nome": "Grand Master Oberon",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 100,
+          "pt": 80
+        },
+        "fire": {
+          "atual": 100,
+          "pt": 90
+        },
+        "energy": {
+          "atual": 100,
+          "pt": 95
+        },
+        "holy": {
+          "atual": 120,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "gravelord-oshuran",
+      "nome": "Gravelord Oshuran",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 90,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 65,
+          "pt": 50
+        },
+        "holy": {
+          "atual": 110,
+          "pt": 101
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "guard-captain-quaid",
+      "nome": "Guard Captain Quaid",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 80,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 50,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "hatebreeder",
+      "nome": "Hatebreeder",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 110
+        },
+        "fire": {
+          "atual": 70,
+          "pt": 90
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 110
+        },
+        "holy": {
+          "atual": 100,
+          "pt": 115
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "hellgorak",
+      "nome": "Hellgorak",
+      "boss": true,
+      "diferencas": {
+        "holy": {
+          "atual": 5,
+          "pt": 2
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "heoni",
+      "nome": "Heoni",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 80,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "herald-of-fire",
+      "nome": "Herald of Fire",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 110,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 90,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 70,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 105,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 110,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 110,
+          "pt": 100
+        },
+        "death": {
+          "atual": 95,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "hirintror",
+      "nome": "Hirintror",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 0,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 120,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "horestis",
+      "nome": "Horestis",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 115,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 70,
+          "pt": 80
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "infernoid-spiritual",
+      "nome": "Infernoid Spiritual",
+      "boss": false,
+      "diferencas": {
+        "physical": {
+          "atual": 95,
+          "pt": 100
+        },
+        "death": {
+          "atual": 100,
+          "pt": 95
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "inkwing",
+      "nome": "Inkwing",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 95,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 105,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 80,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 110,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 95,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "irgix-the-flimsy",
+      "nome": "Irgix the Flimsy",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 0,
+          "pt": 50
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "izcandar-champion-of-summer",
+      "nome": "Izcandar Champion of Summer",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": -100,
+          "pt": 0
+        },
+        "energy": {
+          "atual": 95,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "izcandar-champion-of-winter",
+      "nome": "Izcandar Champion of Winter",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 110,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 95,
+          "pt": 100
+        },
+        "ice": {
+          "atual": -100,
+          "pt": 0
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "izcandar-the-banished",
+      "nome": "Izcandar the Banished",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 100,
+          "pt": 0
+        },
+        "energy": {
+          "atual": 95,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "kalyassa",
+      "nome": "Kalyassa",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 50,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 70,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "kroazur",
+      "nome": "Kroazur",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 20,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 45,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 80,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "kusuma",
+      "nome": "Kusuma",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 0,
+          "pt": 90
+        },
+        "fire": {
+          "atual": 105,
+          "pt": 120
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 130
+        },
+        "holy": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "lady-tenebris",
+      "nome": "Lady Tenebris",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 95,
+          "pt": 80
+        },
+        "earth": {
+          "atual": 85,
+          "pt": 130
+        },
+        "energy": {
+          "atual": 95,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 85,
+          "pt": 100
+        },
+        "death": {
+          "atual": 40,
+          "pt": 95
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "latrivan",
+      "nome": "Latrivan",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 95,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 105,
+          "pt": 0
+        },
+        "energy": {
+          "atual": 70,
+          "pt": 95
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "lersatio",
+      "nome": "Lersatio",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 60,
+          "pt": 100
+        },
+        "death": {
+          "atual": 0,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "lisa",
+      "nome": "Lisa",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 0,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 103,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 85,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 80,
+          "pt": 100
+        },
+        "death": {
+          "atual": 50,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "lizard-gate-guardian",
+      "nome": "Lizard Gate Guardian",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 0,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 90,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "lloyd",
+      "nome": "Lloyd",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 95,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 95,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 85,
+          "pt": 70
+        },
+        "holy": {
+          "atual": 90,
+          "pt": 100
+        },
+        "death": {
+          "atual": 40,
+          "pt": 50
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "lokathmor",
+      "nome": "Lokathmor",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 70,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 105,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "lord-azaram",
+      "nome": "Lord Azaram",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 95,
+          "pt": 107
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "lord-of-the-elements",
+      "nome": "Lord of the Elements",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 50,
+          "pt": 99
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "lord-retro",
+      "nome": "Lord Retro",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 0,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 0,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 0,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 0,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 0,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 0,
+          "pt": 100
+        },
+        "death": {
+          "atual": 0,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "lost-thrower",
+      "nome": "Lost Thrower",
+      "boss": false,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 95
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "madareth",
+      "nome": "Madareth",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 90,
+          "pt": 105
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "mahrdis",
+      "nome": "Mahrdis",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 80,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 80,
+          "pt": 99
+        },
+        "holy": {
+          "atual": 120,
+          "pt": 101
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "maior-domus",
+      "nome": "Maior Domus",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 85,
+          "pt": 60
+        },
+        "fire": {
+          "atual": 75,
+          "pt": 70
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 87
+        },
+        "ice": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "malofur-mangrinder",
+      "nome": "Malofur Mangrinder",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 95,
+          "pt": 65
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "massacre",
+      "nome": "Massacre",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 100,
+          "pt": 90
+        },
+        "fire": {
+          "atual": 0,
+          "pt": 50
+        },
+        "death": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "mawhawk",
+      "nome": "Mawhawk",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 80,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 80,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 80,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 85,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 105,
+          "pt": 110
+        },
+        "death": {
+          "atual": 75,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "maxxenius",
+      "nome": "Maxxenius",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": -600,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 85,
+          "pt": 100
+        },
+        "death": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "mazoran",
+      "nome": "Mazoran",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": null,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 95,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "mazzinor",
+      "nome": "Mazzinor",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 95,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "megasylvan-yselda",
+      "nome": "Megasylvan Yselda",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 40,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 20,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "melting-frozen-horror",
+      "nome": "Melting Frozen Horror",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 115,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 105,
+          "pt": 100
+        },
+        "ice": {
+          "atual": -100,
+          "pt": 0
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "mitmah-vanguard",
+      "nome": "Mitmah Vanguard",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 110,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 75,
+          "pt": 70
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 105
+        },
+        "ice": {
+          "atual": 85,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "morgaroth",
+      "nome": "Morgaroth",
+      "boss": true,
+      "diferencas": {
+        "holy": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "morguthis",
+      "nome": "Morguthis",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 80,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 75,
+          "pt": 99
+        },
+        "energy": {
+          "atual": 75,
+          "pt": 99
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "mozradek",
+      "nome": "Mozradek",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 0,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 130,
+          "pt": 100
+        },
+        "death": {
+          "atual": 75,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "neferi-the-spy",
+      "nome": "Neferi the Spy",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 100,
+          "pt": 110
+        },
+        "ice": {
+          "atual": 110,
+          "pt": 100
+        },
+        "death": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "omrafir",
+      "nome": "Omrafir",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 50,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 50,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 0,
+          "pt": -100
+        },
+        "energy": {
+          "atual": 50,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 50,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 50,
+          "pt": 100
+        },
+        "death": {
+          "atual": 50,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "omruc",
+      "nome": "Omruc",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 80,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 80,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 105,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 105,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "orclops-bloodbreaker",
+      "nome": "Orclops Bloodbreaker",
+      "boss": false,
+      "diferencas": {
+        "death": {
+          "atual": 70,
+          "pt": 75
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "outburst",
+      "nome": "Outburst",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 110,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 130
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "overseer-osverger",
+      "nome": "Overseer Osverger",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 106,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 106,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 85,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 75,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "owin-creature",
+      "nome": "Owin (Creature)",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 80,
+          "pt": 90
+        },
+        "fire": {
+          "atual": 100,
+          "pt": 110
+        },
+        "energy": {
+          "atual": 80,
+          "pt": 90
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "pirate-quartermaster",
+      "nome": "Pirate Quartermaster",
+      "boss": false,
+      "diferencas": {
+        "earth": {
+          "atual": 100,
+          "pt": 105
+        },
+        "fire": {
+          "atual": 100,
+          "pt": 105
+        },
+        "energy": {
+          "atual": 100,
+          "pt": 105
+        },
+        "ice": {
+          "atual": 100,
+          "pt": 95
+        },
+        "holy": {
+          "atual": 100,
+          "pt": 95
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "plagueroot",
+      "nome": "Plagueroot",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "professor-maxxen",
+      "nome": "Professor Maxxen",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 95,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 50,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 65,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 95,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 60,
+          "pt": 100
+        },
+        "death": {
+          "atual": 85,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "ragiaz",
+      "nome": "Ragiaz",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 80,
+          "pt": 100
+        },
+        "death": {
+          "atual": 50,
+          "pt": 90
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "rakesh-moonfang",
+      "nome": "Rakesh Moonfang",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 80,
+          "pt": 77
+        },
+        "ice": {
+          "atual": 80,
+          "pt": 77
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "razzagorn",
+      "nome": "Razzagorn",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 60,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "rotworm-queen",
+      "nome": "Rotworm Queen",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 60,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 120,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 100,
+          "pt": 105
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "rukor-zad",
+      "nome": "Rukor Zad",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 80,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 95,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "sharpclaw",
+      "nome": "Sharpclaw",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 105,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "shulgrax",
+      "nome": "Shulgrax",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 110,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 90,
+          "pt": 130
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "sir-baeloc",
+      "nome": "Sir Baeloc",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 100,
+          "pt": 97
+        },
+        "death": {
+          "atual": -100,
+          "pt": -300
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "sir-leonard",
+      "nome": "Sir Leonard",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 95,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 105,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 110,
+          "pt": 100
+        },
+        "death": {
+          "atual": 70,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "sir-nictros",
+      "nome": "Sir Nictros",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 95,
+          "pt": 97
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "sir-valorcrest",
+      "nome": "Sir Valorcrest",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "sister-hetai",
+      "nome": "Sister Hetai",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 95,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 125,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "sopping-carcass",
+      "nome": "Sopping Carcass",
+      "boss": false,
+      "diferencas": {
+        "death": {
+          "atual": 40,
+          "pt": 50
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "sopping-corpus",
+      "nome": "Sopping Corpus",
+      "boss": false,
+      "diferencas": {
+        "holy": {
+          "atual": 105,
+          "pt": 95
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "sugar-mommy",
+      "nome": "Sugar Mommy",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 110,
+          "pt": 105
+        },
+        "energy": {
+          "atual": 75,
+          "pt": 90
+        },
+        "ice": {
+          "atual": 90,
+          "pt": 85
+        },
+        "holy": {
+          "atual": 90,
+          "pt": 100
+        },
+        "death": {
+          "atual": 60,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "tamru-the-black",
+      "nome": "Tamru the Black",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 100,
+          "pt": 105
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "tazhadur",
+      "nome": "Tazhadur",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 50,
+          "pt": 99
+        },
+        "energy": {
+          "atual": 80,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 105,
+          "pt": 100
+        },
+        "death": {
+          "atual": 100,
+          "pt": 101
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "thaian",
+      "nome": "Thaian",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 10,
+          "pt": 100
+        },
+        "earth": {
+          "atual": 10,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 10,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 10,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 10,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 10,
+          "pt": 100
+        },
+        "death": {
+          "atual": 10,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "the-blazing-rose",
+      "nome": "The Blazing Rose",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 80,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 0,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "the-count-of-the-core",
+      "nome": "The Count of the Core",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": -75,
+          "pt": -100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-dread-maiden",
+      "nome": "The Dread Maiden",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-enraged-thorn-knight",
+      "nome": "The Enraged Thorn Knight",
+      "boss": true,
+      "diferencas": {
+        "death": {
+          "atual": -1000,
+          "pt": 65
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-false-god",
+      "nome": "The False God",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 90,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "the-fear-feaster",
+      "nome": "The Fear Feaster",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 110,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 100
+        },
+        "death": {
+          "atual": -100,
+          "pt": 0
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-flaming-orchid",
+      "nome": "The Flaming Orchid",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 0,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 110,
+          "pt": 100
+        },
+        "death": {
+          "atual": 70,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "the-frog-prince",
+      "nome": "The Frog Prince",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 20,
+          "pt": 0
+        },
+        "fire": {
+          "atual": 10,
+          "pt": 3
+        },
+        "energy": {
+          "atual": 10,
+          "pt": 6
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-gravedigger",
+      "nome": "The Gravedigger",
+      "boss": true,
+      "diferencas": {
+        "death": {
+          "atual": 100,
+          "pt": 0
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-handmaiden",
+      "nome": "The Handmaiden",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "death": {
+          "atual": 0,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-hungerer",
+      "nome": "The Hungerer",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 80,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-last-lore-keeper",
+      "nome": "The Last Lore Keeper",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 75,
+          "pt": 30
+        },
+        "earth": {
+          "atual": 80,
+          "pt": 30
+        },
+        "fire": {
+          "atual": 85,
+          "pt": 30
+        },
+        "energy": {
+          "atual": 85,
+          "pt": 30
+        },
+        "ice": {
+          "atual": 65,
+          "pt": 30
+        },
+        "holy": {
+          "atual": 100,
+          "pt": 30
+        },
+        "death": {
+          "atual": 40,
+          "pt": 30
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-mean-masher",
+      "nome": "The Mean Masher",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 50,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 70,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-mega-magmaoid",
+      "nome": "The Mega Magmaoid",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 0,
+          "pt": 100
+        },
+        "fire": {
+          "atual": -600,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "the-moonlight-aster",
+      "nome": "The Moonlight Aster",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 110,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 90,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 85,
+          "pt": 100
+        },
+        "death": {
+          "atual": 0,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "the-moonsnow-magnolia",
+      "nome": "The Moonsnow Magnolia",
+      "boss": true,
+      "diferencas": {
+        "ice": {
+          "atual": 85,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-nightmare-beast",
+      "nome": "The Nightmare Beast",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 65,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 85,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "the-pale-count",
+      "nome": "The Pale Count",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 85,
+          "pt": 110
+        },
+        "ice": {
+          "atual": 70,
+          "pt": 90
+        },
+        "holy": {
+          "atual": 110,
+          "pt": 105
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-plasmother",
+      "nome": "The Plasmother",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 90,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 115,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-ravager",
+      "nome": "The Ravager",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-souldespoiler",
+      "nome": "The Souldespoiler",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "the-time-guardian",
+      "nome": "The Time Guardian",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 20,
+          "pt": 30
+        },
+        "fire": {
+          "atual": 20,
+          "pt": 30
+        },
+        "energy": {
+          "atual": 20,
+          "pt": 30
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "the-unarmored-voidborn",
+      "nome": "The Unarmored Voidborn",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 355,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 355,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 355,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "timira-the-many-headed",
+      "nome": "Timira the Many-Headed",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 90,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 110,
+          "pt": 100
+        },
+        "death": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "tropical-desolator",
+      "nome": "Tropical Desolator",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 95,
+          "pt": 100
+        },
+        "fire": {
+          "atual": 110,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "tzumrah-the-dazzler",
+      "nome": "Tzumrah the Dazzler",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 80,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "urmahlullu-the-weakened",
+      "nome": "Urmahlullu the Weakened",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 0,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 90,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "vashresamun",
+      "nome": "Vashresamun",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 80,
+          "pt": 95
+        },
+        "holy": {
+          "atual": 110,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "vok-the-freakish",
+      "nome": "Vok the Freakish",
+      "boss": true,
+      "diferencas": {
+        "energy": {
+          "atual": 0,
+          "pt": 50
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "xogixath",
+      "nome": "Xogixath",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 50,
+          "pt": 100
+        },
+        "ice": {
+          "atual": 115,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "yakchal",
+      "nome": "Yakchal",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 20,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "zamulosh",
+      "nome": "Zamulosh",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 50,
+          "pt": 100
+        }
+      },
+      "ptTudo100": true
+    },
+    {
+      "slug": "zevelon-duskbringer",
+      "nome": "Zevelon Duskbringer",
+      "boss": true,
+      "diferencas": {
+        "holy": {
+          "atual": 105,
+          "pt": 100
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "zomba",
+      "nome": "Zomba",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 60,
+          "pt": 80
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "zorvorax",
+      "nome": "Zorvorax",
+      "boss": true,
+      "diferencas": {
+        "fire": {
+          "atual": 80,
+          "pt": 100
+        },
+        "energy": {
+          "atual": 80,
+          "pt": 100
+        },
+        "holy": {
+          "atual": 135,
+          "pt": 130
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "zugurosh",
+      "nome": "Zugurosh",
+      "boss": true,
+      "diferencas": {
+        "earth": {
+          "atual": 70,
+          "pt": 60
+        },
+        "energy": {
+          "atual": 70,
+          "pt": 80
+        },
+        "ice": {
+          "atual": 70,
+          "pt": 75
+        }
+      },
+      "ptTudo100": false
+    },
+    {
+      "slug": "zushuka",
+      "nome": "Zushuka",
+      "boss": true,
+      "diferencas": {
+        "physical": {
+          "atual": 100,
+          "pt": 0
+        },
+        "earth": {
+          "atual": 50,
+          "pt": 0
+        },
+        "fire": {
+          "atual": 50,
+          "pt": 0
+        },
+        "energy": {
+          "atual": 110,
+          "pt": 0
+        },
+        "holy": {
+          "atual": 70,
+          "pt": 0
+        },
+        "death": {
+          "atual": 110,
+          "pt": 0
+        }
+      },
+      "ptTudo100": false
+    }
+  ],
+  "naoAchados": [
+    {
+      "slug": "butterfly-blue",
+      "nome": "Butterfly (Blue)",
+      "boss": false
+    },
+    {
+      "slug": "butterfly-purple",
+      "nome": "Butterfly (Purple)",
+      "boss": false
+    },
+    {
+      "slug": "butterfly-red",
+      "nome": "Butterfly (Red)",
+      "boss": false
+    },
+    {
+      "slug": "feroxa",
+      "nome": "Feroxa",
+      "boss": true
+    },
+    {
+      "slug": "horse-brown",
+      "nome": "Horse (Brown)",
+      "boss": false
+    },
+    {
+      "slug": "horse-grey",
+      "nome": "Horse (Grey)",
+      "boss": false
+    },
+    {
+      "slug": "horse-taupe",
+      "nome": "Horse (Taupe)",
+      "boss": false
+    }
+  ]
+}
