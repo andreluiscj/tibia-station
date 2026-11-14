@@ -7,6 +7,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { useT } from "@/lib/i18n";
 import { buscar, type Indexado } from "./busca";
 import { Carregando, Erro } from "./Estados";
 
@@ -47,6 +48,7 @@ export function PickerBase({
   valorIcone?: ReactNode;
   onChange: (chave: string) => void;
 }) {
+  const t = useT();
   const [aberto, setAberto] = useState(false);
   const [q, setQ] = useState("");
   const raiz = useRef<HTMLDivElement>(null);
@@ -74,7 +76,7 @@ export function PickerBase({
   return (
     <div ref={raiz}>
       <span id={idRotulo} className="mb-2 block text-base font-semibold text-muted-foreground">
-        {rotulo}
+        {t(rotulo)}
       </span>
       <button
         type="button"
@@ -82,13 +84,13 @@ export function PickerBase({
         role="combobox"
         aria-expanded={aberto}
         aria-labelledby={idRotulo}
-        className="flex min-h-16 w-full text-lg items-center justify-between gap-3 border border-border bg-metal px-5 text-left transition-colors hover:border-gold-dim"
+        className="flex min-h-14 w-full text-base items-center justify-between gap-3 border border-border bg-metal px-5 text-left transition-colors hover:border-gold-dim"
       >
         <span
           className={`flex items-center gap-3 truncate ${valor ? "font-semibold" : "text-muted-foreground"}`}
         >
           {valor && valorIcone}
-          <span className="truncate">{valor ? (valorRotulo ?? valor) : placeholder}</span>
+          <span className="truncate">{valor ? (valorRotulo ?? valor) : t(placeholder)}</span>
         </span>
         <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
       </button>
@@ -107,12 +109,12 @@ export function PickerBase({
               <CommandInput
                 value={q}
                 onValueChange={setQ}
-                placeholder={`Pesquisar ${rotulo.toLowerCase()}…`}
+                placeholder={t("Pesquisar {x}…", { x: t(rotulo).toLowerCase() })}
                 autoFocus
                 className="h-16 text-xl"
               />
               <CommandList className="max-h-[32rem]">
-                <CommandEmpty>Nada encontrado. Confira a grafia do nome.</CommandEmpty>
+                <CommandEmpty>{t("Nada encontrado. Confira a grafia do nome.")}</CommandEmpty>
                 {resultados.map((o) => (
                   <CommandItem
                     key={o.chave}
@@ -134,7 +136,9 @@ export function PickerBase({
                 ))}
                 {resultados.length === LIMITE && (
                   <p className="px-3 py-2 text-sm text-muted-foreground">
-                    Mostrando os {LIMITE} primeiros. Digite mais letras para refinar.
+                    {t("Mostrando os {n} primeiros. Digite mais letras para refinar.", {
+                      n: LIMITE,
+                    })}
                   </p>
                 )}
               </CommandList>

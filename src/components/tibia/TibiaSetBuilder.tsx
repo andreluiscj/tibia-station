@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import type { SlotKey } from "@/lib/tibia";
 import { Carregando, Erro } from "@/components/station/Estados";
 import { ELEMENTOS } from "@/components/station/elementos";
+import { useT } from "@/lib/i18n";
 import { Cont } from "@/components/station/Layout";
 import { PageIntro } from "@/components/station/PageIntro";
 import { itensDoSlot, layoutDoSet, setParaStats } from "./builderState";
@@ -28,10 +29,11 @@ export function TibiaSetBuilder() {
     setBusca("");
   };
 
+  const t = useT();
   const selo = state.protection
-    ? `Preset de proteção: ${ELEMENTOS[state.protection].label}`
+    ? t("Preset de proteção: {x}", { x: ELEMENTOS[state.protection].label })
     : state.level > 0
-      ? `Preset de nível ${state.level}`
+      ? t("Preset de nível {n}", { n: state.level })
       : null;
 
   return (
@@ -63,7 +65,7 @@ export function TibiaSetBuilder() {
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <h2 id="sb-grade" className="font-display text-xl font-bold">
-                Equipamento do melhor set
+                {t("Equipamento do melhor set")}
               </h2>
             </div>
             {selo && (
@@ -93,7 +95,7 @@ export function TibiaSetBuilder() {
 
           {!state.vocation && (
             <p className="mt-5 text-center text-muted-foreground">
-              Escolha uma vocação acima para começar a montar o set.
+              {t("Escolha uma vocação acima para começar a montar o set.")}
             </p>
           )}
           {state.vocation && sb.carregando && (

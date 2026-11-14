@@ -26,12 +26,13 @@ describe("Recomendacao", () => {
     expect(out).toContain("Imbuiment Elemental");
   });
   it("Crypt mostra elemento, nível, imbuiments, combinação e imbuiment elemental", () => {
-    const out = html([{ ...cand(0), imbuiments: 2 }, cand(1)]);
+    const arma = { slug: "x", element: "fire", perks: [] } as never;
+    const out = html([{ ...cand(0), imbuiments: 2, arma }, cand(1)]);
     expect(out).toContain("Level 450");
     expect(out).toContain("2 Imbuiments");
     expect(out).toContain("Combinação:");
     expect(out).toContain("Imbuiment Elemental");
-    expect(out).toContain("Sim");
+    expect(out).toContain('role="switch"');
     expect(out).toContain("Dano calculado");
   });
   it("arma comum mostra nível e imbuiments (singular/plural), sem combinação nem ataques", () => {

@@ -2,7 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { semRolagemHorizontal, vigiarConsole, abrir } from "./helpers";
 
 // Gate 5 do plano: fluxo Crypt (escolher vocação, monstro, ver ranking).
-test.describe("Crypt Calculator", () => {
+test.describe("Damage Calculator", () => {
   const status = (page: Page) => page.getByRole("status").filter({ hasText: "Melhor arma" });
 
   test("fluxo EK + Hellflayer: 3 categorias, melhor arma de cada uma", async ({ page }) => {
@@ -17,10 +17,24 @@ test.describe("Crypt Calculator", () => {
     for (const nome of ["Crypt Splitter", "Crypt Breaker", "Crypt Slicer"])
       await expect(page.getByText(nome, { exact: true }).first()).toBeVisible();
     await expect(page.getByText(/Combinação:/).first()).toBeVisible();
-    await expect(page.getByText(/Imbuiment Elemental (Sim|Não)/).first()).toBeVisible();
+    await expect(page.getByRole("switch", { name: "Imbuiment elemental" }).first()).toBeVisible();
     expect(page.url()).toContain("monster=hellflayer");
     await semRolagemHorizontal(page);
     expect(erros).toEqual([]);
+  });
+
+  test("desligar o imbuiment elemental pede Recalcular e refaz o cálculo", async ({ page }) => {
+    await abrir(page, "/crypt?monster=hellflayer");
+    const chave = page.locator('[role="switch"][aria-checked="true"]').first();
+    await expect(chave).toBeChecked();
+    await expect(page.getByRole("button", { name: "Recalcular" })).toHaveCount(1);
+    await chave.click();
+    await expect(page.getByRole("button", { name: "Recalcular" })).toHaveCount(2);
+    await page.getByRole("button", { name: "Recalcular" }).first().click();
+    // A arma fica com o aviso de perda ou, se caiu no ranking, vira alternativa com o botão de resetar.
+    await expect(page.getByText(/Sem o imbuiment:|Resetar proficiência/).first()).toBeVisible();
+    await page.getByRole("button", { name: "Resetar cálculos" }).click();
+    await expect(page.getByText(/Sem o imbuiment:|Resetar proficiência/)).toHaveCount(0);
   });
 
   test("botão 'Visualizar hunts da criatura' abre modal centralizado", async ({ page }) => {
@@ -36,7 +50,9 @@ test.describe("Crypt Calculator", () => {
   });
 
   // Regressão: askarak-demon (Moonsilver Claymore / Crypt Breaker / Inferniarch Greataxe) saía com cartões desiguais.
-  test("askarak-demon em 'Comparar as 3': melhores cartões e Alternativas alinhados", async ({ page }) => {
+  test("askarak-demon em 'Comparar as 3': melhores cartões e Alternativas alinhados", async ({
+    page,
+  }) => {
     await abrir(page, "/crypt?voc=ek&monster=askarak-demon");
     const melhor = page.getByText("Melhor opção para este alvo");
     await expect(melhor).toHaveCount(3);
@@ -51,7 +67,9 @@ test.describe("Crypt Calculator", () => {
     expect(new Set(caixas.map((c) => c.h)).size).toBe(1);
     expect(new Set(caixas.map((c) => c.y)).size).toBe(1);
     const alt = page.getByText("Alternativas", { exact: true });
-    const ys = await alt.evaluateAll((es) => es.map((e) => Math.round(e.getBoundingClientRect().top)));
+    const ys = await alt.evaluateAll((es) =>
+      es.map((e) => Math.round(e.getBoundingClientRect().top)),
+    );
     expect(ys).toHaveLength(3);
     expect(new Set(ys).size).toBe(1);
   });
@@ -59,7 +77,8 @@ test.describe("Crypt Calculator", () => {
   test("Souleater (Axe) como melhor arma não gera sprite quebrado", async ({ page }) => {
     const falhas: string[] = [];
     page.on("response", (r) => {
-      if (r.status() >= 400 && r.url().includes("/sprites/items/")) falhas.push(`${r.status()} ${r.url()}`);
+      if (r.status() >= 400 && r.url().includes("/sprites/items/"))
+        falhas.push(`${r.status()} ${r.url()}`);
     });
     await abrir(page, "/crypt?voc=ek&monster=radiant-templar");
     await expect(page.getByText("Souleater", { exact: true }).first()).toBeVisible();
@@ -117,7 +136,7 @@ test.describe("Crypt Calculator", () => {
         void d.dismiss();
       });
       await abrir(page, `/crypt?monster=hellflayer&${q}`);
-      await expect(page.getByRole("heading", { name: "Crypt Calculator" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Damage Calculator" })).toBeVisible();
       await expect(page.getByRole("alert")).toHaveCount(0);
       await expect(page.locator("main")).not.toContainText(/NaN|Infinity|undefined/);
       expect(dialogo).toBe(false);

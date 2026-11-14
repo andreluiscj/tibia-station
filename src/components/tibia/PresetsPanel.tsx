@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ElementIcon } from "@/components/station/ElementIcon";
 import { LEVEL_PRESETS, PROTECTIONS, type ProtectionKey } from "@/lib/tibia";
 import { Passo } from "@/components/station/Passo";
+import { useT } from "@/lib/i18n";
 import { Chip } from "@/components/station/Chip";
 import { ELEMENTOS } from "@/components/station/elementos";
 import { Input } from "@/components/ui/input";
@@ -26,6 +27,7 @@ export function PresetsPanel({
   onProtection: (p: ProtectionKey) => void;
   onClear: () => void;
 }) {
+  const t = useT();
   const [custom, setCustom] = useState("");
   const n = Number(custom);
   const customValido = Number.isFinite(n) && n > 0;
@@ -49,7 +51,7 @@ export function PresetsPanel({
                 onLevel(l);
               }}
             >
-              Nível {l}
+              {t("Nível {n}", { n: l })}
             </Chip>
           ))}
         </div>
@@ -57,7 +59,7 @@ export function PresetsPanel({
         <div className="mt-4 flex flex-wrap items-end gap-3">
           <div>
             <label htmlFor="sb-nivel-custom" className="mb-1.5 block text-sm text-muted-foreground">
-              Nível personalizado
+              {t("Nível personalizado")}
             </label>
             <Input
               id="sb-nivel-custom"
@@ -65,7 +67,7 @@ export function PresetsPanel({
               min={1}
               max={NIVEL_MAX}
               inputMode="numeric"
-              placeholder="ex.: 275"
+              placeholder={t("ex.: 275")}
               value={custom}
               onChange={(e) => setCustom(e.target.value)}
               onKeyDown={(e) => {
@@ -79,7 +81,7 @@ export function PresetsPanel({
             disabled={carregando || !customValido}
             onClick={gerar}
           >
-            Gerar melhor set
+            {t("Gerar melhor set")}
           </Chip>
         </div>
         <button
@@ -90,7 +92,7 @@ export function PresetsPanel({
           }}
           className="mt-4 min-h-11 border border-border bg-metal px-4 font-semibold transition-colors hover:border-gold-dim"
         >
-          Limpar set
+          {t("Limpar set")}
         </button>
       </Passo>
 

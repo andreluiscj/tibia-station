@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Carregando, Erro, NaoEncontrado } from "@/components/station/Estados";
 import { localDaHunt } from "@/components/station/format";
+import { useT } from "@/lib/i18n";
 import { Cont } from "@/components/station/Layout";
 import { CreatureSprite } from "@/components/station/CreatureSprite";
 import { NIVEL_ALVO } from "@/components/station/huntsFiltro";
@@ -24,6 +25,7 @@ const NIVEIS = [
 ] as const;
 
 function HuntPage() {
+  const t = useT();
   const { slug } = Route.useParams();
   const hunt = useHunt(slug);
   const criaturas = useCreatures();
@@ -65,11 +67,11 @@ function HuntPage() {
           to="/hunts"
           className="inline-flex min-h-11 items-center text-gold underline underline-offset-4"
         >
-          Todas as hunts
+          {t("Todas as hunts")}
         </Link>
       </Cont>
       <PageIntro titulo={h.name} compacto>
-        {localDaHunt(h.city, h.location) || "Local não informado na TibiaWiki."}
+        {localDaHunt(h.city, h.location) || t("Local não informado na TibiaWiki.")}
       </PageIntro>
 
       <Cont className="mt-8">
@@ -78,9 +80,9 @@ function HuntPage() {
             const n = h[campo];
             return (
               <div key={campo}>
-                <dt className="text-muted-foreground">Nível {nome}</dt>
+                <dt className="text-muted-foreground">{t("Nível {n}", { n: nome })}</dt>
                 {n === null ? (
-                  <dd className="text-muted-foreground">não informado</dd>
+                  <dd className="text-muted-foreground">{t("não informado")}</dd>
                 ) : (
                   <dd className={`num text-2xl ${n >= NIVEL_ALVO ? "text-gold" : ""}`}>{n}</dd>
                 )}
@@ -89,7 +91,11 @@ function HuntPage() {
           })}
         </dl>
         <p className="mt-4 text-muted-foreground">
-          {h.expRaw && <>Experiência: {h.expRaw}. </>}
+          {h.expRaw && (
+            <>
+              {t("Experiência:")} {h.expRaw}.{" "}
+            </>
+          )}
           {h.lootRaw && <>Loot: {h.lootRaw}. </>}
           <a
             href={wikiUrl(h.wikiTitle, h.sourceUrl)}
@@ -97,7 +103,7 @@ function HuntPage() {
             rel="noopener noreferrer"
             className="text-gold underline underline-offset-4"
           >
-            Ver na TibiaWiki
+            {t("Ver na TibiaWiki")}
           </a>
         </p>
 
@@ -107,17 +113,19 @@ function HuntPage() {
             search={{ hunt: h.slug }}
             className="inline-flex min-h-11 items-center border border-gold bg-accent px-5 font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
           >
-            Ver Crypt para esta hunt
+            {t("Ver Crypt para esta hunt")}
           </Link>
         </p>
       </Cont>
 
       <Cont className="mt-10">
-        <h2 className="font-display text-2xl font-bold">Criaturas ({lista.length})</h2>
+        <h2 className="font-display text-2xl font-bold">
+          {t("Criaturas")} ({lista.length})
+        </h2>
         <p className="mt-2 max-w-[70ch] text-muted-foreground">
-          Resistências no formato da wiki: 100 é dano neutro, 0 é imune, abaixo de 100 a criatura
-          resiste, acima disso é fraca, e negativo significa que ela absorve o elemento. O peso é
-          quantas vezes a criatura aparece na página da hunt.
+          {t(
+            "Resistências no formato da wiki: 100 é dano neutro, 0 é imune, abaixo de 100 a criatura resiste, acima disso é fraca, e negativo significa que ela absorve o elemento. O peso é quantas vezes a criatura aparece na página da hunt.",
+          )}
         </p>
         {criaturas.isPending ? (
           <div className="mt-5">
@@ -129,7 +137,7 @@ function HuntPage() {
           </div>
         ) : lista.length === 0 ? (
           <p className="frame-inset mt-5 p-5 text-muted-foreground">
-            Nenhuma criatura foi detectada para esta hunt. Consulte a página na TibiaWiki.
+            {t("Nenhuma criatura foi detectada para esta hunt. Consulte a página na TibiaWiki.")}
           </p>
         ) : (
           <ul className="mt-5 space-y-3">
@@ -148,7 +156,7 @@ function HuntPage() {
                       {c.name}
                     </Link>
                     <span className="ml-auto text-muted-foreground">
-                      peso <span className="num text-foreground">{hc.weight}</span>
+                      {t("peso")} <span className="num text-foreground">{hc.weight}</span>
                     </span>
                   </div>
                   <ResistCells criatura={c} />

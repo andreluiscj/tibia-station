@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { DamageBar } from "./DamageBar";
 import { n1 } from "./format";
 
@@ -9,11 +10,13 @@ const LINHAS = [
 ] as const;
 
 export function CryptPreview() {
+  const t = useT();
   return (
     <figure className="flex flex-1 flex-col justify-between gap-5 border border-border bg-black/25 p-4 sm:p-5">
       <figcaption className="text-sm leading-snug text-muted-foreground">
-        Exemplo: dano das armas contra o Hellflayer, modo Elemental 45%. A linha marca 100, o dano
-        neutro.
+        {t(
+          "Exemplo: dano das armas contra o Hellflayer, modo Elemental 45%. A linha marca 100, o dano neutro.",
+        )}
       </figcaption>
       <ol className="space-y-4">
         {LINHAS.map((l, i) => (

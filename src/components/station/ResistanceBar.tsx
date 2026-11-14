@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useT } from "@/lib/i18n";
 import type { Element } from "@/lib/data/types";
 import { ELEMENTOS } from "./elementos";
 import { ESCALA_RESIST, descreverResist } from "./resist";
@@ -19,6 +20,7 @@ export function ResistanceBar({
   assumed?: boolean;
   delay?: number;
 }) {
+  const t = useT();
   const info = descreverResist(value);
   const meta = ELEMENTOS[element];
   const absorve = info.tipo === "absorve";
@@ -37,11 +39,11 @@ export function ResistanceBar({
               absorve ? "border border-bad px-1.5 font-semibold text-bad" : "text-muted-foreground"
             }
           >
-            {info.texto}
+            {t(info.texto)}
           </span>
           {assumed && (
             <span className="border border-dashed border-gold-dim px-1.5 text-muted-foreground">
-              não confirmado
+              {t("não confirmado")}
             </span>
           )}
         </span>

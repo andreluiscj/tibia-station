@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { motion } from "motion/react";
 import { useState } from "react";
 import {
@@ -31,7 +32,8 @@ export function SlotButton({
 }) {
   const { slot, item, blocked, hidden, row, col } = view;
   const locked = !vocation;
-  const rotulo = SLOT_ROTULO[slot];
+  const t = useT();
+  const rotulo = t(SLOT_ROTULO[slot]);
   const emptyImage = SLOT_LAYOUT.find((s) => s.key === slot)!.emptyImage;
   const espacos = espacosDeImbuiment(slot, item, blocked);
   const options = allowedImbuiments(
@@ -41,8 +43,8 @@ export function SlotButton({
   const salvos = (imbuiments ?? []).slice(0, espacos);
   const temSalvos = salvos.some(Boolean);
   const nome = blocked
-    ? `${rotulo}: bloqueado, a arma de duas mãos ocupa o lugar`
-    : `${rotulo}: ${item?.item_name ?? "vazio"}`;
+    ? t("{x}: bloqueado, a arma de duas mãos ocupa o lugar", { x: rotulo })
+    : `${rotulo}: ${item?.item_name ?? t("vazio")}`;
 
   return (
     <div
@@ -87,8 +89,10 @@ export function SlotButton({
           <button
             type="button"
             onClick={() => setImbAberto(true)}
-            aria-label={`Imbuiments de ${item!.item_name}: ${espacos} ${espacos > 1 ? "espaços" : "espaço"}`}
-            title={temSalvos ? "Editar imbuiments" : `${espacos} espaço(s) de imbuiment`}
+            aria-label={`${t("Imbuiments de {x}", { x: item!.item_name })}: ${espacos} ${t(espacos > 1 ? "espaços" : "espaço")}`}
+            title={
+              temSalvos ? t("Editar imbuiments") : t("{n} espaço(s) de imbuiment", { n: espacos })
+            }
             className="slot-btn absolute right-1 top-1 z-20 flex min-h-9 min-w-9 items-center justify-center gap-0.5 border border-border bg-background/90 p-1"
           >
             {temSalvos ? (

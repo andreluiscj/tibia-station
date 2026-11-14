@@ -1,7 +1,7 @@
 {
   "name": "tibia-station",
   "private": true,
-  "sideEffects": false,
+  "sideEffects": ["./src/lib/i18n-dict-*.ts"],
   "type": "module",
   "scripts": {
     "dev": "vite dev",

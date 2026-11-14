@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { motion } from "motion/react";
 import type { Patch } from "./CryptCalculator";
 import { labelCombo, modosDe, perksDoCombo, quemAbsorve, type Calculo } from "./cryptEstado";
@@ -22,6 +23,7 @@ export function Resultado({
   calculo: Calculo | null;
   onChange: (patch: Patch) => void;
 }) {
+  const t = useT();
   if (erro) return <Erro onTentar={onTentar} />;
   if (carregando || !calculo)
     return <Carregando rotulo="Carregando armas e criaturas…" linhas={6} />;
@@ -31,7 +33,7 @@ export function Resultado({
   if (calculo.tipo === "vazio")
     return (
       <Vazio
-        titulo="Escolha uma criatura ou uma hunt"
+        titulo="Escolha uma criatura, um boss ou uma hunt"
         texto="O ranking das armas aparece aqui, ao vivo, assim que você escolher o alvo no passo 4. Quer ver um exemplo?"
       >
         <button
@@ -39,14 +41,14 @@ export function Resultado({
           className={botao}
           onClick={() => onChange({ monster: "hellflayer", hunt: null })}
         >
-          Criatura: Hellflayer
+          {t("Criatura: Hellflayer")}
         </button>
         <button
           type="button"
           className={botao}
           onClick={() => onChange({ hunt: "crystal-enigma", monster: null })}
         >
-          Hunt: Crystal Enigma
+          {t("Hunt: Crystal Enigma")}
         </button>
       </Vazio>
     );
@@ -61,7 +63,7 @@ export function Resultado({
           className={botao}
           onClick={() => onChange({ monster: null, hunt: null })}
         >
-          Limpar o alvo
+          {t("Limpar o alvo")}
         </button>
       </Vazio>
     );
@@ -83,7 +85,7 @@ export function Resultado({
       <div className="mb-6" />
       <details className="border border-border bg-card px-4">
         <summary className="min-h-11 cursor-pointer py-2.5 font-semibold">
-          Detalhes de cada Crypt (modos de pierce, perks e alvos)
+          {t("Detalhes de cada Crypt (modos de pierce, perks e alvos)")}
         </summary>
         <div className="pb-5 pt-2">
           <ol className="space-y-5">
@@ -107,13 +109,13 @@ export function Resultado({
                   <p className="mb-2 text-sm text-muted-foreground">
                     {concorrentes[ev.weaponSlug] ? (
                       <>
-                        Concorrente: <strong>{concorrentes[ev.weaponSlug]!.alt.name}</strong>
+                        {t("Concorrente:")} <strong>{concorrentes[ev.weaponSlug]!.alt.name}</strong>
                         {concorrentes[ev.weaponSlug]!.alt.element &&
                           ` (${ELEMENTOS[concorrentes[ev.weaponSlug]!.alt.element!].label})`}{" "}
                         <span className="num">{n1(concorrentes[ev.weaponSlug]!.damagePct)}</span>
                       </>
                     ) : (
-                      "Nenhuma outra arma liberada neste nível: comparado com 100."
+                      t("Nenhuma outra arma liberada neste nível: comparado com 100.")
                     )}
                   </p>
                   <ResultCard

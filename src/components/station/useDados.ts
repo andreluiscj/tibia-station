@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import { armasDeHand, armasDeMelee } from "@/lib/data/weapons";
 import { fetchTable } from "@/lib/tibia";
 import {
+  getBosses,
   getCreature,
   getCreatures,
   getCryptWeapons,
@@ -17,6 +18,8 @@ const opts = { staleTime: Infinity, retry: 1 } as const;
 /** enabled=false adia o carregamento do JSON (a busca global só carrega quando abre). */
 export const useCreatures = (enabled = true) =>
   useQuery({ queryKey: ["data", "creatures"], queryFn: getCreatures, enabled, ...opts });
+export const useBosses = (enabled = true) =>
+  useQuery({ queryKey: ["data", "bosses"], queryFn: getBosses, enabled, ...opts });
 export const useHunts = (enabled = true) =>
   useQuery({ queryKey: ["data", "hunts"], queryFn: getHunts, enabled, ...opts });
 export const useCreature = (slug: string) =>

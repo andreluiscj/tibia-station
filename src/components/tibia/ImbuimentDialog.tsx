@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import {
   IMBUIMENT_CATALOG,
@@ -40,6 +41,7 @@ export function ImbuimentDialog({
     if (open) setRascunho(salvos.slice(0, espacos));
   }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const t = useT();
   function escolher(idx: number, val: string | null) {
     setRascunho((prev) => {
       const next = prev.slice(0, espacos);
@@ -64,9 +66,11 @@ export function ImbuimentDialog({
         }}
       >
         <DialogContent className={`max-w-lg ${painel}`}>
-          <DialogTitle className={barra}>Imbuiments de {item.item_name}</DialogTitle>
+          <DialogTitle className={barra}>
+            {t("Imbuiments de {x}", { x: item.item_name })}
+          </DialogTitle>
           <DialogDescription className="sr-only">
-            Escolha o imbuiment de cada espaço e salve.
+            {t("Escolha o imbuiment de cada espaço e salve.")}
           </DialogDescription>
           <div className="flex flex-wrap items-center gap-4 px-4 py-4">
             <span className="frame-inset flex size-[4.5rem] items-center justify-center">
@@ -76,7 +80,7 @@ export function ImbuimentDialog({
                 className="size-16 [image-rendering:pixelated]"
               />
             </span>
-            <span>Escolha o espaço:</span>
+            <span>{t("Escolha o espaço:")}</span>
             <div className="flex gap-2">
               {Array.from({ length: MAX_ESPACOS }).map((_, idx) => {
                 const habilitado = idx < espacos;
@@ -91,10 +95,10 @@ export function ImbuimentDialog({
                     onClick={() => setEscolhendo(idx)}
                     aria-label={
                       !habilitado
-                        ? `Espaço ${idx + 1}: indisponível`
+                        ? t("Espaço {n}: indisponível", { n: idx + 1 })
                         : def
-                          ? `Espaço ${idx + 1}: ${def.name}, ${def.benefit}`
-                          : `Espaço ${idx + 1}: vazio`
+                          ? `${t("Espaço {n}", { n: idx + 1 })}: ${def.name}, ${def.benefit}`
+                          : t("Espaço {n}: vazio", { n: idx + 1 })
                     }
                     className="slot-btn frame-inset flex size-14 items-center justify-center disabled:cursor-not-allowed disabled:opacity-40"
                   >
@@ -119,7 +123,7 @@ export function ImbuimentDialog({
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-muted px-4 py-3">
             <span className="text-sm text-muted-foreground">
-              {espacos} {espacos > 1 ? "espaços disponíveis" : "espaço disponível"}.
+              {espacos} {t(espacos > 1 ? "espaços disponíveis" : "espaço disponível")}.
             </span>
             <div className="flex gap-2">
               <button
@@ -127,7 +131,7 @@ export function ImbuimentDialog({
                 onClick={() => onOpenChange(false)}
                 className="min-h-11 border border-border bg-metal px-4 font-semibold hover:border-gold-dim"
               >
-                Cancelar
+                {t("Cancelar")}
               </button>
               <button
                 type="button"
@@ -137,7 +141,7 @@ export function ImbuimentDialog({
                 }}
                 className="min-h-11 border border-gold bg-accent px-5 font-semibold text-accent-foreground hover:bg-accent/90"
               >
-                Salvar
+                {t("Salvar")}
               </button>
             </div>
           </div>
@@ -146,9 +150,9 @@ export function ImbuimentDialog({
 
       <Dialog open={escolhendo !== null} onOpenChange={(o) => !o && setEscolhendo(null)}>
         <DialogContent className={`max-w-md ${painel}`}>
-          <DialogTitle className={barra}>Escolher imbuiment</DialogTitle>
+          <DialogTitle className={barra}>{t("Escolher imbuiment")}</DialogTitle>
           <DialogDescription className="sr-only">
-            Lista de imbuiments compatíveis.
+            {t("Lista de imbuiments compatíveis.")}
           </DialogDescription>
           <div className="max-h-[60vh] space-y-2 overflow-auto p-3">
             <button
@@ -161,10 +165,12 @@ export function ImbuimentDialog({
                 alt=""
                 className="size-6 opacity-40 [image-rendering:pixelated]"
               />
-              <span className="text-muted-foreground">Remover imbuiment</span>
+              <span className="text-muted-foreground">{t("Remover imbuiment")}</span>
             </button>
             {options.length === 0 && (
-              <p className="p-4 text-center text-muted-foreground">Nenhum imbuiment compatível.</p>
+              <p className="p-4 text-center text-muted-foreground">
+                {t("Nenhum imbuiment compatível.")}
+              </p>
             )}
             {options.map((def) => {
               const emUso = usados.has(def.name);
@@ -174,7 +180,7 @@ export function ImbuimentDialog({
                   type="button"
                   disabled={emUso}
                   onClick={() => escolhendo !== null && escolher(escolhendo, def.name)}
-                  title={emUso ? "Já usado em outro espaço deste item" : def.benefit}
+                  title={emUso ? t("Já usado em outro espaço deste item") : def.benefit}
                   className="slot-btn flex min-h-12 w-full items-center gap-3 border border-border bg-card px-3 py-2 text-left disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   <span className="frame-inset flex size-10 shrink-0 items-center justify-center">
@@ -189,7 +195,9 @@ export function ImbuimentDialog({
                     <span className="font-semibold">{def.name}</span>
                     <span className="text-sm text-gold">{def.benefit}</span>
                   </span>
-                  {emUso && <span className="ml-auto text-sm text-muted-foreground">em uso</span>}
+                  {emUso && (
+                    <span className="ml-auto text-sm text-muted-foreground">{t("em uso")}</span>
+                  )}
                 </button>
               );
             })}

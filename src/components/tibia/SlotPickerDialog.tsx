@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { useState } from "react";
 import { SLOT_LAYOUT, emptySlotUrl, spriteUrl, type Item, type SlotKey } from "@/lib/tibia";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
@@ -21,23 +22,24 @@ export function SlotPickerDialog({
   onFechar: () => void;
 }) {
   const [semImagem, setSemImagem] = useState<Set<string>>(new Set());
+  const t = useT();
   return (
     <Dialog open={!!slot} onOpenChange={(o) => !o && onFechar()}>
       <DialogContent className="max-w-2xl rounded-none border-gold-dim bg-popover">
         <DialogTitle className="font-display text-xl font-bold text-gold">
-          Escolher {slot ? SLOT_ROTULO[slot].toLowerCase() : ""}
+          {t("Escolher {x}", { x: slot ? t(SLOT_ROTULO[slot]).toLowerCase() : "" })}
         </DialogTitle>
         <DialogDescription>
-          {itens.length} {itens.length === 1 ? "item disponível" : "itens disponíveis"} para os
-          filtros atuais.
+          {itens.length} {t(itens.length === 1 ? "item disponível" : "itens disponíveis")}{" "}
+          {t("para os filtros atuais.")}
         </DialogDescription>
         <label htmlFor="sb-busca-item" className="sr-only">
-          Buscar item pelo nome
+          {t("Buscar item pelo nome")}
         </label>
         <Input
           id="sb-busca-item"
           autoFocus
-          placeholder="Buscar pelo nome…"
+          placeholder={t("Buscar pelo nome…")}
           value={busca}
           onChange={(e) => onBusca(e.target.value)}
           className="h-11 rounded-none bg-background text-base"
@@ -45,7 +47,7 @@ export function SlotPickerDialog({
         <div className="max-h-[60vh] overflow-auto">
           {itens.length === 0 && (
             <p className="p-4 text-center text-muted-foreground">
-              Nenhum item bate com a busca. Tire um filtro ou confira o nome.
+              {t("Nenhum item bate com a busca. Tire um filtro ou confira o nome.")}
             </p>
           )}
           <ul className="grid auto-rows-[10rem] grid-cols-2 gap-2 sm:grid-cols-3">
@@ -61,7 +63,7 @@ export function SlotPickerDialog({
                     alt=""
                     className="size-10 opacity-40"
                   />
-                  <span className="text-muted-foreground">Remover</span>
+                  <span className="text-muted-foreground">{t("Remover")}</span>
                 </button>
               </li>
             )}

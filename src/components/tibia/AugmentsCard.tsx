@@ -1,14 +1,18 @@
+import { useT } from "@/lib/i18n";
 import type { Augment } from "./stats";
 
 /** Bônus extras dos itens equipados (colunas bonus_1 a bonus_8). */
 export function AugmentsCard({ augments }: { augments: Augment[] }) {
+  const t = useT();
   return (
     <section className="frame sm:col-span-2" aria-labelledby="sb-bonus">
       <h3 id="sb-bonus" className="border-b border-border px-4 py-3 font-display text-lg font-bold">
-        Bônus dos itens
+        {t("Bônus dos itens")}
       </h3>
       {augments.length === 0 ? (
-        <p className="px-4 py-3 text-muted-foreground">Nenhum bônus extra nos itens equipados.</p>
+        <p className="px-4 py-3 text-muted-foreground">
+          {t("Nenhum bônus extra nos itens equipados.")}
+        </p>
       ) : (
         <ul className="divide-y divide-border/60">
           {augments.map((a, i) => (

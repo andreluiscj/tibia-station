@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApoiarRouteImport } from './routes/apoiar'
 import { Route as ComoCalculamosRouteImport } from './routes/como-calculamos'
 import { Route as CryptRouteImport } from './routes/crypt'
 import { Route as SetBuilderRouteImport } from './routes/set-builder'
@@ -20,6 +21,11 @@ import { Route as MonstrosSlugRouteImport } from './routes/monstros.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApoiarRoute = ApoiarRouteImport.update({
+  id: '/apoiar',
+  path: '/apoiar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComoCalculamosRoute = ComoCalculamosRouteImport.update({
@@ -55,6 +61,7 @@ const MonstrosSlugRoute = MonstrosSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apoiar': typeof ApoiarRoute
   '/como-calculamos': typeof ComoCalculamosRoute
   '/crypt': typeof CryptRoute
   '/set-builder': typeof SetBuilderRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apoiar': typeof ApoiarRoute
   '/como-calculamos': typeof ComoCalculamosRoute
   '/crypt': typeof CryptRoute
   '/set-builder': typeof SetBuilderRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apoiar': typeof ApoiarRoute
   '/como-calculamos': typeof ComoCalculamosRoute
   '/crypt': typeof CryptRoute
   '/set-builder': typeof SetBuilderRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/apoiar'
     | '/como-calculamos'
     | '/crypt'
     | '/set-builder'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/apoiar'
     | '/como-calculamos'
     | '/crypt'
     | '/set-builder'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/apoiar'
     | '/como-calculamos'
     | '/crypt'
     | '/set-builder'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApoiarRoute: typeof ApoiarRoute
   ComoCalculamosRoute: typeof ComoCalculamosRoute
   CryptRoute: typeof CryptRoute
   SetBuilderRoute: typeof SetBuilderRoute
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apoiar': {
+      id: '/apoiar'
+      path: '/apoiar'
+      fullPath: '/apoiar'
+      preLoaderRoute: typeof ApoiarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/como-calculamos': {
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApoiarRoute: ApoiarRoute,
   ComoCalculamosRoute: ComoCalculamosRoute,
   CryptRoute: CryptRoute,
   SetBuilderRoute: SetBuilderRoute,

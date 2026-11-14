@@ -7,25 +7,31 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useT } from "@/lib/i18n";
 import { Carregando, Erro, Vazio } from "./Estados";
 import { huntsDaCriatura, nivelDaHunt } from "./huntsFiltro";
 import { useHunts } from "./useDados";
 
 /** Link em texto + modal centralizado com as hunts que contêm a criatura (dados já usados pela calculadora). */
 export function HuntsDaCriatura({ slug, nome }: { slug: string; nome: string }) {
+  const t = useT();
   const [aberto, setAberto] = useState(false);
   const q = useHunts();
   const lista = huntsDaCriatura(q.data ?? [], slug);
   return (
     <>
-      <button type="button" onClick={() => setAberto(true)} className="mt-3 block text-left font-bold text-primary underline underline-offset-4 transition-colors hover:text-accent">
-        Visualizar hunts da criatura
+      <button
+        type="button"
+        onClick={() => setAberto(true)}
+        className="mt-3 block text-left font-bold text-primary underline underline-offset-4 transition-colors hover:text-accent"
+      >
+        {t("Visualizar hunts da criatura")}
       </button>
       <Dialog open={aberto} onOpenChange={setAberto}>
         <DialogContent className="max-h-[85vh] w-[calc(100%-2rem)] max-w-lg overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="break-words">Hunts com {nome}</DialogTitle>
-            <DialogDescription>Hunts da wiki que incluem esta criatura.</DialogDescription>
+            <DialogTitle className="break-words">{t("Hunts com {nome}", { nome })}</DialogTitle>
+            <DialogDescription>{t("Hunts da wiki que incluem esta criatura.")}</DialogDescription>
           </DialogHeader>
           {q.isError ? (
             <Erro onTentar={() => void q.refetch()} />
@@ -49,7 +55,7 @@ export function HuntsDaCriatura({ slug, nome }: { slug: string; nome: string }) 
                     >
                       <span className="min-w-0 break-words font-semibold">{h.name}</span>
                       <span className="num shrink-0 text-sm text-muted-foreground">
-                        {nivel ? `Nível ${nivel}` : "Sem nível"}
+                        {nivel ? t("Nível {n}", { n: nivel }) : t("Sem nível")}
                       </span>
                     </Link>
                   </li>

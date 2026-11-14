@@ -489,3 +489,56 @@ describe("proficienciaIdeal", () => {
     ]);
   });
 });
+
+describe("proficiência editada", () => {
+  const base = { armas, criaturas: porSlug, hunts: hunts as unknown as Hunt[] };
+  const crypt = (c: ReturnType<typeof calcular>) =>
+    c.tipo === "ok" ? c.candidatos.filter((x) => x.origem === "crypt") : [];
+  const estado = { voc: "ek", cat: "sword", monster: "hellflayer" } as const;
+
+  it("sem os níveis 3, 5 e 7 liberados o pierce some e o dano não sobe", () => {
+    const cheia = crypt(calcular({ ...base, estado }))[0];
+    const slug = cheia.chave;
+    const curta = crypt(
+      calcular({ ...base, estado, proficiencias: { [slug]: { max: 2, perks: {} } } }),
+    ).find((x) => x.chave === slug)!;
+    expect(curta.pierce).toEqual({ physical: 0, elemental: 0 });
+    expect(curta.damagePct).toBeLessThanOrEqual(cheia.damagePct);
+  });
+
+  it("fixa o perk escolhido e mantém todas as opções para a tela", () => {
+    const slug = crypt(calcular({ ...base, estado }))[0].chave;
+    const arma = armas.find((a) => a.slug === slug)!;
+    const o = arma.perks[2].options[0];
+    const r = crypt(
+      calcular({ ...base, estado, proficiencias: { [slug]: { max: 7, perks: { 3: o.id } } } }),
+    ).find((x) => x.chave === slug)!;
+    expect(r.escolhas?.find((e) => e.level === 3)?.perkId ?? o.id).toBe(o.id);
+    expect(r.arma?.perks[2].options.length).toBe(arma.perks[2].options.length);
+  });
+});
+
+describe("imbuiment elemental retirado", () => {
+  const base = { armas, criaturas: porSlug, hunts: hunts as unknown as Hunt[] };
+  const estado = { voc: "ek", cat: "todas", monster: "hellflayer" } as const;
+  const crypt = (c: ReturnType<typeof calcular>) =>
+    c.tipo === "ok" ? c.candidatos.filter((x) => x.origem === "crypt") : [];
+
+  it("tira o elemento, guarda o dano imbuído e não ganha dano", () => {
+    const com = crypt(calcular({ ...base, estado }));
+    const sem = crypt(
+      calcular({
+        ...base,
+        estado,
+        semImbuiment: Object.fromEntries(armas.map((a) => [a.slug, true])),
+      }),
+    );
+    expect(sem.every((x) => !x.imbued && x.pierce!.elemental === 0)).toBe(true);
+    for (const x of sem) {
+      const antes = com.find((c) => c.chave === x.chave)!;
+      expect(x.damagePct).toBeLessThanOrEqual(antes.damagePct + 1e-9);
+      if (antes.imbued) expect(x.comImbuiment).toBeCloseTo(antes.damagePct);
+    }
+    expect(com.every((x) => x.comImbuiment === undefined)).toBe(true);
+  });
+});

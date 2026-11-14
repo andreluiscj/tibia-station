@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { statIconUrl } from "@/lib/tibia";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
@@ -17,6 +18,7 @@ export function BaseSkillsDialog({
   base: Record<SkillKey, number>;
   onSave: (v: Record<SkillKey, number>) => void;
 }) {
+  const t = useT();
   const [rascunho, setRascunho] = useState(base);
   // Ao abrir, o rascunho parte do que está salvo.
   useEffect(() => {
@@ -25,9 +27,11 @@ export function BaseSkillsDialog({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="rounded-none border-gold-dim bg-popover sm:max-w-md">
-        <DialogTitle className="font-display text-xl font-bold text-gold">Skills base</DialogTitle>
+        <DialogTitle className="font-display text-xl font-bold text-gold">
+          {t("Skills base")}
+        </DialogTitle>
         <DialogDescription>
-          O que o personagem já tem antes dos itens. Fica salvo neste navegador.
+          {t("O que o personagem já tem antes dos itens. Fica salvo neste navegador.")}
         </DialogDescription>
         <div className="grid gap-3">
           {SKILL_KEYS.map((k) => (
@@ -39,7 +43,7 @@ export function BaseSkillsDialog({
                 onError={(e) => (e.currentTarget.style.display = "none")}
               />
               <label htmlFor={`base-${k}`} className="flex-1 text-muted-foreground">
-                {SKILL_ROTULO[k].label}
+                {t(SKILL_ROTULO[k].label)}
               </label>
               <Input
                 id={`base-${k}`}
@@ -60,7 +64,7 @@ export function BaseSkillsDialog({
             onClick={() => onOpenChange(false)}
             className="min-h-11 border border-border bg-metal px-4 font-semibold hover:border-gold-dim"
           >
-            Cancelar
+            {t("Cancelar")}
           </button>
           <button
             type="button"
@@ -70,7 +74,7 @@ export function BaseSkillsDialog({
             }}
             className="min-h-11 border border-gold bg-accent px-5 font-semibold text-accent-foreground hover:bg-accent/90"
           >
-            Salvar
+            {t("Salvar")}
           </button>
         </div>
       </DialogContent>

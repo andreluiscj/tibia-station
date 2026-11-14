@@ -13,6 +13,7 @@ import {
 import { Cont } from "@/components/station/Layout";
 import { PageIntro } from "@/components/station/PageIntro";
 import { useHunts } from "@/components/station/useDados";
+import { useT } from "@/lib/i18n";
 import { Input } from "@/components/ui/input";
 
 export const Route = createFileRoute("/hunts/")({
@@ -47,6 +48,7 @@ const pagBtn =
   "min-h-11 border border-border bg-metal px-4 font-semibold transition-colors enabled:hover:border-gold-dim enabled:hover:bg-metal-high disabled:cursor-not-allowed disabled:opacity-50";
 
 function HuntsPage() {
+  const t = useT();
   const q = useHunts();
   const [busca, setBusca] = useState("");
   const [voc, setVoc] = useState<VocFiltro>("todas");
@@ -91,7 +93,7 @@ function HuntsPage() {
         <div className="frame-inset grid gap-5 p-5 md:grid-cols-[1fr_auto]">
           <div>
             <label htmlFor="busca-hunt" className="mb-1.5 block text-sm text-muted-foreground">
-              Buscar hunt
+              {t("Buscar hunt")}
             </label>
             <Input
               id="busca-hunt"
@@ -101,12 +103,12 @@ function HuntsPage() {
                 setBusca(e.target.value);
                 setPag(0);
               }}
-              placeholder="Nome, cidade ou local"
+              placeholder={t("Nome, cidade ou local")}
               className="h-11 rounded-none bg-background text-base"
             />
           </div>
           <fieldset>
-            <legend className="mb-1.5 text-sm text-muted-foreground">Vocação</legend>
+            <legend className="mb-1.5 text-sm text-muted-foreground">{t("Vocação")}</legend>
             <div className="flex flex-wrap gap-2">
               {VOCACOES.map(([chave, rotulo]) => (
                 <Chip
@@ -117,7 +119,7 @@ function HuntsPage() {
                     setPag(0);
                   }}
                 >
-                  {rotulo}
+                  {t(rotulo)}
                 </Chip>
               ))}
             </div>
@@ -132,7 +134,7 @@ function HuntsPage() {
               }}
               className="size-5 accent-gold"
             />
-            Só hunts de nível {NIVEL_ALVO} ou mais
+            {t("Só hunts de nível {n} ou mais", { n: NIVEL_ALVO })}
           </label>
         </div>
 
@@ -151,29 +153,29 @@ function HuntsPage() {
                 onClick={limpar}
                 className="min-h-11 border border-border bg-metal px-5 font-semibold hover:border-gold-dim"
               >
-                Limpar filtros
+                {t("Limpar filtros")}
               </button>
             </Vazio>
           ) : (
             <>
               <p aria-live="polite" className="mb-3 text-muted-foreground">
-                {lista.length} {lista.length === 1 ? "hunt" : "hunts"}
+                {lista.length} {t(lista.length === 1 ? "hunt" : "hunts")}
               </p>
               <div className="overflow-x-auto border border-border bg-card">
                 <table className="w-full min-w-[40rem] border-collapse text-left">
                   <thead className="surface-dark">
                     <tr className="micro">
                       <th scope="col" className="px-4 py-3 font-semibold">
-                        Hunt
+                        {t("Hunt")}
                       </th>
                       <th scope="col" className="hidden px-4 py-3 font-semibold md:table-cell">
-                        Localização
+                        {t("Localização")}
                       </th>
                       <th scope="col" className="px-4 py-3 font-semibold">
-                        Nível por vocação
+                        {t("Nível por vocação")}
                       </th>
                       <th scope="col" className="px-4 py-3 text-right font-semibold">
-                        Criaturas
+                        {t("Criaturas")}
                       </th>
                     </tr>
                   </thead>
@@ -195,11 +197,11 @@ function HuntsPage() {
                             {h.name}
                           </Link>
                           <span className="mt-0.5 block font-sans text-sm font-normal text-muted-foreground md:hidden">
-                            {localDaHunt(h.city, h.location) || "Local não informado"}
+                            {localDaHunt(h.city, h.location) || t("Local não informado")}
                           </span>
                         </th>
                         <td className="hidden px-4 py-3 align-top text-muted-foreground md:table-cell">
-                          {localDaHunt(h.city, h.location) || "Local não informado"}
+                          {localDaHunt(h.city, h.location) || t("Local não informado")}
                         </td>
                         <td className="px-4 py-3 align-top">
                           <span className="flex flex-wrap gap-1.5">
@@ -232,10 +234,13 @@ function HuntsPage() {
                   </tbody>
                 </table>
               </div>
-              <nav aria-label="Paginação" className="mt-4 flex items-center justify-between gap-3">
+              <nav
+                aria-label={t("Paginação")}
+                className="mt-4 flex items-center justify-between gap-3"
+              >
                 <p className="text-muted-foreground">
-                  Exibindo <span className="num">{inicio + 1}</span>–
-                  <span className="num">{Math.min(inicio + PAGINA, lista.length)}</span> de{" "}
+                  {t("Exibindo")} <span className="num">{inicio + 1}</span>–
+                  <span className="num">{Math.min(inicio + PAGINA, lista.length)}</span> {t("de")}{" "}
                   <span className="num">{lista.length}</span> hunts
                 </p>
                 <div className="flex gap-2">
@@ -245,7 +250,7 @@ function HuntsPage() {
                     onClick={() => setPag(pag - 1)}
                     className={pagBtn}
                   >
-                    ← Anterior
+                    {t("← Anterior")}
                   </button>
                   <button
                     type="button"
@@ -253,7 +258,7 @@ function HuntsPage() {
                     onClick={() => setPag(pag + 1)}
                     className={pagBtn}
                   >
-                    Próxima →
+                    {t("Próxima →")}
                   </button>
                 </div>
               </nav>

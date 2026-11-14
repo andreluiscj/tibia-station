@@ -6,14 +6,16 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useT } from "@/lib/i18n";
 import type { Creature, Hunt } from "@/lib/data/types";
 import { CreatureSprite } from "./CreatureSprite";
 import { ElementIcon } from "./ElementIcon";
 import { ELEMENTOS, ELEMENTOS_PRINCIPAIS } from "./elementos";
 import { n1 } from "./format";
+import { btnPrimario, btnSecundario } from "./estilos";
 import { ResistCells } from "./ResistCells";
 
-/** Link + modal: criaturas da hunt com sprite grande, fraquezas e peso editável (recalcula a Crypt na hora). */
+/** Link + modal: criaturas da hunt com sprite grande, fraquezas e peso editável (recalcula a Crypt ao clicar em Refazer cálculo). */
 export function HuntDetalhes({
   hunt,
   criaturas,
@@ -30,34 +32,42 @@ export function HuntDetalhes({
   /** Melhor arma com os pesos atuais. */
   melhor?: { nome: string; damagePct: number };
 }) {
+  const t = useT();
   const [aberto, setAberto] = useState(false);
+  // Os pesos digitados ficam num rascunho; só viram cálculo em "Refazer cálculo".
+  const [rascunho, setRascunho] = useState(pesos);
   const itens = hunt.creatures.flatMap((hc) => {
     const c = criaturas.get(hc.creatureSlug);
     return c ? [c] : [];
   });
-  const total = itens.reduce((s, c) => s + (pesos[c.slug] ?? 0), 0);
+  const total = itens.reduce((s, c) => s + (rascunho[c.slug] ?? 0), 0);
 
   return (
     <>
       <button
         type="button"
-        onClick={() => setAberto(true)}
+        onClick={() => {
+          setRascunho(pesos);
+          setAberto(true);
+        }}
         className="mt-3 block text-left font-bold text-primary underline underline-offset-4 transition-colors hover:text-accent"
       >
-        Visualizar detalhes
+        {t("Editar peso das criaturas")}
       </button>
       <Dialog open={aberto} onOpenChange={setAberto}>
         <DialogContent className="max-h-[88vh] w-[calc(100%-2rem)] max-w-3xl overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="break-words">{hunt.name}</DialogTitle>
             <DialogDescription>
-              Fraquezas de cada criatura e o peso dela na média. Peso 0 tira a criatura do cálculo.
+              {t(
+                "Fraquezas de cada criatura e o peso dela na média. Peso 0 tira a criatura do cálculo. Depois de editar, clique em Refazer cálculo.",
+              )}
             </DialogDescription>
           </DialogHeader>
 
           {melhor && (
             <p role="status" className="frame-inset px-3 py-2">
-              Melhor arma com estes pesos: <strong>{melhor.nome}</strong>{" "}
+              {t("Melhor arma com estes pesos:")} <strong>{melhor.nome}</strong>{" "}
               <span className="num text-gold">{n1(melhor.damagePct)}</span>
             </p>
           )}
@@ -67,7 +77,7 @@ export function HuntDetalhes({
               const fracos = ELEMENTOS_PRINCIPAIS.filter((e) => (c.resist[e] ?? 100) > 100).sort(
                 (a, b) => (c.resist[b] ?? 0) - (c.resist[a] ?? 0),
               );
-              const peso = pesos[c.slug] ?? 0;
+              const peso = rascunho[c.slug] ?? 0;
               return (
                 <li key={c.slug} className="frame-inset grid gap-4 p-4 sm:grid-cols-[auto_1fr]">
                   <CreatureSprite slug={c.slug} name={c.name} className="size-24 text-3xl" />
@@ -78,12 +88,13 @@ export function HuntDetalhes({
                         <p className="text-sm text-muted-foreground">
                           {c.hp !== null
                             ? `${c.hp.toLocaleString("pt-BR")} HP`
-                            : "HP não informado"}
+                            : t("HP não informado")}
                         </p>
                       </div>
                       <label className="text-sm">
                         <span className="block text-muted-foreground">
-                          Peso{total > 0 ? ` (${Math.round((peso / total) * 100)}%)` : ""}
+                          {t("Peso")}
+                          {total > 0 ? ` (${Math.round((peso / total) * 100)}%)` : ""}
                         </span>
                         <input
                           type="number"
@@ -93,16 +104,17 @@ export function HuntDetalhes({
                           value={peso}
                           onChange={(e) => {
                             const v = Number(e.target.value);
-                            if (Number.isFinite(v) && v >= 0) onPesos({ ...pesos, [c.slug]: v });
+                            if (Number.isFinite(v) && v >= 0)
+                              setRascunho({ ...rascunho, [c.slug]: v });
                           }}
                           className="num h-11 w-24 border border-input bg-background px-2 text-base"
                         />
                       </label>
                     </div>
                     <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                      <span className="font-semibold">Fraquezas:</span>
+                      <span className="font-semibold">{t("Fraquezas:")}</span>
                       {fracos.length === 0 ? (
-                        <span className="text-muted-foreground">nenhuma</span>
+                        <span className="text-muted-foreground">{t("nenhuma")}</span>
                       ) : (
                         fracos.map((e) => (
                           <span key={e} className="inline-flex items-center gap-1 text-good">
@@ -119,13 +131,28 @@ export function HuntDetalhes({
             })}
           </ul>
 
-          <button
-            type="button"
-            onClick={() => onPesos(null)}
-            className="min-h-11 self-start border border-border bg-metal px-5 font-semibold transition-colors hover:border-gold-dim"
-          >
-            Restaurar pesos
-          </button>
+          <div className="flex flex-col items-start gap-3">
+            <button
+              type="button"
+              className={btnPrimario}
+              onClick={() => {
+                onPesos(rascunho);
+                setAberto(false);
+              }}
+            >
+              {t("Refazer cálculo")}
+            </button>
+            <button
+              type="button"
+              className={btnSecundario}
+              onClick={() => {
+                onPesos(null);
+                setAberto(false);
+              }}
+            >
+              {t("Restaurar pesos")}
+            </button>
+          </div>
         </DialogContent>
       </Dialog>
     </>

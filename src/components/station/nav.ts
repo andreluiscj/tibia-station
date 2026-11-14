@@ -12,8 +12,8 @@ export type Tool = {
 export const TOOLS: Tool[] = [
   {
     to: "/crypt",
-    label: "Crypt",
-    titulo: "Crypt Calculator",
+    label: "Damage Calculator",
+    titulo: "Damage Calculator",
     icon: Sword,
     resumo: "Qual arma da Crypt rende mais contra uma criatura ou uma hunt.",
     pronta: true,
@@ -36,10 +36,10 @@ export const TOOLS: Tool[] = [
   },
 ];
 
-// Ordem da navegação principal: Início, Set Builder, Crypt, Hunts, Como calculamos.
+// Ordem da navegação principal: Início, Set Builder, Damage Calculator, Hunts, Como calculamos.
 export const NAV: { to: "/" | Tool["to"] | "/como-calculamos"; label: string }[] = [
   { to: "/", label: "Início" },
   { to: "/set-builder", label: "Set Builder" },
-  { to: "/crypt", label: "Crypt" },
+  { to: "/crypt", label: "Damage Calculator" },
   { to: "/como-calculamos", label: "Como calculamos" },
 ];

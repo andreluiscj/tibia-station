@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { statIconUrl } from "@/lib/tibia";
 import { DEF_ROTULO } from "./rotulos";
 import { StatRow } from "./StatRow";
@@ -18,6 +19,7 @@ const ORDEM: DefKey[] = [
 const cor = (n: number) => (n > 0 ? "text-good" : n < 0 ? "text-bad" : "text-muted-foreground");
 
 export function DefenseCard({ stats }: { stats: Stats }) {
+  const t = useT();
   return (
     <section className="frame" aria-labelledby="sb-defesa">
       <h3
@@ -30,7 +32,7 @@ export function DefenseCard({ stats }: { stats: Stats }) {
           className="size-5 [image-rendering:pixelated]"
           onError={(e) => (e.currentTarget.style.display = "none")}
         />
-        Defesa
+        {t("Defesa")}
       </h3>
       <ul className="divide-y divide-border/60">
         {ORDEM.map((k) => (
@@ -38,10 +40,10 @@ export function DefenseCard({ stats }: { stats: Stats }) {
             <span className={cor(stats.def[k])}>{fmtPct(stats.def[k])}</span>
           </StatRow>
         ))}
-        <StatRow destaque icon="defence" label="Defence">
+        <StatRow destaque icon="defence" label={t("Defence")}>
           {stats.defence}
         </StatRow>
-        <StatRow destaque icon="armor" label="Armadura">
+        <StatRow destaque icon="armor" label={t("Armadura")}>
           {stats.armor}
         </StatRow>
         <StatRow destaque icon="mantra" label="Mantra">

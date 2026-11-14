@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { useT } from "@/lib/i18n";
 import { btnPrimario, btnSecundario } from "./estilos";
 
 const LARGURAS = ["w-3/4", "w-full", "w-5/6", "w-2/3", "w-full", "w-1/2"];
@@ -12,9 +13,10 @@ export function Carregando({
   rotulo?: string;
   linhas?: number;
 }) {
+  const t = useT();
   return (
     <div role="status" className="frame-inset space-y-3 p-5">
-      <span className="sr-only">{rotulo}</span>
+      <span className="sr-only">{t(rotulo)}</span>
       {Array.from({ length: linhas }, (_, i) => (
         <div
           key={i}
@@ -35,13 +37,14 @@ export function Erro({
   texto?: string;
   onTentar?: () => void;
 }) {
+  const t = useT();
   return (
     <div role="alert" className="frame-inset border-bad p-6">
-      <h2 className="font-display text-xl font-bold text-bad">{titulo}</h2>
-      <p className="mt-2 max-w-[60ch] leading-relaxed text-muted-foreground">{texto}</p>
+      <h2 className="font-display text-xl font-bold text-bad">{t(titulo)}</h2>
+      <p className="mt-2 max-w-[60ch] leading-relaxed text-muted-foreground">{t(texto)}</p>
       {onTentar && (
         <button type="button" onClick={onTentar} className={`${btnPrimario} mt-4`}>
-          Tentar de novo
+          {t("Tentar de novo")}
         </button>
       )}
     </div>
@@ -57,10 +60,11 @@ export function Vazio({
   texto: string;
   children?: ReactNode;
 }) {
+  const t = useT();
   return (
     <div className="frame-inset p-6">
-      <h2 className="font-display text-xl font-bold">{titulo}</h2>
-      <p className="mt-2 max-w-[60ch] leading-relaxed text-muted-foreground">{texto}</p>
+      <h2 className="font-display text-xl font-bold">{t(titulo)}</h2>
+      <p className="mt-2 max-w-[60ch] leading-relaxed text-muted-foreground">{t(texto)}</p>
       {children && <div className="mt-4 flex flex-wrap gap-3">{children}</div>}
     </div>
   );
@@ -78,18 +82,19 @@ export function NaoEncontrado({
   voltarPara: "/hunts" | "/";
   voltarRotulo: string;
 }) {
+  const t = useT();
   return (
     <div className="mx-auto flex min-h-[50vh] max-w-6xl flex-col items-start justify-center px-4 py-16 sm:px-6">
       <p className="num text-6xl text-gold">404</p>
-      <h1 className="mt-3 font-display text-3xl font-bold text-gold">{titulo}</h1>
-      <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">{texto}</p>
+      <h1 className="mt-3 font-display text-3xl font-bold text-gold">{t(titulo)}</h1>
+      <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">{t(texto)}</p>
       <div className="mt-6 flex flex-wrap gap-3">
         <Link to={voltarPara} className={btnPrimario}>
-          {voltarRotulo}
+          {t(voltarRotulo)}
         </Link>
         {voltarPara !== "/" && (
           <Link to="/" className={btnSecundario}>
-            Voltar ao início
+            {t("Voltar ao início")}
           </Link>
         )}
       </div>

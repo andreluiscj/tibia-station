@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { Pencil } from "lucide-react";
 import { Fragment } from "react";
 import { statIconUrl } from "@/lib/tibia";
@@ -6,6 +7,7 @@ import { StatRow } from "./StatRow";
 import { SKILL_KEYS, type Stats } from "./stats";
 
 export function SkillsCard({ stats, onEditar }: { stats: Stats; onEditar: () => void }) {
+  const t = useT();
   return (
     <section className="frame" aria-labelledby="sb-skills">
       <h3
@@ -18,19 +20,19 @@ export function SkillsCard({ stats, onEditar }: { stats: Stats; onEditar: () => 
           className="size-5 [image-rendering:pixelated]"
           onError={(e) => (e.currentTarget.style.display = "none")}
         />
-        Habilidades
+        {t("Habilidades")}
       </h3>
       <ul className="divide-y divide-border/60">
         {SKILL_KEYS.map((k) => (
           <Fragment key={k}>
             <StatRow
               icon={SKILL_ROTULO[k].icon}
-              label={SKILL_ROTULO[k].label}
+              label={t(SKILL_ROTULO[k].label)}
               acao={
                 <button
                   type="button"
                   onClick={onEditar}
-                  aria-label={`Editar a base de ${SKILL_ROTULO[k].label}`}
+                  aria-label={t("Editar a base de {x}", { x: t(SKILL_ROTULO[k].label) })}
                   className="flex size-9 items-center justify-center text-muted-foreground transition-colors hover:text-gold"
                 >
                   <Pencil className="size-4" aria-hidden="true" />
@@ -46,7 +48,7 @@ export function SkillsCard({ stats, onEditar }: { stats: Stats; onEditar: () => 
                   recuada
                   destaque
                   icon={MAGIC_SUB_ROTULO[sub.column]?.icon}
-                  label={MAGIC_SUB_ROTULO[sub.column]?.label ?? sub.column}
+                  label={t(MAGIC_SUB_ROTULO[sub.column]?.label ?? sub.column)}
                 >
                   <span className="text-good">{stats.skills.magic + sub.bonus}</span>
                 </StatRow>

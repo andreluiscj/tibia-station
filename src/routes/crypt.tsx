@@ -9,11 +9,11 @@ export const Route = createFileRoute("/crypt")({
   validateSearch: (raw: Record<string, unknown>): CryptSearch => parseSearch(raw),
   head: () => ({
     meta: [
-      { title: "Crypt Calculator | Tibia Station" },
+      { title: "Damage Calculator | Tibia Station" },
       {
         name: "description",
         content:
-          "Descubra qual arma da Crypt rende mais contra uma criatura ou uma hunt, com Elemental Pierce nas regras oficiais da TibiaWiki.",
+          "Descubra qual arma da Crypt rende mais contra uma criatura, um boss ou uma hunt, com Elemental Pierce nas regras oficiais da TibiaWiki.",
       },
     ],
   }),
@@ -34,7 +34,7 @@ function CryptPage() {
 
   return (
     <>
-      <PageIntro titulo="Crypt Calculator" eyebrow="A FORJA" numeral="II">
+      <PageIntro titulo="Damage Calculator" eyebrow="A FORJA" numeral="II">
         Compare as armas da Crypt e prepare sua próxima batalha.
       </PageIntro>
       <Cont className="mt-8">

@@ -1,15 +1,32 @@
 import { useEffect, useMemo, useState } from "react";
+import { useT } from "@/lib/i18n";
 import { Chip } from "./Chip";
 import { Passo } from "./Passo";
 import { CreaturePicker } from "./CreaturePicker";
 import { CriaturaCard } from "./CriaturaCard";
-import { NIVEL_CRYPT, calcular, resolver, type CryptCat, type CryptSearch } from "./cryptEstado";
+import {
+  NIVEL_CRYPT,
+  calcular,
+  resolver,
+  type CryptCat,
+  type CryptSearch,
+  type Proficiencias,
+  ProficienciaCtx,
+} from "./cryptEstado";
+import { btnPrimario } from "./estilos";
 import { n1 } from "./format";
 import { HuntPicker } from "./HuntPicker";
 import { HuntDetalhes } from "./HuntDetalhes";
 import { HuntsDaCriatura } from "./HuntsDaCriatura";
 import { Resultado } from "./CryptResultado";
-import { useAltWeapons, useCreatures, useCryptWeapons, useHunts, useSources } from "./useDados";
+import {
+  useAltWeapons,
+  useBosses,
+  useCreatures,
+  useCryptWeapons,
+  useHunts,
+  useSources,
+} from "./useDados";
 import { Input } from "@/components/ui/input";
 
 export type Patch = { [K in keyof CryptSearch]?: CryptSearch[K] | null };
@@ -30,10 +47,12 @@ export function CryptCalculator({
   estado: CryptSearch;
   onChange: (patch: Patch) => void;
 }) {
+  const t = useT();
   const r = resolver(estado);
   const armas = useCryptWeapons();
   const alternativas = useAltWeapons();
   const criaturas = useCreatures();
+  const bosses = useBosses();
   const hunts = useHunts();
   const fontes = useSources();
   const [lvlTxt, setLvlTxt] = useState(String(r.lvl));
@@ -42,20 +61,62 @@ export function CryptCalculator({
     setLvlTxt((t) => (t !== "" && Number(t) === r.lvl ? t : String(r.lvl)));
   }, [r.lvl]);
   const lvlInvalido = lvlTxt !== "" && !validoLvl(lvlTxt);
-  const [tipoManual, setTipoManual] = useState<"monster" | "hunt">("monster");
-  const tipoEscolhido = estado.hunt ? "hunt" : estado.monster ? "monster" : tipoManual;
+  const [tipoManual, setTipoManual] = useState<"monster" | "boss" | "hunt">("monster");
+  const ehBoss = !!estado.monster && !!bosses.data?.some((b) => b.slug === estado.monster);
+  const tipoEscolhido = estado.hunt
+    ? "hunt"
+    : estado.monster
+      ? ehBoss
+        ? "boss"
+        : "monster"
+      : tipoManual;
+  // Proficiências editadas nas armas Crypt (slug da arma); vazio = proficiência completa.
+  const [semImb, setSemImb] = useState<Record<string, boolean>>({});
+  const [imbRasc, setImbRasc] = useState<Record<string, boolean>>({});
+  const [recalculando, setRecalculando] = useState(false);
+  // Todo recálculo mostra o esqueleto por um instante, para o usuário perceber que algo foi refeito.
+  const refazer = (fn: () => void) => {
+    setRecalculando(true);
+    setTimeout(() => {
+      fn();
+      setRecalculando(false);
+    }, 450);
+  };
+  const aplicarImb = (slug: string, sem: boolean) =>
+    refazer(() =>
+      setSemImb(({ [slug]: _, ...resto }) => (sem ? { ...resto, [slug]: true } : resto)),
+    );
+  const rascunharImb = (slug: string, sem: boolean) =>
+    setImbRasc(({ [slug]: _, ...resto }) =>
+      sem === !!semImb[slug] ? resto : { ...resto, [slug]: sem },
+    );
+  const recalcular = () =>
+    refazer(() => {
+      setSemImb((atual) => {
+        const novo = { ...atual };
+        for (const [slug, sem] of Object.entries(imbRasc)) {
+          if (sem) novo[slug] = true;
+          else delete novo[slug];
+        }
+        return novo;
+      });
+      setImbRasc({});
+    });
+  const [profs, setProfs] = useState<Proficiencias>({});
+  const aplicarProf = (slug: string, p: Proficiencias[string] | null) =>
+    refazer(() => setProfs(({ [slug]: _, ...resto }) => (p ? { ...resto, [slug]: p } : resto)));
 
   // Pesos editados no modal da hunt; voltam ao padrão quando a hunt muda.
   const [pesosEdit, setPesosEdit] = useState<Record<string, number> | null>(null);
   useEffect(() => setPesosEdit(null), [estado.hunt]);
 
   const porSlug = useMemo(
-    () => new Map((criaturas.data ?? []).map((c) => [c.slug, c])),
-    [criaturas.data],
+    () => new Map([...(criaturas.data ?? []), ...(bosses.data ?? [])].map((c) => [c.slug, c])),
+    [criaturas.data, bosses.data],
   );
   const calculo = useMemo(
     () =>
-      armas.data && alternativas.data && criaturas.data && hunts.data
+      armas.data && alternativas.data && criaturas.data && bosses.data && hunts.data
         ? calcular({
             armas: armas.data,
             alternativas: alternativas.data,
@@ -63,9 +124,22 @@ export function CryptCalculator({
             hunts: hunts.data,
             estado,
             pesos: pesosEdit,
+            proficiencias: profs,
+            semImbuiment: semImb,
           })
         : null,
-    [armas.data, alternativas.data, criaturas.data, hunts.data, porSlug, estado, pesosEdit],
+    [
+      armas.data,
+      alternativas.data,
+      criaturas.data,
+      bosses.data,
+      hunts.data,
+      porSlug,
+      estado,
+      pesosEdit,
+      profs,
+      semImb,
+    ],
   );
 
   const huntSel = estado.hunt ? hunts.data?.find((h) => h.slug === estado.hunt) : undefined;
@@ -75,6 +149,7 @@ export function CryptCalculator({
       (huntSel?.creatures ?? []).map((hc) => [hc.creatureSlug, r.usarPeso ? hc.weight : 1]),
     );
 
+  const editado = !!pesosEdit || Object.keys(profs).length > 0 || Object.keys(semImb).length > 0;
   const mudarVoc = (voc: "ek" | "monk") => onChange({ voc, cat: null });
   const mudarLvl = (txt: string) => {
     setLvlTxt(txt);
@@ -102,7 +177,7 @@ export function CryptCalculator({
         <Passo n={2} titulo="Categoria">
           {r.voc === "monk" ? (
             <p className="leading-relaxed text-muted-foreground">
-              O Monk usa só o Crypt Strike (Fist), então não há o que escolher.
+              {t("O Monk usa só o Crypt Strike (Fist), então não há o que escolher.")}
             </p>
           ) : (
             <div className="flex flex-wrap gap-2">
@@ -112,7 +187,7 @@ export function CryptCalculator({
                   ativo={r.cat === chave}
                   onClick={() => onChange({ cat: chave === "todas" ? null : chave })}
                 >
-                  {rotulo}
+                  {t(rotulo)}
                 </Chip>
               ))}
             </div>
@@ -121,7 +196,7 @@ export function CryptCalculator({
 
         <Passo n={3} titulo="Nível">
           <label htmlFor="crypt-lvl" className="mb-1.5 block text-sm text-muted-foreground">
-            Nível do personagem
+            {t("Nível do personagem")}
           </label>
           <Input
             id="crypt-lvl"
@@ -138,7 +213,7 @@ export function CryptCalculator({
           />
           {lvlInvalido && (
             <p id="crypt-lvl-erro" className="mt-1.5 text-sm text-bad">
-              Use um nível de 1 a 5000.
+              {t("Use um nível de 1 a 5000.")}
             </p>
           )}
         </Passo>
@@ -156,7 +231,16 @@ export function CryptCalculator({
                     onChange({ hunt: null });
                   }}
                 >
-                  Criatura
+                  {t("Criatura")}
+                </Chip>
+                <Chip
+                  ativo={tipoEscolhido === "boss"}
+                  onClick={() => {
+                    setTipoManual("boss");
+                    onChange({ hunt: null, monster: null });
+                  }}
+                >
+                  Boss
                 </Chip>
                 <Chip
                   ativo={tipoEscolhido === "hunt"}
@@ -173,7 +257,7 @@ export function CryptCalculator({
                   hunt={huntSel}
                   criaturas={porSlug}
                   pesos={pesosAtuais}
-                  onPesos={setPesosEdit}
+                  onPesos={(p) => refazer(() => setPesosEdit(p))}
                   melhor={
                     calculo?.tipo === "ok"
                       ? {
@@ -191,8 +275,11 @@ export function CryptCalculator({
                 />
               )}
             </div>
-            {tipoEscolhido === "monster" ? (
+            {tipoEscolhido !== "hunt" ? (
               <CreaturePicker
+                key={tipoEscolhido}
+                boss={tipoEscolhido === "boss"}
+                label={tipoEscolhido === "boss" ? "Boss" : "Criatura"}
                 value={estado.monster ?? null}
                 onChange={(slug) => onChange({ monster: slug, hunt: null })}
               />
@@ -211,7 +298,7 @@ export function CryptCalculator({
                 onChange={(e) => onChange({ peso: e.target.checked ? 1 : null })}
                 className="size-5 accent-gold"
               />
-              Ponderar pelo peso da criatura (desligado: cada criatura conta igual)
+              {t("Ponderar pelo peso da criatura (desligado: cada criatura conta igual)")}
             </label>
           )}
         </Passo>
@@ -230,41 +317,91 @@ export function CryptCalculator({
       <div className="mt-5 space-y-3">
         {r.lvl < NIVEL_CRYPT && (
           <p role="status" className="border border-gold-dim bg-muted px-4 py-3">
-            <strong className="text-gold">A Crypt exige nível {NIVEL_CRYPT}.</strong> Você informou
-            nível {r.lvl}. O cálculo abaixo continua valendo para quando chegar lá; o nível também
-            define quais armas do jogo entram na comparação.
+            <strong className="text-gold">
+              {t("A Crypt exige nível {n}.", { n: NIVEL_CRYPT })}
+            </strong>{" "}
+            {t(
+              "Você informou nível {n}. O cálculo abaixo continua valendo para quando chegar lá; o nível também define quais armas do jogo entram na comparação.",
+              { n: r.lvl },
+            )}
           </p>
         )}
       </div>
 
       {alternativas.data?.length === 0 && (
         <p role="status" className="mt-5 border border-gold-dim bg-muted px-4 py-3">
-          Nenhuma arma das tabelas do jogo foi carregada, então a comparação mostra só as Crypt.
+          {t(
+            "Nenhuma arma das tabelas do jogo foi carregada, então a comparação mostra só as Crypt.",
+          )}
         </p>
       )}
 
       <div className="mt-8 flex flex-wrap items-end justify-between gap-4">
-        <h2 className="font-display text-2xl font-bold">Resultado</h2>
+        <h2 className="font-display text-2xl font-bold">{t("Resultado")}</h2>
+        <div className="flex flex-wrap gap-3">
+          <button
+            type="button"
+            disabled={!editado}
+            onClick={() => {
+              refazer(() => {
+                setProfs({});
+                setSemImb({});
+                setImbRasc({});
+                setPesosEdit(null);
+              });
+            }}
+            className="inline-flex min-h-11 items-center border border-border bg-metal px-5 font-semibold text-foreground transition-colors enabled:hover:border-gold-dim disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {t("Resetar cálculos")}
+          </button>
+          <button type="button" onClick={recalcular} className={btnPrimario}>
+            {t("Recalcular")}
+          </button>
+        </div>
       </div>
 
       <div className="mt-6">
         <p role="status" className="sr-only">
           {resumo}
         </p>
-        <Resultado
-          carregando={
-            armas.isPending || criaturas.isPending || hunts.isPending || alternativas.isPending
-          }
-          erro={armas.isError || criaturas.isError || hunts.isError || alternativas.isError}
-          onTentar={() => {
-            void alternativas.refetch();
-            void armas.refetch();
-            void criaturas.refetch();
-            void hunts.refetch();
+        <ProficienciaCtx.Provider
+          value={{
+            profs,
+            aplicar: aplicarProf,
+            semImb,
+            aplicarImb,
+            imbRasc,
+            rascunharImb,
+            recalcular,
           }}
-          calculo={calculo}
-          onChange={onChange}
-        />
+        >
+          <Resultado
+            carregando={
+              recalculando ||
+              armas.isPending ||
+              criaturas.isPending ||
+              bosses.isPending ||
+              hunts.isPending ||
+              alternativas.isPending
+            }
+            erro={
+              armas.isError ||
+              criaturas.isError ||
+              bosses.isError ||
+              hunts.isError ||
+              alternativas.isError
+            }
+            onTentar={() => {
+              void alternativas.refetch();
+              void armas.refetch();
+              void criaturas.refetch();
+              void bosses.refetch();
+              void hunts.refetch();
+            }}
+            calculo={calculo}
+            onChange={onChange}
+          />
+        </ProficienciaCtx.Provider>
       </div>
     </>
   );

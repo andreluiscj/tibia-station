@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Carregando, Erro, NaoEncontrado } from "@/components/station/Estados";
 import { ELEMENTOS_EXTRAS, ELEMENTOS_PRINCIPAIS } from "@/components/station/elementos";
 import { inteiro } from "@/components/station/format";
+import { useT } from "@/lib/i18n";
 import { Cont } from "@/components/station/Layout";
 import { PageIntro } from "@/components/station/PageIntro";
 import { ResistanceBar } from "@/components/station/ResistanceBar";
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/monstros/$slug")({
 const MAX_HUNTS = 12;
 
 function MonstroPage() {
+  const t = useT();
   const { slug } = Route.useParams();
   const q = useCreature(slug);
   const hunts = useHunts();
@@ -70,9 +72,9 @@ function MonstroPage() {
         <dl className="frame grid grid-cols-2 gap-4 p-5 lg:grid-cols-4">
           {info.map(([k, v]) => (
             <div key={k}>
-              <dt className="text-muted-foreground">{k}</dt>
+              <dt className="text-muted-foreground">{t(k)}</dt>
               <dd className={v === "não informado" ? "text-muted-foreground" : "num text-xl"}>
-                {v}
+                {v === "não informado" ? t(v) : v}
               </dd>
             </div>
           ))}
@@ -84,7 +86,7 @@ function MonstroPage() {
             rel="noopener noreferrer"
             className="text-gold underline underline-offset-4"
           >
-            Ver na TibiaWiki
+            {t("Ver na TibiaWiki")}
           </a>
         </p>
 
@@ -94,13 +96,13 @@ function MonstroPage() {
             search={{ monster: c.slug }}
             className="inline-flex min-h-11 items-center border border-gold bg-accent px-5 font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
           >
-            Ver Crypt para esta criatura
+            {t("Ver Crypt para esta criatura")}
           </Link>
         </p>
       </Cont>
 
       <Cont className="mt-10">
-        <h2 className="font-display text-2xl font-bold">Resistências</h2>
+        <h2 className="font-display text-2xl font-bold">{t("Resistências")}</h2>
         <ul className="mt-5 grid gap-x-10 gap-y-5 md:grid-cols-2">
           {ELEMENTOS_PRINCIPAIS.map((e, i) => (
             <li key={e}>
@@ -113,7 +115,7 @@ function MonstroPage() {
             </li>
           ))}
         </ul>
-        <h3 className="mt-8 font-display text-xl font-bold">Outros danos</h3>
+        <h3 className="mt-8 font-display text-xl font-bold">{t("Outros danos")}</h3>
         <ul className="mt-4 grid gap-x-10 gap-y-5 md:grid-cols-2">
           {ELEMENTOS_EXTRAS.map((e) => (
             <li key={e}>
@@ -125,7 +127,7 @@ function MonstroPage() {
 
       {naHunt.length > 0 && (
         <Cont className="mt-10">
-          <h2 className="font-display text-2xl font-bold">Hunts onde aparece</h2>
+          <h2 className="font-display text-2xl font-bold">{t("Hunts onde aparece")}</h2>
           <ul className="mt-4 flex flex-wrap gap-3">
             {naHunt.slice(0, MAX_HUNTS).map((h) => (
               <li key={h.slug}>
@@ -141,7 +143,7 @@ function MonstroPage() {
           </ul>
           {naHunt.length > MAX_HUNTS && (
             <p className="mt-3 text-muted-foreground">
-              E mais {naHunt.length - MAX_HUNTS}. Veja a lista completa em{" "}
+              {t("E mais {n}. Veja a lista completa em", { n: naHunt.length - MAX_HUNTS })}{" "}
               <Link to="/hunts" className="text-gold underline underline-offset-4">
                 Hunts
               </Link>

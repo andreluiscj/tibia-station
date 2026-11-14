@@ -11,6 +11,7 @@ import { MotionConfig } from "motion/react";
 import { useState, type ReactNode } from "react";
 
 import { btnPrimario, btnSecundario } from "@/components/station/estilos";
+import { LangProvider, useT } from "@/lib/i18n";
 import { SiteFooter } from "@/components/station/SiteFooter";
 import { SiteHeader } from "@/components/station/SiteHeader";
 import appCss from "../styles.css?url";
@@ -21,17 +22,21 @@ const FONTES =
   "https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@500&family=Source+Sans+3:wght@400;600;700&display=swap";
 
 function NotFoundComponent() {
+  const t = useT();
   return (
     <div className="mx-auto flex min-h-[50vh] max-w-6xl flex-col items-start justify-center px-4 py-16 sm:px-6">
       <p className="num text-6xl text-gold">404</p>
-      <h1 className="mt-3 font-display text-3xl font-bold text-gold">Caminho não encontrado</h1>
+      <h1 className="mt-3 font-display text-3xl font-bold text-gold">
+        {t("Caminho não encontrado")}
+      </h1>
       <p className="mt-3 leading-relaxed text-muted-foreground">
-        A página que você procura não existe ou foi movida. Volte ao início e escolha uma
-        ferramenta.
+        {t(
+          "A página que você procura não existe ou foi movida. Volte ao início e escolha uma ferramenta.",
+        )}
       </p>
       <div className="mt-6">
         <Link to="/" className={btnPrimario}>
-          Voltar ao início
+          {t("Voltar ao início")}
         </Link>
       </div>
     </div>
@@ -41,15 +46,16 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+  const t = useT();
 
   return (
     <div
       role="alert"
       className="mx-auto flex min-h-[50vh] max-w-6xl flex-col items-start justify-center px-4 py-16 sm:px-6"
     >
-      <h1 className="font-display text-3xl font-bold text-gold">Esta página não carregou</h1>
+      <h1 className="font-display text-3xl font-bold text-gold">{t("Esta página não carregou")}</h1>
       <p className="mt-3 leading-relaxed text-muted-foreground">
-        Algo deu errado do nosso lado. Tente carregar de novo ou volte ao início.
+        {t("Algo deu errado do nosso lado. Tente carregar de novo ou volte ao início.")}
       </p>
       <div className="mt-6 flex flex-wrap gap-3">
         <button
@@ -60,10 +66,10 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
           }}
           className={btnPrimario}
         >
-          Tentar de novo
+          {t("Tentar de novo")}
         </button>
         <a href="/" className={btnSecundario}>
-          Voltar ao início
+          {t("Voltar ao início")}
         </a>
       </div>
     </div>
@@ -119,27 +125,33 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function Pular() {
+  return <>{useT()("Ir para o conteúdo")}</>;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <MotionConfig reducedMotion="user">
-        <div className="flex min-h-screen flex-col">
-          <a
-            href="#conteudo"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-accent focus:px-4 focus:py-3 focus:font-semibold focus:text-accent-foreground"
-          >
-            Ir para o conteúdo
-          </a>
-          <SiteHeader />
-          <main id="conteudo" className="flex-1">
-            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-            <Outlet />
-          </main>
-          <SiteFooter />
-        </div>
-      </MotionConfig>
+      <LangProvider>
+        <MotionConfig reducedMotion="user">
+          <div className="flex min-h-screen flex-col">
+            <a
+              href="#conteudo"
+              className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-accent focus:px-4 focus:py-3 focus:font-semibold focus:text-accent-foreground"
+            >
+              <Pular />
+            </a>
+            <SiteHeader />
+            <main id="conteudo" className="flex-1">
+              {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+              <Outlet />
+            </main>
+            <SiteFooter />
+          </div>
+        </MotionConfig>
+      </LangProvider>
     </QueryClientProvider>
   );
 }

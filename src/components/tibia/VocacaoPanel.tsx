@@ -1,5 +1,6 @@
 import { EK_CLASSES, VOCATIONS, type VocationKey } from "@/lib/tibia";
 import { Passo } from "@/components/station/Passo";
+import { useT } from "@/lib/i18n";
 import { Chip } from "@/components/station/Chip";
 
 export function VocacaoPanel({
@@ -13,6 +14,7 @@ export function VocacaoPanel({
   onVocation: (v: VocationKey) => void;
   onClass: (c: number) => void;
 }) {
+  const t = useT();
   return (
     <Passo n={1} titulo="Vocação">
       <div className="flex flex-wrap gap-2">
@@ -24,7 +26,9 @@ export function VocacaoPanel({
       </div>
       {vocation === "EK" && (
         <div className="mt-5">
-          <h3 className="font-display text-base font-bold">Categoria de arma do Elite Knight</h3>
+          <h3 className="font-display text-base font-bold">
+            {t("Categoria de arma do Elite Knight")}
+          </h3>
           <div className="mt-3 flex flex-wrap gap-2">
             {EK_CLASSES.map((c) => (
               <Chip key={c.value} ativo={ekClass === c.value} onClick={() => onClass(c.value)}>

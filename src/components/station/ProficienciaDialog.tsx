@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -6,7 +6,15 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { proficienciaIdeal, type Candidato } from "./cryptEstado";
+import { useT } from "@/lib/i18n";
+import { Chip } from "./Chip";
+import {
+  ProficienciaCtx,
+  proficienciaIdeal,
+  type Candidato,
+  type Proficiencia,
+} from "./cryptEstado";
+import { btnPrimario, btnSecundario } from "./estilos";
 
 /** Ícone do perk (public/proficiencia/<arma>/<nível>-<opção>.gif); sem imagem (ex.: Monk), mostra o número da opção. */
 function IconePerk({ slug, id, marcado }: { slug: string; id: string; marcado: boolean }) {
@@ -35,30 +43,67 @@ function IconePerk({ slug, id, marcado }: { slug: string; id: string; marcado: b
   );
 }
 
-/** "Ver proficiência": painel no estilo do jogo, uma coluna por nível, com os perks que devem ser marcados. */
+/** "Editar proficiência": painel no estilo do jogo; por padrão completo, com os perks ideais marcados. O usuário ajusta e refaz o cálculo. */
 export function ProficienciaDialog({ c }: { c: Candidato }) {
-  const [aberto, setAberto] = useState(false);
+  const t = useT();
+  const { profs, aplicar } = useContext(ProficienciaCtx);
   const arma = c.arma;
+  const editada = arma ? profs[arma.slug] : undefined;
+  const atual: Proficiencia = {
+    max: editada?.max ?? 7,
+    perks: arma
+      ? { ...proficienciaIdeal(arma.vocation, !!c.imbued, c.escolhas), ...editada?.perks }
+      : {},
+  };
+  const [aberto, setAberto] = useState(false);
+  const [rascunho, setRascunho] = useState(atual);
   if (!arma) return null;
-  const marcados = proficienciaIdeal(arma.vocation, !!c.imbued, c.escolhas);
+  const marcados = rascunho.perks;
+  const fechar = (p: Proficiencia | null) => {
+    aplicar(arma.slug, p);
+    setAberto(false);
+  };
 
   return (
     <>
       <button
         type="button"
-        onClick={() => setAberto(true)}
+        onClick={() => {
+          setRascunho(atual);
+          setAberto(true);
+        }}
         className="ml-auto font-bold text-primary underline underline-offset-4 transition-colors hover:text-accent"
       >
-        Ver proficiência
+        {t("Editar proficiência")}
+        {editada ? ` (${t("editada")})` : ""}
       </button>
       <Dialog open={aberto} onOpenChange={setAberto}>
         <DialogContent className="max-h-[90vh] w-[calc(100%-2rem)] max-w-[min(90rem,calc(100vw-2rem))] overflow-y-auto sm:max-w-6xl">
           <DialogHeader>
-            <DialogTitle>Proficiência: {arma.name}</DialogTitle>
+            <DialogTitle>{t("Proficiência: {nome}", { nome: arma.name })}</DialogTitle>
             <DialogDescription>
-              Marque em cada nível o perk com a moldura dourada. Os demais ficam apagados.
+              {t(
+                "Por padrão a proficiência está completa. Se a sua não está, informe até que nível ela vai e clique no perk de cada nível; depois use Refazer cálculo.",
+              )}
             </DialogDescription>
           </DialogHeader>
+
+          <div
+            role="group"
+            aria-label={t("Nível máximo da proficiência")}
+            className="flex flex-wrap items-center gap-2"
+          >
+            <span className="mr-1 font-semibold">{t("Proficiência até o nível:")}</span>
+            {arma.perks.map((n) => (
+              <Chip
+                key={n.level}
+                ativo={rascunho.max === n.level}
+                onClick={() => setRascunho({ ...rascunho, max: n.level })}
+              >
+                {n.level}
+              </Chip>
+            ))}
+          </div>
 
           <div className="overflow-x-auto">
             <div className="grid min-w-[56rem] grid-cols-7 gap-px bg-[#0a4a4a] text-white">
@@ -67,7 +112,7 @@ export function ProficienciaDialog({ c }: { c: Candidato }) {
                   key={`t${nivel.level}`}
                   className="bg-[#118a8a] py-2 text-center text-sm font-semibold"
                 >
-                  <span aria-hidden="true">★</span> Nível {nivel.level}
+                  <span aria-hidden="true">★</span> {t("Nível {n}", { n: nivel.level })}
                 </p>
               ))}
               {arma.perks.map((nivel) => (
@@ -79,15 +124,25 @@ export function ProficienciaDialog({ c }: { c: Candidato }) {
                 >
                   {nivel.options.map((o) => (
                     <li key={o.id} title={o.text}>
-                      <IconePerk
-                        slug={arma.slug}
-                        id={o.id}
-                        marcado={marcados[nivel.level] === o.id}
-                      />
-                      <span className="sr-only">
-                        {marcados[nivel.level] === o.id ? "Marcar: " : ""}
-                        {o.text}
-                      </span>
+                      <button
+                        type="button"
+                        disabled={nivel.level > rascunho.max}
+                        aria-pressed={marcados[nivel.level] === o.id}
+                        onClick={() =>
+                          setRascunho({
+                            ...rascunho,
+                            perks: { ...rascunho.perks, [nivel.level]: o.id },
+                          })
+                        }
+                        className={`block ${nivel.level > rascunho.max ? "cursor-not-allowed opacity-30" : ""}`}
+                      >
+                        <IconePerk
+                          slug={arma.slug}
+                          id={o.id}
+                          marcado={nivel.level <= rascunho.max && marcados[nivel.level] === o.id}
+                        />
+                        <span className="sr-only">{o.text}</span>
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -97,11 +152,22 @@ export function ProficienciaDialog({ c }: { c: Candidato }) {
                   key={`d${nivel.level}`}
                   className="min-h-28 bg-[#3a3d3f] p-3 text-sm leading-snug text-[#eee4cc]"
                 >
-                  {nivel.options.find((o) => o.id === marcados[nivel.level])?.text ??
-                    "Definido pelo cálculo"}
+                  {nivel.level > rascunho.max
+                    ? t("Nível ainda não liberado.")
+                    : (nivel.options.find((o) => o.id === marcados[nivel.level])?.text ??
+                      t("Definido pelo cálculo"))}
                 </p>
               ))}
             </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            <button type="button" className={btnPrimario} onClick={() => fechar(rascunho)}>
+              {t("Refazer cálculo")}
+            </button>
+            <button type="button" className={btnSecundario} onClick={() => fechar(null)}>
+              {t("Restaurar proficiência completa")}
+            </button>
           </div>
         </DialogContent>
       </Dialog>

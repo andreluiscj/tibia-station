@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import type { Element, ElementKey } from "@/lib/data/types";
 import type { Creature } from "@/lib/data/types";
 import type { Target } from "@/lib/crypt/types";
@@ -54,10 +55,11 @@ export function CriaturaCard({
   huntNome?: string;
   alvos: readonly Target[];
 }) {
+  const t = useT();
   const linhas = criatura ? linhasDe(criatura) : linhasDeHunt(alvos);
   const titulo = criatura?.name ?? huntNome ?? "";
   return (
-    <section className="frame p-5 sm:p-6" aria-label={`Informações de ${titulo}`}>
+    <section className="frame p-5 sm:p-6" aria-label={t("Informações de {n}", { n: titulo })}>
       <div className="grid gap-6 md:grid-cols-[minmax(0,16rem)_1fr]">
         <div className="flex flex-col items-center gap-4 border-b border-border pb-5 text-center md:border-r md:border-b-0 md:pb-0 md:pr-6">
           {criatura ? (
@@ -81,17 +83,17 @@ export function CriaturaCard({
               {criatura
                 ? [
                     criatura.hp !== null && `${criatura.hp.toLocaleString("pt-BR")} HP`,
-                    criatura.bestiaryClass,
+                    criatura.bestiaryClass ?? criatura.bosstiaryClass,
                   ]
                     .filter(Boolean)
                     .join(" · ")
-                : `Média da hunt · ${alvos.length} criaturas`}
+                : t("Média da hunt · {n} criaturas", { n: alvos.length })}
             </p>
           </div>
         </div>
 
         <div>
-          <h4 className="mb-3 font-display text-lg font-bold">Resistências elementais</h4>
+          <h4 className="mb-3 font-display text-lg font-bold">{t("Resistências elementais")}</h4>
           <ul className="grid grid-cols-2 gap-2 xl:grid-cols-4">
             {linhas.map((l) => {
               const s = estilo(l.valor);
@@ -109,8 +111,8 @@ export function CriaturaCard({
                       {l.valor}%{l.incerto && <span aria-hidden="true">?</span>}
                     </span>
                     <span className="sr-only">
-                      {s.nota}
-                      {l.incerto ? ", não confirmado" : ""}
+                      {t(s.nota)}
+                      {l.incerto ? `, ${t("não confirmado")}` : ""}
                     </span>
                   </span>
                 </li>

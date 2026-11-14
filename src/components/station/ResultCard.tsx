@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import type { CryptWeapon } from "@/lib/data/types";
 import { DamageBar } from "./DamageBar";
 import { ElementBadge } from "./ElementBadge";
@@ -55,6 +56,7 @@ export function ResultCard({
   escala,
   divergencia,
 }: ResultCardProps) {
+  const t = useT();
   const corArma = arma.element ? ELEMENTOS[arma.element].bar : ELEMENTOS.physical.bar;
   return (
     <article className="frame p-5">
@@ -80,9 +82,9 @@ export function ResultCard({
               veredito.compensa ? "border-good text-good" : "border-bad text-bad"
             }`}
           >
-            {veredito.compensa ? "Compensa" : "Não compensa"}
+            {veredito.compensa ? t("Compensa") : t("Não compensa")}
             {veredito.tied ? (
-              <span className="ml-2 font-normal">empate no ranking</span>
+              <span className="ml-2 font-normal">{t("empate no ranking")}</span>
             ) : (
               veredito.diffPct !== null && (
                 <span className="ml-2 font-normal">
@@ -90,7 +92,7 @@ export function ResultCard({
                     {veredito.diffPct > 0 ? "+" : ""}
                     {n1(veredito.diffPct)}%
                   </span>
-                  {veredito.contra && ` ${veredito.contra}`}
+                  {veredito.contra && ` ${t(veredito.contra)}`}
                 </span>
               )
             )}
@@ -106,11 +108,13 @@ export function ResultCard({
           >
             <div className="flex items-baseline justify-between gap-3">
               <span>
-                {m.label}
-                {melhor?.id === m.id && <span className="ml-2 text-sm text-gold">melhor</span>}
+                {t(m.label)}
+                {melhor?.id === m.id && (
+                  <span className="ml-2 text-sm text-gold">{t("melhor")}</span>
+                )}
               </span>
               <span className="num text-gold">
-                {m.value === null ? "sem cálculo" : n1(m.value)}
+                {m.value === null ? t("sem cálculo") : n1(m.value)}
               </span>
             </div>
             {m.value !== null && (
@@ -126,20 +130,22 @@ export function ResultCard({
         <div className="mt-4 border-t border-border pt-3">
           <p className="flex flex-wrap items-baseline gap-x-6 gap-y-1">
             <span className="min-w-0 break-words">
-              Melhor combinação: <span className="font-semibold">{melhor.label}</span>{" "}
+              {t("Melhor combinação:")} <span className="font-semibold">{t(melhor.label)}</span>{" "}
               <span className="num text-gold">{n1(melhor.value)}</span>
             </span>
             {melhor.imbued !== undefined && (
               <span>
-                <span className="text-muted-foreground">Imbuiment Elemental</span>{" "}
-                <span className="font-semibold text-gold">{melhor.imbued ? "Sim" : "Não"}</span>
+                <span className="text-muted-foreground">{t("Imbuiment Elemental")}</span>{" "}
+                <span className="font-semibold text-gold">
+                  {melhor.imbued ? t("Sim") : t("Não")}
+                </span>
               </span>
             )}
           </p>
           {perks && perks.length > 0 && (
             <ul className="mt-1 space-y-0.5 text-sm text-muted-foreground">
               {perks.map((p) => (
-                <li key={p}>{p}</li>
+                <li key={p}>{t(p)}</li>
               ))}
             </ul>
           )}
@@ -153,7 +159,7 @@ export function ResultCard({
       {alvos && alvos.length > 0 && (
         <details className="mt-4 border-t border-border pt-3">
           <summary className="min-h-11 cursor-pointer py-2 font-semibold">
-            Por criatura ({alvos.length})
+            {t("Por criatura ({n})", { n: alvos.length })}
           </summary>
           <ul className="space-y-1 text-sm">
             {alvos.map((a, i) => (
@@ -161,12 +167,12 @@ export function ResultCard({
                 <span>{a.name}</span>
                 {a.absorbs ? (
                   <span className="font-semibold text-bad">
-                    {a.absorbeTexto ?? "absorve o elemento"}
+                    {t(a.absorbeTexto ?? "absorve o elemento")}
                   </span>
                 ) : (
                   <span className={a.value > 100 ? "text-good" : a.value < 100 ? "text-bad" : ""}>
                     <span className="num">{n1(a.value)}</span>{" "}
-                    {a.value > 100 ? "ganha" : a.value < 100 ? "perde" : "neutro"}
+                    {a.value > 100 ? t("ganha") : a.value < 100 ? t("perde") : t("neutro")}
                   </span>
                 )}
               </li>
