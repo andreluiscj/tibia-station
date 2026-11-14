@@ -59,8 +59,8 @@ export interface EvaluateOptions {
   elementalShare?: number;
   /** Padrão 100 (dano neutro); o veredito compara com isto. Pode variar por arma (a melhor concorrente da mesma categoria). */
   baseline?: number | ((weapon: CryptWeapon) => number);
-  /** Inteiro 1..7, padrão 7; níveis acima não entram nas combinações. */
-  maxProficiencyLevel?: number;
+  /** Inteiro 1..7, padrão 7; níveis acima não entram nas combinações. Pode variar por arma (proficiência incompleta). */
+  maxProficiencyLevel?: number | ((weapon: CryptWeapon) => number);
 }
 
 export interface WeaponEvaluation {

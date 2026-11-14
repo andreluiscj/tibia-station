@@ -242,9 +242,10 @@ export function evaluateWeapon(
     mode = "official",
     elementalShare = 0.5,
     baseline: baselineOpt = 100,
-    maxProficiencyLevel = 7,
+    maxProficiencyLevel: maxOpt = 7,
   } = options;
   const baseline = typeof baselineOpt === "function" ? baselineOpt(weapon) : baselineOpt;
+  const maxProficiencyLevel = typeof maxOpt === "function" ? maxOpt(weapon) : maxOpt;
   if (!Number.isFinite(elementalShare) || elementalShare < 0 || elementalShare > 1) {
     throw new RangeError("elementalShare deve estar entre 0 e 1.");
   }
