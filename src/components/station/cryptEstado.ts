@@ -73,17 +73,19 @@ export function resolver(s: CryptSearch) {
 
 // --- apresentação --------------------------------------------------------------------------------
 
-type Preset = "elemental" | "hybrid" | "physical";
+type Preset = "elemental" | "hybrid" | "hybrid2" | "physical";
 const PRESET_NOME: Record<Preset, string> = {
   elemental: "Elemental",
   hybrid: "Híbrida",
+  hybrid2: "Híbrida",
   physical: "Physical",
 };
 
 /** Rótulo do preset com o pierce REAL da combinação: o do Monk (20% físico) difere do do Knight (14%). */
 export function rotuloPreset(preset: Preset, p: PierceSpec): string {
   if (preset === "elemental") return `Elemental ${p.elemental}%`;
-  if (preset === "hybrid") return `Híbrida ${p.elemental}% + ${p.physical}%`;
+  if (preset === "hybrid" || preset === "hybrid2")
+    return `Híbrida ${p.elemental}% + ${p.physical}%`;
   return `Physical ${p.physical}%`;
 }
 
@@ -106,6 +108,7 @@ export function modosDe(ev: WeaponEvaluation, arma: CryptWeapon): ResultMode[] {
     ? [
         m("elemental", ev.presets.elemental, cor),
         m("hybrid", ev.presets.hybrid, cor),
+        m("hybrid2", ev.presets.hybrid2, cor),
         m("physical", ev.presets.physical, ELEMENTOS.physical.bar),
       ]
     : [m("physical", ev.presets.physical, ELEMENTOS.physical.bar)];

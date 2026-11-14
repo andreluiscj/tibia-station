@@ -191,6 +191,7 @@ function presetCombos(weapon: CryptWeapon, max: number, forceImbued = false): Pr
   return {
     elemental: all((l) => bestBy(weapon, l, "elemental")),
     hybrid: all((l) => (l === 3 ? bestBy(weapon, l, "physical") : bestBy(weapon, l, "elemental"))),
+    hybrid2: all((l) => (l === 7 ? bestBy(weapon, l, "physical") : bestBy(weapon, l, "elemental"))),
     physical: buildCombo(weapon, physicalPicks, forceImbued),
   };
 }
@@ -227,7 +228,7 @@ function evaluateCombo(
   const totalWeight = targets.reduce((s, t) => s + t.weight, 0);
   const damagePct =
     perTarget.reduce((s, v, i) => s + targets[i].weight * v.damagePct, 0) / totalWeight;
-  const preset = (["elemental", "hybrid", "physical"] as const).find((k) => {
+  const preset = (["elemental", "hybrid", "hybrid2", "physical"] as const).find((k) => {
     const p = presets[k];
     return p !== null && samePierce(p.pierce, combo.pierce);
   });
@@ -279,6 +280,7 @@ export function evaluateWeapon(
       presets: {
         elemental: presets.elemental && evaluate(presets.elemental),
         hybrid: presets.hybrid && evaluate(presets.hybrid),
+        hybrid2: presets.hybrid2 && evaluate(presets.hybrid2),
         physical: evaluate(presets.physical),
       },
       best,
@@ -330,7 +332,7 @@ export function compareModes(
     a === null || b === null ? a !== b : Math.abs(a.damagePct - b.damagePct) > MODE_DIFF_EPS;
   const differs =
     apart(official.best, reference.best) ||
-    (["elemental", "hybrid", "physical"] as const).some((k) =>
+    (["elemental", "hybrid", "hybrid2", "physical"] as const).some((k) =>
       apart(official.presets[k], reference.presets[k]),
     );
   return { official, reference, differs };

@@ -361,9 +361,14 @@ describe("rotulo dos presets vem do pierce real da arma", () => {
       physical: r.evaluation.presets.physical.combo.pierce.physical,
     }));
   };
-  it("Knight: Elemental 45%, Híbrida 35% + 6% e Physical 14%", () => {
+  it("Knight: Elemental 45%, Híbrida 35% + 6%, Híbrida 25% + 8% e Physical 14%", () => {
     for (const r of rotulos({ monster: "hellflayer" })) {
-      expect(r.rotulos).toEqual(["Elemental 45%", "Híbrida 35% + 6%", "Physical 14%"]);
+      expect(r.rotulos).toEqual([
+        "Elemental 45%",
+        "Híbrida 35% + 6%",
+        "Híbrida 25% + 8%",
+        "Physical 14%",
+      ]);
     }
   });
   it("Monk: o rótulo físico mostra o pierce físico real da combinação, não 14%", () => {

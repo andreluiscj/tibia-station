@@ -2,7 +2,7 @@
 import type { CryptWeapon, ElementKey, PierceSpec } from "@/lib/data/types";
 
 export type PierceMode = "official" | "reference";
-export type PresetKey = "elemental" | "hybrid" | "physical";
+export type PresetKey = "elemental" | "hybrid" | "hybrid2" | "physical";
 export type ImbueMode = "auto" | "on" | "off";
 
 /** Formato wiki, 100 = neutro; sempre numérico; pode ser 0 (imune) ou NEGATIVO (absorve). */
@@ -78,6 +78,8 @@ export interface WeaponEvaluation {
     /** null se weapon.element === null ou o preset não existe nos perks. */
     elemental: ComboResult | null;
     hybrid: ComboResult | null;
+    /** Híbrida alternativa: físico no nível 7 em vez do 3. */
+    hybrid2: ComboResult | null;
     /** Sempre existe. */
     physical: ComboResult;
   };
