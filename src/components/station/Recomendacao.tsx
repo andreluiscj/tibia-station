@@ -18,7 +18,13 @@ const TIPO: Record<Candidato["categoria"], string> = {
 
 function Elemento({ c }: { c: Candidato }) {
   const t = useT();
-  if (!c.elemento) return <span className="text-muted-foreground">{t("Physical only")}</span>;
+  if (!c.elemento)
+    return (
+      <span className="inline-flex items-center gap-1.5">
+        <ElementIcon element="physical" className="size-5" />
+        Physical
+      </span>
+    );
   return (
     <span className="inline-flex items-center gap-1.5">
       <ElementIcon element={c.elemento} className="size-5" />

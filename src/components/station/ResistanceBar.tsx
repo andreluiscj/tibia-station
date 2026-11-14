@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useT } from "@/lib/i18n";
 import type { Element } from "@/lib/data/types";
+import { ElementIcon } from "./ElementIcon";
 import { ELEMENTOS } from "./elementos";
 import { ESCALA_RESIST, descreverResist } from "./resist";
 
@@ -29,7 +30,7 @@ export function ResistanceBar({
     <div className={absorve ? "border-l-2 border-bad pl-3" : "border-l-2 border-transparent pl-3"}>
       <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <span className="flex items-center gap-2 font-semibold">
-          <span aria-hidden="true" className={`size-2.5 shrink-0 rotate-45 ${meta.bar}`} />
+          <ElementIcon element={element} className="size-4" />
           {meta.label}
         </span>
         <span className="flex flex-wrap items-baseline justify-end gap-x-2 gap-y-1 text-sm">
