@@ -31,6 +31,25 @@ test.describe("Damage Calculator", () => {
     await expect(page.getByRole("heading", { name: "Damage Calculator" })).toBeVisible();
   });
 
+  test("com um boss escolhido, clicar em Criatura troca o tipo", async ({ page }) => {
+    await abrir(page, "/damage-calculator?monster=grand-master-oberon");
+    await expect(page.getByRole("combobox", { name: "Boss" })).toBeVisible();
+    await page.getByRole("button", { name: "Criatura", exact: true }).click();
+    await expect(page.getByRole("combobox", { name: "Criatura" })).toBeVisible();
+    expect(page.url()).not.toContain("monster=");
+  });
+
+  test("ligar o imbuiment numa arma cujo ideal é não imbuir não fica bloqueado", async ({
+    page,
+  }) => {
+    await abrir(page, "/damage-calculator?monster=hellflayer");
+    const desligado = page.locator('[role="switch"][aria-checked="false"]').first();
+    await expect(desligado).toBeEnabled();
+    await desligado.click();
+    await page.getByRole("button", { name: "Recalcular" }).first().click();
+    await expect(page.getByText(/Com o imbuiment:|Resetar proficiência/).first()).toBeVisible();
+  });
+
   test("desligar o imbuiment elemental pede Recalcular e refaz o cálculo", async ({ page }) => {
     await abrir(page, "/damage-calculator?monster=hellflayer");
     const chave = page.locator('[role="switch"][aria-checked="true"]').first();

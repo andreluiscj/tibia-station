@@ -14,6 +14,7 @@ import type {
   Combo,
   ComboResult,
   EvaluateOptions,
+  ImbueMode,
   ModeComparison,
   PierceMode,
   PresetKey,
@@ -101,7 +102,8 @@ function checkTargets(targets: readonly Target[]): void {
 
 // --- combinações e presets ---------------------------------------------------------------------
 
-function buildCombo(weapon: CryptWeapon, picks: readonly Pick[]): Combo {
+/** forceImbued: a arma está imbuída mesmo sem pierce elemental (o elemento entra com a parte dele sem pierce). */
+function buildCombo(weapon: CryptWeapon, picks: readonly Pick[], forceImbued = false): Combo {
   const pierce = picks.reduce<PierceSpec>(
     (s, p) => ({
       physical: s.physical + p.pierce.physical,
@@ -114,7 +116,7 @@ function buildCombo(weapon: CryptWeapon, picks: readonly Pick[]): Combo {
       .filter((p) => !isZero(p.pierce))
       .map((p) => ({ level: p.level, perkId: p.perkId })),
     pierce,
-    imbued: weapon.element !== null && pierce.elemental > 0,
+    imbued: weapon.element !== null && (forceImbued || pierce.elemental > 0),
   };
 }
 
@@ -131,7 +133,11 @@ function levelPicks(weapon: CryptWeapon, level: PierceLevel): Pick[] {
   return out;
 }
 
-export function enumerateCombos(weapon: CryptWeapon, maxProficiencyLevel = 7): Combo[] {
+export function enumerateCombos(
+  weapon: CryptWeapon,
+  maxProficiencyLevel = 7,
+  forceImbued = false,
+): Combo[] {
   checkMaxLevel(maxProficiencyLevel);
   checkWeapon(weapon);
   const lists = PIERCE_LEVELS.filter((l) => l <= maxProficiencyLevel).map((l) =>
@@ -143,7 +149,7 @@ export function enumerateCombos(weapon: CryptWeapon, maxProficiencyLevel = 7): C
   const seen = new Set<string>();
   const combos: Combo[] = [];
   for (const picks of product) {
-    const combo = buildCombo(weapon, picks);
+    const combo = buildCombo(weapon, picks, forceImbued);
     const k = pierceKey(combo.pierce);
     if (seen.has(k)) continue;
     seen.add(k);
@@ -170,12 +176,14 @@ function bestBy(weapon: CryptWeapon, level: PierceLevel, field: keyof PierceSpec
 // O tipo garante que o preset físico sempre existe (buildCombo devolve um Combo mesmo sem nenhum pierce).
 type PresetCombos = Record<Exclude<PresetKey, "physical">, Combo | null> & { physical: Combo };
 
-function presetCombos(weapon: CryptWeapon, max: number): PresetCombos {
+function presetCombos(weapon: CryptWeapon, max: number, forceImbued = false): PresetCombos {
   const levels = PIERCE_LEVELS.filter((l) => l <= max);
   const all = (pick: (l: PierceLevel) => Pick | null): Combo | null => {
     if (weapon.element === null || levels.length === 0) return null;
     const picks = levels.map(pick);
-    return picks.every((p): p is Pick => p !== null) ? buildCombo(weapon, picks as Pick[]) : null;
+    return picks.every((p): p is Pick => p !== null)
+      ? buildCombo(weapon, picks as Pick[], forceImbued)
+      : null;
   };
   const physicalPicks = levels
     .map((l) => bestBy(weapon, l, "physical"))
@@ -183,7 +191,7 @@ function presetCombos(weapon: CryptWeapon, max: number): PresetCombos {
   return {
     elemental: all((l) => bestBy(weapon, l, "elemental")),
     hybrid: all((l) => (l === 3 ? bestBy(weapon, l, "physical") : bestBy(weapon, l, "elemental"))),
-    physical: buildCombo(weapon, physicalPicks),
+    physical: buildCombo(weapon, physicalPicks, forceImbued),
   };
 }
 
@@ -243,7 +251,9 @@ export function evaluateWeapon(
     elementalShare = 0.5,
     baseline: baselineOpt = 100,
     maxProficiencyLevel: maxOpt = 7,
+    imbue: imbueOpt = "auto",
   } = options;
+  const imbue: ImbueMode = typeof imbueOpt === "function" ? imbueOpt(weapon) : imbueOpt;
   const baseline = typeof baselineOpt === "function" ? baselineOpt(weapon) : baselineOpt;
   const maxProficiencyLevel = typeof maxOpt === "function" ? maxOpt(weapon) : maxOpt;
   if (!Number.isFinite(elementalShare) || elementalShare < 0 || elementalShare > 1) {
@@ -252,31 +262,60 @@ export function evaluateWeapon(
   if (!Number.isFinite(baseline)) throw new RangeError("O baseline deve ser um número finito.");
   checkTargets(targets);
 
-  const combos = enumerateCombos(weapon, maxProficiencyLevel);
-  const presets = presetCombos(weapon, maxProficiencyLevel);
-  const evaluate = (c: Combo) => evaluateCombo(weapon, c, targets, mode, elementalShare, presets);
-  const ranked = combos.map(evaluate).sort(byBest);
-  const [best, secondBest = null] = ranked;
   const neutralElements = new Set(targets.flatMap((t) => t.assumedNeutral));
 
+  // Avalia todas as combinações de perks (3, 5 e 7) de uma versão da arma; `forceImbued` = imbuída mesmo sem pierce elemental.
+  const run = (w: CryptWeapon, forceImbued: boolean): WeaponEvaluation => {
+    const combos = enumerateCombos(w, maxProficiencyLevel, forceImbued);
+    const presets = presetCombos(w, maxProficiencyLevel, forceImbued);
+    const evaluate = (c: Combo) => evaluateCombo(w, c, targets, mode, elementalShare, presets);
+    const ranked = combos.map(evaluate).sort(byBest);
+    const [best, secondBest = null] = ranked;
+    return {
+      weaponSlug: weapon.slug,
+      mode,
+      elementalShare,
+      baseline,
+      presets: {
+        elemental: presets.elemental && evaluate(presets.elemental),
+        hybrid: presets.hybrid && evaluate(presets.hybrid),
+        physical: evaluate(presets.physical),
+      },
+      best,
+      secondBest,
+      diffToSecondPct:
+        secondBest && secondBest.damagePct > 0
+          ? (best.damagePct / secondBest.damagePct - 1) * 100
+          : null,
+      verdict: best.damagePct > baseline ? "worth" : "not_worth",
+      assumedNeutral: ELEMENTS.filter((e) => neutralElements.has(e)),
+    };
+  };
+
+  // Arma sem elemento (Monk): não há imbuiment, só uma versão.
+  if (weapon.element === null) return run(weapon, false);
+  if (imbue === "on") return run(weapon, true);
+  if (imbue === "off") return run(withoutElement(weapon), false);
+  // auto: o jogador pode ter o pierce elemental sem imbuir, imbuir sem pierce elemental, ou nenhum dos dois.
+  // O nativo vem primeiro e vence empates (menos mudanças); os presets mostrados são sempre os do nativo.
+  const native = run(weapon, false);
+  const rivals = [run(withoutElement(weapon), false), run(weapon, true)];
+  const winner = rivals.reduce(
+    (m, r) => (r.best.damagePct > m.best.damagePct + TIE_EPS ? r : m),
+    native,
+  );
+  return { ...winner, presets: native.presets };
+}
+
+/** Cópia da arma sem elemento: o pierce elemental dos perks não conta (o imbuiment foi retirado). */
+function withoutElement(w: CryptWeapon): CryptWeapon {
   return {
-    weaponSlug: weapon.slug,
-    mode,
-    elementalShare,
-    baseline,
-    presets: {
-      elemental: presets.elemental && evaluate(presets.elemental),
-      hybrid: presets.hybrid && evaluate(presets.hybrid),
-      physical: evaluate(presets.physical),
-    },
-    best,
-    secondBest,
-    diffToSecondPct:
-      secondBest && secondBest.damagePct > 0
-        ? (best.damagePct / secondBest.damagePct - 1) * 100
-        : null,
-    verdict: best.damagePct > baseline ? "worth" : "not_worth",
-    assumedNeutral: ELEMENTS.filter((e) => neutralElements.has(e)),
+    ...w,
+    element: null,
+    perks: w.perks.map((n) => ({
+      ...n,
+      options: n.options.map((o) => ({ ...o, pierce: { ...o.pierce, elemental: 0 } })),
+    })),
   };
 }
 

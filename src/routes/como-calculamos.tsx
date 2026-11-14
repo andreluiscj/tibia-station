@@ -87,8 +87,9 @@ function ComoCalculamos() {
             <Md>
               Se a combinação tem pierce elemental, a arma é **imbuída** com o dano do elemento dela
               (Fire no Club, Earth na Sword, Energy no Axe): metade do dano vira elemental e a outra
-              metade continua Physical. Sem pierce elemental, o melhor é não imbuir. O Monk não
-              imbui.
+              metade continua Physical. Calculamos a arma com e sem imbuiment, inclusive imbuir sem
+              pierce elemental (vale a pena quando a criatura é fraca àquele elemento), e mostramos
+              o que rende mais; o switch do cartão permite forçar um dos dois. O Monk não imbui.
             </Md>
           </p>
         </Secao>

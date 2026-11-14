@@ -1,7 +1,7 @@
 import { useT } from "@/lib/i18n";
 import { motion } from "motion/react";
 import { useContext, useId } from "react";
-import { MAX_ALTERNATIVAS, ProficienciaCtx, type Candidato } from "./cryptEstado";
+import { MAX_ALTERNATIVAS, ProficienciaCtx, type Candidato, type ImbModo } from "./cryptEstado";
 import { Switch } from "@/components/ui/switch";
 import { ElementIcon } from "./ElementIcon";
 import { ELEMENTOS } from "./elementos";
@@ -53,7 +53,7 @@ function LinhaInfo({ c }: { c: Candidato }) {
 /** Só Crypt: duas linhas fixas (combinação de pierce; imbuiment elemental). Nas outras armas reserva as mesmas duas linhas, para os cartões lado a lado terem a mesma altura. */
 function LinhaCombinacao({ c }: { c: Candidato }) {
   const t = useT();
-  const { semImb, imbRasc, rascunharImb, recalcular } = useContext(ProficienciaCtx);
+  const { imbRasc, rascunharImb, recalcular } = useContext(ProficienciaCtx);
   if (c.origem !== "crypt") return <div aria-hidden="true" className="min-h-12" />;
   const pierce = [
     c.pierce && c.pierce.elemental > 0 && c.elemento
@@ -78,10 +78,11 @@ function LinhaCombinacao({ c }: { c: Candidato }) {
         {c.arma?.element ? (
           <Switch
             aria-label={t("Imbuiment elemental")}
-            checked={c.arma.slug in imbRasc ? !imbRasc[c.arma.slug] : c.imbued}
-            // Sem ganho com o elemento, ligar não muda nada: só dá para desligar o que está em uso.
-            disabled={!c.imbued && !semImb[c.arma.slug] && !(c.arma.slug in imbRasc)}
-            onCheckedChange={(ligado) => c.arma && rascunharImb(c.arma.slug, !ligado)}
+            checked={c.arma.slug in imbRasc ? imbRasc[c.arma.slug] === "com" : c.imbued}
+            // Nunca bloqueia: dá para calcular a arma com ou sem imbuiment, mesmo quando o ideal é o outro.
+            onCheckedChange={(ligado) =>
+              c.arma && rascunharImb(c.arma.slug, ligado ? "com" : "sem", c.imbued ? "com" : "sem")
+            }
           />
         ) : (
           <span className="text-muted-foreground">{t("não se aplica")}</span>
@@ -100,18 +101,18 @@ function LinhaCombinacao({ c }: { c: Candidato }) {
   );
 }
 
-/** Perda (ou ganho) de dano por estar sem o imbuiment elemental, em relação à mesma arma imbuída. */
-function ImbuimentDiff({ atual, imbuida }: { atual: number; imbuida: number }) {
+/** Diferença de dano de quem escolheu com ou sem imbuiment em relação ao cálculo ideal da mesma arma. */
+function ImbuimentDiff({ modo, atual, otimo }: { modo: ImbModo; atual: number; otimo: number }) {
   const t = useT();
-  const d = (atual / imbuida - 1) * 100;
+  const d = (atual / otimo - 1) * 100;
   return (
     <>
-      {t("Sem o imbuiment:")}{" "}
+      {t(modo === "sem" ? "Sem o imbuiment:" : "Com o imbuiment:")}{" "}
       <span className={`num font-semibold ${d < 0 ? "text-bad" : "text-good"}`}>
         {d > 0 ? "+" : "−"}
         {n1(Math.abs(d))}%
       </span>{" "}
-      {t("de dano (imbuída:")} <span className="num">{n1(imbuida)}</span>)
+      {t("de dano (ideal:")} <span className="num">{n1(otimo)}</span>)
     </>
   );
 }
@@ -150,12 +151,13 @@ function Bloco({
   compacto?: boolean;
 }) {
   const t = useT();
-  const { profs, semImb, aplicar, aplicarImb } = useContext(ProficienciaCtx);
+  const { profs, imbForcado, aplicar, aplicarImb } = useContext(ProficienciaCtx);
   const idMelhor = useId();
   const idAlt = useId();
   const [melhor, ...resto] = candidatos;
   if (!melhor) return null;
-  const alternativas = resto.slice(0, MAX_ALTERNATIVAS);
+  // Armas que o jogador editou ficam visíveis (com o botão de resetar) mesmo que caiam abaixo do top.
+  const alternativas = resto.filter((c, i) => i < MAX_ALTERNATIVAS || c.editado);
   const segundo = alternativas[0];
   const supSegundo = segundo ? superior(melhor.damagePct, segundo.damagePct) : null;
 
@@ -195,8 +197,12 @@ function Bloco({
             )}
             {/* Linha sempre reservada (2 linhas de texto): o cartão não muda de altura com ou sem o aviso. */}
             <p className="mt-1 min-h-10 break-words text-sm text-muted-foreground">
-              {melhor.comImbuiment !== undefined && melhor.comImbuiment > 0 && (
-                <ImbuimentDiff atual={melhor.damagePct} imbuida={melhor.comImbuiment} />
+              {melhor.modoImb && melhor.otimo !== undefined && melhor.otimo > 0 && (
+                <ImbuimentDiff
+                  modo={melhor.modoImb}
+                  atual={melhor.damagePct}
+                  otimo={melhor.otimo}
+                />
               )}
             </p>
           </div>
@@ -237,12 +243,12 @@ function Bloco({
                         <span className="text-bad">{t("dano nulo contra este alvo")}</span>
                       )}
                     </p>
-                    {c.origem === "crypt" && (profs[c.chave] || semImb[c.chave]) && (
+                    {c.origem === "crypt" && (profs[c.chave] || imbForcado[c.chave]) && (
                       <button
                         type="button"
                         onClick={() => {
                           aplicar(c.chave, null);
-                          aplicarImb(c.chave, false);
+                          aplicarImb(c.chave, null);
                         }}
                         className="mt-1 text-sm font-bold text-primary underline underline-offset-4 transition-colors hover:text-accent"
                       >

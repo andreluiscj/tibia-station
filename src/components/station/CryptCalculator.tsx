@@ -10,6 +10,7 @@ import {
   resolver,
   type CryptCat,
   type CryptSearch,
+  type ImbModo,
   type Proficiencias,
   ProficienciaCtx,
 } from "./cryptEstado";
@@ -71,8 +72,8 @@ export function CryptCalculator({
         : "monster"
       : tipoManual;
   // Proficiências editadas nas armas Crypt (slug da arma); vazio = proficiência completa.
-  const [semImb, setSemImb] = useState<Record<string, boolean>>({});
-  const [imbRasc, setImbRasc] = useState<Record<string, boolean>>({});
+  const [imbForcado, setImbForcado] = useState<Record<string, ImbModo>>({});
+  const [imbRasc, setImbRasc] = useState<Record<string, ImbModo>>({});
   const [recalculando, setRecalculando] = useState(false);
   // Todo recálculo mostra o esqueleto por um instante, para o usuário perceber que algo foi refeito.
   const refazer = (fn: () => void) => {
@@ -82,24 +83,16 @@ export function CryptCalculator({
       setRecalculando(false);
     }, 450);
   };
-  const aplicarImb = (slug: string, sem: boolean) =>
+  const aplicarImb = (slug: string, modo: ImbModo | null) =>
     refazer(() =>
-      setSemImb(({ [slug]: _, ...resto }) => (sem ? { ...resto, [slug]: true } : resto)),
+      setImbForcado(({ [slug]: _, ...resto }) => (modo ? { ...resto, [slug]: modo } : resto)),
     );
-  const rascunharImb = (slug: string, sem: boolean) =>
-    setImbRasc(({ [slug]: _, ...resto }) =>
-      sem === !!semImb[slug] ? resto : { ...resto, [slug]: sem },
-    );
+  // `atual` é o modo que o cálculo mostra agora: escolher o mesmo modo não muda nada.
+  const rascunharImb = (slug: string, modo: ImbModo, atual: ImbModo) =>
+    setImbRasc(({ [slug]: _, ...resto }) => (modo === atual ? resto : { ...resto, [slug]: modo }));
   const recalcular = () =>
     refazer(() => {
-      setSemImb((atual) => {
-        const novo = { ...atual };
-        for (const [slug, sem] of Object.entries(imbRasc)) {
-          if (sem) novo[slug] = true;
-          else delete novo[slug];
-        }
-        return novo;
-      });
+      setImbForcado((anterior) => ({ ...anterior, ...imbRasc }));
       setImbRasc({});
     });
   const [profs, setProfs] = useState<Proficiencias>({});
@@ -125,7 +118,7 @@ export function CryptCalculator({
             estado,
             pesos: pesosEdit,
             proficiencias: profs,
-            semImbuiment: semImb,
+            imbuiment: imbForcado,
           })
         : null,
     [
@@ -138,7 +131,7 @@ export function CryptCalculator({
       estado,
       pesosEdit,
       profs,
-      semImb,
+      imbForcado,
     ],
   );
 
@@ -149,7 +142,8 @@ export function CryptCalculator({
       (huntSel?.creatures ?? []).map((hc) => [hc.creatureSlug, r.usarPeso ? hc.weight : 1]),
     );
 
-  const editado = !!pesosEdit || Object.keys(profs).length > 0 || Object.keys(semImb).length > 0;
+  const editado =
+    !!pesosEdit || Object.keys(profs).length > 0 || Object.keys(imbForcado).length > 0;
   const mudarVoc = (voc: "ek" | "monk") => onChange({ voc, cat: null });
   const mudarLvl = (txt: string) => {
     setLvlTxt(txt);
@@ -228,7 +222,8 @@ export function CryptCalculator({
                   ativo={tipoEscolhido === "monster"}
                   onClick={() => {
                     setTipoManual("monster");
-                    onChange({ hunt: null });
+                    // Um boss selecionado prenderia o tipo em "boss": limpa o alvo.
+                    onChange(ehBoss ? { hunt: null, monster: null } : { hunt: null });
                   }}
                 >
                   {t("Criatura")}
@@ -345,7 +340,7 @@ export function CryptCalculator({
             onClick={() => {
               refazer(() => {
                 setProfs({});
-                setSemImb({});
+                setImbForcado({});
                 setImbRasc({});
                 setPesosEdit(null);
               });
@@ -368,7 +363,7 @@ export function CryptCalculator({
           value={{
             profs,
             aplicar: aplicarProf,
-            semImb,
+            imbForcado,
             aplicarImb,
             imbRasc,
             rascunharImb,

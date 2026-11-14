@@ -518,28 +518,29 @@ describe("proficiência editada", () => {
   });
 });
 
-describe("imbuiment elemental retirado", () => {
+describe("imbuiment elemental: ideal, com e sem", () => {
   const base = { armas, criaturas: porSlug, hunts: hunts as unknown as Hunt[] };
   const estado = { voc: "ek", cat: "todas", monster: "hellflayer" } as const;
   const crypt = (c: ReturnType<typeof calcular>) =>
     c.tipo === "ok" ? c.candidatos.filter((x) => x.origem === "crypt") : [];
+  const todas = (modo: "com" | "sem") => Object.fromEntries(armas.map((a) => [a.slug, modo]));
 
-  it("tira o elemento, guarda o dano imbuído e não ganha dano", () => {
-    const com = crypt(calcular({ ...base, estado }));
-    const sem = crypt(
-      calcular({
-        ...base,
-        estado,
-        semImbuiment: Object.fromEntries(armas.map((a) => [a.slug, true])),
-      }),
-    );
-    expect(sem.every((x) => !x.imbued && x.pierce!.elemental === 0)).toBe(true);
-    for (const x of sem) {
-      const antes = com.find((c) => c.chave === x.chave)!;
-      expect(x.damagePct).toBeLessThanOrEqual(antes.damagePct + 1e-9);
-      if (antes.imbued) expect(x.comImbuiment).toBeCloseTo(antes.damagePct);
+  it("sem escolha o cálculo decide e não mostra comparação", () => {
+    expect(crypt(calcular({ ...base, estado })).every((x) => x.modoImb === undefined)).toBe(true);
+  });
+
+  it("'sem' tira o imbuiment e 'com' imbui, nunca passando do ideal; o ideal vem junto", () => {
+    const ideal = crypt(calcular({ ...base, estado }));
+    for (const modo of ["sem", "com"] as const) {
+      for (const x of crypt(calcular({ ...base, estado, imbuiment: todas(modo) }))) {
+        const antes = ideal.find((c) => c.chave === x.chave)!;
+        expect(x.imbued).toBe(modo === "com" && x.arma!.element !== null);
+        if (modo === "sem") expect(x.pierce!.elemental).toBe(0);
+        expect(x.damagePct).toBeLessThanOrEqual(antes.damagePct + 1e-9);
+        expect(x.modoImb).toBe(modo);
+        expect(x.otimo).toBeCloseTo(antes.damagePct);
+      }
     }
-    expect(com.every((x) => x.comImbuiment === undefined)).toBe(true);
   });
 });
 

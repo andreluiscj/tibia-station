@@ -2,6 +2,7 @@ import { createContext } from "react";
 import {
   creatureToTarget,
   altDamagePct,
+  evaluateWeapon,
   bestAlternative,
   eligibleAlternatives,
   huntToTargets,
@@ -149,8 +150,11 @@ export interface Candidato {
   /** Só nas Crypt: a arma e os perks escolhidos pelo cálculo (níveis variáveis da proficiência). */
   arma?: CryptWeapon;
   escolhas?: { level: number; perkId: string }[];
-  /** Só nas Crypt com o imbuiment retirado: dano da mesma arma imbuída, para comparar. */
-  comImbuiment?: number;
+  /** Só nas Crypt com o imbuiment forçado pelo jogador: o modo escolhido e o dano do cálculo ideal, para comparar. */
+  modoImb?: ImbModo;
+  otimo?: number;
+  /** Só nas Crypt: o jogador editou a proficiência ou o imbuiment; a arma continua na tela mesmo fora do top. */
+  editado?: boolean;
 }
 
 /**
@@ -185,23 +189,26 @@ export interface Proficiencia {
   perks: Record<number, string>;
 }
 export type Proficiencias = Record<string, Proficiencia>;
+/** Imbuiment elemental escolhido pelo jogador numa arma: com ou sem. Sem escolha, o cálculo decide o que rende mais. */
+export type ImbModo = "com" | "sem";
 
 /** Proficiências editadas (por arma) e como aplicar uma; sem provedor, a edição não faz nada. */
 export const ProficienciaCtx = createContext<{
   profs: Proficiencias;
   aplicar: (slug: string, p: Proficiencia | null) => void;
-  /** Armas (slug) com o imbuiment elemental retirado, e como mudar isso. */
-  semImb: Record<string, boolean>;
-  aplicarImb: (slug: string, sem: boolean) => void;
-  /** Troca do imbuiment ainda não calculada (slug → "sem imbuiment" desejado); vale só ao recalcular. */
-  imbRasc: Record<string, boolean>;
-  rascunharImb: (slug: string, sem: boolean) => void;
+  /** Armas (slug) com o imbuiment forçado pelo jogador (com ou sem), e como mudar ou limpar isso. */
+  imbForcado: Record<string, ImbModo>;
+  aplicarImb: (slug: string, modo: ImbModo | null) => void;
+  /** Troca do imbuiment ainda não calculada (slug → modo desejado); vale só ao recalcular. */
+  imbRasc: Record<string, ImbModo>;
+  /** `atual` = modo que o cálculo mostra agora (escolher o mesmo modo não muda nada). */
+  rascunharImb: (slug: string, modo: ImbModo, atual: ImbModo) => void;
   /** Aplica as trocas pendentes e refaz o cálculo. */
   recalcular: () => void;
 }>({
   profs: {},
   aplicar: () => {},
-  semImb: {},
+  imbForcado: {},
   aplicarImb: () => {},
   imbRasc: {},
   rascunharImb: () => {},
@@ -216,18 +223,6 @@ function fixarPerks(w: CryptWeapon, p: Proficiencia): CryptWeapon {
       const o = n.level <= p.max ? n.options.find((x) => x.id === p.perks[n.level]) : undefined;
       return o ? { ...n, options: [o] } : n;
     }),
-  };
-}
-
-/** Cópia da arma sem elemento: o pierce elemental dos perks não conta (o imbuiment foi retirado). */
-function semElemento(w: CryptWeapon): CryptWeapon {
-  return {
-    ...w,
-    element: null,
-    perks: w.perks.map((n) => ({
-      ...n,
-      options: n.options.map((o) => ({ ...o, pierce: { ...o.pierce, elemental: 0 } })),
-    })),
   };
 }
 
@@ -270,8 +265,8 @@ export function calcular(args: {
   pesos?: Record<string, number> | null;
   /** Proficiência editada por arma (slug); ausente = completa, com a melhor combinação. */
   proficiencias?: Proficiencias;
-  /** Armas Crypt (slug) cujo imbuiment elemental o jogador retirou (só pierce físico). */
-  semImbuiment?: Record<string, boolean>;
+  /** Armas Crypt (slug) com o imbuiment elemental forçado pelo jogador; ausente = o cálculo escolhe o que rende mais. */
+  imbuiment?: Record<string, ImbModo>;
 }): Calculo {
   const {
     armas,
@@ -281,7 +276,7 @@ export function calcular(args: {
     estado,
     pesos,
     proficiencias = {},
-    semImbuiment = {},
+    imbuiment = {},
   } = args;
   const r = resolver(estado);
   try {
@@ -306,10 +301,9 @@ export function calcular(args: {
     } else {
       return { tipo: "vazio" };
     }
-    const comImbuiment = weaponsFor(armas, r.voc, r.cat).map((w) =>
+    const lista = weaponsFor(armas, r.voc, r.cat).map((w) =>
       proficiencias[w.slug] ? fixarPerks(w, proficiencias[w.slug]) : w,
     );
-    const lista = comImbuiment.map((w) => (semImbuiment[w.slug] ? semElemento(w) : w));
     const original = new Map(armas.map((w) => [w.slug, w]));
     const concorrentes = Object.fromEntries(
       lista.map((w) => [w.slug, bestAlternative(w, alternativas, alvos, r.lvl)]),
@@ -321,12 +315,17 @@ export function calcular(args: {
       baseline,
       maxProficiencyLevel: (w: CryptWeapon) => proficiencias[w.slug]?.max ?? 7,
     };
-    const ranking = rankWeapons(lista, alvos, opcoes);
-    const imbuida = new Map<string, number | undefined>();
-    if (Object.values(semImbuiment).some(Boolean))
-      for (const x of rankWeapons(comImbuiment, alvos, opcoes))
-        if (semImbuiment[x.weapon.slug] && x.evaluation.best.combo.imbued)
-          imbuida.set(x.weapon.slug, x.evaluation.best.damagePct);
+    // Sem escolha do jogador o motor avalia com E sem imbuiment (e a proficiência toda) e fica com o melhor.
+    const ranking = rankWeapons(lista, alvos, {
+      ...opcoes,
+      imbue: (w) =>
+        imbuiment[w.slug] === "com" ? "on" : imbuiment[w.slug] === "sem" ? "off" : "auto",
+    });
+    // Para as armas forçadas, o dano do cálculo ideal serve de referência ("quanto perco por não imbuir/por imbuir").
+    const otimo = new Map<string, number>();
+    for (const w of lista)
+      if (imbuiment[w.slug])
+        otimo.set(w.slug, evaluateWeapon(w, alvos, { ...opcoes, imbue: "auto" }).best.damagePct);
     const refAttack = Object.fromEntries(lista.map((w) => [w.vocation, w.attack]));
     const vistos = new Set<string>();
     const slugsCrypt = new Set(armas.map((w) => w.slug));
@@ -348,7 +347,9 @@ export function calcular(args: {
         imbued: x.evaluation.best.combo.imbued,
         arma: original.get(x.weapon.slug) ?? x.weapon,
         escolhas: x.evaluation.best.combo.choices,
-        comImbuiment: imbuida.get(x.weapon.slug),
+        editado: !!proficiencias[x.weapon.slug] || !!imbuiment[x.weapon.slug],
+        modoImb: imbuiment[x.weapon.slug],
+        otimo: otimo.get(x.weapon.slug),
       })),
       ...alts.map((a) => ({
         chave: a.slug,

@@ -3,6 +3,7 @@ import type { CryptWeapon, ElementKey, PierceSpec } from "@/lib/data/types";
 
 export type PierceMode = "official" | "reference";
 export type PresetKey = "elemental" | "hybrid" | "physical";
+export type ImbueMode = "auto" | "on" | "off";
 
 /** Formato wiki, 100 = neutro; sempre numérico; pode ser 0 (imune) ou NEGATIVO (absorve). */
 export type Resist7 = Record<ElementKey, number>;
@@ -61,6 +62,11 @@ export interface EvaluateOptions {
   baseline?: number | ((weapon: CryptWeapon) => number);
   /** Inteiro 1..7, padrão 7; níveis acima não entram nas combinações. Pode variar por arma (proficiência incompleta). */
   maxProficiencyLevel?: number | ((weapon: CryptWeapon) => number);
+  /**
+   * Imbuiment elemental da arma: "auto" (padrão) avalia COM e SEM imbuiment e fica com o melhor;
+   * "on" força a arma imbuída (mesmo sem pierce elemental); "off" força sem imbuiment.
+   */
+  imbue?: ImbueMode | ((weapon: CryptWeapon) => ImbueMode);
 }
 
 export interface WeaponEvaluation {

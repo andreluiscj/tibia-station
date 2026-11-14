@@ -521,3 +521,52 @@ describe("huntToTargets: média simples (padrão) x ponderada, ponta a ponta", (
     expect(() => huntToTargets(bad, map, { weighting: "weighted" })).toThrow(RangeError);
   });
 });
+
+describe("imbuiment elemental: auto, on e off", () => {
+  const weapons = weaponsJson as unknown as CryptWeapon[];
+  const all = (creaturesJson as unknown as Creature[]).filter(
+    (c) => c.bestiaryClass || c.bosstiaryClass,
+  );
+  const best = (w: CryptWeapon, t: Target[], imbue: "auto" | "on" | "off") =>
+    evaluateWeapon(w, t, { imbue }).best;
+
+  it("auto nunca é pior que forçar com ou sem imbuiment, em todas as criaturas e bosses", () => {
+    for (const c of all) {
+      const t = [creatureToTarget(c)];
+      for (const w of weapons) {
+        const auto = best(w, t, "auto").damagePct;
+        const on = best(w, t, "on").damagePct;
+        const off = best(w, t, "off").damagePct;
+        expect(auto).toBeGreaterThanOrEqual(Math.max(on, off) - 1e-9);
+      }
+    }
+  });
+
+  it("forçar 'off' tira o elemento e forçar 'on' imbui mesmo sem pierce elemental", () => {
+    const w = weapons.find((x) => x.element !== null)!;
+    const t = [creatureToTarget(all[0])];
+    expect(best(w, t, "off").combo.imbued).toBe(false);
+    expect(best(w, t, "off").combo.pierce.elemental).toBe(0);
+    expect(best(w, t, "on").combo.imbued).toBe(true);
+  });
+
+  it("criatura fraca ao elemento: imbuir sem pierce elemental pode superar o cálculo antigo", () => {
+    const w = weapons.find((x) => x.element === "fire")!;
+    const fraca = {
+      ...creatureToTarget(all[0]),
+      resist: {
+        physical: 100,
+        earth: 100,
+        fire: 300,
+        energy: 100,
+        ice: 100,
+        holy: 100,
+        death: 100,
+      },
+    };
+    const velho = evaluateWeapon(w, [fraca], { imbue: "off" }).best.damagePct;
+    const auto = evaluateWeapon(w, [fraca], { imbue: "auto" }).best;
+    expect(auto.damagePct).toBeGreaterThan(velho);
+    expect(auto.combo.imbued).toBe(true);
+  });
+});
