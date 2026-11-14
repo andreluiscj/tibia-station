@@ -13,6 +13,13 @@ describe("spriteCandidates", () => {
     ]);
   });
 
+  it("tenta também o título com cada palavra em maiúscula (bosses)", () => {
+    expect(spriteCandidates("Amenef the Burning")).toEqual([
+      "File:Amenef the Burning.gif",
+      "File:Amenef The Burning.gif",
+    ]);
+  });
+
   it("não repete candidatos idênticos", () => {
     expect(spriteCandidates("Crypt Breaker")).toEqual(["File:Crypt Breaker.gif"]);
   });
