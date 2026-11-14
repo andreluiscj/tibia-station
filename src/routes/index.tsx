@@ -29,7 +29,7 @@ const SET_VAZIO = [
   "boots",
   null,
 ] as const;
-const ORDEM: ToolTo[] = ["/crypt", "/set-builder"];
+const ORDEM: ToolTo[] = ["/damage-calculator", "/set-builder"];
 type ToolTo = (typeof TOOLS)[number]["to"];
 
 function Home() {
@@ -49,7 +49,7 @@ function Home() {
             {t("Monte seu set, compare as armas da Crypt e confira a que cada criatura resiste.")}
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link to="/crypt" className={btnPrimario}>
+            <Link to="/damage-calculator" className={btnPrimario}>
               {t("Comparar armas →")}
             </Link>
             <Link to="/set-builder" className={btnSecundario}>

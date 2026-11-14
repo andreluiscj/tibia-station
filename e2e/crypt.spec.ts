@@ -7,7 +7,7 @@ test.describe("Damage Calculator", () => {
 
   test("fluxo EK + Hellflayer: 3 categorias, melhor arma de cada uma", async ({ page }) => {
     const erros = vigiarConsole(page);
-    await abrir(page, "/crypt");
+    await abrir(page, "/damage-calculator");
     await page.getByRole("button", { name: "Elite Knight" }).click();
     await page.getByRole("combobox", { name: "Criatura" }).click();
     await page.getByPlaceholder("Pesquisar criatura…").fill("hellflayer");
@@ -23,8 +23,16 @@ test.describe("Damage Calculator", () => {
     expect(erros).toEqual([]);
   });
 
+  test("o endereço antigo /crypt redireciona para /damage-calculator com a busca", async ({
+    page,
+  }) => {
+    await abrir(page, "/crypt?monster=hellflayer&lvl=300");
+    await expect(page).toHaveURL(/\/damage-calculator\?.*monster=hellflayer/);
+    await expect(page.getByRole("heading", { name: "Damage Calculator" })).toBeVisible();
+  });
+
   test("desligar o imbuiment elemental pede Recalcular e refaz o cálculo", async ({ page }) => {
-    await abrir(page, "/crypt?monster=hellflayer");
+    await abrir(page, "/damage-calculator?monster=hellflayer");
     const chave = page.locator('[role="switch"][aria-checked="true"]').first();
     await expect(chave).toBeChecked();
     await expect(page.getByRole("button", { name: "Recalcular" })).toHaveCount(1);
@@ -38,7 +46,7 @@ test.describe("Damage Calculator", () => {
   });
 
   test("botão 'Visualizar hunts da criatura' abre modal centralizado", async ({ page }) => {
-    await abrir(page, "/crypt?monster=hellflayer");
+    await abrir(page, "/damage-calculator?monster=hellflayer");
     await page.getByRole("button", { name: "Visualizar hunts da criatura" }).click();
     const modal = page.getByRole("dialog");
     await expect(modal).toBeVisible();
@@ -53,7 +61,7 @@ test.describe("Damage Calculator", () => {
   test("askarak-demon em 'Comparar as 3': melhores cartões e Alternativas alinhados", async ({
     page,
   }) => {
-    await abrir(page, "/crypt?voc=ek&monster=askarak-demon");
+    await abrir(page, "/damage-calculator?voc=ek&monster=askarak-demon");
     const melhor = page.getByText("Melhor opção para este alvo");
     await expect(melhor).toHaveCount(3);
     const caixas = await melhor
@@ -80,14 +88,14 @@ test.describe("Damage Calculator", () => {
       if (r.status() >= 400 && r.url().includes("/sprites/items/"))
         falhas.push(`${r.status()} ${r.url()}`);
     });
-    await abrir(page, "/crypt?voc=ek&monster=radiant-templar");
+    await abrir(page, "/damage-calculator?voc=ek&monster=radiant-templar");
     await expect(page.getByText("Souleater", { exact: true }).first()).toBeVisible();
     await page.waitForLoadState("networkidle");
     expect(falhas).toEqual([]);
   });
 
   test("peso da hunt por checkbox", async ({ page }) => {
-    await abrir(page, "/crypt?hunt=alchemist-quarter");
+    await abrir(page, "/damage-calculator?hunt=alchemist-quarter");
     await expect(status(page)).toContainText("Melhor arma: Crypt Breaker");
     await page.getByLabel(/Ponderar pelo peso/).check();
     await expect(page).toHaveURL(/peso=1/);
@@ -95,20 +103,23 @@ test.describe("Damage Calculator", () => {
   });
 
   test("Monk mostra só o Crypt Strike", async ({ page }) => {
-    await abrir(page, "/crypt?monster=hellflayer&voc=monk");
+    await abrir(page, "/damage-calculator?monster=hellflayer&voc=monk");
     await expect(status(page)).toContainText("Melhor arma: Crypt Strike");
     await expect(page.getByText("Crypt Splitter")).toHaveCount(0);
     await expect(page.getByText("Crypt Breaker")).toHaveCount(0);
   });
 
   test("nível abaixo de 450 avisa sem esconder o cálculo", async ({ page }) => {
-    await abrir(page, "/crypt?monster=hellflayer&lvl=300");
+    await abrir(page, "/damage-calculator?monster=hellflayer&lvl=300");
     await expect(page.getByText(/A Crypt exige nível 450/)).toBeVisible();
     await expect(status(page)).toContainText("Melhor arma:");
   });
 
   test("estado restaurado a partir da URL", async ({ page }) => {
-    await abrir(page, "/crypt?voc=ek&cat=sword&lvl=450&hunt=claustrophobic-inferno&peso=1");
+    await abrir(
+      page,
+      "/damage-calculator?voc=ek&cat=sword&lvl=450&hunt=claustrophobic-inferno&peso=1",
+    );
     await expect(page.getByLabel("Nível do personagem")).toHaveValue("450");
     await expect(status(page)).toContainText("Alvo: Claustrophobic Inferno");
     await expect(page.getByLabel(/Ponderar pelo peso/)).toBeChecked();
@@ -135,7 +146,7 @@ test.describe("Damage Calculator", () => {
         dialogo = true;
         void d.dismiss();
       });
-      await abrir(page, `/crypt?monster=hellflayer&${q}`);
+      await abrir(page, `/damage-calculator?monster=hellflayer&${q}`);
       await expect(page.getByRole("heading", { name: "Damage Calculator" })).toBeVisible();
       await expect(page.getByRole("alert")).toHaveCount(0);
       await expect(page.locator("main")).not.toContainText(/NaN|Infinity|undefined/);

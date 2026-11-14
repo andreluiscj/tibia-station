@@ -3,7 +3,7 @@ import { abrir } from "./helpers";
 
 test.describe("Idioma", () => {
   test("troca para inglês e espanhol, e lembra a escolha ao recarregar", async ({ page }) => {
-    await abrir(page, "/crypt?monster=hellflayer");
+    await abrir(page, "/damage-calculator?monster=hellflayer");
     // O clique pode chegar antes da hidratação: repete até o idioma mudar.
     await expect(async () => {
       await page.getByRole("button", { name: "English (United States)" }).click();

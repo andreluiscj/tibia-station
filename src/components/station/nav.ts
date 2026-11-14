@@ -1,7 +1,7 @@
 import { Compass, Shield, Sword, type LucideIcon } from "lucide-react";
 
 export type Tool = {
-  to: "/set-builder" | "/crypt" | "/hunts";
+  to: "/set-builder" | "/damage-calculator" | "/hunts";
   label: string;
   titulo: string;
   icon: LucideIcon;
@@ -11,7 +11,7 @@ export type Tool = {
 
 export const TOOLS: Tool[] = [
   {
-    to: "/crypt",
+    to: "/damage-calculator",
     label: "Damage Calculator",
     titulo: "Damage Calculator",
     icon: Sword,
@@ -40,6 +40,6 @@ export const TOOLS: Tool[] = [
 export const NAV: { to: "/" | Tool["to"] | "/como-calculamos"; label: string }[] = [
   { to: "/", label: "Início" },
   { to: "/set-builder", label: "Set Builder" },
-  { to: "/crypt", label: "Damage Calculator" },
+  { to: "/damage-calculator", label: "Damage Calculator" },
   { to: "/como-calculamos", label: "Como calculamos" },
 ];

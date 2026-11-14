@@ -198,7 +198,7 @@ function ComoCalculamos() {
             )}
           </p>
           <p>
-            <Link to="/crypt" className={link}>
+            <Link to="/damage-calculator" className={link}>
               {t("Ir para a Damage Calculator")}
             </Link>
           </p>

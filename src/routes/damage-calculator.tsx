@@ -5,7 +5,7 @@ import { parseSearch, type CryptSearch } from "@/components/station/cryptEstado"
 import { Cont } from "@/components/station/Layout";
 import { PageIntro } from "@/components/station/PageIntro";
 
-export const Route = createFileRoute("/crypt")({
+export const Route = createFileRoute("/damage-calculator")({
   validateSearch: (raw: Record<string, unknown>): CryptSearch => parseSearch(raw),
   head: () => ({
     meta: [

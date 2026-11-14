@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApoiarRouteImport } from './routes/apoiar'
 import { Route as ComoCalculamosRouteImport } from './routes/como-calculamos'
 import { Route as CryptRouteImport } from './routes/crypt'
+import { Route as DamageCalculatorRouteImport } from './routes/damage-calculator'
 import { Route as SetBuilderRouteImport } from './routes/set-builder'
 import { Route as HuntsIndexRouteImport } from './routes/hunts.index'
 import { Route as HuntsSlugRouteImport } from './routes/hunts.$slug'
@@ -36,6 +37,11 @@ const ComoCalculamosRoute = ComoCalculamosRouteImport.update({
 const CryptRoute = CryptRouteImport.update({
   id: '/crypt',
   path: '/crypt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DamageCalculatorRoute = DamageCalculatorRouteImport.update({
+  id: '/damage-calculator',
+  path: '/damage-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SetBuilderRoute = SetBuilderRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/apoiar': typeof ApoiarRoute
   '/como-calculamos': typeof ComoCalculamosRoute
   '/crypt': typeof CryptRoute
+  '/damage-calculator': typeof DamageCalculatorRoute
   '/set-builder': typeof SetBuilderRoute
   '/hunts/$slug': typeof HuntsSlugRoute
   '/monstros/$slug': typeof MonstrosSlugRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/apoiar': typeof ApoiarRoute
   '/como-calculamos': typeof ComoCalculamosRoute
   '/crypt': typeof CryptRoute
+  '/damage-calculator': typeof DamageCalculatorRoute
   '/set-builder': typeof SetBuilderRoute
   '/hunts/$slug': typeof HuntsSlugRoute
   '/monstros/$slug': typeof MonstrosSlugRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/apoiar': typeof ApoiarRoute
   '/como-calculamos': typeof ComoCalculamosRoute
   '/crypt': typeof CryptRoute
+  '/damage-calculator': typeof DamageCalculatorRoute
   '/set-builder': typeof SetBuilderRoute
   '/hunts/$slug': typeof HuntsSlugRoute
   '/monstros/$slug': typeof MonstrosSlugRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/apoiar'
     | '/como-calculamos'
     | '/crypt'
+    | '/damage-calculator'
     | '/set-builder'
     | '/hunts/$slug'
     | '/monstros/$slug'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/apoiar'
     | '/como-calculamos'
     | '/crypt'
+    | '/damage-calculator'
     | '/set-builder'
     | '/hunts/$slug'
     | '/monstros/$slug'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/apoiar'
     | '/como-calculamos'
     | '/crypt'
+    | '/damage-calculator'
     | '/set-builder'
     | '/hunts/$slug'
     | '/monstros/$slug'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   ApoiarRoute: typeof ApoiarRoute
   ComoCalculamosRoute: typeof ComoCalculamosRoute
   CryptRoute: typeof CryptRoute
+  DamageCalculatorRoute: typeof DamageCalculatorRoute
   SetBuilderRoute: typeof SetBuilderRoute
   HuntsSlugRoute: typeof HuntsSlugRoute
   MonstrosSlugRoute: typeof MonstrosSlugRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/crypt'
       fullPath: '/crypt'
       preLoaderRoute: typeof CryptRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/damage-calculator': {
+      id: '/damage-calculator'
+      path: '/damage-calculator'
+      fullPath: '/damage-calculator'
+      preLoaderRoute: typeof DamageCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/set-builder': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApoiarRoute: ApoiarRoute,
   ComoCalculamosRoute: ComoCalculamosRoute,
   CryptRoute: CryptRoute,
+  DamageCalculatorRoute: DamageCalculatorRoute,
   SetBuilderRoute: SetBuilderRoute,
   HuntsSlugRoute: HuntsSlugRoute,
   MonstrosSlugRoute: MonstrosSlugRoute,

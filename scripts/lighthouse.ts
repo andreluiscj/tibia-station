@@ -1,4 +1,4 @@
-// Gate 8: Lighthouse em modo mobile contra /crypt do build local. Sobe o servidor de produção
+// Gate 8: Lighthouse em modo mobile contra /damage-calculator do build local. Sobe o servidor de produção
 // (node .output/server/index.mjs) numa porta local, mede, imprime as 4 notas e falha se desempenho,
 // acessibilidade ou boas práticas ficarem abaixo de 90. Tudo roda em 127.0.0.1: nada é enviado para fora.
 // Pré-requisito: bun run build. Uso: bun scripts/lighthouse.ts   (porta: LH_PORT, padrão 4173)
@@ -9,7 +9,7 @@ import lighthouse from "lighthouse";
 import { evaluateScores, toPercent, type Scores } from "./lib/lighthouse-scores";
 
 const PORT = process.env.LH_PORT ?? "4173";
-const ROUTE = process.env.LH_PATH ?? "/crypt";
+const ROUTE = process.env.LH_PATH ?? "/damage-calculator";
 const PAGE = `http://127.0.0.1:${PORT}${ROUTE}`;
 const SERVER = ".output/server/index.mjs";
 

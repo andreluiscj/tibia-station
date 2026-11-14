@@ -109,7 +109,7 @@ function HuntPage() {
 
         <p className="mt-4">
           <Link
-            to="/crypt"
+            to="/damage-calculator"
             search={{ hunt: h.slug }}
             className="inline-flex min-h-11 items-center border border-gold bg-accent px-5 font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
           >

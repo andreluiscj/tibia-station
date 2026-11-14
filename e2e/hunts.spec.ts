@@ -36,7 +36,7 @@ test.describe("Hunt Finder", () => {
       page.getByRole("heading", { level: 1, name: "Claustrophobic Inferno" }),
     ).toBeVisible();
     await page.getByRole("link", { name: "Ver Crypt para esta hunt" }).click();
-    await expect(page).toHaveURL(/\/crypt\?.*hunt=claustrophobic-inferno/);
+    await expect(page).toHaveURL(/\/damage-calculator\?.*hunt=claustrophobic-inferno/);
     await expect(page.getByRole("status").filter({ hasText: "Alvo: Claustrophobic Inferno" })).toBeAttached();
   });
 

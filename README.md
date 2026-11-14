@@ -36,7 +36,7 @@ SUPABASE_PROJECT_ID=...
 | `bunx tsc --noEmit`      | checagem de tipos                                                                                                                                                                                                                                          |
 | `bun run lint`           | ESLint com Prettier                                                                                                                                                                                                                                        |
 | `bun run verify:repo`    | gates 6b e 7: falha se houver escrita em Storage em `src/`, `scripts/` ou `supabase/`, ou a marca proibida (a busca ignora `node_modules`, `.git`, `.output`, `.cache`, `bun.lock` e as regras citadas em `docs/PLANO.md` e `.empresa/plano.md`)           |
-| `bun run lighthouse`     | gate 8: Lighthouse mobile em `/crypt` do build local (porta `LH_PORT`, padrão 4173); imprime as 4 notas e falha se desempenho, acessibilidade ou boas práticas ficarem abaixo de 90. Precisa do Chrome instalado e de `bun run build`                      |
+| `bun run lighthouse`     | gate 8: Lighthouse mobile em `/damage-calculator` do build local (porta `LH_PORT`, padrão 4173); imprime as 4 notas e falha se desempenho, acessibilidade ou boas práticas ficarem abaixo de 90. Precisa do Chrome instalado e de `bun run build`                      |
 | `bun run import:wiki`    | reimporta criaturas, hunts e armas Crypt da TibiaWiki para `data/` e `supabase/seed.sql`                                                                                                                                                                   |
 
 ### Reimportar os dados da TibiaWiki
