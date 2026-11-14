@@ -19,14 +19,14 @@ export const ELEMENTOS: Record<Element, Meta> = {
   drown: { label: "Drown", bar: "bg-muted-foreground" },
 };
 
-/** Ordem fixa dos 7 elementos em todo o app. */
+/** Ordem fixa dos 7 elementos em todo o app: Physical, Earth, Fire, Death na primeira linha; Energy, Holy, Ice na segunda. */
 export const ELEMENTOS_PRINCIPAIS: ElementKey[] = [
   "physical",
-  "fire",
-  "energy",
-  "ice",
   "earth",
+  "fire",
   "death",
+  "energy",
   "holy",
+  "ice",
 ];
-export const ELEMENTOS_EXTRAS: Element[] = ["hpDrain", "drown"];
+export const ELEMENTOS_EXTRAS: Element[] = ["hpDrain"];

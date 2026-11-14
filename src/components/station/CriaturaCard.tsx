@@ -4,10 +4,10 @@ import type { Creature } from "@/lib/data/types";
 import type { Target } from "@/lib/crypt/types";
 import { CreatureSprite } from "./CreatureSprite";
 import { ElementIcon } from "./ElementIcon";
-import { ELEMENTOS } from "./elementos";
+import { ELEMENTOS, ELEMENTOS_PRINCIPAIS } from "./elementos";
 
-/** Ordem pedida: Physical, Earth, Fire, Energy, Ice, Holy, Death (e Drown, quando houver). */
-const ORDEM: ElementKey[] = ["physical", "earth", "fire", "energy", "ice", "holy", "death"];
+/** Mesma ordem em todo o app: Physical, Earth, Fire, Death (linha de cima); Energy, Holy, Ice (linha de baixo). */
+const ORDEM = ELEMENTOS_PRINCIPAIS;
 
 interface Linha {
   el: Element;
@@ -15,23 +15,25 @@ interface Linha {
   incerto: boolean;
 }
 
-/** Formato da wiki: 100 neutro; acima de 100 a criatura RECEBE MAIS dano (bom para você); abaixo, recebe menos. */
+/**
+ * Formato da wiki: 100 neutro; acima de 100 a criatura RECEBE MAIS dano (bom para você); abaixo, recebe menos.
+ * De 21 a 99 a cor é amarela; vermelho só para 20 ou menos (e para quem absorve).
+ */
 function estilo(v: number) {
   if (v < 0) return { cor: "text-bad", borda: "border-bad", nota: "absorve (cura)" };
   if (v > 100) return { cor: "text-good", borda: "border-good", nota: "recebe mais dano" };
-  if (v < 100) return { cor: "text-bad", borda: "border-bad", nota: "recebe menos dano" };
+  if (v <= 20) return { cor: "text-bad", borda: "border-bad", nota: "recebe menos dano" };
+  if (v < 100) return { cor: "text-warn", borda: "border-warn", nota: "recebe menos dano" };
   return { cor: "text-muted-foreground", borda: "border-border", nota: "neutro" };
 }
 
 function linhasDe(criatura: Creature): Linha[] {
   const incerto = (e: Element) => criatura.resistUnconfirmed.includes(e);
-  const base = ORDEM.map((el) => ({ el, valor: criatura.resist[el], incerto: incerto(el) }));
-  // Drown só aparece quando a wiki confirma o valor.
-  const drown = { el: "drown" as const, valor: criatura.resist.drown, incerto: incerto("drown") };
-  const todas: { el: Element; valor: number | null; incerto: boolean }[] = [
-    ...base,
-    ...(drown.valor !== null && !drown.incerto ? [drown] : []),
-  ];
+  const todas: { el: Element; valor: number | null; incerto: boolean }[] = ORDEM.map((el) => ({
+    el,
+    valor: criatura.resist[el],
+    incerto: incerto(el),
+  }));
   return todas.filter((l): l is Linha => l.valor !== null);
 }
 

@@ -203,7 +203,7 @@
   {
     "slug": "abyssador",
     "sourceUrl": "https://tibia.fandom.com/wiki/Abyssador",
-    "resistUnconfirmed": ["physical"],
+    "resistUnconfirmed": [],
     "name": "Abyssador",
     "wikiTitle": "Abyssador",
     "hp": 340000,
@@ -212,7 +212,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
+      "physical": 90,
       "earth": 0,
       "fire": 85,
       "energy": 85,
@@ -364,17 +364,7 @@
   {
     "slug": "adlerauge",
     "sourceUrl": "https://tibia.fandom.com/wiki/Adlerauge",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Adlerauge",
     "wikiTitle": "Adlerauge",
     "hp": 45000,
@@ -443,17 +433,7 @@
   {
     "slug": "adventurer-group",
     "sourceUrl": "https://tibia.fandom.com/wiki/Adventurer_Group",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Adventurer Group",
     "wikiTitle": "Adventurer Group",
     "hp": null,
@@ -614,7 +594,7 @@
   {
     "slug": "ahau",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ahau",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ahau",
     "wikiTitle": "Ahau",
     "hp": 9000,
@@ -706,7 +686,7 @@
   {
     "slug": "alptramun",
     "sourceUrl": "https://tibia.fandom.com/wiki/Alptramun",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Alptramun",
     "wikiTitle": "Alptramun",
     "hp": 320000,
@@ -785,7 +765,7 @@
   {
     "slug": "amenef-the-burning",
     "sourceUrl": "https://tibia.fandom.com/wiki/Amenef_the_Burning",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Amenef the Burning",
     "wikiTitle": "Amenef the Burning",
     "hp": 26000,
@@ -999,17 +979,7 @@
   {
     "slug": "ancient-spawn-of-morgathla",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ancient_Spawn_of_Morgathla",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ancient Spawn of Morgathla",
     "wikiTitle": "Ancient Spawn of Morgathla",
     "hp": null,
@@ -1019,7 +989,7 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 100,
+      "earth": -100,
       "fire": 100,
       "energy": 100,
       "ice": 100,
@@ -1688,7 +1658,7 @@
   {
     "slug": "annihilon",
     "sourceUrl": "https://tibia.fandom.com/wiki/Annihilon",
-    "resistUnconfirmed": ["ice", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Annihilon",
     "wikiTitle": "Annihilon",
     "hp": 46500,
@@ -1734,17 +1704,7 @@
   {
     "slug": "anomaly",
     "sourceUrl": "https://tibia.fandom.com/wiki/Anomaly",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Anomaly",
     "wikiTitle": "Anomaly",
     "hp": 290000,
@@ -1754,12 +1714,12 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 70,
-      "earth": 70,
+      "earth": 110,
       "fire": 70,
       "energy": 70,
-      "ice": 70,
+      "ice": 100,
       "holy": 70,
-      "death": 70,
+      "death": 100,
       "hpDrain": 100,
       "drown": 70
     }
@@ -1836,7 +1796,7 @@
   {
     "slug": "arachir-the-ancient-one",
     "sourceUrl": "https://tibia.fandom.com/wiki/Arachir_the_Ancient_One",
-    "resistUnconfirmed": ["physical", "fire", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Arachir the Ancient One",
     "wikiTitle": "Arachir the Ancient One",
     "hp": 1600,
@@ -1882,7 +1842,7 @@
   {
     "slug": "arbaziloth",
     "sourceUrl": "https://tibia.fandom.com/wiki/Arbaziloth",
-    "resistUnconfirmed": ["energy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Arbaziloth",
     "wikiTitle": "Arbaziloth",
     "hp": 360000,
@@ -1894,7 +1854,7 @@
       "physical": 70,
       "earth": 100,
       "fire": 85,
-      "energy": 100,
+      "energy": 67,
       "ice": 80,
       "holy": 100,
       "death": 80,
@@ -2007,7 +1967,7 @@
   {
     "slug": "arthei",
     "sourceUrl": "https://tibia.fandom.com/wiki/Arthei",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Arthei",
     "wikiTitle": "Arthei",
     "hp": 4200,
@@ -2016,7 +1976,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 50,
+      "physical": 100,
       "earth": 0,
       "fire": 80,
       "energy": 100,
@@ -2257,17 +2217,7 @@
   {
     "slug": "atab",
     "sourceUrl": "https://tibia.fandom.com/wiki/Atab",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Atab",
     "wikiTitle": "Atab",
     "hp": 8100,
@@ -2276,13 +2226,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 100,
-      "earth": 100,
-      "fire": 100,
+      "physical": 60,
+      "earth": 60,
+      "fire": 75,
       "energy": 115,
       "ice": 100,
-      "holy": 50,
-      "death": 100,
+      "holy": 100,
+      "death": 40,
       "hpDrain": 100,
       "drown": 100
     }
@@ -2336,7 +2286,7 @@
   {
     "slug": "ayana-the-crimson-curse",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ayana_the_Crimson_Curse",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ayana the Crimson Curse",
     "wikiTitle": "Ayana the Crimson Curse",
     "hp": 17000,
@@ -2346,10 +2296,10 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 70,
+      "earth": 105,
       "fire": 0,
       "energy": 105,
-      "ice": 100,
+      "ice": 105,
       "holy": 100,
       "death": 50,
       "hpDrain": 100,
@@ -2562,17 +2512,7 @@
   {
     "slug": "bakragore",
     "sourceUrl": "https://tibia.fandom.com/wiki/Bakragore",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Bakragore",
     "wikiTitle": "Bakragore",
     "hp": 660000,
@@ -2664,7 +2604,7 @@
   {
     "slug": "bane-lord",
     "sourceUrl": "https://tibia.fandom.com/wiki/Bane_Lord",
-    "resistUnconfirmed": ["physical", "earth", "energy", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Bane Lord",
     "wikiTitle": "Bane Lord",
     "hp": 3000,
@@ -2673,13 +2613,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 50,
-      "earth": 5,
+      "physical": 110,
+      "earth": 10,
       "fire": 5,
-      "energy": 5,
+      "energy": 10,
       "ice": 5,
-      "holy": 5,
-      "death": 5,
+      "holy": 10,
+      "death": 10,
       "hpDrain": 100,
       "drown": 100
     }
@@ -2733,7 +2673,7 @@
   {
     "slug": "barbaria",
     "sourceUrl": "https://tibia.fandom.com/wiki/Barbaria",
-    "resistUnconfirmed": ["earth", "fire", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Barbaria",
     "wikiTitle": "Barbaria",
     "hp": 345,
@@ -3246,7 +3186,7 @@
   {
     "slug": "bibby-bloodbath",
     "sourceUrl": "https://tibia.fandom.com/wiki/Bibby_Bloodbath",
-    "resistUnconfirmed": ["physical", "earth", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Bibby Bloodbath",
     "wikiTitle": "Bibby Bloodbath",
     "hp": 1200,
@@ -3269,17 +3209,7 @@
   {
     "slug": "big-boss-trolliver",
     "sourceUrl": "https://tibia.fandom.com/wiki/Big_Boss_Trolliver",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Big Boss Trolliver",
     "wikiTitle": "Big Boss Trolliver",
     "hp": 140,
@@ -3424,7 +3354,7 @@
   {
     "slug": "black-knight",
     "sourceUrl": "https://tibia.fandom.com/wiki/Black_Knight",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Black Knight",
     "wikiTitle": "Black Knight",
     "hp": 1800,
@@ -3438,7 +3368,7 @@
       "fire": 5,
       "energy": 20,
       "ice": 0,
-      "holy": 108,
+      "holy": 110,
       "death": 80,
       "hpDrain": 100,
       "drown": 100
@@ -3516,7 +3446,7 @@
   {
     "slug": "black-vixen",
     "sourceUrl": "https://tibia.fandom.com/wiki/Black_Vixen",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Black Vixen",
     "wikiTitle": "Black Vixen",
     "hp": 3200,
@@ -3526,7 +3456,7 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 40,
+      "earth": 100,
       "fire": 105,
       "energy": 80,
       "ice": 90,
@@ -3674,7 +3604,7 @@
   {
     "slug": "blight-mariner",
     "sourceUrl": "https://tibia.fandom.com/wiki/Blight_Mariner",
-    "resistUnconfirmed": ["physical", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Blight Mariner",
     "wikiTitle": "Blight Mariner",
     "hp": 20500,
@@ -4115,7 +4045,7 @@
   {
     "slug": "bloodback",
     "sourceUrl": "https://tibia.fandom.com/wiki/Bloodback",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Bloodback",
     "wikiTitle": "Bloodback",
     "hp": 5200,
@@ -4125,7 +4055,7 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 60,
+      "earth": 100,
       "fire": 105,
       "energy": 85,
       "ice": 100,
@@ -4846,17 +4776,7 @@
   {
     "slug": "bone-overlord",
     "sourceUrl": "https://tibia.fandom.com/wiki/Bone_Overlord",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Bone Overlord",
     "wikiTitle": "Bone Overlord",
     "hp": null,
@@ -5129,7 +5049,7 @@
   {
     "slug": "boreth",
     "sourceUrl": "https://tibia.fandom.com/wiki/Boreth",
-    "resistUnconfirmed": ["physical", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Boreth",
     "wikiTitle": "Boreth",
     "hp": 1400,
@@ -5343,7 +5263,7 @@
   {
     "slug": "bragrumol",
     "sourceUrl": "https://tibia.fandom.com/wiki/Bragrumol",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Bragrumol",
     "wikiTitle": "Bragrumol",
     "hp": 38000,
@@ -5356,9 +5276,9 @@
       "earth": 100,
       "fire": 30,
       "energy": 100,
-      "ice": 110,
+      "ice": 100,
       "holy": 100,
-      "death": 50,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -5366,7 +5286,7 @@
   {
     "slug": "brain-head",
     "sourceUrl": "https://tibia.fandom.com/wiki/Brain_Head",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Brain Head",
     "wikiTitle": "Brain Head",
     "hp": 230000,
@@ -5375,13 +5295,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
+      "physical": 70,
       "earth": 100,
       "fire": 30,
       "energy": -1000,
       "ice": 150,
-      "holy": 100,
-      "death": 80,
+      "holy": 120,
+      "death": 40,
       "hpDrain": 100,
       "drown": 100
     }
@@ -5718,7 +5638,7 @@
   {
     "slug": "brokul",
     "sourceUrl": "https://tibia.fandom.com/wiki/Brokul",
-    "resistUnconfirmed": ["holy"],
+    "resistUnconfirmed": [],
     "name": "Brokul",
     "wikiTitle": "Brokul",
     "hp": 50000,
@@ -6169,17 +6089,7 @@
   {
     "slug": "burster",
     "sourceUrl": "https://tibia.fandom.com/wiki/Burster",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Burster",
     "wikiTitle": "Burster",
     "hp": 10000,
@@ -6191,7 +6101,7 @@
       "physical": 100,
       "earth": 100,
       "fire": 100,
-      "energy": 0,
+      "energy": 20,
       "ice": 100,
       "holy": 100,
       "death": 100,
@@ -6475,7 +6385,7 @@
   {
     "slug": "captain-jones",
     "sourceUrl": "https://tibia.fandom.com/wiki/Captain_Jones",
-    "resistUnconfirmed": ["ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Captain Jones",
     "wikiTitle": "Captain Jones",
     "hp": 555,
@@ -6488,9 +6398,9 @@
       "earth": 0,
       "fire": 90,
       "energy": 90,
-      "ice": 80,
+      "ice": 100,
       "holy": 100,
-      "death": 100,
+      "death": 0,
       "hpDrain": 100,
       "drown": 100
     }
@@ -6998,7 +6908,7 @@
   {
     "slug": "chagorz",
     "sourceUrl": "https://tibia.fandom.com/wiki/Chagorz",
-    "resistUnconfirmed": ["physical", "holy", "death"],
+    "resistUnconfirmed": [],
     "name": "Chagorz",
     "wikiTitle": "Chagorz",
     "hp": 600000,
@@ -7406,7 +7316,7 @@
   {
     "slug": "chikhaton",
     "sourceUrl": "https://tibia.fandom.com/wiki/Chikhaton",
-    "resistUnconfirmed": ["earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Chikhaton",
     "wikiTitle": "Chikhaton",
     "hp": 130000,
@@ -7416,7 +7326,7 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 50,
-      "earth": 80,
+      "earth": 100,
       "fire": 70,
       "energy": 110,
       "ice": 100,
@@ -7498,7 +7408,7 @@
   {
     "slug": "chopper",
     "sourceUrl": "https://tibia.fandom.com/wiki/Chopper",
-    "resistUnconfirmed": ["physical", "fire", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Chopper",
     "wikiTitle": "Chopper",
     "hp": 7200,
@@ -7544,7 +7454,7 @@
   {
     "slug": "clavius",
     "sourceUrl": "https://tibia.fandom.com/wiki/Clavius",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Clavius",
     "wikiTitle": "Clavius",
     "hp": 40000,
@@ -8454,7 +8364,7 @@
   {
     "slug": "count-vlarkorth",
     "sourceUrl": "https://tibia.fandom.com/wiki/Count_Vlarkorth",
-    "resistUnconfirmed": ["physical", "fire", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Count Vlarkorth",
     "wikiTitle": "Count Vlarkorth",
     "hp": 300000,
@@ -8463,13 +8373,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
+      "physical": 90,
       "earth": 100,
       "fire": 95,
       "energy": 95,
       "ice": 100,
       "holy": 100,
-      "death": 110,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -8477,7 +8387,7 @@
   {
     "slug": "countess-sorrow",
     "sourceUrl": "https://tibia.fandom.com/wiki/Countess_Sorrow",
-    "resistUnconfirmed": ["holy", "drown"],
+    "resistUnconfirmed": ["drown"],
     "name": "Countess Sorrow",
     "wikiTitle": "Countess Sorrow",
     "hp": 6500,
@@ -8523,17 +8433,7 @@
   {
     "slug": "court-warlock",
     "sourceUrl": "https://tibia.fandom.com/wiki/Court_Warlock",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Court Warlock",
     "wikiTitle": "Court Warlock",
     "hp": 120000,
@@ -9266,7 +9166,7 @@
   {
     "slug": "cublarc-the-plunderer",
     "sourceUrl": "https://tibia.fandom.com/wiki/Cublarc_the_Plunderer",
-    "resistUnconfirmed": ["physical", "earth", "energy", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Cublarc the Plunderer",
     "wikiTitle": "Cublarc the Plunderer",
     "hp": 400,
@@ -9275,13 +9175,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 100,
-      "earth": 120,
+      "physical": 130,
+      "earth": 105,
       "fire": 100,
-      "energy": 100,
+      "energy": 95,
       "ice": 100,
-      "holy": 100,
-      "death": 100,
+      "holy": 90,
+      "death": 110,
       "hpDrain": 100,
       "drown": 100
     }
@@ -9496,7 +9396,7 @@
   {
     "slug": "custodian",
     "sourceUrl": "https://tibia.fandom.com/wiki/Custodian",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Custodian",
     "wikiTitle": "Custodian",
     "hp": 47000,
@@ -9505,7 +9405,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 30,
+      "physical": 100,
       "earth": 0,
       "fire": 80,
       "energy": 100,
@@ -10128,7 +10028,7 @@
   {
     "slug": "darkfang",
     "sourceUrl": "https://tibia.fandom.com/wiki/Darkfang",
-    "resistUnconfirmed": ["physical", "earth", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Darkfang",
     "wikiTitle": "Darkfang",
     "hp": 4800,
@@ -10137,13 +10037,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
-      "earth": 30,
+      "physical": 95,
+      "earth": 90,
       "fire": 105,
       "energy": 80,
       "ice": 90,
       "holy": 100,
-      "death": 30,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -10368,17 +10268,7 @@
   {
     "slug": "dazed-leaf-golem",
     "sourceUrl": "https://tibia.fandom.com/wiki/Dazed_Leaf_Golem",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Dazed Leaf Golem",
     "wikiTitle": "Dazed Leaf Golem",
     "hp": 10000,
@@ -10387,13 +10277,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 100,
-      "earth": 50,
+      "physical": 50,
+      "earth": 100,
       "fire": 100,
-      "energy": 100,
+      "energy": 50,
       "ice": 100,
       "holy": 100,
-      "death": 100,
+      "death": 50,
       "hpDrain": 100,
       "drown": 100
     }
@@ -10546,7 +10436,7 @@
   {
     "slug": "death-priest-shargon",
     "sourceUrl": "https://tibia.fandom.com/wiki/Death_Priest_Shargon",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Death Priest Shargon",
     "wikiTitle": "Death Priest Shargon",
     "hp": 65000,
@@ -10561,7 +10451,7 @@
       "energy": 97,
       "ice": 100,
       "holy": 100,
-      "death": 100,
+      "death": 0,
       "hpDrain": 100,
       "drown": 100
     }
@@ -10750,7 +10640,7 @@
   {
     "slug": "deathstrike",
     "sourceUrl": "https://tibia.fandom.com/wiki/Deathstrike",
-    "resistUnconfirmed": ["physical"],
+    "resistUnconfirmed": [],
     "name": "Deathstrike",
     "wikiTitle": "Deathstrike",
     "hp": 200000,
@@ -11511,7 +11401,7 @@
   {
     "slug": "despor",
     "sourceUrl": "https://tibia.fandom.com/wiki/Despor",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Despor",
     "wikiTitle": "Despor",
     "hp": 50000,
@@ -11525,7 +11415,7 @@
       "fire": 0,
       "energy": 100,
       "ice": 100,
-      "holy": 100,
+      "holy": 0,
       "death": 100,
       "hpDrain": 100,
       "drown": 100
@@ -11784,17 +11674,7 @@
   {
     "slug": "devovorga",
     "sourceUrl": "https://tibia.fandom.com/wiki/Devovorga",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Devovorga",
     "wikiTitle": "Devovorga",
     "hp": 500000,
@@ -11840,7 +11720,7 @@
   {
     "slug": "dharalion",
     "sourceUrl": "https://tibia.fandom.com/wiki/Dharalion",
-    "resistUnconfirmed": ["physical", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Dharalion",
     "wikiTitle": "Dharalion",
     "hp": 390,
@@ -12057,7 +11937,7 @@
   {
     "slug": "dirtbeard",
     "sourceUrl": "https://tibia.fandom.com/wiki/Dirtbeard",
-    "resistUnconfirmed": ["death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Dirtbeard",
     "wikiTitle": "Dirtbeard",
     "hp": 630,
@@ -12317,7 +12197,7 @@
   {
     "slug": "doctor-perhaps",
     "sourceUrl": "https://tibia.fandom.com/wiki/Doctor_Perhaps",
-    "resistUnconfirmed": ["death"],
+    "resistUnconfirmed": [],
     "name": "Doctor Perhaps",
     "wikiTitle": "Doctor Perhaps",
     "hp": 475,
@@ -12498,7 +12378,7 @@
   {
     "slug": "dracola",
     "sourceUrl": "https://tibia.fandom.com/wiki/Dracola",
-    "resistUnconfirmed": ["physical", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "Dracola",
     "wikiTitle": "Dracola",
     "hp": 16200,
@@ -13066,7 +12946,7 @@
   {
     "slug": "dreadful-disruptor",
     "sourceUrl": "https://tibia.fandom.com/wiki/Dreadful_Disruptor",
-    "resistUnconfirmed": ["energy", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Dreadful Disruptor",
     "wikiTitle": "Dreadful Disruptor",
     "hp": 10000,
@@ -13112,16 +12992,7 @@
   {
     "slug": "dreadmaw",
     "sourceUrl": "https://tibia.fandom.com/wiki/Dreadmaw",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Dreadmaw",
     "wikiTitle": "Dreadmaw",
     "hp": 3500,
@@ -13130,11 +13001,11 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 100,
+      "physical": 90,
       "earth": 80,
       "fire": 100,
-      "energy": 105,
-      "ice": 100,
+      "energy": 110,
+      "ice": 90,
       "holy": 100,
       "death": 100,
       "hpDrain": 100,
@@ -13335,7 +13206,7 @@
   {
     "slug": "drume",
     "sourceUrl": "https://tibia.fandom.com/wiki/Drume",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Drume",
     "wikiTitle": "Drume",
     "hp": 35000,
@@ -13381,7 +13252,7 @@
   {
     "slug": "duke-krule",
     "sourceUrl": "https://tibia.fandom.com/wiki/Duke_Krule",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Duke Krule",
     "wikiTitle": "Duke Krule",
     "hp": 290000,
@@ -13394,7 +13265,7 @@
       "earth": 80,
       "fire": 115,
       "energy": 95,
-      "ice": 100,
+      "ice": 35,
       "holy": 100,
       "death": -60,
       "hpDrain": 100,
@@ -13680,7 +13551,7 @@
   {
     "slug": "earl-osam",
     "sourceUrl": "https://tibia.fandom.com/wiki/Earl_Osam",
-    "resistUnconfirmed": ["physical", "earth", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Earl Osam",
     "wikiTitle": "Earl Osam",
     "hp": null,
@@ -13689,12 +13560,12 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
-      "earth": 50,
+      "physical": 95,
+      "earth": 60,
       "fire": 110,
       "energy": 105,
       "ice": -50,
-      "holy": 100,
+      "holy": 105,
       "death": -200,
       "hpDrain": 100,
       "drown": 100
@@ -13965,7 +13836,7 @@
   {
     "slug": "ekatrix",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ekatrix",
-    "resistUnconfirmed": ["death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ekatrix",
     "wikiTitle": "Ekatrix",
     "hp": 500,
@@ -14103,17 +13974,7 @@
   {
     "slug": "eldritch-dragon-lord",
     "sourceUrl": "https://tibia.fandom.com/wiki/Eldritch_Dragon_Lord",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Eldritch Dragon Lord",
     "wikiTitle": "Eldritch Dragon Lord",
     "hp": null,
@@ -14124,7 +13985,7 @@
     "resist": {
       "physical": 100,
       "earth": 100,
-      "fire": 100,
+      "fire": 0,
       "energy": 100,
       "ice": 100,
       "holy": 100,
@@ -14330,7 +14191,7 @@
   {
     "slug": "elvira-hammerthrust",
     "sourceUrl": "https://tibia.fandom.com/wiki/Elvira_Hammerthrust",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Elvira Hammerthrust",
     "wikiTitle": "Elvira Hammerthrust",
     "hp": 245,
@@ -15143,17 +15004,7 @@
   {
     "slug": "enusat-the-onyx-wing",
     "sourceUrl": "https://tibia.fandom.com/wiki/Enusat_the_Onyx_Wing",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Enusat the Onyx Wing",
     "wikiTitle": "Enusat the Onyx Wing",
     "hp": 25000,
@@ -15164,7 +15015,7 @@
     "resist": {
       "physical": 100,
       "earth": 100,
-      "fire": 100,
+      "fire": 80,
       "energy": 100,
       "ice": 100,
       "holy": 100,
@@ -15176,7 +15027,7 @@
   {
     "slug": "eradicator",
     "sourceUrl": "https://tibia.fandom.com/wiki/Eradicator",
-    "resistUnconfirmed": ["physical", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Eradicator",
     "wikiTitle": "Eradicator",
     "hp": 290000,
@@ -15185,12 +15036,12 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 50,
+      "physical": 30,
       "earth": 50,
       "fire": 50,
       "energy": 50,
-      "ice": 50,
-      "holy": 50,
+      "ice": 70,
+      "holy": 70,
       "death": 100,
       "hpDrain": 100,
       "drown": 100
@@ -15344,7 +15195,7 @@
   {
     "slug": "essence-of-malice",
     "sourceUrl": "https://tibia.fandom.com/wiki/Essence_of_Malice",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Essence of Malice",
     "wikiTitle": "Essence of Malice",
     "hp": 250000,
@@ -15423,7 +15274,7 @@
   {
     "slug": "evil-mastermind",
     "sourceUrl": "https://tibia.fandom.com/wiki/Evil_Mastermind",
-    "resistUnconfirmed": ["death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Evil Mastermind",
     "wikiTitle": "Evil Mastermind",
     "hp": 1295,
@@ -15663,7 +15514,7 @@
   {
     "slug": "faceless-bane",
     "sourceUrl": "https://tibia.fandom.com/wiki/Faceless_Bane",
-    "resistUnconfirmed": ["holy", "death"],
+    "resistUnconfirmed": [],
     "name": "Faceless Bane",
     "wikiTitle": "Faceless Bane",
     "hp": 17000,
@@ -16271,7 +16122,7 @@
   {
     "slug": "ferumbras-mortal-shell",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ferumbras_Mortal_Shell",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ferumbras Mortal Shell",
     "wikiTitle": "Ferumbras Mortal Shell",
     "hp": 300000,
@@ -16781,7 +16632,7 @@
   {
     "slug": "flamecaller-zazrak",
     "sourceUrl": "https://tibia.fandom.com/wiki/Flamecaller_Zazrak",
-    "resistUnconfirmed": ["physical", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Flamecaller Zazrak",
     "wikiTitle": "Flamecaller Zazrak",
     "hp": 2690,
@@ -16850,7 +16701,7 @@
   {
     "slug": "fleabringer",
     "sourceUrl": "https://tibia.fandom.com/wiki/Fleabringer",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Fleabringer",
     "wikiTitle": "Fleabringer",
     "hp": 265,
@@ -16939,17 +16790,7 @@
   {
     "slug": "fleshslicer",
     "sourceUrl": "https://tibia.fandom.com/wiki/Fleshslicer",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Fleshslicer",
     "wikiTitle": "Fleshslicer",
     "hp": 5700,
@@ -16959,7 +16800,7 @@
     "bosstiaryClass": "Bane",
     "resist": {
       "physical": 100,
-      "earth": 100,
+      "earth": 0,
       "fire": 100,
       "energy": 100,
       "ice": 100,
@@ -17245,7 +17086,7 @@
   {
     "slug": "foreman-kneebiter",
     "sourceUrl": "https://tibia.fandom.com/wiki/Foreman_Kneebiter",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Foreman Kneebiter",
     "wikiTitle": "Foreman Kneebiter",
     "hp": 570,
@@ -17254,13 +17095,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 99,
-      "earth": 80,
+      "physical": 95,
+      "earth": 95,
       "fire": 90,
       "energy": 90,
       "ice": 100,
       "holy": 100,
-      "death": 101,
+      "death": 105,
       "hpDrain": 100,
       "drown": 100
     }
@@ -18136,7 +17977,7 @@
   {
     "slug": "furyosa",
     "sourceUrl": "https://tibia.fandom.com/wiki/Furyosa",
-    "resistUnconfirmed": ["death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Furyosa",
     "wikiTitle": "Furyosa",
     "hp": 25000,
@@ -18151,7 +17992,7 @@
       "energy": 90,
       "ice": 60,
       "holy": 60,
-      "death": 90,
+      "death": 60,
       "hpDrain": 100,
       "drown": 100
     }
@@ -18159,7 +18000,7 @@
   {
     "slug": "gaffir",
     "sourceUrl": "https://tibia.fandom.com/wiki/Gaffir",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Gaffir",
     "wikiTitle": "Gaffir",
     "hp": 48500,
@@ -18320,7 +18161,7 @@
   {
     "slug": "gelidrazah-the-frozen",
     "sourceUrl": "https://tibia.fandom.com/wiki/Gelidrazah_the_Frozen",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Gelidrazah the Frozen",
     "wikiTitle": "Gelidrazah the Frozen",
     "hp": 10000,
@@ -18343,7 +18184,7 @@
   {
     "slug": "general-murius",
     "sourceUrl": "https://tibia.fandom.com/wiki/General_Murius",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "General Murius",
     "wikiTitle": "General Murius",
     "hp": 550,
@@ -18412,7 +18253,7 @@
   {
     "slug": "ghazbaran",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ghazbaran",
-    "resistUnconfirmed": ["physical", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ghazbaran",
     "wikiTitle": "Ghazbaran",
     "hp": 77000,
@@ -18421,13 +18262,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 70,
+      "physical": 95,
       "earth": 0,
       "fire": 0,
       "energy": 100,
       "ice": 0,
       "holy": 105,
-      "death": 99,
+      "death": 90,
       "hpDrain": 100,
       "drown": 100
     }
@@ -18639,7 +18480,7 @@
   {
     "slug": "ghulosh",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ghulosh",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ghulosh",
     "wikiTitle": "Ghulosh",
     "hp": null,
@@ -19384,7 +19225,7 @@
   {
     "slug": "glitterscale",
     "sourceUrl": "https://tibia.fandom.com/wiki/Glitterscale",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Glitterscale",
     "wikiTitle": "Glitterscale",
     "hp": 1111,
@@ -19633,7 +19474,7 @@
   {
     "slug": "glooth-fairy",
     "sourceUrl": "https://tibia.fandom.com/wiki/Glooth_Fairy",
-    "resistUnconfirmed": ["physical", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Glooth Fairy",
     "wikiTitle": "Glooth Fairy",
     "hp": 59000,
@@ -19648,7 +19489,7 @@
       "energy": 95,
       "ice": 100,
       "holy": 85,
-      "death": 70,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -19946,7 +19787,7 @@
   {
     "slug": "gnomevil",
     "sourceUrl": "https://tibia.fandom.com/wiki/Gnomevil",
-    "resistUnconfirmed": ["physical", "holy"],
+    "resistUnconfirmed": [],
     "name": "Gnomevil",
     "wikiTitle": "Gnomevil",
     "hp": 250000,
@@ -19955,7 +19796,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 90,
+      "physical": 85,
       "earth": 0,
       "fire": 50,
       "energy": 0,
@@ -20232,7 +20073,7 @@
   {
     "slug": "golgordan",
     "sourceUrl": "https://tibia.fandom.com/wiki/Golgordan",
-    "resistUnconfirmed": ["physical", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Golgordan",
     "wikiTitle": "Golgordan",
     "hp": 40000,
@@ -20241,12 +20082,12 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 99,
+      "physical": 95,
       "earth": 95,
       "fire": 105,
       "energy": 70,
-      "ice": 101,
-      "holy": 99,
+      "ice": 105,
+      "holy": 95,
       "death": 0,
       "hpDrain": 100,
       "drown": 100
@@ -20301,7 +20142,7 @@
   {
     "slug": "gorga",
     "sourceUrl": "https://tibia.fandom.com/wiki/Gorga",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Gorga",
     "wikiTitle": "Gorga",
     "hp": 15000,
@@ -20314,7 +20155,7 @@
       "earth": 0,
       "fire": 105,
       "energy": 105,
-      "ice": 100,
+      "ice": 80,
       "holy": 100,
       "death": 100,
       "hpDrain": 100,
@@ -20380,7 +20221,7 @@
   {
     "slug": "gorzindel",
     "sourceUrl": "https://tibia.fandom.com/wiki/Gorzindel",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Gorzindel",
     "wikiTitle": "Gorzindel",
     "hp": 350000,
@@ -20389,13 +20230,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
+      "physical": 0,
       "earth": 100,
       "fire": -100,
       "energy": 95,
-      "ice": 100,
-      "holy": 100,
-      "death": 100,
+      "ice": 0,
+      "holy": 0,
+      "death": 0,
       "hpDrain": 100,
       "drown": 100
     }
@@ -20403,17 +20244,7 @@
   {
     "slug": "goshnars-cruelty",
     "sourceUrl": "https://tibia.fandom.com/wiki/Goshnar's_Cruelty",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Goshnar's Cruelty",
     "wikiTitle": "Goshnar's Cruelty",
     "hp": null,
@@ -20436,17 +20267,7 @@
   {
     "slug": "goshnars-greed",
     "sourceUrl": "https://tibia.fandom.com/wiki/Goshnar's_Greed",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Goshnar's Greed",
     "wikiTitle": "Goshnar's Greed",
     "hp": null,
@@ -20469,17 +20290,7 @@
   {
     "slug": "goshnars-hatred",
     "sourceUrl": "https://tibia.fandom.com/wiki/Goshnar's_Hatred",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Goshnar's Hatred",
     "wikiTitle": "Goshnar's Hatred",
     "hp": null,
@@ -20502,16 +20313,7 @@
   {
     "slug": "goshnars-malice",
     "sourceUrl": "https://tibia.fandom.com/wiki/Goshnar's_Malice",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Goshnar's Malice",
     "wikiTitle": "Goshnar's Malice",
     "hp": 550000,
@@ -20521,9 +20323,9 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 85,
+      "earth": 100,
       "fire": 85,
-      "energy": 85,
+      "energy": 100,
       "ice": 100,
       "holy": 100,
       "death": 100,
@@ -20534,17 +20336,7 @@
   {
     "slug": "goshnars-megalomania",
     "sourceUrl": "https://tibia.fandom.com/wiki/Goshnar's_Megalomania",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Goshnar's Megalomania",
     "wikiTitle": "Goshnar's Megalomania",
     "hp": null,
@@ -20633,17 +20425,7 @@
   {
     "slug": "goshnars-spite",
     "sourceUrl": "https://tibia.fandom.com/wiki/Goshnar's_Spite",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Goshnar's Spite",
     "wikiTitle": "Goshnar's Spite",
     "hp": 550000,
@@ -20689,17 +20471,7 @@
   {
     "slug": "gralvalon",
     "sourceUrl": "https://tibia.fandom.com/wiki/Gralvalon",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Gralvalon",
     "wikiTitle": "Gralvalon",
     "hp": 33000,
@@ -20708,13 +20480,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 100,
-      "earth": 100,
-      "fire": 100,
-      "energy": 100,
-      "ice": 100,
+      "physical": 90,
+      "earth": 115,
+      "fire": 105,
+      "energy": 85,
+      "ice": 95,
       "holy": 100,
-      "death": 100,
+      "death": 115,
       "hpDrain": 100,
       "drown": 100
     }
@@ -20722,7 +20494,7 @@
   {
     "slug": "grand-canon-dominus",
     "sourceUrl": "https://tibia.fandom.com/wiki/Grand_Canon_Dominus",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Grand Canon Dominus",
     "wikiTitle": "Grand Canon Dominus",
     "hp": 15000,
@@ -20731,7 +20503,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 40,
+      "physical": 50,
       "earth": 50,
       "fire": 50,
       "energy": 50,
@@ -20745,7 +20517,7 @@
   {
     "slug": "grand-chaplain-gaunder",
     "sourceUrl": "https://tibia.fandom.com/wiki/Grand_Chaplain_Gaunder",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Grand Chaplain Gaunder",
     "wikiTitle": "Grand Chaplain Gaunder",
     "hp": 18000,
@@ -20754,13 +20526,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 20,
+      "physical": 45,
       "earth": 50,
       "fire": 50,
       "energy": 50,
-      "ice": 50,
-      "holy": 100,
-      "death": 50,
+      "ice": 85,
+      "holy": 105,
+      "death": 60,
       "hpDrain": 100,
       "drown": 100
     }
@@ -20814,7 +20586,7 @@
   {
     "slug": "grand-mother-foulscale",
     "sourceUrl": "https://tibia.fandom.com/wiki/Grand_Mother_Foulscale",
-    "resistUnconfirmed": ["physical", "earth", "energy", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Grand Mother Foulscale",
     "wikiTitle": "Grand Mother Foulscale",
     "hp": 1850,
@@ -20824,9 +20596,9 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 100,
-      "earth": 20,
+      "earth": 100,
       "fire": 0,
-      "energy": 75,
+      "energy": 100,
       "ice": 105,
       "holy": 100,
       "death": 100,
@@ -20837,17 +20609,7 @@
   {
     "slug": "grandfather-tridian",
     "sourceUrl": "https://tibia.fandom.com/wiki/Grandfather_Tridian",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Grandfather Tridian",
     "wikiTitle": "Grandfather Tridian",
     "hp": 1800,
@@ -20857,9 +20619,9 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 65,
-      "earth": 80,
-      "fire": 75,
-      "energy": 95,
+      "earth": 100,
+      "fire": 100,
+      "energy": 100,
       "ice": 100,
       "holy": 100,
       "death": 100,
@@ -20939,7 +20701,7 @@
   {
     "slug": "gravelord-oshuran",
     "sourceUrl": "https://tibia.fandom.com/wiki/Gravelord_Oshuran",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Gravelord Oshuran",
     "wikiTitle": "Gravelord Oshuran",
     "hp": 3100,
@@ -21662,7 +21424,7 @@
   {
     "slug": "groam",
     "sourceUrl": "https://tibia.fandom.com/wiki/Groam",
-    "resistUnconfirmed": ["physical", "earth", "energy", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Groam",
     "wikiTitle": "Groam",
     "hp": 400,
@@ -21718,7 +21480,7 @@
   {
     "slug": "grorlam",
     "sourceUrl": "https://tibia.fandom.com/wiki/Grorlam",
-    "resistUnconfirmed": ["physical", "fire", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Grorlam",
     "wikiTitle": "Grorlam",
     "hp": 3000,
@@ -21865,7 +21627,7 @@
   {
     "slug": "guard-captain-quaid",
     "sourceUrl": "https://tibia.fandom.com/wiki/Guard_Captain_Quaid",
-    "resistUnconfirmed": ["holy", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "Guard Captain Quaid",
     "wikiTitle": "Guard Captain Quaid",
     "hp": 55000,
@@ -21879,7 +21641,7 @@
       "fire": 100,
       "energy": 100,
       "ice": 100,
-      "holy": 120,
+      "holy": 110,
       "death": 100,
       "hpDrain": 100,
       "drown": null
@@ -22046,17 +21808,7 @@
   {
     "slug": "hairman-the-huge",
     "sourceUrl": "https://tibia.fandom.com/wiki/Hairman_the_Huge",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Hairman the Huge",
     "wikiTitle": "Hairman the Huge",
     "hp": 600,
@@ -22066,9 +21818,9 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 99,
-      "earth": 80,
-      "fire": 75,
-      "energy": 80,
+      "earth": 99,
+      "fire": 99,
+      "energy": 99,
       "ice": 101,
       "holy": 100,
       "death": 101,
@@ -22707,7 +22459,7 @@
   {
     "slug": "heoni",
     "sourceUrl": "https://tibia.fandom.com/wiki/Heoni",
-    "resistUnconfirmed": ["physical", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Heoni",
     "wikiTitle": "Heoni",
     "hp": 900,
@@ -22891,7 +22643,7 @@
   {
     "slug": "high-templar-cobrass",
     "sourceUrl": "https://tibia.fandom.com/wiki/High_Templar_Cobrass",
-    "resistUnconfirmed": ["earth", "fire", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "High Templar Cobrass",
     "wikiTitle": "High Templar Cobrass",
     "hp": 410,
@@ -22937,7 +22689,7 @@
   {
     "slug": "hirintror",
     "sourceUrl": "https://tibia.fandom.com/wiki/Hirintror",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Hirintror",
     "wikiTitle": "Hirintror",
     "hp": 1500,
@@ -22946,12 +22698,12 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 100,
+      "physical": 70,
       "earth": 100,
       "fire": 0,
       "energy": 120,
       "ice": 0,
-      "holy": 0,
+      "holy": 100,
       "death": 0,
       "hpDrain": 100,
       "drown": 100
@@ -23164,7 +22916,7 @@
   {
     "slug": "horestis",
     "sourceUrl": "https://tibia.fandom.com/wiki/Horestis",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Horestis",
     "wikiTitle": "Horestis",
     "hp": 6000,
@@ -23173,7 +22925,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 100,
+      "physical": 105,
       "earth": 100,
       "fire": 115,
       "energy": 95,
@@ -23878,16 +23630,7 @@
   {
     "slug": "ichgahal",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ichgahal",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ichgahal",
     "wikiTitle": "Ichgahal",
     "hp": 600000,
@@ -24811,7 +24554,7 @@
   {
     "slug": "irahsae",
     "sourceUrl": "https://tibia.fandom.com/wiki/Irahsae",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Irahsae",
     "wikiTitle": "Irahsae",
     "hp": 35000,
@@ -24824,9 +24567,9 @@
       "earth": 100,
       "fire": 0,
       "energy": 100,
-      "ice": 80,
+      "ice": 100,
       "holy": 100,
-      "death": 120,
+      "death": 115,
       "hpDrain": 100,
       "drown": 100
     }
@@ -24834,7 +24577,7 @@
   {
     "slug": "irgix-the-flimsy",
     "sourceUrl": "https://tibia.fandom.com/wiki/Irgix_the_Flimsy",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Irgix the Flimsy",
     "wikiTitle": "Irgix the Flimsy",
     "hp": 24000,
@@ -24843,7 +24586,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 50,
+      "physical": 25,
       "earth": 100,
       "fire": 100,
       "energy": 0,
@@ -24949,7 +24692,7 @@
   {
     "slug": "izcandar-champion-of-summer",
     "sourceUrl": "https://tibia.fandom.com/wiki/Izcandar_Champion_of_Summer",
-    "resistUnconfirmed": ["physical", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Izcandar Champion of Summer",
     "wikiTitle": "Izcandar Champion of Summer",
     "hp": null,
@@ -24964,7 +24707,7 @@
       "energy": 95,
       "ice": 110,
       "holy": 100,
-      "death": 90,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -24972,7 +24715,7 @@
   {
     "slug": "izcandar-champion-of-winter",
     "sourceUrl": "https://tibia.fandom.com/wiki/Izcandar_Champion_of_Winter",
-    "resistUnconfirmed": ["physical", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Izcandar Champion of Winter",
     "wikiTitle": "Izcandar Champion of Winter",
     "hp": null,
@@ -24987,7 +24730,7 @@
       "energy": 95,
       "ice": -100,
       "holy": 100,
-      "death": 90,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -24995,7 +24738,7 @@
   {
     "slug": "izcandar-the-banished",
     "sourceUrl": "https://tibia.fandom.com/wiki/Izcandar_the_Banished",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Izcandar the Banished",
     "wikiTitle": "Izcandar the Banished",
     "hp": null,
@@ -25008,9 +24751,9 @@
       "earth": 100,
       "fire": 100,
       "energy": 95,
-      "ice": 100,
+      "ice": 0,
       "holy": 100,
-      "death": 90,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -25041,17 +24784,7 @@
   {
     "slug": "jailer",
     "sourceUrl": "https://tibia.fandom.com/wiki/Jailer",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Jailer",
     "wikiTitle": "Jailer",
     "hp": 65,
@@ -25065,8 +24798,8 @@
       "fire": 100,
       "energy": 100,
       "ice": 100,
-      "holy": 100,
-      "death": 100,
+      "holy": 101,
+      "death": 0,
       "hpDrain": 100,
       "drown": 100
     }
@@ -25097,7 +24830,7 @@
   {
     "slug": "jaul",
     "sourceUrl": "https://tibia.fandom.com/wiki/Jaul",
-    "resistUnconfirmed": ["death"],
+    "resistUnconfirmed": [],
     "name": "Jaul",
     "wikiTitle": "Jaul",
     "hp": 90000,
@@ -25143,17 +24876,7 @@
   {
     "slug": "jesse-the-wicked",
     "sourceUrl": "https://tibia.fandom.com/wiki/Jesse_the_Wicked",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Jesse the Wicked",
     "wikiTitle": "Jesse the Wicked",
     "hp": 280,
@@ -25268,7 +24991,7 @@
   {
     "slug": "kalyassa",
     "sourceUrl": "https://tibia.fandom.com/wiki/Kalyassa",
-    "resistUnconfirmed": ["physical", "fire", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Kalyassa",
     "wikiTitle": "Kalyassa",
     "hp": 10000,
@@ -25277,7 +25000,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
+      "physical": 90,
       "earth": 50,
       "fire": 0,
       "energy": 70,
@@ -25291,7 +25014,7 @@
   {
     "slug": "katex-blood-tongue",
     "sourceUrl": "https://tibia.fandom.com/wiki/Katex_Blood_Tongue",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Katex Blood Tongue",
     "wikiTitle": "Katex Blood Tongue",
     "hp": 6300,
@@ -25459,7 +25182,7 @@
   {
     "slug": "king-chuck",
     "sourceUrl": "https://tibia.fandom.com/wiki/King_Chuck",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "King Chuck",
     "wikiTitle": "King Chuck",
     "hp": null,
@@ -25482,17 +25205,7 @@
   {
     "slug": "king-zelos",
     "sourceUrl": "https://tibia.fandom.com/wiki/King_Zelos",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "King Zelos",
     "wikiTitle": "King Zelos",
     "hp": 480000,
@@ -25834,7 +25547,7 @@
   {
     "slug": "kroazur",
     "sourceUrl": "https://tibia.fandom.com/wiki/Kroazur",
-    "resistUnconfirmed": ["physical", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Kroazur",
     "wikiTitle": "Kroazur",
     "hp": 3000,
@@ -25847,9 +25560,9 @@
       "earth": 20,
       "fire": 45,
       "energy": 80,
-      "ice": 90,
+      "ice": 100,
       "holy": 105,
-      "death": 100,
+      "death": 30,
       "hpDrain": 100,
       "drown": 100
     }
@@ -25857,7 +25570,7 @@
   {
     "slug": "kusuma",
     "sourceUrl": "https://tibia.fandom.com/wiki/Kusuma",
-    "resistUnconfirmed": ["physical", "ice", "death", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "Kusuma",
     "wikiTitle": "Kusuma",
     "hp": 7650,
@@ -25926,7 +25639,7 @@
   {
     "slug": "lady-tenebris",
     "sourceUrl": "https://tibia.fandom.com/wiki/Lady_Tenebris",
-    "resistUnconfirmed": ["holy", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "Lady Tenebris",
     "wikiTitle": "Lady Tenebris",
     "hp": 250000,
@@ -25940,7 +25653,7 @@
       "fire": 95,
       "energy": 95,
       "ice": 85,
-      "holy": 99,
+      "holy": 65,
       "death": 40,
       "hpDrain": 100,
       "drown": null
@@ -26087,7 +25800,7 @@
   {
     "slug": "latrivan",
     "sourceUrl": "https://tibia.fandom.com/wiki/Latrivan",
-    "resistUnconfirmed": ["physical", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Latrivan",
     "wikiTitle": "Latrivan",
     "hp": 25000,
@@ -26100,7 +25813,7 @@
       "earth": 95,
       "fire": 105,
       "energy": 70,
-      "ice": 101,
+      "ice": 105,
       "holy": 100,
       "death": 0,
       "hpDrain": 100,
@@ -26403,7 +26116,7 @@
   {
     "slug": "lersatio",
     "sourceUrl": "https://tibia.fandom.com/wiki/Lersatio",
-    "resistUnconfirmed": ["physical", "earth", "fire", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Lersatio",
     "wikiTitle": "Lersatio",
     "hp": 1645,
@@ -26900,7 +26613,7 @@
   {
     "slug": "lisa",
     "sourceUrl": "https://tibia.fandom.com/wiki/Lisa",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Lisa",
     "wikiTitle": "Lisa",
     "hp": 55000,
@@ -27061,7 +26774,7 @@
   {
     "slug": "lizard-gate-guardian",
     "sourceUrl": "https://tibia.fandom.com/wiki/Lizard_Gate_Guardian",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Lizard Gate Guardian",
     "wikiTitle": "Lizard Gate Guardian",
     "hp": 5000,
@@ -27360,7 +27073,7 @@
   {
     "slug": "lokathmor",
     "sourceUrl": "https://tibia.fandom.com/wiki/Lokathmor",
-    "resistUnconfirmed": ["physical", "earth", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Lokathmor",
     "wikiTitle": "Lokathmor",
     "hp": null,
@@ -27370,7 +27083,7 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 115,
+      "earth": 100,
       "fire": 70,
       "energy": 105,
       "ice": 90,
@@ -27647,7 +27360,7 @@
   {
     "slug": "lord-azaram",
     "sourceUrl": "https://tibia.fandom.com/wiki/Lord_Azaram",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Lord Azaram",
     "wikiTitle": "Lord Azaram",
     "hp": 300000,
@@ -27660,7 +27373,7 @@
       "earth": -260,
       "fire": 110,
       "energy": 95,
-      "ice": 100,
+      "ice": 110,
       "holy": 100,
       "death": 100,
       "hpDrain": 100,
@@ -27670,7 +27383,7 @@
   {
     "slug": "lord-of-the-elements",
     "sourceUrl": "https://tibia.fandom.com/wiki/Lord_of_the_Elements",
-    "resistUnconfirmed": ["earth", "fire", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "Lord of the Elements",
     "wikiTitle": "Lord of the Elements",
     "hp": 8000,
@@ -28068,7 +27781,7 @@
   {
     "slug": "mad-mage",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mad_Mage",
-    "resistUnconfirmed": ["physical", "earth", "fire", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Mad Mage",
     "wikiTitle": "Mad Mage",
     "hp": 2500,
@@ -28081,9 +27794,9 @@
       "earth": 100,
       "fire": 0,
       "energy": 0,
-      "ice": 100,
+      "ice": 120,
       "holy": 100,
-      "death": 100,
+      "death": 120,
       "hpDrain": 100,
       "drown": 100
     }
@@ -28169,7 +27882,7 @@
   {
     "slug": "madareth",
     "sourceUrl": "https://tibia.fandom.com/wiki/Madareth",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Madareth",
     "wikiTitle": "Madareth",
     "hp": 75000,
@@ -28182,7 +27895,7 @@
       "earth": 100,
       "fire": 90,
       "energy": 1,
-      "ice": 99,
+      "ice": 95,
       "holy": 100,
       "death": 5,
       "hpDrain": 100,
@@ -28271,7 +27984,7 @@
   {
     "slug": "magma-bubble",
     "sourceUrl": "https://tibia.fandom.com/wiki/Magma_Bubble",
-    "resistUnconfirmed": ["physical", "fire", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Magma Bubble",
     "wikiTitle": "Magma Bubble",
     "hp": 150000,
@@ -28429,17 +28142,7 @@
   {
     "slug": "mahatheb",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mahatheb",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Mahatheb",
     "wikiTitle": "Mahatheb",
     "hp": 650,
@@ -28485,7 +28188,7 @@
   {
     "slug": "maior-domus",
     "sourceUrl": "https://tibia.fandom.com/wiki/Maior_Domus",
-    "resistUnconfirmed": ["physical", "holy", "death"],
+    "resistUnconfirmed": [],
     "name": "Maior Domus",
     "wikiTitle": "Maior Domus",
     "hp": null,
@@ -28791,7 +28494,7 @@
   {
     "slug": "malofur-mangrinder",
     "sourceUrl": "https://tibia.fandom.com/wiki/Malofur_Mangrinder",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Malofur Mangrinder",
     "wikiTitle": "Malofur Mangrinder",
     "hp": 320000,
@@ -28814,17 +28517,7 @@
   {
     "slug": "malvaroth",
     "sourceUrl": "https://tibia.fandom.com/wiki/Malvaroth",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Malvaroth",
     "wikiTitle": "Malvaroth",
     "hp": 40000,
@@ -28833,13 +28526,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 100,
+      "physical": 80,
       "earth": 100,
-      "fire": 100,
-      "energy": 100,
-      "ice": 100,
+      "fire": 95,
+      "energy": 85,
+      "ice": 90,
       "holy": 100,
-      "death": 100,
+      "death": 110,
       "hpDrain": 100,
       "drown": 100
     }
@@ -28893,17 +28586,7 @@
   {
     "slug": "man-in-the-cave",
     "sourceUrl": "https://tibia.fandom.com/wiki/Man_in_the_Cave",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Man in the Cave",
     "wikiTitle": "Man in the Cave",
     "hp": 485,
@@ -29087,7 +28770,7 @@
   {
     "slug": "massacre",
     "sourceUrl": "https://tibia.fandom.com/wiki/Massacre",
-    "resistUnconfirmed": ["earth", "energy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Massacre",
     "wikiTitle": "Massacre",
     "hp": 32000,
@@ -29097,9 +28780,9 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 100,
-      "earth": 99,
+      "earth": 80,
       "fire": 0,
-      "energy": 101,
+      "energy": 108,
       "ice": 90,
       "holy": 100,
       "death": 110,
@@ -29235,7 +28918,7 @@
   {
     "slug": "maw",
     "sourceUrl": "https://tibia.fandom.com/wiki/Maw",
-    "resistUnconfirmed": ["holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Maw",
     "wikiTitle": "Maw",
     "hp": 8200,
@@ -29281,7 +28964,7 @@
   {
     "slug": "maxxenius",
     "sourceUrl": "https://tibia.fandom.com/wiki/Maxxenius",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Maxxenius",
     "wikiTitle": "Maxxenius",
     "hp": 320000,
@@ -29290,7 +28973,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 95,
+      "physical": 100,
       "earth": 100,
       "fire": 100,
       "energy": -600,
@@ -29304,7 +28987,7 @@
   {
     "slug": "mazoran",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mazoran",
-    "resistUnconfirmed": ["physical", "fire", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Mazoran",
     "wikiTitle": "Mazoran",
     "hp": 290000,
@@ -29327,7 +29010,7 @@
   {
     "slug": "mazzinor",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mazzinor",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Mazzinor",
     "wikiTitle": "Mazzinor",
     "hp": 350000,
@@ -29653,7 +29336,7 @@
   {
     "slug": "megasylvan-yselda",
     "sourceUrl": "https://tibia.fandom.com/wiki/Megasylvan_Yselda",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Megasylvan Yselda",
     "wikiTitle": "Megasylvan Yselda",
     "hp": 32000,
@@ -29662,13 +29345,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 15,
-      "earth": 10,
+      "physical": 100,
+      "earth": 100,
       "fire": 40,
       "energy": 20,
-      "ice": 10,
+      "ice": 100,
       "holy": 100,
-      "death": 30,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -29676,7 +29359,7 @@
   {
     "slug": "melting-frozen-horror",
     "sourceUrl": "https://tibia.fandom.com/wiki/Melting_Frozen_Horror",
-    "resistUnconfirmed": ["physical", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Melting Frozen Horror",
     "wikiTitle": "Melting Frozen Horror",
     "hp": null,
@@ -29685,13 +29368,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 99,
+      "physical": 30,
       "earth": 100,
       "fire": 115,
       "energy": 105,
       "ice": -100,
       "holy": 100,
-      "death": 101,
+      "death": 130,
       "hpDrain": 100,
       "drown": 100
     }
@@ -30489,7 +30172,7 @@
   {
     "slug": "mephiles",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mephiles",
-    "resistUnconfirmed": ["death", "drown"],
+    "resistUnconfirmed": ["drown"],
     "name": "Mephiles",
     "wikiTitle": "Mephiles",
     "hp": 415,
@@ -30703,17 +30386,7 @@
   {
     "slug": "michael-the-stalwart",
     "sourceUrl": "https://tibia.fandom.com/wiki/Michael_the_Stalwart",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Michael the Stalwart",
     "wikiTitle": "Michael the Stalwart",
     "hp": 60000,
@@ -30861,17 +30534,7 @@
   {
     "slug": "mimar-haffar",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mimar_Haffar",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Mimar Haffar",
     "wikiTitle": "Mimar Haffar",
     "hp": 460000,
@@ -30882,8 +30545,8 @@
     "resist": {
       "physical": 100,
       "earth": 100,
-      "fire": 100,
-      "energy": 100,
+      "fire": 105,
+      "energy": 87,
       "ice": 100,
       "holy": 100,
       "death": 100,
@@ -30983,7 +30646,7 @@
   {
     "slug": "mindmasher",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mindmasher",
-    "resistUnconfirmed": ["physical", "fire", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Mindmasher",
     "wikiTitle": "Mindmasher",
     "hp": 9500,
@@ -31857,7 +31520,7 @@
   {
     "slug": "mitmah-vanguard",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mitmah_Vanguard",
-    "resistUnconfirmed": ["physical", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Mitmah Vanguard",
     "wikiTitle": "Mitmah Vanguard",
     "hp": 50000,
@@ -31872,7 +31535,7 @@
       "energy": 110,
       "ice": 85,
       "holy": 100,
-      "death": 50,
+      "death": 30,
       "hpDrain": 100,
       "drown": 100
     }
@@ -32061,7 +31724,7 @@
   {
     "slug": "monstor",
     "sourceUrl": "https://tibia.fandom.com/wiki/Monstor",
-    "resistUnconfirmed": ["death", "drown"],
+    "resistUnconfirmed": ["drown"],
     "name": "Monstor",
     "wikiTitle": "Monstor",
     "hp": 960,
@@ -32455,7 +32118,7 @@
   {
     "slug": "morgaroth",
     "sourceUrl": "https://tibia.fandom.com/wiki/Morgaroth",
-    "resistUnconfirmed": ["physical", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Morgaroth",
     "wikiTitle": "Morgaroth",
     "hp": 55000,
@@ -32464,7 +32127,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 50,
+      "physical": 70,
       "earth": 0,
       "fire": 0,
       "energy": 20,
@@ -32478,7 +32141,7 @@
   {
     "slug": "morguthis",
     "sourceUrl": "https://tibia.fandom.com/wiki/Morguthis",
-    "resistUnconfirmed": ["ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Morguthis",
     "wikiTitle": "Morguthis",
     "hp": 4800,
@@ -32491,7 +32154,7 @@
       "earth": 110,
       "fire": 75,
       "energy": 75,
-      "ice": 80,
+      "ice": 99,
       "holy": 120,
       "death": 0,
       "hpDrain": 100,
@@ -32524,7 +32187,7 @@
   {
     "slug": "mornenion",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mornenion",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Mornenion",
     "wikiTitle": "Mornenion",
     "hp": 190,
@@ -32547,7 +32210,7 @@
   {
     "slug": "morshabaal",
     "sourceUrl": "https://tibia.fandom.com/wiki/Morshabaal",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Morshabaal",
     "wikiTitle": "Morshabaal",
     "hp": 1000000,
@@ -32639,7 +32302,7 @@
   {
     "slug": "mozradek",
     "sourceUrl": "https://tibia.fandom.com/wiki/Mozradek",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Mozradek",
     "wikiTitle": "Mozradek",
     "hp": 28000,
@@ -32866,17 +32529,7 @@
   {
     "slug": "murcion",
     "sourceUrl": "https://tibia.fandom.com/wiki/Murcion",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Murcion",
     "wikiTitle": "Murcion",
     "hp": 600000,
@@ -33594,7 +33247,7 @@
   {
     "slug": "neferi-the-spy",
     "sourceUrl": "https://tibia.fandom.com/wiki/Neferi_the_Spy",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Neferi the Spy",
     "wikiTitle": "Neferi the Spy",
     "hp": 28000,
@@ -34375,16 +34028,7 @@
   {
     "slug": "ocyakao",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ocyakao",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ocyakao",
     "wikiTitle": "Ocyakao",
     "hp": 700,
@@ -34395,11 +34039,11 @@
     "resist": {
       "physical": 100,
       "earth": 100,
-      "fire": 90,
-      "energy": 110,
+      "fire": 100,
+      "energy": 100,
       "ice": 0,
       "holy": 100,
-      "death": 50,
+      "death": 60,
       "hpDrain": 100,
       "drown": 100
     }
@@ -34706,7 +34350,7 @@
   {
     "slug": "oodok-witchmaster",
     "sourceUrl": "https://tibia.fandom.com/wiki/Oodok_Witchmaster",
-    "resistUnconfirmed": ["physical", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Oodok Witchmaster",
     "wikiTitle": "Oodok Witchmaster",
     "hp": 450,
@@ -35380,7 +35024,7 @@
   {
     "slug": "orshabaal",
     "sourceUrl": "https://tibia.fandom.com/wiki/Orshabaal",
-    "resistUnconfirmed": ["physical", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Orshabaal",
     "wikiTitle": "Orshabaal",
     "hp": 22500,
@@ -35389,12 +35033,12 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 80,
+      "physical": 100,
       "earth": 0,
       "fire": 0,
       "energy": 20,
-      "ice": 101,
-      "holy": 101,
+      "ice": 105,
+      "holy": 105,
       "death": 50,
       "hpDrain": 0,
       "drown": 100
@@ -35403,7 +35047,7 @@
   {
     "slug": "outburst",
     "sourceUrl": "https://tibia.fandom.com/wiki/Outburst",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Outburst",
     "wikiTitle": "Outburst",
     "hp": 290000,
@@ -35412,13 +35056,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
+      "physical": 130,
       "earth": 100,
       "fire": 110,
       "energy": 110,
-      "ice": 100,
+      "ice": 130,
       "holy": 100,
-      "death": 50,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -35548,7 +35192,7 @@
   {
     "slug": "overseer-osverger",
     "sourceUrl": "https://tibia.fandom.com/wiki/Overseer_Osverger",
-    "resistUnconfirmed": ["physical", "holy"],
+    "resistUnconfirmed": [],
     "name": "Overseer Osverger",
     "wikiTitle": "Overseer Osverger",
     "hp": 75000,
@@ -35557,7 +35201,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 106,
+      "physical": 100,
       "earth": 106,
       "fire": 106,
       "energy": 85,
@@ -35571,7 +35215,7 @@
   {
     "slug": "owin-creature",
     "sourceUrl": "https://tibia.fandom.com/wiki/Owin_(Creature)",
-    "resistUnconfirmed": ["physical", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Owin (Creature)",
     "wikiTitle": "Owin (Creature)",
     "hp": 9600,
@@ -35580,13 +35224,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
+      "physical": 50,
       "earth": 80,
       "fire": 100,
       "energy": 80,
       "ice": 90,
-      "holy": 100,
-      "death": 50,
+      "holy": 110,
+      "death": 90,
       "hpDrain": 100,
       "drown": 100
     }
@@ -36094,7 +35738,7 @@
   {
     "slug": "phosphorus-final",
     "sourceUrl": "https://tibia.fandom.com/wiki/Phosphorus_(Final)",
-    "resistUnconfirmed": ["physical", "earth", "fire", "energy", "ice", "holy", "death", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "Phosphorus (Final)",
     "wikiTitle": "Phosphorus (Final)",
     "hp": null,
@@ -36104,9 +35748,9 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 100,
-      "earth": 100,
-      "fire": 100,
-      "energy": 100,
+      "earth": 80,
+      "fire": 90,
+      "energy": 95,
       "ice": 100,
       "holy": 100,
       "death": 100,
@@ -36117,7 +35761,7 @@
   {
     "slug": "phrodomo",
     "sourceUrl": "https://tibia.fandom.com/wiki/Phrodomo",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Phrodomo",
     "wikiTitle": "Phrodomo",
     "hp": 150000,
@@ -36126,13 +35770,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 80,
+      "physical": 60,
       "earth": 0,
       "fire": 100,
       "energy": 0,
-      "ice": 40,
+      "ice": 30,
       "holy": 100,
-      "death": 70,
+      "death": 40,
       "hpDrain": 100,
       "drown": 100
     }
@@ -37408,7 +37052,7 @@
   {
     "slug": "plagirath",
     "sourceUrl": "https://tibia.fandom.com/wiki/Plagirath",
-    "resistUnconfirmed": ["physical", "earth", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Plagirath",
     "wikiTitle": "Plagirath",
     "hp": 290000,
@@ -37431,16 +37075,7 @@
   {
     "slug": "plagueroot",
     "sourceUrl": "https://tibia.fandom.com/wiki/Plagueroot",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Plagueroot",
     "wikiTitle": "Plagueroot",
     "hp": null,
@@ -37450,9 +37085,9 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 100,
-      "earth": -120,
+      "earth": 100,
       "fire": 110,
-      "energy": 99,
+      "energy": 100,
       "ice": 100,
       "holy": 100,
       "death": 100,
@@ -37956,7 +37591,7 @@
   {
     "slug": "preceptor-lazare",
     "sourceUrl": "https://tibia.fandom.com/wiki/Preceptor_Lazare",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Preceptor Lazare",
     "wikiTitle": "Preceptor Lazare",
     "hp": 16000,
@@ -39443,7 +39078,7 @@
   {
     "slug": "ragiaz",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ragiaz",
-    "resistUnconfirmed": ["physical", "fire", "energy", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ragiaz",
     "wikiTitle": "Ragiaz",
     "hp": 290000,
@@ -39489,7 +39124,7 @@
   {
     "slug": "raging-mage",
     "sourceUrl": "https://tibia.fandom.com/wiki/Raging_Mage",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Raging Mage",
     "wikiTitle": "Raging Mage",
     "hp": 3500,
@@ -39544,7 +39179,7 @@
   {
     "slug": "rahemos",
     "sourceUrl": "https://tibia.fandom.com/wiki/Rahemos",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Rahemos",
     "wikiTitle": "Rahemos",
     "hp": 3700,
@@ -39567,7 +39202,7 @@
   {
     "slug": "rakesh-moonfang",
     "sourceUrl": "https://tibia.fandom.com/wiki/Rakesh_Moonfang",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "Rakesh Moonfang",
     "wikiTitle": "Rakesh Moonfang",
     "hp": 25500,
@@ -39692,7 +39327,7 @@
   {
     "slug": "ratmiral-blackwhiskers",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ratmiral_Blackwhiskers",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ratmiral Blackwhiskers",
     "wikiTitle": "Ratmiral Blackwhiskers",
     "hp": null,
@@ -39817,7 +39452,7 @@
   {
     "slug": "ravenous-hunger",
     "sourceUrl": "https://tibia.fandom.com/wiki/Ravenous_Hunger",
-    "resistUnconfirmed": ["physical", "fire", "energy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Ravenous Hunger",
     "wikiTitle": "Ravenous Hunger",
     "hp": null,
@@ -39863,7 +39498,7 @@
   {
     "slug": "raxias",
     "sourceUrl": "https://tibia.fandom.com/wiki/Raxias",
-    "resistUnconfirmed": ["physical", "earth", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Raxias",
     "wikiTitle": "Raxias",
     "hp": 1100,
@@ -39886,7 +39521,7 @@
   {
     "slug": "razzagorn",
     "sourceUrl": "https://tibia.fandom.com/wiki/Razzagorn",
-    "resistUnconfirmed": ["physical", "earth", "energy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Razzagorn",
     "wikiTitle": "Razzagorn",
     "hp": 290000,
@@ -39932,17 +39567,7 @@
   {
     "slug": "realityquake",
     "sourceUrl": "https://tibia.fandom.com/wiki/Realityquake",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Realityquake",
     "wikiTitle": "Realityquake",
     "hp": 110000,
@@ -41067,17 +40692,7 @@
   {
     "slug": "robby-the-reckless",
     "sourceUrl": "https://tibia.fandom.com/wiki/Robby_the_Reckless",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Robby the Reckless",
     "wikiTitle": "Robby the Reckless",
     "hp": 155,
@@ -41087,8 +40702,8 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 100,
-      "earth": 100,
-      "fire": 100,
+      "earth": 80,
+      "fire": 95,
       "energy": 100,
       "ice": 100,
       "holy": 100,
@@ -41429,7 +41044,7 @@
   {
     "slug": "rotspit",
     "sourceUrl": "https://tibia.fandom.com/wiki/Rotspit",
-    "resistUnconfirmed": ["physical", "fire", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Rotspit",
     "wikiTitle": "Rotspit",
     "hp": 6800,
@@ -41590,7 +41205,7 @@
   {
     "slug": "rukor-zad",
     "sourceUrl": "https://tibia.fandom.com/wiki/Rukor_Zad",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Rukor Zad",
     "wikiTitle": "Rukor Zad",
     "hp": 380,
@@ -41599,7 +41214,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 99,
+      "physical": 95,
       "earth": 80,
       "fire": 95,
       "energy": 90,
@@ -41659,17 +41274,7 @@
   {
     "slug": "rupture",
     "sourceUrl": "https://tibia.fandom.com/wiki/Rupture",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Rupture",
     "wikiTitle": "Rupture",
     "hp": 290000,
@@ -41679,10 +41284,10 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 100,
+      "earth": 105,
       "fire": 100,
       "energy": 100,
-      "ice": 100,
+      "ice": 105,
       "holy": 100,
       "death": 100,
       "hpDrain": 100,
@@ -42110,17 +41715,7 @@
   {
     "slug": "scarlett-etzel",
     "sourceUrl": "https://tibia.fandom.com/wiki/Scarlett_Etzel",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Scarlett Etzel",
     "wikiTitle": "Scarlett Etzel",
     "hp": 30000,
@@ -42129,13 +41724,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
-      "earth": 100,
-      "fire": 100,
-      "energy": 100,
-      "ice": 100,
-      "holy": 100,
-      "death": 100,
+      "physical": 0,
+      "earth": 0,
+      "fire": 0,
+      "energy": 0,
+      "ice": 0,
+      "holy": 0,
+      "death": 0,
       "hpDrain": 100,
       "drown": 100
     }
@@ -42731,7 +42326,7 @@
   {
     "slug": "shadowpelt",
     "sourceUrl": "https://tibia.fandom.com/wiki/Shadowpelt",
-    "resistUnconfirmed": ["physical", "earth", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Shadowpelt",
     "wikiTitle": "Shadowpelt",
     "hp": 6000,
@@ -42741,7 +42336,7 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 60,
+      "earth": 100,
       "fire": 105,
       "energy": 85,
       "ice": 90,
@@ -42754,17 +42349,7 @@
   {
     "slug": "shadowstalker",
     "sourceUrl": "https://tibia.fandom.com/wiki/Shadowstalker",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Shadowstalker",
     "wikiTitle": "Shadowstalker",
     "hp": 6100,
@@ -42774,7 +42359,7 @@
     "bosstiaryClass": "Bane",
     "resist": {
       "physical": 100,
-      "earth": 100,
+      "earth": 0,
       "fire": 100,
       "energy": 100,
       "ice": 100,
@@ -42912,7 +42497,7 @@
   {
     "slug": "sharpclaw",
     "sourceUrl": "https://tibia.fandom.com/wiki/Sharpclaw",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Sharpclaw",
     "wikiTitle": "Sharpclaw",
     "hp": 3300,
@@ -42922,12 +42507,12 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 50,
+      "earth": 80,
       "fire": 105,
       "energy": 90,
-      "ice": 90,
+      "ice": 100,
       "holy": 100,
-      "death": 80,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -43175,7 +42760,7 @@
   {
     "slug": "shulgrax",
     "sourceUrl": "https://tibia.fandom.com/wiki/Shulgrax",
-    "resistUnconfirmed": ["physical", "earth", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Shulgrax",
     "wikiTitle": "Shulgrax",
     "hp": 290000,
@@ -43184,8 +42769,8 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
-      "earth": 100,
+      "physical": 130,
+      "earth": 130,
       "fire": 110,
       "energy": 110,
       "ice": 90,
@@ -43359,7 +42944,7 @@
   {
     "slug": "sir-baeloc",
     "sourceUrl": "https://tibia.fandom.com/wiki/Sir_Baeloc",
-    "resistUnconfirmed": ["physical", "earth", "fire", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Sir Baeloc",
     "wikiTitle": "Sir Baeloc",
     "hp": 150000,
@@ -43369,11 +42954,11 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 30,
+      "earth": -20,
       "fire": 110,
       "energy": 100,
-      "ice": 65,
-      "holy": 110,
+      "ice": 90,
+      "holy": 100,
       "death": -100,
       "hpDrain": 100,
       "drown": 100
@@ -43382,7 +42967,7 @@
   {
     "slug": "sir-leonard",
     "sourceUrl": "https://tibia.fandom.com/wiki/Sir_Leonard",
-    "resistUnconfirmed": ["holy", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "Sir Leonard",
     "wikiTitle": "Sir Leonard",
     "hp": 22000,
@@ -43405,17 +42990,7 @@
   {
     "slug": "sir-leopold",
     "sourceUrl": "https://tibia.fandom.com/wiki/Sir_Leopold",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Sir Leopold",
     "wikiTitle": "Sir Leopold",
     "hp": 81000,
@@ -43438,7 +43013,7 @@
   {
     "slug": "sir-nictros",
     "sourceUrl": "https://tibia.fandom.com/wiki/Sir_Nictros",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Sir Nictros",
     "wikiTitle": "Sir Nictros",
     "hp": null,
@@ -43451,8 +43026,8 @@
       "earth": 20,
       "fire": 110,
       "energy": 95,
-      "ice": 65,
-      "holy": 110,
+      "ice": 90,
+      "holy": 100,
       "death": -300,
       "hpDrain": 100,
       "drown": 100
@@ -43461,7 +43036,7 @@
   {
     "slug": "sir-valorcrest",
     "sourceUrl": "https://tibia.fandom.com/wiki/Sir_Valorcrest",
-    "resistUnconfirmed": ["ice", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Sir Valorcrest",
     "wikiTitle": "Sir Valorcrest",
     "hp": 1600,
@@ -43517,7 +43092,7 @@
   {
     "slug": "sister-hetai",
     "sourceUrl": "https://tibia.fandom.com/wiki/Sister_Hetai",
-    "resistUnconfirmed": ["holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Sister Hetai",
     "wikiTitle": "Sister Hetai",
     "hp": 25000,
@@ -43894,17 +43469,7 @@
   {
     "slug": "smuggler-baron-silvertoe",
     "sourceUrl": "https://tibia.fandom.com/wiki/Smuggler_Baron_Silvertoe",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Smuggler Baron Silvertoe",
     "wikiTitle": "Smuggler Baron Silvertoe",
     "hp": 280,
@@ -44312,16 +43877,7 @@
   {
     "slug": "soul-of-dragonking-zyrtarch",
     "sourceUrl": "https://tibia.fandom.com/wiki/Soul_of_Dragonking_Zyrtarch",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Soul of Dragonking Zyrtarch",
     "wikiTitle": "Soul of Dragonking Zyrtarch",
     "hp": null,
@@ -44331,7 +43887,7 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 100,
+      "earth": 0,
       "fire": 0,
       "energy": 100,
       "ice": 100,
@@ -45626,7 +45182,7 @@
   {
     "slug": "srezz-yellow-eyes",
     "sourceUrl": "https://tibia.fandom.com/wiki/Srezz_Yellow_Eyes",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Srezz Yellow Eyes",
     "wikiTitle": "Srezz Yellow Eyes",
     "hp": 6200,
@@ -45639,7 +45195,7 @@
       "earth": 60,
       "fire": 70,
       "energy": 90,
-      "ice": 100,
+      "ice": 110,
       "holy": 100,
       "death": 100,
       "hpDrain": 100,
@@ -46449,17 +46005,7 @@
   {
     "slug": "sugar-daddy",
     "sourceUrl": "https://tibia.fandom.com/wiki/Sugar_Daddy",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Sugar Daddy",
     "wikiTitle": "Sugar Daddy",
     "hp": 9500,
@@ -47081,7 +46627,7 @@
   {
     "slug": "tamru-the-black",
     "sourceUrl": "https://tibia.fandom.com/wiki/Tamru_the_Black",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Tamru the Black",
     "wikiTitle": "Tamru the Black",
     "hp": 15500,
@@ -47091,10 +46637,10 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 80,
+      "earth": 105,
       "fire": 100,
       "energy": 0,
-      "ice": 50,
+      "ice": 105,
       "holy": 100,
       "death": 100,
       "hpDrain": 100,
@@ -47150,17 +46696,7 @@
   {
     "slug": "tarbaz",
     "sourceUrl": "https://tibia.fandom.com/wiki/Tarbaz",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Tarbaz",
     "wikiTitle": "Tarbaz",
     "hp": 290000,
@@ -47229,7 +46765,7 @@
   {
     "slug": "tazhadur",
     "sourceUrl": "https://tibia.fandom.com/wiki/Tazhadur",
-    "resistUnconfirmed": ["physical", "ice", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Tazhadur",
     "wikiTitle": "Tazhadur",
     "hp": 10000,
@@ -47242,7 +46778,7 @@
       "earth": 50,
       "fire": 0,
       "energy": 80,
-      "ice": 110,
+      "ice": 101,
       "holy": 105,
       "death": 100,
       "hpDrain": 100,
@@ -47275,7 +46811,7 @@
   {
     "slug": "teneshpar",
     "sourceUrl": "https://tibia.fandom.com/wiki/Teneshpar",
-    "resistUnconfirmed": ["ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Teneshpar",
     "wikiTitle": "Teneshpar",
     "hp": 15000,
@@ -47353,7 +46889,7 @@
   {
     "slug": "tentuglys-head",
     "sourceUrl": "https://tibia.fandom.com/wiki/Tentugly's_Head",
-    "resistUnconfirmed": ["physical", "holy"],
+    "resistUnconfirmed": [],
     "name": "Tentugly's Head",
     "wikiTitle": "Tentugly's Head",
     "hp": 75000,
@@ -47593,17 +47129,7 @@
   {
     "slug": "thawing-dragon-lord",
     "sourceUrl": "https://tibia.fandom.com/wiki/Thawing_Dragon_Lord",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Thawing Dragon Lord",
     "wikiTitle": "Thawing Dragon Lord",
     "hp": 25000,
@@ -47626,7 +47152,7 @@
   {
     "slug": "the-abomination",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Abomination",
-    "resistUnconfirmed": ["physical", "earth", "fire", "energy", "ice", "holy", "death", "drown"],
+    "resistUnconfirmed": ["drown"],
     "name": "The Abomination",
     "wikiTitle": "The Abomination",
     "hp": 750000,
@@ -47635,13 +47161,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 50,
-      "earth": 50,
-      "fire": 50,
-      "energy": 50,
-      "ice": 50,
-      "holy": 50,
-      "death": 50,
+      "physical": 100,
+      "earth": 100,
+      "fire": 100,
+      "energy": 100,
+      "ice": 100,
+      "holy": 100,
+      "death": 100,
       "hpDrain": 0,
       "drown": 100
     }
@@ -47727,7 +47253,7 @@
   {
     "slug": "the-baron-from-below",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Baron_from_Below",
-    "resistUnconfirmed": ["earth", "fire", "energy", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Baron from Below",
     "wikiTitle": "The Baron from Below",
     "hp": null,
@@ -47738,7 +47264,7 @@
     "resist": {
       "physical": 100,
       "earth": 100,
-      "fire": 80,
+      "fire": -100,
       "energy": 100,
       "ice": 100,
       "holy": 100,
@@ -47750,17 +47276,7 @@
   {
     "slug": "the-big-bad-one",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Big_Bad_One",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Big Bad One",
     "wikiTitle": "The Big Bad One",
     "hp": 300,
@@ -47770,7 +47286,7 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 100,
-      "earth": 60,
+      "earth": 100,
       "fire": 100,
       "energy": 100,
       "ice": 100,
@@ -47783,7 +47299,7 @@
   {
     "slug": "the-blazing-rose",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Blazing_Rose",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Blazing Rose",
     "wikiTitle": "The Blazing Rose",
     "hp": null,
@@ -47839,7 +47355,7 @@
   {
     "slug": "the-blightfather",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Blightfather",
-    "resistUnconfirmed": ["physical", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Blightfather",
     "wikiTitle": "The Blightfather",
     "hp": 400,
@@ -47974,7 +47490,7 @@
   {
     "slug": "the-brainstealer",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Brainstealer",
-    "resistUnconfirmed": ["physical", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Brainstealer",
     "wikiTitle": "The Brainstealer",
     "hp": null,
@@ -48145,16 +47661,7 @@
   {
     "slug": "the-count-of-the-core",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Count_of_the_Core",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Count of the Core",
     "wikiTitle": "The Count of the Core",
     "hp": 500000,
@@ -48256,17 +47763,7 @@
   {
     "slug": "the-diamond-blossom",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Diamond_Blossom",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Diamond Blossom",
     "wikiTitle": "The Diamond Blossom",
     "hp": 20000,
@@ -48279,9 +47776,9 @@
       "earth": 100,
       "fire": 100,
       "energy": 100,
-      "ice": 100,
+      "ice": 0,
       "holy": 100,
-      "death": 50,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -48322,7 +47819,7 @@
   {
     "slug": "the-dread-maiden",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Dread_Maiden",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Dread Maiden",
     "wikiTitle": "The Dread Maiden",
     "hp": 300000,
@@ -48337,7 +47834,7 @@
       "energy": 100,
       "ice": 100,
       "holy": 100,
-      "death": -100,
+      "death": 0,
       "hpDrain": 100,
       "drown": 100
     }
@@ -48378,17 +47875,7 @@
   {
     "slug": "the-duke-of-the-depths",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Duke_of_the_Depths",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Duke of the Depths",
     "wikiTitle": "The Duke of the Depths",
     "hp": null,
@@ -48434,7 +47921,7 @@
   {
     "slug": "the-enraged-thorn-knight",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Enraged_Thorn_Knight",
-    "resistUnconfirmed": ["physical", "earth", "fire", "energy", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Enraged Thorn Knight",
     "wikiTitle": "The Enraged Thorn Knight",
     "hp": null,
@@ -48443,12 +47930,12 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 100,
-      "earth": 100,
-      "fire": 100,
-      "energy": 100,
-      "ice": 100,
-      "holy": 100,
+      "physical": 84,
+      "earth": 0,
+      "fire": 79,
+      "energy": 79,
+      "ice": 41,
+      "holy": 93,
       "death": -1000,
       "hpDrain": 100,
       "drown": 100
@@ -48457,7 +47944,7 @@
   {
     "slug": "the-evil-eye",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Evil_Eye",
-    "resistUnconfirmed": ["physical", "fire", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Evil Eye",
     "wikiTitle": "The Evil Eye",
     "hp": 1200,
@@ -48471,7 +47958,7 @@
       "fire": 100,
       "energy": 100,
       "ice": 100,
-      "holy": 101,
+      "holy": 100,
       "death": 100,
       "hpDrain": 100,
       "drown": 100
@@ -48480,7 +47967,7 @@
   {
     "slug": "the-false-god",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_False_God",
-    "resistUnconfirmed": ["earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The False God",
     "wikiTitle": "The False God",
     "hp": 300000,
@@ -48495,7 +47982,7 @@
       "energy": 90,
       "ice": 100,
       "holy": 100,
-      "death": 50,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -48503,7 +47990,7 @@
   {
     "slug": "the-fear-feaster",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Fear_Feaster",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Fear Feaster",
     "wikiTitle": "The Fear Feaster",
     "hp": 290000,
@@ -48512,8 +47999,8 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 110,
-      "earth": 80,
+      "physical": 100,
+      "earth": 100,
       "fire": 110,
       "energy": 110,
       "ice": 100,
@@ -48592,17 +48079,7 @@
   {
     "slug": "the-first-dragon",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_First_Dragon",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The First Dragon",
     "wikiTitle": "The First Dragon",
     "hp": 50000,
@@ -48625,7 +48102,7 @@
   {
     "slug": "the-flaming-orchid",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Flaming_Orchid",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Flaming Orchid",
     "wikiTitle": "The Flaming Orchid",
     "hp": 4000,
@@ -48714,7 +48191,7 @@
   {
     "slug": "the-frog-prince",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Frog_Prince",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Frog Prince",
     "wikiTitle": "The Frog Prince",
     "hp": 55,
@@ -48723,7 +48200,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 2,
+      "physical": 100,
       "earth": 20,
       "fire": 10,
       "energy": 10,
@@ -48852,7 +48329,7 @@
   {
     "slug": "the-handmaiden",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Handmaiden",
-    "resistUnconfirmed": ["energy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Handmaiden",
     "wikiTitle": "The Handmaiden",
     "hp": 19500,
@@ -48964,16 +48441,7 @@
   {
     "slug": "the-hungerer",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Hungerer",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Hungerer",
     "wikiTitle": "The Hungerer",
     "hp": 2000,
@@ -48985,10 +48453,10 @@
       "physical": 100,
       "earth": 0,
       "fire": 80,
-      "energy": 111,
-      "ice": 105,
+      "energy": 100,
+      "ice": 100,
       "holy": 100,
-      "death": 85,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -49019,16 +48487,7 @@
   {
     "slug": "the-imperor",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Imperor",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Imperor",
     "wikiTitle": "The Imperor",
     "hp": 15000,
@@ -49037,13 +48496,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 100,
+      "physical": 90,
       "earth": 100,
       "fire": 0,
-      "energy": 100,
-      "ice": 100,
+      "energy": 50,
+      "ice": 120,
       "holy": 100,
-      "death": 100,
+      "death": 40,
       "hpDrain": 100,
       "drown": 100
     }
@@ -49097,7 +48556,7 @@
   {
     "slug": "the-lily-of-night",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Lily_of_Night",
-    "resistUnconfirmed": ["physical", "earth", "fire", "energy", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Lily of Night",
     "wikiTitle": "The Lily of Night",
     "hp": 19000,
@@ -49120,7 +48579,7 @@
   {
     "slug": "the-lord-of-the-lice",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Lord_of_the_Lice",
-    "resistUnconfirmed": ["physical", "earth", "fire", "energy", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Lord of the Lice",
     "wikiTitle": "The Lord of the Lice",
     "hp": 80000,
@@ -49130,7 +48589,7 @@
     "bosstiaryClass": "Bane",
     "resist": {
       "physical": 100,
-      "earth": 100,
+      "earth": 0,
       "fire": 100,
       "energy": 100,
       "ice": 100,
@@ -49143,17 +48602,7 @@
   {
     "slug": "the-manhunter",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Manhunter",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Manhunter",
     "wikiTitle": "The Manhunter",
     "hp": 4500,
@@ -49222,7 +48671,7 @@
   {
     "slug": "the-mean-masher",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Mean_Masher",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Mean Masher",
     "wikiTitle": "The Mean Masher",
     "hp": 8000,
@@ -49232,12 +48681,12 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 100,
-      "earth": 100,
+      "earth": 0,
       "fire": 50,
       "energy": 70,
       "ice": 100,
       "holy": 100,
-      "death": 90,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -49245,7 +48694,7 @@
   {
     "slug": "the-mega-magmaoid",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Mega_Magmaoid",
-    "resistUnconfirmed": ["physical", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Mega Magmaoid",
     "wikiTitle": "The Mega Magmaoid",
     "hp": 104000,
@@ -49257,10 +48706,10 @@
       "physical": 100,
       "earth": 0,
       "fire": -600,
-      "energy": 90,
+      "energy": 100,
       "ice": 100,
       "holy": 100,
-      "death": 110,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -49268,17 +48717,7 @@
   {
     "slug": "the-monster",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Monster",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Monster",
     "wikiTitle": "The Monster",
     "hp": 45000,
@@ -49301,7 +48740,7 @@
   {
     "slug": "the-moonlight-aster",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Moonlight_Aster",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Moonlight Aster",
     "wikiTitle": "The Moonlight Aster",
     "hp": 4500,
@@ -49324,7 +48763,7 @@
   {
     "slug": "the-moonsnow-magnolia",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Moonsnow_Magnolia",
-    "resistUnconfirmed": ["physical", "fire", "holy", "death", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "The Moonsnow Magnolia",
     "wikiTitle": "The Moonsnow Magnolia",
     "hp": 52000,
@@ -49339,7 +48778,7 @@
       "energy": 105,
       "ice": 85,
       "holy": 100,
-      "death": 100,
+      "death": -100,
       "hpDrain": 100,
       "drown": null
     }
@@ -49347,7 +48786,7 @@
   {
     "slug": "the-mutated-pumpkin",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Mutated_Pumpkin",
-    "resistUnconfirmed": ["physical", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Mutated Pumpkin",
     "wikiTitle": "The Mutated Pumpkin",
     "hp": 500000,
@@ -49370,7 +48809,7 @@
   {
     "slug": "the-nightmare-beast",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Nightmare_Beast",
-    "resistUnconfirmed": ["physical", "earth", "energy", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Nightmare Beast",
     "wikiTitle": "The Nightmare Beast",
     "hp": 750000,
@@ -49379,7 +48818,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 80,
+      "physical": 100,
       "earth": 100,
       "fire": 65,
       "energy": 100,
@@ -49448,17 +48887,7 @@
   {
     "slug": "the-old-whopper",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Old_Whopper",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Old Whopper",
     "wikiTitle": "The Old Whopper",
     "hp": 785,
@@ -49513,7 +48942,7 @@
   {
     "slug": "the-pale-count",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Pale_Count",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Pale Count",
     "wikiTitle": "The Pale Count",
     "hp": 50000,
@@ -49522,7 +48951,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 100,
+      "physical": 70,
       "earth": 100,
       "fire": 85,
       "energy": 70,
@@ -49536,17 +48965,7 @@
   {
     "slug": "the-pale-worm",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Pale_Worm",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Pale Worm",
     "wikiTitle": "The Pale Worm",
     "hp": 435000,
@@ -49555,13 +48974,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 10,
-      "earth": 10,
-      "fire": 10,
-      "energy": 10,
-      "ice": 10,
-      "holy": 10,
-      "death": 10,
+      "physical": 5,
+      "earth": 5,
+      "fire": 5,
+      "energy": 5,
+      "ice": 5,
+      "holy": 5,
+      "death": 5,
       "hpDrain": 100,
       "drown": 100
     }
@@ -49569,7 +48988,7 @@
   {
     "slug": "the-percht-queen",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Percht_Queen",
-    "resistUnconfirmed": ["physical", "earth", "energy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Percht Queen",
     "wikiTitle": "The Percht Queen",
     "hp": 2300,
@@ -49578,8 +48997,8 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 10,
-      "earth": 20,
+      "physical": 5,
+      "earth": 25,
       "fire": 30,
       "energy": 20,
       "ice": -100,
@@ -49625,7 +49044,7 @@
   {
     "slug": "the-plasmother",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Plasmother",
-    "resistUnconfirmed": ["fire", "ice", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Plasmother",
     "wikiTitle": "The Plasmother",
     "hp": 7500,
@@ -49694,7 +49113,7 @@
   {
     "slug": "the-ravager",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Ravager",
-    "resistUnconfirmed": ["physical", "earth", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Ravager",
     "wikiTitle": "The Ravager",
     "hp": 53500,
@@ -49704,7 +49123,7 @@
     "bosstiaryClass": "Bane",
     "resist": {
       "physical": 100,
-      "earth": 99,
+      "earth": 100,
       "fire": 100,
       "energy": 90,
       "ice": 50,
@@ -49763,17 +49182,7 @@
   {
     "slug": "the-rootkraken",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Rootkraken",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Rootkraken",
     "wikiTitle": "The Rootkraken",
     "hp": null,
@@ -49819,17 +49228,7 @@
   {
     "slug": "the-sandking",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Sandking",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Sandking",
     "wikiTitle": "The Sandking",
     "hp": null,
@@ -49885,17 +49284,7 @@
   {
     "slug": "the-scourge-of-oblivion",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Scourge_of_Oblivion",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Scourge of Oblivion",
     "wikiTitle": "The Scourge of Oblivion",
     "hp": null,
@@ -49974,7 +49363,7 @@
   {
     "slug": "the-shatterer",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Shatterer",
-    "resistUnconfirmed": ["physical", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Shatterer",
     "wikiTitle": "The Shatterer",
     "hp": 80000,
@@ -50109,7 +49498,7 @@
   {
     "slug": "the-souldespoiler",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Souldespoiler",
-    "resistUnconfirmed": ["physical", "earth", "fire", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Souldespoiler",
     "wikiTitle": "The Souldespoiler",
     "hp": 290000,
@@ -50132,7 +49521,7 @@
   {
     "slug": "the-source-of-corruption",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Source_of_Corruption",
-    "resistUnconfirmed": ["physical", "earth", "fire", "energy", "ice", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Source of Corruption",
     "wikiTitle": "The Source of Corruption",
     "hp": 0,
@@ -50224,7 +49613,7 @@
   {
     "slug": "the-time-guardian",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Time_Guardian",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Time Guardian",
     "wikiTitle": "The Time Guardian",
     "hp": 290000,
@@ -50233,13 +49622,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 99,
+      "physical": 100,
       "earth": 20,
       "fire": 20,
       "energy": 20,
-      "ice": 99,
-      "holy": 99,
-      "death": 20,
+      "ice": 30,
+      "holy": 30,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -50247,7 +49636,7 @@
   {
     "slug": "the-unarmored-voidborn",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Unarmored_Voidborn",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Unarmored Voidborn",
     "wikiTitle": "The Unarmored Voidborn",
     "hp": 250000,
@@ -50256,13 +49645,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 400,
+      "physical": 100,
       "earth": 355,
       "fire": 355,
       "energy": 355,
-      "ice": 400,
-      "holy": 400,
-      "death": 400,
+      "ice": 100,
+      "holy": 100,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -50270,17 +49659,7 @@
   {
     "slug": "the-unwelcome",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Unwelcome",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Unwelcome",
     "wikiTitle": "The Unwelcome",
     "hp": null,
@@ -50289,13 +49668,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 10,
-      "earth": 10,
-      "fire": 10,
-      "energy": 10,
-      "ice": 10,
-      "holy": 10,
-      "death": 10,
+      "physical": 0,
+      "earth": 0,
+      "fire": 0,
+      "energy": 0,
+      "ice": 0,
+      "holy": 0,
+      "death": 0,
       "hpDrain": 10,
       "drown": 100
     }
@@ -50303,17 +49682,7 @@
   {
     "slug": "the-voice-of-ruin",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Voice_of_Ruin",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Voice of Ruin",
     "wikiTitle": "The Voice of Ruin",
     "hp": 5500,
@@ -50359,16 +49728,7 @@
   {
     "slug": "the-welter",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Welter",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Welter",
     "wikiTitle": "The Welter",
     "hp": 25000,
@@ -50377,13 +49737,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 100,
-      "earth": 100,
-      "fire": 100,
-      "energy": 100,
+      "physical": 80,
+      "earth": 0,
+      "fire": 80,
+      "energy": 85,
       "ice": 50,
-      "holy": 100,
-      "death": 75,
+      "holy": 50,
+      "death": 70,
       "hpDrain": 100,
       "drown": 100
     }
@@ -50391,7 +49751,7 @@
   {
     "slug": "the-winter-bloom",
     "sourceUrl": "https://tibia.fandom.com/wiki/The_Winter_Bloom",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "The Winter Bloom",
     "wikiTitle": "The Winter Bloom",
     "hp": 4750,
@@ -50868,7 +50228,7 @@
   {
     "slug": "timira-the-many-headed",
     "sourceUrl": "https://tibia.fandom.com/wiki/Timira_the_Many-Headed",
-    "resistUnconfirmed": ["holy"],
+    "resistUnconfirmed": [],
     "name": "Timira the Many-Headed",
     "wikiTitle": "Timira the Many-Headed",
     "hp": 75000,
@@ -51539,7 +50899,7 @@
   {
     "slug": "tropical-desolator",
     "sourceUrl": "https://tibia.fandom.com/wiki/Tropical_Desolator",
-    "resistUnconfirmed": ["physical", "death", "hpDrain"],
+    "resistUnconfirmed": ["hpDrain"],
     "name": "Tropical Desolator",
     "wikiTitle": "Tropical Desolator",
     "hp": 20500,
@@ -51848,17 +51208,7 @@
   {
     "slug": "twisterror",
     "sourceUrl": "https://tibia.fandom.com/wiki/Twisterror",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Twisterror",
     "wikiTitle": "Twisterror",
     "hp": 35000,
@@ -51867,13 +51217,13 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 100,
-      "earth": 100,
-      "fire": 100,
-      "energy": 100,
-      "ice": 100,
+      "physical": 90,
+      "earth": 115,
+      "fire": 105,
+      "energy": 0,
+      "ice": 90,
       "holy": 100,
-      "death": 100,
+      "death": 115,
       "hpDrain": 100,
       "drown": 100
     }
@@ -51904,7 +51254,7 @@
   {
     "slug": "tyrn",
     "sourceUrl": "https://tibia.fandom.com/wiki/Tyrn",
-    "resistUnconfirmed": ["earth", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Tyrn",
     "wikiTitle": "Tyrn",
     "hp": 12000,
@@ -51914,7 +51264,7 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 100,
-      "earth": 20,
+      "earth": 90,
       "fire": 70,
       "energy": 0,
       "ice": 100,
@@ -51927,7 +51277,7 @@
   {
     "slug": "tzumrah-the-dazzler",
     "sourceUrl": "https://tibia.fandom.com/wiki/Tzumrah_the_Dazzler",
-    "resistUnconfirmed": ["physical", "earth", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Tzumrah the Dazzler",
     "wikiTitle": "Tzumrah the Dazzler",
     "hp": 1700,
@@ -51937,7 +51287,7 @@
     "bosstiaryClass": "Nemesis",
     "resist": {
       "physical": 100,
-      "earth": 80,
+      "earth": 100,
       "fire": 80,
       "energy": 105,
       "ice": 100,
@@ -51973,7 +51323,7 @@
   {
     "slug": "unaz-the-mean",
     "sourceUrl": "https://tibia.fandom.com/wiki/Unaz_the_Mean",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Unaz the Mean",
     "wikiTitle": "Unaz the Mean",
     "hp": 28000,
@@ -51982,7 +51332,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 50,
+      "physical": 25,
       "earth": 100,
       "fire": 100,
       "energy": 50,
@@ -52696,7 +52046,7 @@
   {
     "slug": "urmahlullu-the-weakened",
     "sourceUrl": "https://tibia.fandom.com/wiki/Urmahlullu_the_Weakened",
-    "resistUnconfirmed": ["physical", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Urmahlullu the Weakened",
     "wikiTitle": "Urmahlullu the Weakened",
     "hp": null,
@@ -52877,7 +52227,7 @@
   {
     "slug": "utua-stone-sting",
     "sourceUrl": "https://tibia.fandom.com/wiki/Utua_Stone_Sting",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Utua Stone Sting",
     "wikiTitle": "Utua Stone Sting",
     "hp": 6400,
@@ -53249,17 +52599,7 @@
   {
     "slug": "vemiath",
     "sourceUrl": "https://tibia.fandom.com/wiki/Vemiath",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Vemiath",
     "wikiTitle": "Vemiath",
     "hp": 600000,
@@ -53637,17 +52977,7 @@
   {
     "slug": "vladrukh",
     "sourceUrl": "https://tibia.fandom.com/wiki/Vladrukh",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Vladrukh",
     "wikiTitle": "Vladrukh",
     "hp": null,
@@ -53693,7 +53023,7 @@
   {
     "slug": "vok-the-freakish",
     "sourceUrl": "https://tibia.fandom.com/wiki/Vok_the_Freakish",
-    "resistUnconfirmed": ["physical", "holy", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Vok the Freakish",
     "wikiTitle": "Vok the Freakish",
     "hp": 32000,
@@ -53702,7 +53032,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 50,
+      "physical": 25,
       "earth": 100,
       "fire": 100,
       "energy": 0,
@@ -54091,7 +53421,7 @@
   {
     "slug": "warlord-ruzad",
     "sourceUrl": "https://tibia.fandom.com/wiki/Warlord_Ruzad",
-    "resistUnconfirmed": ["physical", "energy", "ice", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Warlord Ruzad",
     "wikiTitle": "Warlord Ruzad",
     "hp": 1500,
@@ -54103,7 +53433,7 @@
       "physical": 100,
       "earth": 110,
       "fire": 20,
-      "energy": 99,
+      "energy": 95,
       "ice": 100,
       "holy": 90,
       "death": 110,
@@ -55005,7 +54335,7 @@
   {
     "slug": "white-pale",
     "sourceUrl": "https://tibia.fandom.com/wiki/White_Pale",
-    "resistUnconfirmed": ["physical", "fire", "energy", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "White Pale",
     "wikiTitle": "White Pale",
     "hp": 500,
@@ -55020,7 +54350,7 @@
       "energy": 100,
       "ice": 100,
       "holy": 100,
-      "death": 100,
+      "death": 0,
       "hpDrain": 100,
       "drown": 100
     }
@@ -55327,7 +54657,7 @@
   {
     "slug": "willi-wasp",
     "sourceUrl": "https://tibia.fandom.com/wiki/Willi_Wasp",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Willi Wasp",
     "wikiTitle": "Willi Wasp",
     "hp": 250,
@@ -55646,17 +54976,7 @@
   {
     "slug": "world-devourer",
     "sourceUrl": "https://tibia.fandom.com/wiki/World_Devourer",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "World Devourer",
     "wikiTitle": "World Devourer",
     "hp": 25000,
@@ -55781,17 +55101,7 @@
   {
     "slug": "wrathful-archivist",
     "sourceUrl": "https://tibia.fandom.com/wiki/Wrathful_Archivist",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Wrathful Archivist",
     "wikiTitle": "Wrathful Archivist",
     "hp": 15000,
@@ -55860,17 +55170,7 @@
   {
     "slug": "xenia",
     "sourceUrl": "https://tibia.fandom.com/wiki/Xenia",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "fire",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Xenia",
     "wikiTitle": "Xenia",
     "hp": 200,
@@ -55893,7 +55193,7 @@
   {
     "slug": "xogixath",
     "sourceUrl": "https://tibia.fandom.com/wiki/Xogixath",
-    "resistUnconfirmed": ["physical", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Xogixath",
     "wikiTitle": "Xogixath",
     "hp": 35000,
@@ -55908,7 +55208,7 @@
       "energy": 100,
       "ice": 115,
       "holy": 100,
-      "death": 50,
+      "death": 100,
       "hpDrain": 100,
       "drown": 100
     }
@@ -55916,7 +55216,7 @@
   {
     "slug": "yaga-the-crone",
     "sourceUrl": "https://tibia.fandom.com/wiki/Yaga_the_Crone",
-    "resistUnconfirmed": ["physical", "earth", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Yaga the Crone",
     "wikiTitle": "Yaga the Crone",
     "hp": 620,
@@ -55925,8 +55225,8 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 101,
-      "earth": 99,
+      "physical": 100,
+      "earth": 100,
       "fire": 100,
       "energy": 0,
       "ice": 100,
@@ -55939,7 +55239,7 @@
   {
     "slug": "yakchal",
     "sourceUrl": "https://tibia.fandom.com/wiki/Yakchal",
-    "resistUnconfirmed": ["physical", "fire", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Yakchal",
     "wikiTitle": "Yakchal",
     "hp": 5750,
@@ -56119,7 +55419,7 @@
   {
     "slug": "yirkas-blue-scales",
     "sourceUrl": "https://tibia.fandom.com/wiki/Yirkas_Blue_Scales",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Yirkas Blue Scales",
     "wikiTitle": "Yirkas Blue Scales",
     "hp": 6300,
@@ -56244,16 +55544,7 @@
   {
     "slug": "zamulosh",
     "sourceUrl": "https://tibia.fandom.com/wiki/Zamulosh",
-    "resistUnconfirmed": [
-      "physical",
-      "earth",
-      "energy",
-      "ice",
-      "holy",
-      "death",
-      "hpDrain",
-      "drown"
-    ],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Zamulosh",
     "wikiTitle": "Zamulosh",
     "hp": null,
@@ -56263,11 +55554,11 @@
     "bosstiaryClass": "Archfoe",
     "resist": {
       "physical": 100,
-      "earth": 101,
+      "earth": 100,
       "fire": 50,
       "energy": 100,
       "ice": 100,
-      "holy": 101,
+      "holy": 100,
       "death": 100,
       "hpDrain": 100,
       "drown": 100
@@ -56299,7 +55590,7 @@
   {
     "slug": "zarabustor",
     "sourceUrl": "https://tibia.fandom.com/wiki/Zarabustor",
-    "resistUnconfirmed": ["physical", "earth", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Zarabustor",
     "wikiTitle": "Zarabustor",
     "hp": 5100,
@@ -56308,12 +55599,12 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Nemesis",
     "resist": {
-      "physical": 101,
+      "physical": 105,
       "earth": 10,
       "fire": 0,
       "energy": 0,
       "ice": 0,
-      "holy": 101,
+      "holy": 105,
       "death": 100,
       "hpDrain": 100,
       "drown": 100
@@ -56378,7 +55669,7 @@
   {
     "slug": "zevelon-duskbringer",
     "sourceUrl": "https://tibia.fandom.com/wiki/Zevelon_Duskbringer",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Zevelon Duskbringer",
     "wikiTitle": "Zevelon Duskbringer",
     "hp": 1400,
@@ -56467,7 +55758,7 @@
   {
     "slug": "zomba",
     "sourceUrl": "https://tibia.fandom.com/wiki/Zomba",
-    "resistUnconfirmed": ["physical", "ice", "holy", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Zomba",
     "wikiTitle": "Zomba",
     "hp": 300,
@@ -56536,7 +55827,7 @@
   {
     "slug": "zorvorax",
     "sourceUrl": "https://tibia.fandom.com/wiki/Zorvorax",
-    "resistUnconfirmed": ["physical", "earth", "ice", "death", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Zorvorax",
     "wikiTitle": "Zorvorax",
     "hp": 10000,
@@ -56545,7 +55836,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Archfoe",
     "resist": {
-      "physical": 90,
+      "physical": 80,
       "earth": 0,
       "fire": 80,
       "energy": 80,
@@ -56559,7 +55850,7 @@
   {
     "slug": "zugurosh",
     "sourceUrl": "https://tibia.fandom.com/wiki/Zugurosh",
-    "resistUnconfirmed": ["physical", "hpDrain", "drown"],
+    "resistUnconfirmed": ["hpDrain", "drown"],
     "name": "Zugurosh",
     "wikiTitle": "Zugurosh",
     "hp": 90500,
@@ -56568,7 +55859,7 @@
     "bestiaryLevel": null,
     "bosstiaryClass": "Bane",
     "resist": {
-      "physical": 50,
+      "physical": 100,
       "earth": 70,
       "fire": 70,
       "energy": 70,

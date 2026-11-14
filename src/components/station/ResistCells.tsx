@@ -8,7 +8,7 @@ import type { Creature } from "@/lib/data/types";
 export function ResistCells({ criatura }: { criatura: Creature }) {
   const t = useT();
   return (
-    <ul className="grid grid-cols-4 gap-x-3 gap-y-2 sm:grid-cols-7">
+    <ul className="grid grid-cols-4 gap-x-3 gap-y-2">
       {ELEMENTOS_PRINCIPAIS.map((e) => {
         const v = criatura.resist[e];
         const absorve = descreverResist(v).tipo === "absorve";

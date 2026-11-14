@@ -542,3 +542,20 @@ describe("imbuiment elemental retirado", () => {
     expect(com.every((x) => x.comImbuiment === undefined)).toBe(true);
   });
 });
+
+describe("resistências dos bosses (TibiaWiki em português)", () => {
+  it("Abyssador tem físico 90, confirmado", () => {
+    const a =
+      porSlug.get("abyssador") ??
+      (creatures as unknown as Creature[]).find((c) => c.slug === "abyssador");
+    expect(a?.resist.physical).toBe(90);
+    expect(a?.resistUnconfirmed).not.toContain("physical");
+  });
+  it("quase nenhum boss ficou com resistência não confirmada", () => {
+    const ELS = ["physical", "earth", "fire", "energy", "ice", "holy", "death"] as const;
+    const incertos = (creatures as unknown as Creature[]).filter(
+      (c) => c.bosstiaryClass && ELS.some((e) => c.resistUnconfirmed.includes(e)),
+    );
+    expect(incertos.map((c) => c.name).sort()).toEqual(["Feroxa", "Rotrender"]);
+  });
+});
