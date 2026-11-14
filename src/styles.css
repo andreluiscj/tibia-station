@@ -69,6 +69,7 @@
   --color-metal-high: var(--metal-high);
   --color-good: var(--good);
   --color-bad: var(--bad);
+  --color-warn: var(--warn);
 
   /* Elementos (fixos em todo o app) */
   --color-el-physical: var(--el-physical);
@@ -121,6 +122,7 @@
   --destructive-foreground: #ffffff;
   --good: oklch(0.45 0.13 150);
   --bad: oklch(0.48 0.16 28);
+  --warn: oklch(0.52 0.13 85); /* amarelo escuro: legível sobre o pergaminho */
 
   --ring: #9c5322;
 
